@@ -39,7 +39,7 @@ return [
 
 Butterfly uses slave database if it's defined. If not, it uses default database for the SELECT operations.
 
-## Using the database client
+## Using The Database Client
 
 Database client can be reached using db() helper. You can also reach defined databases using the database alias as the first parameter.
  
@@ -113,7 +113,7 @@ SELECT * FROM users;
 
 and return all results as associative array.
 
-### Specific Columns
+### Specifying Columns
 
 You may want to return specific columns:
 
@@ -292,7 +292,7 @@ db()->from('users')
 ;
 ```
 
-### find
+### Find
 
 You can use `find` function to return one row using identifier
 
@@ -304,7 +304,7 @@ db()->from('users')
 
 will return one row with id = 1
 
-### die 
+### Die 
 
 For debugging purposes, you can use die function to output the SQL Query that will run.
 
@@ -319,7 +319,7 @@ will output the query that will be executed.
 
 !> Please note that, die function will not run the query, just outputs it and **terminates the script**.
 
-### Returning functions
+### Returning Functions
 
 Function  | Description
 ------------- | -------------
