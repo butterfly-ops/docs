@@ -81,10 +81,79 @@ You can use parameter binding, and bind parameters:
 db()->from('users')
     ->where('id = :id')
     ->bind('id', 5)
+    ->first()
+;
+```
+
+will run the query:
+
+```mysql
+    SELECT * FROM users WHERE id = 5;
+``` 
+
+You can bind parameters using question marks (?)
+
+```php
+db()->from('users')
+    ->where('id = ? OR id = ?', [5, 10])
     ->get()
 ;
 ```
 
+Will run:
 
+```mysql
+SELECT * FROM users WHERE id = 5 OR id = 10
+```
 
+```text
+Caution:
+
+Question mark style binding, doesn't work with associative arrays.
+
+Following code will generate error:
+```
+```php
+db()->from('users')
+    ->where('id = ?', ['id' => 5])
+    ->get()
+;
+```
+
+Nested SQL Queries can be generated using callback functions.
+
+```php
+db()->from('users')
+    ->where('id', 5)
+    ->orWhere('status', 2)
+    ->orWhere(function($query) {
+        return $query->where('votes', '<', '500')
+            ->where('status', 3);
+    })
+    ->orderByDesc('id')
+    ->get()
+;
+``` 
+
+As you can see below, queries inside of the function will be evaluated seperately inside of braces and it will run:
+
+```sql
+SELECT * FROM users 
+    WHERE id = 5 OR status = 2 
+        OR (votes < 500 AND status = 3) 
+    ORDER BY id DESC
+```
+
+Returning function:
+
+Function  | Description
+------------- | -------------
+get | will return all rows as associative array.
+first | will just return the first row as associative array
+one($column_name) | will return only one column value. 
+column($column_name) | will return the values of specific column as an array list.
+keyToValue($key_column) | will return result indexed by key_column. Value will be the row as the associative array.
+keyToValue($key_column, $value_column) | will return result indexed by key_column. Value will be value of the specified column.
+keyToValues($key_column) | when key_column is not unique, you can use this function to group results by key_column (e.g. status). Value will be the row as the associative array. 
+keyToValues($key_column, $value_column) | when key_column is not unique, you can use this function to group results by key_column (e.g. status). Value will be value of the specified column.
 
