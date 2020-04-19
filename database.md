@@ -110,9 +110,8 @@ SELECT * FROM users WHERE id = 5 OR id = 10
 Caution:
 
 Question mark style binding, doesn't work with associative arrays.
-
-Following code will generate error:
 ```
+Following code will generate error:
 ```php
 db()->from('users')
     ->where('id = ?', ['id' => 5])
