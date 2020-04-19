@@ -177,6 +177,27 @@ SELECT * FROM users
     ORDER BY id DESC
 ```
 
+You can use `find` function to return one row using identifier
+
+```php
+db()->from('users')
+    ->find(1)
+;
+```
+
+will return one row with id = 1
+
+For debugging purposes, you can use die function to output the SQL Query that will run.
+
+```php
+db()->from('users')
+    ->where('id', 5)
+    ->die()
+;
+```
+
+will output the query that will be executed. Please note that, die function will not run the query, just outputs it and terminates the script.
+
 Returning function:
 
 Function  | Description
