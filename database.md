@@ -317,7 +317,7 @@ db()->from('users')
 
 will output the query that will be executed. 
 
-!> Please note that, die function will not run the query, just outputs it and terminates the script.
+!> Please note that, die function will not run the query, just outputs it and **terminates the script**.
 
 ### Returning functions
 
