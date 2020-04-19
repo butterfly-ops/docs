@@ -177,12 +177,10 @@ Will run:
 SELECT * FROM users WHERE id = 5 OR id = 10
 ```
 
-```text
-Caution:
+!> **Caution:** Question mark style binding, doesn't work with associative arrays.
 
-Question mark style binding, doesn't work with associative arrays.
-```
-Following code will generate error:
+**Following code will generate error:**
+
 ```php
 db()->from('users')
     ->where('id = ?', ['id' => 5])
@@ -317,7 +315,9 @@ db()->from('users')
 ;
 ```
 
-will output the query that will be executed. Please note that, die function will not run the query, just outputs it and terminates the script.
+will output the query that will be executed. 
+
+!> Please note that, die function will not run the query, just outputs it and terminates the script.
 
 ### Returning functions
 
