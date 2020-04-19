@@ -2,10 +2,10 @@
 Butterfly uses multi-layer database management. It's possible to use multiple databases at the same time. You can configure multiple databases and use it. Butterfly uses MySQL as the primary database.
 All Butterfly related data is stored in MySQL but you can use the following database drivers: 
 
-MySQL 5.6+
-ElasticSearch 7.X
-Redis (Coming soon)
-MongoDB (Coming soon)
+- MySQL 5.6+
+- ElasticSearch 7.X
+- Redis (Coming soon)
+- MongoDB (Coming soon)
 
 # Configuration
 The database configurations are stored in `app/config/database.php`. Configurations can be customized by domain name with subfolders.
