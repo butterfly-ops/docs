@@ -80,7 +80,7 @@ db()->from('users', ['id', 'name'])
     ->get();
 ```
 
-### WHERE Clause
+### Where
 
 You can write where clauses in many ways. Examples are the following:
 
@@ -192,7 +192,7 @@ SELECT * FROM users
     ORDER BY id DESC
 ```
 
-### Join Statements
+### Join
 
 You can join tables:
 
@@ -252,7 +252,7 @@ db()->from('users')
 ;
 ```
 
-### find Function
+### find
 
 You can use `find` function to return one row using identifier
 
