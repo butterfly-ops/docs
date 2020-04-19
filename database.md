@@ -306,7 +306,7 @@ will return one row with id = 1
 
 ### Die 
 
-For debugging purposes, you can use die function to output the SQL Query that will run.
+For debugging purposes, you can use `die` function to output the SQL Query that will run.
 
 ```php
 db()->from('users')
