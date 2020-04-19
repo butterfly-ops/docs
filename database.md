@@ -4,8 +4,8 @@ All Butterfly related data is stored in MySQL but you can use the following data
 
 - MySQL 5.6+
 - ElasticSearch 7.X
-- Redis (Coming soon)
-- MongoDB (Coming soon)
+- _Redis_ _(Coming soon)_
+- _MongoDB_ _(Coming soon)_
 
 # Configuration
 The database configurations are stored in `app/config/database.php`. Configurations can be customized by domain name with subfolders.
