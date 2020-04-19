@@ -118,7 +118,8 @@ and return all results as associative array.
 You may want to return specific columns:
 
 ```php
-$users = db()->from('users', ['id', 'name'])
+$users = db()
+    ->from('users', ['id', 'name'])
     ->get();
 ```
 
@@ -286,7 +287,8 @@ $users = db()->from('users')
 You can use `find` function to return one row using identifier
 
 ```php
-$user = db()->from('users')
+$user = db()
+    ->from('users')
     ->find(1);
 ```
 
