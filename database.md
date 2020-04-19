@@ -53,9 +53,9 @@ Following function call will return a database client connected to database exte
 db('external');
 ```
 
-## Running Queries:
+# Running Queries:
 
-### Running a select query:
+## Running a select query:
 
 ```php
 db()
@@ -71,7 +71,16 @@ SELECT * FROM users;
 
 and return all results as associative array.
 
-#### WHERE Clause:
+### Specific Columns
+
+You may want to return specific columns:
+
+```php
+db()->from('users', ['id', 'name'])
+    ->get();
+```
+
+### WHERE Clause
 
 You can write where clauses in many ways. Examples are the following:
 
@@ -88,13 +97,6 @@ SELECT * FROM users WHERE id = 5;
 ``` 
 
 and return one row as associative array.
-
-You may want to return specific columns:
-
-```php
-db()->from('users', ['id', 'name'])
-    ->get();
-```
 
 will run query:
 
@@ -190,6 +192,8 @@ SELECT * FROM users
     ORDER BY id DESC
 ```
 
+### Join Statements
+
 You can join tables:
 
 ```php
@@ -210,6 +214,8 @@ db()->from('users')
 ;
 ```
 
+### Order By
+
 You can order by column ascending or descending order:
 
 ```php
@@ -225,6 +231,8 @@ db()->from('users')
     ->get()
 ;
 ```
+
+### Group By
 
 You can group by column:
 
@@ -244,12 +252,7 @@ db()->from('users')
 ;
 ```
 
-```php
-db()->from('users')
-    ->orderByDesc('id')
-    ->get()
-;
-```
+### find Function
 
 You can use `find` function to return one row using identifier
 
@@ -272,7 +275,7 @@ db()->from('users')
 
 will output the query that will be executed. Please note that, die function will not run the query, just outputs it and terminates the script.
 
-Returning function:
+### Returning functions
 
 Function  | Description
 ------------- | -------------
@@ -288,4 +291,3 @@ keyToValues($key_column, $value_column) | when key_column is not unique, you can
 max($column_name) | Will return maximum value of the specific column as a single value.
 min($column_name) | Will return minimum value of the specific column as a single value.
 average($column_name) | Will return average value of the specific column as a single value.
-
