@@ -293,3 +293,66 @@ keyToValues($key_column, $value_column) | when key_column is not unique, you can
 max($column_name) | Will return maximum value of the specific column as a single value.
 min($column_name) | Will return minimum value of the specific column as a single value.
 average($column_name) | Will return average value of the specific column as a single value.
+
+## Running Insert Queries:
+
+You can run Insert Queries using database client.
+
+### Insert
+
+Single insert statement can be run as the following example: 
+
+```php
+$user_id = db()->table('users')->insert([
+    'name' => 'John Doe'
+]);
+```
+
+Will return the auto increment id of the created row.
+
+### InsertOrUpdate
+
+Inserts or updates single record. First parameter is used to find if the row already exist,
+- There are two options:
+    * If the record doesn't exist:\
+    Both parameters will be merged and inserted into database.
+
+    * If the record exists:\
+    Since first parameters doesn't change, it will update the record with the values in $data array (Second Parameter)
+
+Function returns auto increment value for the record for both cases.
+
+Note: This function doesn't use unique indexes. It's recommended to use indexed columns for better performance
+
+```php
+$attribute = [
+    'id' => 1
+];
+
+$data = [
+    'name' => 'foo'
+];
+
+db()->table('users')
+    ->insertOrUpdate($attribute, $data);
+```
+It will check if there is a record having id => 1,\
+if it doesnt exist, then this will become an insert statement.\
+If it exist, then, the call become an update statement.
+
+### InsertOrIgnore
+
+When inserting a record to database, if there is a unique index, you may get an error. When this function is used, it ignores insert errors and returns without inserting the record on error. Which means that, the record will not be inserted if it already exist.
+
+```php
+db()->table('users')->insertOrIgnore([
+    'id' => 1,
+    'name' => 'John Doe'
+]);
+```
+
+will not insert record if there is already a record with id = 1
+
+### BulkInsert
+
+Bulk inserts can improve performance since multiple records will be inserted in a single query.
