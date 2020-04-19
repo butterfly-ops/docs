@@ -97,7 +97,7 @@ try {
 
 # Running Queries
 
-## Running a select query:
+## Select Queries
 
 ```php
 db()
@@ -336,7 +336,7 @@ max($column_name) | Will return maximum value of the specific column as a single
 min($column_name) | Will return minimum value of the specific column as a single value.
 average($column_name) | Will return average value of the specific column as a single value.
 
-## Running Insert Queries:
+## Insert Queries
 
 You can run Insert Queries using database client.
 
