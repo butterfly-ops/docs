@@ -152,8 +152,7 @@ You can use parameter binding, and bind parameters:
 $user = db()->from('users')
     ->where('id = :id')
     ->bind('id', 5)
-    ->first()
-;
+    ->first();
 ```
 
 will run the query:
@@ -167,8 +166,7 @@ You can bind parameters using question marks (?)
 ```php
 $users = db()->from('users')
     ->where('id = ? OR id = ?', [5, 10])
-    ->get()
-;
+    ->get();
 ```
 
 will run:
@@ -184,8 +182,7 @@ SELECT * FROM users WHERE id = 5 OR id = 10
 ```php
 $users = db()->from('users')
     ->where('id = ?', ['id' => 5])
-    ->get()
-;
+    ->get();
 ```
 
 Nested SQL Queries can be generated using callback functions.
@@ -199,8 +196,7 @@ $users = db()->from('users')
             ->where('status', 3);
     })
     ->orderByDesc('id')
-    ->get()
-;
+    ->get();
 ```
 
 You can also use operators in where clauses. If you pass where clauses as an array, all clauses in the array will be joined using `AND` operator.
@@ -212,8 +208,7 @@ $users = db()->from('users')
         ['votes', '<', '500'],
         ['status', 3]
     ])
-    ->get()
-;
+    ->get();
 ```
 
 will run:
@@ -240,8 +235,7 @@ You can join tables:
 $users = db()->from('users')
     ->join('INNER JOIN user_permissions ON user_permissions.id = users.id')
     ->where('id', 1)
-    ->get()
-;
+    ->get();
 ```
 
 You can left join tables:
@@ -250,8 +244,7 @@ You can left join tables:
 $users = db()->from('users')
     ->joinLeft('user_permissions ON user_permissions.id = users.id')
     ->where('id', 1)
-    ->get()
-;
+    ->get();
 ```
 
 ### Order By
@@ -261,15 +254,13 @@ You can order by column ascending or descending order:
 ```php
 $users = db()->from('users')
     ->orderBy('id')
-    ->get()
-;
+    ->get();
 ```
 
 ```php
 $users = db()->from('users')
     ->orderByDesc('id')
-    ->get()
-;
+    ->get();
 ```
 
 ### Group By
@@ -279,8 +270,7 @@ You can group by column:
 ```php
 $users = db()->from('users')
     ->groupBy('id')
-    ->get()
-;
+    ->get();
 ```
 
 For multiple columns, you can use comma seperator:
@@ -288,8 +278,7 @@ For multiple columns, you can use comma seperator:
 ```php
 $users = db()->from('users')
     ->groupBy('status,votes')
-    ->get()
-;
+    ->get();
 ```
 
 ### Find
@@ -298,8 +287,7 @@ You can use `find` function to return one row using identifier
 
 ```php
 $user = db()->from('users')
-    ->find(1)
-;
+    ->find(1);
 ```
 
 will return one row with id = 1
@@ -311,8 +299,7 @@ For debugging purposes, you can use `die` function to output the SQL Query that 
 ```php
 db()->from('users')
     ->where('id', 5)
-    ->die()
-;
+    ->die();
 ```
 
 will output the query that will be executed. 
