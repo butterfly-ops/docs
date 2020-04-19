@@ -39,6 +39,20 @@ return [
 
 Butterfly uses slave database if it's defined. If not, it uses default database for the SELECT operations.
 
+## Using the database client:
+
+Database client can be reached using db() helper. You can also reach defined databases using the database alias as the first parameter.
+ 
+```php
+    db(); // Database Alias defaults to default database.
+```
+
+Following function call will return a database client connected to database external defined in configuration.
+
+```php
+ db('external');
+```
+
 ## Running Queries:
 
 ### Running a select query:
@@ -110,9 +124,8 @@ SELECT * FROM users WHERE id = 5 OR id = 10
 Caution:
 
 Question mark style binding, doesn't work with associative arrays.
-
-Following code will generate error:
 ```
+Following code will generate error:
 ```php
 db()->from('users')
     ->where('id = ?', ['id' => 5])
@@ -133,7 +146,27 @@ db()->from('users')
     ->orderByDesc('id')
     ->get()
 ;
-``` 
+```
+
+You can also use operators in where clauses. If you pass where clauses as an array, all clauses in the array will be joined using `AND` operator.
+
+```php
+db()->from('users')
+    ->where('id', 3)
+    ->orWhere([
+        ['votes', '<', '500'],
+        ['status', 3]
+    ])
+    ->get()
+;
+```
+
+will run:
+
+```sql
+SELECT * FROM users WHERE id = 3 OR (votes < 500 AND status = 3)
+```
+
 
 As you can see below, queries inside of the function will be evaluated seperately inside of braces and it will run:
 
