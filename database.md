@@ -1,4 +1,4 @@
-#Introduction
+# Introduction
 Butterfly uses multi-layer database management. It's possible to use multiple databases at the same time. You can configure multiple databases and use it. Butterfly uses MySQL as the primary database.
 All Butterfly related data is stored in MySQL but you can use the following database drivers: 
 
@@ -52,7 +52,7 @@ db()
 will run the query:
 
 ```mysql
-    SELECT * FROM users;
+SELECT * FROM users;
 ``` 
 
 and return all results as associative array.
@@ -70,7 +70,7 @@ db()->from('users')
 will run the query:
 
 ```mysql
-    SELECT * FROM users WHERE id = 5;
+SELECT * FROM users WHERE id = 5;
 ``` 
 
 and return one row as associative array.
@@ -88,7 +88,7 @@ db()->from('users')
 will run the query:
 
 ```mysql
-    SELECT * FROM users WHERE id = 5;
+SELECT * FROM users WHERE id = 5;
 ``` 
 
 You can bind parameters using question marks (?)
