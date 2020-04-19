@@ -89,6 +89,19 @@ SELECT * FROM users WHERE id = 5;
 
 and return one row as associative array.
 
+You may want to return specific columns:
+
+```php
+db()->from('users', ['id', 'name'])
+    ->get();
+```
+
+will run query:
+
+```sql
+SELECT id, name FROM users;
+```
+
 You can use parameter binding, and bind parameters:
 
 ```php
@@ -193,6 +206,47 @@ You can left join tables:
 db()->from('users')
     ->joinLeft('user_permissions ON user_permissions.id = users.id')
     ->where('id', 1)
+    ->get()
+;
+```
+
+You can order by column ascending or descending order:
+
+```php
+db()->from('users')
+    ->orderBy('id')
+    ->get()
+;
+```
+
+```php
+db()->from('users')
+    ->orderByDesc('id')
+    ->get()
+;
+```
+
+You can group by column:
+
+```php
+db()->from('users')
+    ->groupBy('id')
+    ->get()
+;
+```
+
+For multiple columns, you can use comma seperator:
+
+```php
+db()->from('users')
+    ->groupBy('status,votes')
+    ->get()
+;
+```
+
+```php
+db()->from('users')
+    ->orderByDesc('id')
     ->get()
 ;
 ```
