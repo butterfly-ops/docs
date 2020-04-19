@@ -41,7 +41,7 @@ Butterfly uses slave database if it's defined. If not, it uses default database 
 
 ## Using The Database Client
 
-Database client can be reached using db() helper. You can also reach defined databases using the database alias as the first parameter.
+Database client can be reached using `db()` helper. You can also reach defined databases using the database alias as the first parameter.
  
 ```php
 db(); // Database Alias defaults to default database.
@@ -171,7 +171,7 @@ db()->from('users')
 ;
 ```
 
-Will run:
+will run:
 
 ```sql
 SELECT * FROM users WHERE id = 5 OR id = 10
@@ -338,7 +338,7 @@ average($column_name) | Will return average value of the specific column as a si
 
 ## Insert Queries
 
-You can run Insert Queries using database client.
+You can run insert queries using database client.
 
 ### Insert
 
@@ -350,7 +350,7 @@ $user_id = db()->table('users')->insert([
 ]);
 ```
 
-Will return the auto increment id of the created row.
+will return the auto increment id of the created row.
 
 ### InsertOrUpdate
 
@@ -364,7 +364,7 @@ Inserts or updates single record. First parameter is used to find if the row alr
 
 Function returns auto increment value for the record for both cases.
 
-Note: This function doesn't use unique indexes. It's recommended to use indexed columns for better performance
+> Note: This function doesn't use unique indexes. It's recommended to use indexed columns for better performance.
 
 ```php
 $attribute = [
