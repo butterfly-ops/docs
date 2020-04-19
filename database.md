@@ -51,7 +51,7 @@ db()
 
 will run the query:
 
-```mysql
+```sql
 SELECT * FROM users;
 ``` 
 
@@ -87,7 +87,7 @@ db()->from('users')
 
 will run the query:
 
-```mysql
+```sql
 SELECT * FROM users WHERE id = 5;
 ``` 
 
@@ -102,7 +102,7 @@ db()->from('users')
 
 Will run:
 
-```mysql
+```sql
 SELECT * FROM users WHERE id = 5 OR id = 10
 ```
 
@@ -156,4 +156,7 @@ keyToValue($key_column) | will return result indexed by key_column. Value will b
 keyToValue($key_column, $value_column) | will return result indexed by key_column. Value will be value of the specified column.
 keyToValues($key_column) | when key_column is not unique, you can use this function to group results by key_column (e.g. status). Value will be the row as the associative array. 
 keyToValues($key_column, $value_column) | when key_column is not unique, you can use this function to group results by key_column (e.g. status). Value will be value of the specified column.
+max($column_name) | Will return maximum value of the specific column as a single value.
+min($column_name) | Will return minimum value of the specific column as a single value.
+average($column_name) | Will return average value of the specific column as a single value.
 
