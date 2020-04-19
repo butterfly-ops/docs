@@ -177,6 +177,26 @@ SELECT * FROM users
     ORDER BY id DESC
 ```
 
+You can join tables:
+
+```php
+db()->from('users')
+    ->join('INNER JOIN user_permissions ON user_permissions.id = users.id')
+    ->where('id', 1)
+    ->get()
+;
+```
+
+You can left join tables:
+
+```php
+db()->from('users')
+    ->joinLeft('user_permissions ON user_permissions.id = users.id')
+    ->where('id', 1)
+    ->get()
+;
+```
+
 You can use `find` function to return one row using identifier
 
 ```php
@@ -204,6 +224,7 @@ Function  | Description
 ------------- | -------------
 get | will return all rows as associative array.
 first | will just return the first row as associative array
+count | Will return the number of rows for the query without any Group By statement.
 one($column_name) | will return only one column value. 
 column($column_name) | will return the values of specific column as an array list.
 keyToValue($key_column) | will return result indexed by key_column. Value will be the row as the associative array.
