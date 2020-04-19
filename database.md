@@ -1,0 +1,90 @@
+#Introduction
+Butterfly uses multi-layer database management. It's possible to use multiple databases at the same time. You can configure multiple databases and use it. Butterfly uses MySQL as the primary database.
+All Butterfly related data is stored in MySQL but you can use the following database drivers: 
+
+MySQL 5.6+
+ElasticSearch 7.X
+Redis (Coming soon)
+MongoDB (Coming soon)
+
+# Configuration:
+The database configurations are stored in `app/config/database.php`. Configurations can be customized by domain name with subfolders.
+Example configuration:
+
+```php
+<?php
+
+return [
+    'default' => [
+        'server' => 'localhost',
+        'adapter' => 'MySQL',
+        'name' => 'DB_NAME',
+        'user' => 'DB_USERNAME',
+        'password' => 'DB_PASSWORD',
+        'port' => 3306 // Optional
+    ],
+    
+    'external' => [
+        'server' => 'EXTERNAL_SERVER_IP',
+        'adapter' => 'MySQL',
+        'name' => 'DB_NAME',
+        'user' => 'DB_USERNAME',
+        'password' => 'DB_PASSWORD',
+        'port' => 3306 // Optional 
+    ]
+];
+```
+
+## Slave Database:
+
+Butterfly uses slave database if it's defined. If not, it uses default database for the SELECT operations.
+
+## Running Queries:
+
+### Running a select query:
+
+```php
+db()
+   ->from('users')
+    ->get();
+```
+
+will run the query:
+
+```mysql
+    SELECT * FROM users;
+``` 
+
+and return all results as associative array.
+
+#### WHERE Clause:
+
+You can write where clauses in many ways. Examples are the following:
+
+```php
+db()->from('users')
+    ->where('id', 5)
+    ->first();
+```
+
+will run the query:
+
+```mysql
+    SELECT * FROM users WHERE id = 5;
+``` 
+
+and return one row as associative array.
+
+You can use parameter binding, and bind parameters:
+
+```php
+db()->from('users')
+    ->where('id = :id')
+    ->bind('id', 5)
+    ->get()
+;
+```
+
+
+
+
