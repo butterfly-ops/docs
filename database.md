@@ -44,13 +44,13 @@ Butterfly uses slave database if it's defined. If not, it uses default database 
 Database client can be reached using db() helper. You can also reach defined databases using the database alias as the first parameter.
  
 ```php
-    db(); // Database Alias defaults to default database.
+db(); // Database Alias defaults to default database.
 ```
 
 Following function call will return a database client connected to database external defined in configuration.
 
 ```php
- db('external');
+db('external');
 ```
 
 ## Running Queries:
@@ -83,7 +83,7 @@ db()->from('users')
 
 will run the query:
 
-```mysql
+```sql
 SELECT * FROM users WHERE id = 5;
 ``` 
 
