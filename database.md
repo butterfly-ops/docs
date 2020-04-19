@@ -100,7 +100,7 @@ try {
 ## Select Queries
 
 ```php
-db()
+$users = db()
    ->from('users')
     ->get();
 ```
@@ -118,7 +118,7 @@ and return all results as associative array.
 You may want to return specific columns:
 
 ```php
-db()->from('users', ['id', 'name'])
+$users = db()->from('users', ['id', 'name'])
     ->get();
 ```
 
@@ -127,7 +127,7 @@ db()->from('users', ['id', 'name'])
 You can write where clauses in many ways. Examples are the following:
 
 ```php
-db()->from('users')
+$user = db()->from('users')
     ->where('id', 5)
     ->first();
 ```
@@ -149,7 +149,7 @@ SELECT id, name FROM users;
 You can use parameter binding, and bind parameters:
 
 ```php
-db()->from('users')
+$user = db()->from('users')
     ->where('id = :id')
     ->bind('id', 5)
     ->first()
@@ -165,7 +165,7 @@ SELECT * FROM users WHERE id = 5;
 You can bind parameters using question marks (?)
 
 ```php
-db()->from('users')
+$users = db()->from('users')
     ->where('id = ? OR id = ?', [5, 10])
     ->get()
 ;
@@ -182,7 +182,7 @@ SELECT * FROM users WHERE id = 5 OR id = 10
 **Following code will generate error:**
 
 ```php
-db()->from('users')
+$users = db()->from('users')
     ->where('id = ?', ['id' => 5])
     ->get()
 ;
@@ -191,7 +191,7 @@ db()->from('users')
 Nested SQL Queries can be generated using callback functions.
 
 ```php
-db()->from('users')
+$users = db()->from('users')
     ->where('id', 5)
     ->orWhere('status', 2)
     ->orWhere(function($query) {
@@ -206,7 +206,7 @@ db()->from('users')
 You can also use operators in where clauses. If you pass where clauses as an array, all clauses in the array will be joined using `AND` operator.
 
 ```php
-db()->from('users')
+$users = db()->from('users')
     ->where('id', 3)
     ->orWhere([
         ['votes', '<', '500'],
@@ -237,7 +237,7 @@ SELECT * FROM users
 You can join tables:
 
 ```php
-db()->from('users')
+$users = db()->from('users')
     ->join('INNER JOIN user_permissions ON user_permissions.id = users.id')
     ->where('id', 1)
     ->get()
@@ -247,7 +247,7 @@ db()->from('users')
 You can left join tables:
 
 ```php
-db()->from('users')
+$users = db()->from('users')
     ->joinLeft('user_permissions ON user_permissions.id = users.id')
     ->where('id', 1)
     ->get()
@@ -259,14 +259,14 @@ db()->from('users')
 You can order by column ascending or descending order:
 
 ```php
-db()->from('users')
+$users = db()->from('users')
     ->orderBy('id')
     ->get()
 ;
 ```
 
 ```php
-db()->from('users')
+$users = db()->from('users')
     ->orderByDesc('id')
     ->get()
 ;
@@ -277,7 +277,7 @@ db()->from('users')
 You can group by column:
 
 ```php
-db()->from('users')
+$users = db()->from('users')
     ->groupBy('id')
     ->get()
 ;
@@ -286,7 +286,7 @@ db()->from('users')
 For multiple columns, you can use comma seperator:
 
 ```php
-db()->from('users')
+$users = db()->from('users')
     ->groupBy('status,votes')
     ->get()
 ;
@@ -297,7 +297,7 @@ db()->from('users')
 You can use `find` function to return one row using identifier
 
 ```php
-db()->from('users')
+$user = db()->from('users')
     ->find(1)
 ;
 ```
@@ -345,7 +345,7 @@ You can run insert queries using database client.
 Single insert statement can be run as the following example: 
 
 ```php
-$user_id = db()->table('users')->insert([
+$userId = db()->table('users')->insert([
     'name' => 'John Doe'
 ]);
 ```
