@@ -53,7 +53,49 @@ Following function call will return a database client connected to database exte
 db('external');
 ```
 
-# Running Queries:
+# Transactions
+
+You can begin, rollback or commit a transaction.
+
+## Begin
+
+```php
+db()->transaction();
+```
+
+## Commit
+
+```php
+db()->commit();
+````
+
+## Rollback
+
+```php
+db()->rollback();
+```
+
+## Example Usage
+
+```php
+db()->transaction();
+try {
+    $id = db()->table('orders')->insert([
+        'customer_id' => 1
+    ]);
+    
+    db()->table('order_items')->insert([
+        'order_id' => $id
+    ]);
+
+    db()->commit();
+} catch(\Exception $e)
+{
+    db()->rollback();
+}
+```
+
+# Running Queries
 
 ## Running a select query:
 
