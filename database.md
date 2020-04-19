@@ -264,6 +264,8 @@ db()->from('users')
 
 will return one row with id = 1
 
+### die 
+
 For debugging purposes, you can use die function to output the SQL Query that will run.
 
 ```php
