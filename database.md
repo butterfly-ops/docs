@@ -7,7 +7,7 @@ ElasticSearch 7.X
 Redis (Coming soon)
 MongoDB (Coming soon)
 
-# Configuration:
+# Configuration
 The database configurations are stored in `app/config/database.php`. Configurations can be customized by domain name with subfolders.
 Example configuration:
 
@@ -35,11 +35,11 @@ return [
 ];
 ```
 
-## Slave Database:
+## Slave Database
 
 Butterfly uses slave database if it's defined. If not, it uses default database for the SELECT operations.
 
-## Using the database client:
+## Using the database client
 
 Database client can be reached using db() helper. You can also reach defined databases using the database alias as the first parameter.
  
