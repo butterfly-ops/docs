@@ -494,4 +494,24 @@ db()->table('users')
     ]);
 ```
 
+### Update with Limit
+
+You can limit the number of rows the update query can update by using limit function.
+
+```php
+db()->table('users')
+    ->where('id', 1)
+    ->limit(1)
+    ->update([
+        'name' => 'foo',
+        'surname' => 'bar'
+    ]);
+```
+
+will run the query:
+
+```sql
+UPDATE users SET name = 'foo', surname = 'bar' WHERE id = 1 LIMIT 1;
+```
+
 !> **Caution:** You can use all type of where clauses with update queries. Please check [WHERE](#where) section for this.   
