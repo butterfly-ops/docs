@@ -200,6 +200,12 @@ $users = db()->from('users')
     ->get();
 ```
 
+Runs the following query:
+
+```sql
+SELECT * FROM users WHERE id = 5 OR status = 2 OR (votes < 500 OR status = 3) ORDER BY id DESC
+```
+
 You can also use operators in where clauses. If you pass where clauses as an array, all clauses in the array will be joined using `AND` operator.
 
 ```php
