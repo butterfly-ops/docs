@@ -123,7 +123,7 @@ $users = db()
     ->get();
 ```
 
-### Where
+### Where {#selectwhere}
 
 You can write where clauses in many ways. Examples are the following:
 
@@ -514,4 +514,6 @@ will run the query:
 UPDATE users SET name = 'foo', surname = 'bar' WHERE id = 1 LIMIT 1;
 ```
 
-!> **Caution:** You can use all type of where clauses with update queries. Please check [WHERE](#where) section for this.   
+### Where
+
+!> **Caution:** You can use all type of where clauses with update queries. Please check [WHERE](#selectwhere) section for this.   
