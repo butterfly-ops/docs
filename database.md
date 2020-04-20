@@ -123,7 +123,7 @@ $users = db()
     ->get();
 ```
 
-### Where {#selectwhere}
+### Where
 
 You can write where clauses in many ways. Examples are the following:
 
@@ -494,7 +494,7 @@ db()->table('users')
     ]);
 ```
 
-### Update with Limit
+### Limit
 
 You can limit the number of rows the update query can update by using limit function.
 
@@ -514,6 +514,29 @@ will run the query:
 UPDATE users SET name = 'foo', surname = 'bar' WHERE id = 1 LIMIT 1;
 ```
 
-### Where
+### Where Clause
 
-!> **Caution:** You can use all type of where clauses with update queries. Please check [WHERE](#selectwhere) section for this.   
+!> **Caution:** You can use all type of where clauses with update queries. Please check [WHERE](#where) section for this.
+
+### Join Statement
+
+!> **Caution:** You can use all type of join clauses with update queries. Please check [JOIN](#join) section for this.
+
+Example Usage:
+
+```php
+db()->table('users')
+    ->join('INNER JOIN usergroups ON usergroups.id = users.usergroup_id')
+    ->where('users.id', 1)
+    ->update([
+        'name' => 'foo',
+        'usergroups.name' => 'bar'
+    ])
+;
+```
+
+will run the following query:
+
+```sql
+UPDATE `users` INNER JOIN usergroups ON usergroups.id = users.usergroup_id SET `name` = 'foo',`usergroups`.`name` = 'bar' WHERE users.id = 1
+```
