@@ -194,9 +194,9 @@ $users = db()->from('users')
     ->orWhere('status', 2)
     ->orWhere(function($query) {
         return $query->where('votes', '<', '500')
-            ->where('status', 3);
+            ->orWhere('status', 3);
     })
-    ->orderByDesc('id')
+    ->orderBy('id DESC')
     ->get();
 ```
 
