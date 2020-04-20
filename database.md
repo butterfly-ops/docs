@@ -393,3 +393,86 @@ will not insert record if there is already a record with id = 1
 ### BulkInsert
 
 Bulk inserts can improve performance since multiple records will be inserted in a single query.
+
+```php
+db()->table('users')
+    ->bulkInsert([
+        [
+            'id' => 1,
+            'name' => 'foo',
+            'surname' => 'bar'
+        ],
+        [
+            'id' => 2,
+            'name' => 'John',
+            'surname' => 'Doe'
+        ]
+    ])
+;
+```
+
+### BulkInsertOrUpdate
+
+When bulk inserting data, if there is a unique index and new data already exists, than you may want to update the existing data.
+There are two options:
+
+- Updating all columns: Following query will update all columns if the records already exist.
+
+```php
+db()->table('users')
+     ->bulkInsertOrUpdate([
+         [
+             'id' => 1,
+             'name' => 'foo',
+             'surname' => 'bar'
+         ],
+         [
+             'id' => 2,
+             'name' => 'John',
+             'surname' => 'Doe'
+         ]
+     ])
+ ;
+```
+
+- Updating specific columns: Following query will only update the name column if the unique key already exist for the records.
+
+```php
+db()->table('users')
+    ->bulkInsertOrUpdate([
+        [
+            'id' => 1,
+            'name' => 'foo',
+            'surname' => 'bar'
+        ],
+        [
+            'id' => 2,
+            'name' => 'John',
+            'surname' => 'Doe'
+        ]
+    ], [
+        'name'
+    ])
+;
+```
+
+### BulkInsertOrIgnore
+
+When bulk inserting data, if there is a unique index and new data already exists, than you may want to ignore the new data without any error.
+
+```php
+db()->table('users')
+    ->bulkInsertOrIgnore([
+        [
+            'id' => 1,
+            'name' => 'foo',
+            'surname' => 'bar'
+        ],
+        [
+            'id' => 2,
+            'name' => 'John',
+            'surname' => 'Doe'
+        ]
+    ])
+;
+```
