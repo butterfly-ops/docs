@@ -476,3 +476,22 @@ db()->table('users')
     ])
 ;
 ```
+
+## UPDATE Queries
+
+You can run update queries using database client.
+
+### Update
+
+Single update statement can be run as the following example:
+
+```php
+db()->table('users')
+    ->where('id', 1)
+    ->update([
+        'name' => 'foo',
+        'surname' => 'bar'
+    ]);
+```
+
+!> **Caution:** You can use all type of where clauses with update queries. Please check [WHERE](#where) section for this.   
