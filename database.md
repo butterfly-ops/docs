@@ -3,7 +3,7 @@ Butterfly uses multi-layer database management. It's possible to use multiple da
 All Butterfly related data is stored in MySQL but you can use the following database drivers: 
 
 - MySQL 5.6+
-- ElasticSearch 7.x
+- _ElasticSearch_ _7.x_ _(Coming soon)_
 - _Redis_ _(Coming soon)_
 - _MongoDB_ _(Coming soon)_
 
