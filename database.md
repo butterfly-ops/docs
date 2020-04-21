@@ -840,7 +840,7 @@ will run the following query and will return `number of rows affected`
 DELETE FROM users WHERE id = 5
 ```
 
-### Delete with JOIN
+### Join Statement
 
 Multiple tables may be joined and deleted.
 
