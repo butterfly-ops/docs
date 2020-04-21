@@ -356,20 +356,122 @@ will output the query that will be executed.
 
 ### Returning Functions
 
+Returning functions are used to execute the query and return the processed result.
+
+Let's think of a virtual `users` table with the following records:
+
+id | name | status
+--- | --- | ---
+1 | John Doe | waiting
+2 | Jane Doe | waiting
+3 | Jack Hamel | active
+  
+
+#### get
+
+Will return all rows as associative array.
+
+```php
+db()->from('users')
+    ->get();
+```
+
+will return
+
+```php
+[
+    [
+        'id' => 1,
+        'name' => 'John Doe',
+        'status' => 'waiting'  
+    ],
+    [
+        'id' => 2,
+        'name' => 'Jane Doe',
+        'status' => 'waiting'  
+    ],
+    [
+        'id' => 3,
+        'name' => 'Jack Hamel',
+        'status' => 'active'  
+    ]
+];
+```
+
+#### first
+
+Will just return the first row as associative array
+
+```php
+db()->from('users')
+    ->first();
+```
+
+will return
+
+```php
+[
+    'id' => 1,
+    'name' => 'John Doe',
+    'status' => 'waiting'  
+];
+```
+
+#### count
+
+Will return the number of rows for the query without any Group By statement.
+
+```php
+db()->from('users')
+    ->count();
+```
+
+will return:
+
+`(int) 3`
+
+#### one
+
+Will return only one column value
+
+```php
+db()->from('users')
+    ->one('name');
+```
+
+will return the name column value of the first row.
+
+`John Doe`
+
+#### column
+
+Will return the values of specific column as an array list
+
+```php
+db()->from('users')
+    ->column('name');
+```
+
+will return names as an array list.
+
+```php
+[
+    'John Doe',
+    'Jane Doe',
+    'Jack Hammel'
+];
+```
+
+
 Function  | Description
 ------------- | -------------
-get | will return all rows as associative array.
-first | will just return the first row as associative array
-count | Will return the number of rows for the query without any Group By statement.
-one($column_name) | will return only one column value. 
-column($column_name) | will return the values of specific column as an array list.
-keyToValue($key_column) | will return result indexed by key_column. Value will be the row as the associative array.
-keyToValue($key_column, $value_column) | will return result indexed by key_column. Value will be value of the specified column.
-keyToValues($key_column) | when key_column is not unique, you can use this function to group results by key_column (e.g. status). Value will be the row as the associative array. 
-keyToValues($key_column, $value_column) | when key_column is not unique, you can use this function to group results by key_column (e.g. status). Value will be value of the specified column.
-max($column_name) | Will return maximum value of the specific column as a single value.
-min($column_name) | Will return minimum value of the specific column as a single value.
-average($column_name) | Will return average value of the specific column as a single value.
+`keyToValue($key_column)` | will return result indexed by key_column. Value will be the row as the associative array.
+`keyToValue($key_column`, $value_column) | will return result indexed by key_column. Value will be value of the specified column.
+`keyToValues($key_column)` | when key_column is not unique, you can use this function to group results by key_column (e.g. status). Value will be the row as the associative array. 
+`keyToValues($key_column, $value_column)` | when key_column is not unique, you can use this function to group results by key_column (e.g. status). Value will be value of the specified column.
+`max($column_name)` | Will return maximum value of the specific column as a single value.
+`min($column_name)` | Will return minimum value of the specific column as a single value.
+`average($column_name)` | Will return average value of the specific column as a single value.
 
 ## Insert Queries
 
