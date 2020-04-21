@@ -624,6 +624,31 @@ will return:
 
 `2`
 
+#### transform
+
+Transform function is used to transform the returning rows.
+
+!> **Caution:** Transform function should be called before returning functions.
+
+```php
+db()->from('users')->transform(function($row) {
+    $row['id_with_name'] = $row['id'] . ' - ' . $row['name']; 
+    
+    return $row;
+})->first();
+```
+
+will return
+
+```php
+[
+    'id' => 1,
+    'name' => 'John Doe',
+    'status' => 'waiting',
+    'id_with_name' => '1 John Doe'  
+];
+```
+
 ## INSERT Queries
 
 You can run insert queries using database client.
