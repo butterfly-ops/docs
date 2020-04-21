@@ -516,11 +516,11 @@ UPDATE users SET name = 'foo', surname = 'bar' WHERE id = 1 LIMIT 1;
 
 ### Where Clause
 
-!> **Caution:** You can use all type of where clauses with update queries. Please check [WHERE](#where) section for this.
+> **Note:** You can use all type of where clauses with update queries. Please check [WHERE](#where) section for this.
 
 ### Join Statement
 
-!> **Caution:** You can use all type of join clauses with update queries. Please check [JOIN](#join) section for this.
+> **Note:** You can use all type of join clauses with update queries. Please check [JOIN](#join) section for this.
 
 Example Usage:
 
@@ -540,3 +540,5 @@ will run the following query:
 ```sql
 UPDATE `users` INNER JOIN usergroups ON usergroups.id = users.usergroup_id SET `name` = 'foo',`usergroups`.`name` = 'bar' WHERE users.id = 1
 ```
+
+## DELETE Queries
