@@ -483,7 +483,7 @@ You can run update queries using database client.
 
 ### Update
 
-Single update statement can be run as the following example:
+Simple update statement can be run as the following example:
 
 ```php
 db()->table('users')
@@ -526,11 +526,11 @@ Example Usage:
 
 ```php
 db()->table('users')
-    ->join('INNER JOIN usergroups ON usergroups.id = users.usergroup_id')
+    ->join('INNER JOIN user_groups ON user_groups.id = users.user_group_id')
     ->where('users.id', 1)
     ->update([
         'name' => 'foo',
-        'usergroups.name' => 'bar'
+        'user_groups.name' => 'bar'
     ])
 ;
 ```
@@ -538,7 +538,64 @@ db()->table('users')
 will run the following query:
 
 ```sql
-UPDATE `users` INNER JOIN usergroups ON usergroups.id = users.usergroup_id SET `name` = 'foo',`usergroups`.`name` = 'bar' WHERE users.id = 1
+UPDATE `users` INNER JOIN user_groups ON user_groups.id = users.user_group_id SET `name` = 'foo',`user_groups`.`name` = 'bar' WHERE users.id = 1
 ```
 
 ## DELETE Queries
+
+You can run delete queries using database client.
+
+### Delete
+
+Simple delete statement can be run as the following example:
+
+```php
+$affected = db()->table('users')
+    ->where('id', 5)
+    ->delete()
+;
+```
+
+will run the following query and will return `number of rows affected`
+
+```sql
+DELETE FROM users WHERE id = 5
+```
+
+### Delete with JOIN
+
+Multiple tables may be joined and deleted.
+
+```php
+db()->table('user_groups')
+    ->join('INNER JOIN users ON user_groups.id = users.user_group_id')
+    ->whereNull('users.id')
+    ->delete(['users'])
+;
+```
+
+Will run the following query:
+
+```sql
+DELETE users FROM user_groups INNER JOIN users ON user_groups.id = users.user_group_id WHERE users.id IS NULL
+```
+
+> **Note:** Delete function accepts array of table names, if tables names are not given, then it will only delete the main table which is defined calling table function. Which is `user_groups` table in the example.
+
+When using join statements, if no delete tables is defined when calling delete function, only main table will be deleted.
+
+Example:
+
+```php
+db()->table('user_groups')
+    ->join('INNER JOIN users ON user_groups.id = users.user_group_id')
+    ->whereNull('users.id')
+    ->delete()
+;
+```
+
+Will run the following query:
+
+```sql
+DELETE user_groups FROM user_groups INNER JOIN users ON user_groups.id = users.user_group_id WHERE users.id IS NULL
+```
