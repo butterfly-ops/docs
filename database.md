@@ -97,7 +97,7 @@ try {
 
 # Running Queries
 
-## Select Queries
+## SELECT Queries
 
 ```php
 $users = db()
@@ -609,7 +609,7 @@ will return:
 
 `2`
 
-## Insert Queries
+## INSERT Queries
 
 You can run insert queries using database client.
 
