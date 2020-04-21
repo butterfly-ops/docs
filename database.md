@@ -462,16 +462,152 @@ will return names as an array list.
 ];
 ```
 
+#### keyToValue
 
-Function  | Description
-------------- | -------------
-`keyToValue($key_column)` | will return result indexed by key_column. Value will be the row as the associative array.
-`keyToValue($key_column`, $value_column) | will return result indexed by key_column. Value will be value of the specified column.
-`keyToValues($key_column)` | when key_column is not unique, you can use this function to group results by key_column (e.g. status). Value will be the row as the associative array. 
-`keyToValues($key_column, $value_column)` | when key_column is not unique, you can use this function to group results by key_column (e.g. status). Value will be value of the specified column.
-`max($column_name)` | Will return maximum value of the specific column as a single value.
-`min($column_name)` | Will return minimum value of the specific column as a single value.
-`average($column_name)` | Will return average value of the specific column as a single value.
+Will return result indexed by key_column. Value will be the row as the associative array.
+
+```php
+db()->from('users')
+    ->keyToValue('id')
+;
+```
+
+will return:
+
+```php
+[
+    1 => [ // As you see, id column value is used as the key of the array.
+        'id' => 1,
+        'name' => 'John Doe',
+        'status' => 'waiting'  
+    ],
+    2 => [
+        'id' => 2,
+        'name' => 'Jane Doe',
+        'status' => 'waiting'  
+    ],
+    3 => [
+        'id' => 3,
+        'name' => 'Jack Hamel',
+        'status' => 'active'  
+    ]
+];
+```
+
+When you call keyToValue function with two parameters, it will use the column value
+
+```php
+db()->from('users')
+    ->keyToValue('id', 'name')
+;
+```
+
+will return result indexed by key_column. Value will be value of the specified column:
+
+```php
+[
+    1 => 'John Doe',
+    2 => 'Jane Doe',
+    3 => 'Jack Hamel'
+];
+```
+
+#### keyToValues
+
+when key_column is not unique, you can use this function to group results by key_column (e.g. status). Value will be the row as the associative array.
+
+```php
+db()->from('users')
+    ->keyToValues('status')
+;
+```
+
+will return:
+
+```php
+[
+    'waiting' => [ // As you see, results are grouped by `status` column.
+        [ 
+            'id' => 1,
+            'name' => 'John Doe',
+            'status' => 'waiting'  
+        ],
+        [
+            'id' => 2,
+            'name' => 'Jane Doe',
+            'status' => 'waiting'  
+        ]
+    ],
+    'active' => [
+        [
+            'id' => 3,
+            'name' => 'Jack Hamel',
+            'status' => 'active'  
+        ]
+    ]
+];
+```
+
+When key_column is not unique, you can use this function to group results by key_column (e.g. status). Value will be value of the specified column
+
+```php
+db()->from('users')
+    ->keyToValues('status', 'name')
+;
+```
+
+will return result indexed by key_column. Value will be array of values of the specified column:
+
+```php
+[
+    'waiting' => [
+        'John Doe',
+        'Jane Doe'
+    ],
+    'active' => [
+        'Jack Hamel'
+    ]
+];
+```
+
+#### max
+
+Will return maximum value of the specific column as a single value
+
+```php
+db()->from('users')
+    ->max('id');
+```
+
+will return:
+
+`3`
+
+#### min
+
+Will return minimum value of the specific column as a single value
+
+```php
+db()->from('users')
+    ->min('id');
+```
+
+will return:
+
+`1`
+
+#### average
+
+Will return average value of the specific column as a single value
+
+```php
+db()->from('users')
+    ->average('id');
+```
+
+will return:
+
+`2`
 
 ## Insert Queries
 
