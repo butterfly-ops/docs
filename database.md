@@ -580,9 +580,9 @@ Will run the following query:
 DELETE users FROM user_groups INNER JOIN users ON user_groups.id = users.user_group_id WHERE users.id IS NULL
 ```
 
-> **Note:** Delete function accepts array of table names, if tables names are not given, then it will only delete the main table which is defined calling table function. Which is `user_groups` table in the example.
+> **Note:** Delete function accepts array of table names, if tables names are not given, then it will only delete the main table which is defined when table function is called. Which is `user_groups` table in the example.
 
-When using join statements, if no delete tables is defined when calling delete function, only main table will be deleted.
+When using join statements, if no delete tables is defined when delete function is called, only main table will be deleted.
 
 Example:
 
