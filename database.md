@@ -288,6 +288,21 @@ $users = db()->from('users')
     ->get();
 ```
 
+### Having
+
+```php
+db()->from('users', ['users.id'])
+    ->groupBy('role_id')
+    ->having('a > 5')
+->get();
+```
+
+will run the following query:
+
+```sql
+SELECT users.id FROM users GROUP BY role_id HAVING a > 5
+```
+
 ### Limit
 
 Results can be limited using limit function. Only the first number of rows will be returned.
