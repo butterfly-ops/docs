@@ -633,7 +633,6 @@ Transform function is used to transform the returning rows.
 ```php
 db()->from('users')->transform(function($row) {
     $row['id_with_name'] = $row['id'] . ' - ' . $row['name']; 
-    
     return $row;
 })->first();
 ```
