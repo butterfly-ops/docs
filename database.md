@@ -288,6 +288,46 @@ $users = db()->from('users')
     ->get();
 ```
 
+### Limit
+
+Results can be limited using limit function. Only the first number of rows will be returned.
+
+```php
+db()->from('users')
+    ->limit(10);
+```
+
+Will run the query:
+
+```sql
+SELECT * FROM users LIMIT 10
+```
+
+And will return first 10 rows from `users` table.
+
+### Pagination
+
+You can define paginate results by using `paginate` function.
+
+Parameter | Description | Default Value
+--------- | ----------- | ----------- 
+`$limit` | Sets the limit per page | 20
+`$page_no` | Sets the current page  | 1
+
+```php
+db()->from('users')
+    ->paginate(5, 2)
+    ->get();
+```
+
+Will run the following query:
+
+```sql
+SELECT * FROM users LIMIT 5, 5
+```
+
+And will return the results from 2nd page starting from `6.` to `10.` record. 
+
 ### Find
 
 You can use `find` function to return one row using identifier
