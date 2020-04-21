@@ -590,7 +590,7 @@ Example:
 db()->table('user_groups')
     ->join('INNER JOIN users ON user_groups.id = users.user_group_id')
     ->whereNull('users.id')
-    ->delete()
+    ->delete() // No table name is defined, user_groups table will be deleted. 
 ;
 ```
 
