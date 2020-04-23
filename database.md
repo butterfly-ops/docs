@@ -254,6 +254,50 @@ $users = db()->from('users')
     ->get();
 ```
 
+You can inner join tables:
+
+```php
+$users = db()->from('users')
+    ->joinInner('user_permissions ON user_permissions.id = users.id')
+    ->where('id', 1)
+    ->get();
+```
+
+You can right join tables:
+
+```php
+$users = db()->from('users')
+    ->joinRight('user_permissions ON user_permissions.id = users.id')
+    ->where('id', 1)
+    ->get();
+```
+
+## USE INDEX and FORCE INDEX
+
+```php
+$users = db()
+   ->from('users')->useIndex('name, phone')
+    ->get();
+```
+
+will run the query:
+
+```sql
+SELECT * FROM users USE INDEX (name, phone);
+``` 
+
+```php
+$users = db()
+   ->from('users')->forceIndex('name, phone')
+    ->get();
+```
+
+will run the query:
+
+```sql
+SELECT * FROM users FORCE INDEX (name, phone);
+``` 
+
 ### Order By
 
 You can order by column ascending or descending order:
