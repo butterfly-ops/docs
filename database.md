@@ -234,6 +234,32 @@ SELECT * FROM users
     ORDER BY id DESC
 ```
 
+
+Between
+
+```php
+$users = db()->from('users')
+    ->orWhereBetween('status', [5, 10])
+    ->get();
+```
+will run:
+
+```sql
+SELECT * FROM users WHERE status BETWEEN 5 AND 10
+```
+Not Between
+
+```php
+$users = db()->from('users')
+    ->orWhereNotBetween('status', [5, 10])
+    ->get();
+```
+will run:
+
+```sql
+SELECT * FROM users WHERE status NOT BETWEEN 5 AND 10
+```
+
 ### Join
 
 You can join tables:
