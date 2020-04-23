@@ -234,7 +234,6 @@ SELECT * FROM users
     ORDER BY id DESC
 ```
 
-
 Between
 
 ```php
