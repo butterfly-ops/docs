@@ -313,7 +313,7 @@ $users = db()->from('users')
     ->get();
 ```
 
-## USE INDEX and FORCE INDEX
+### Use Index
 
 ```php
 $users = db()
@@ -326,6 +326,8 @@ will run the query:
 ```sql
 SELECT * FROM users USE INDEX (name, phone);
 ``` 
+
+### Force Index
 
 ```php
 $users = db()
