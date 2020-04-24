@@ -186,6 +186,21 @@ $users = db()->from('users')
     ->get();
 ```
 
+You can use arrays with where clauses:
+
+```php
+$users = db()->from('users')
+    ->whereIn('id', [1,2,3])
+    ->get();
+```
+
+will run the query:
+
+```sql
+SELECT * FROM users WHERE id IN (1, 2, 3)
+```
+
+
 Nested SQL Queries can be generated using callback functions.
 
 ```php
