@@ -127,8 +127,6 @@ $users = db()
 
 You can write where clauses in many ways. Examples are the following:
 
-#### first
-
 ```php
 $user = db()->from('users')
     ->where('id', 5)
@@ -163,8 +161,6 @@ will run the query:
 ```sql
 SELECT * FROM users WHERE id = 5;
 ``` 
-
-#### get
 
 You can bind parameters using question marks (?)
 
