@@ -127,6 +127,8 @@ $users = db()
 
 You can write where clauses in many ways. Examples are the following:
 
+#### first
+
 ```php
 $user = db()->from('users')
     ->where('id', 5)
@@ -162,6 +164,8 @@ will run the query:
 SELECT * FROM users WHERE id = 5;
 ``` 
 
+#### get
+
 You can bind parameters using question marks (?)
 
 ```php
@@ -186,6 +190,8 @@ $users = db()->from('users')
     ->get();
 ```
 
+#### whereIn
+
 You can use arrays with where clauses:
 
 ```php
@@ -200,6 +206,8 @@ will run the query:
 SELECT * FROM users WHERE id IN (1, 2, 3)
 ```
 
+
+#### Nested Clause
 
 Nested SQL Queries can be generated using callback functions.
 
@@ -220,6 +228,8 @@ Runs the following query:
 ```sql
 SELECT * FROM users WHERE id = 5 OR status = 2 OR (votes < 500 OR status = 3) ORDER BY id DESC
 ```
+
+#### orWhere
 
 You can also use operators in where clauses. If you pass where clauses as an array, all clauses in the array will be joined using `AND` operator.
 
@@ -249,7 +259,7 @@ SELECT * FROM users
     ORDER BY id DESC
 ```
 
-Between
+#### Between
 
 ```php
 $users = db()->from('users')
@@ -261,7 +271,7 @@ will run:
 ```sql
 SELECT * FROM users WHERE status BETWEEN 5 AND 10
 ```
-Not Between
+#### Not Between
 
 ```php
 $users = db()->from('users')
