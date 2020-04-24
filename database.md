@@ -240,7 +240,7 @@ You can join tables:
 
 ```php
 $users = db()->from('users')
-    ->join('INNER JOIN user_permissions ON user_permissions.id = users.id')
+    ->join('user_permissions', 'users.id', '=', 'user_permissions.id')
     ->where('id', 1)
     ->get();
 ```
@@ -249,16 +249,7 @@ You can left join tables:
 
 ```php
 $users = db()->from('users')
-    ->joinLeft('user_permissions ON user_permissions.id = users.id')
-    ->where('id', 1)
-    ->get();
-```
-
-You can inner join tables:
-
-```php
-$users = db()->from('users')
-    ->joinInner('user_permissions ON user_permissions.id = users.id')
+    ->joinLeft('user_permissions', 'users.id', '=', 'user_permissions.id')
     ->where('id', 1)
     ->get();
 ```
@@ -267,7 +258,7 @@ You can right join tables:
 
 ```php
 $users = db()->from('users')
-    ->joinRight('user_permissions ON user_permissions.id = users.id')
+    ->joinRight('user_permissions', 'users.id', '=', 'user_permissions.id')
     ->where('id', 1)
     ->get();
 ```
