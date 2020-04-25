@@ -32,7 +32,7 @@ apt-get install php7.4 php7.4-json php7.4-xml
 
 ## Installing Butterfly
 
-Butterfly uses Composer to manage dependencies and packages. You can easily install packages using the following command:
+Butterfly uses [Composer](https://getcomposer.org/) to manage dependencies and packages. You can easily install packages using the following command:
 
 ```shell script
 /usr/local/bin/composer create-project butterfly/butterfly my_new_project --repository-url=https://repo.rglabs.co/
