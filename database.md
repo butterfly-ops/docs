@@ -255,6 +255,26 @@ SELECT * FROM users
     ORDER BY id DESC
 ```
 
+#### Distinct
+
+```php
+$users = db()
+   ->from('users')->distinct(['name', 'phone'])
+    ->get();
+```
+
+```php
+$users = db()
+   ->from('users', ['name', 'phone'])->distinct()
+    ->get();
+```
+
+will run the queris:
+
+```sql
+SELECT DISTINCT name,phone FROM users;
+``` 
+
 #### Between
 
 ```php
