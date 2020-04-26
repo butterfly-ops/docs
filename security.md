@@ -62,4 +62,4 @@ db()->where('id', $userIdInput);
 in the correct usage, user parameter is sent to MySQL Server using PDO Parameter Binding, which means that, an attacker 
 can not manipulate query by just manipulating the input data itself. 
 
-You can check [database](#database) documentation for more information.
+You can check [database](#database) documentation for more usage examples.
