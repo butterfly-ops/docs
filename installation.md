@@ -90,6 +90,9 @@ bin/butterfly install --skip-database 1
 
 Butterfly needs the following folders to be owned by web server user. (Or chmod 777).
 
+> install command automatically calls this command after checking database. You don't need to run this command if you
+> run install command. 
+
 ```
 - var
     |- cache
