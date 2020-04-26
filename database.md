@@ -999,3 +999,78 @@ Will run the following query:
 ```sql
 DELETE user_groups FROM user_groups INNER JOIN users ON user_groups.id = users.user_group_id WHERE users.id IS NULL
 ```
+
+## Schema
+
+You can run schema operations with `Butterfly\Database`
+
+### tables
+
+Will return the list of tables in the databases.
+
+```php
+db()->schema()->tables();
+```
+
+will return the list of tables as an array list.
+
+```php
+[
+    'cms_admin_users', 
+    'videos',
+    'articles'
+];
+```
+
+### columns
+
+Will return the list of columns in a table.
+
+```php
+db()->schema('users')->columns();
+```
+
+will return
+
+```php
+[
+    [
+        [
+            'column_name' => 'id',
+            'data_type' => 'int',
+            'is_primary_key' => true,
+            'is_nullable' => false
+        ],
+        [
+            'column_name' => 'name',
+            'data_type' => 'varchar',
+            'is_primary_key' => false,
+            'is_nullable' => false
+        ]
+    ]
+];
+```
+
+### createTable
+
+will create a table with the specified columns.
+
+```php
+db()->createTable('test', [
+  [
+      'column_name' => 'id',
+      'identifier' => true,
+      'column_type' => 'int(11)'
+  ],
+  [
+      'column_name' => 'name',
+      'column_type' => 'varchar(255)'
+  ]
+]);
+```
+
+will run the following query:
+
+```sql
+CREATE TABLE `test` (`id` int(11) NOT NULL AUTO_INCREMENT,`name` varchar(255) NOT NULL, PRIMARY KEY (`id`)) ENGINE = `InnoDB`
+```
