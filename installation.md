@@ -40,7 +40,7 @@ Butterfly uses [Composer](https://getcomposer.org/) to manage dependencies and p
 
 !> **Caution:** You we need access token to access repo.rglabs.co and git repository.
 
-### Running installation:
+### Running installation
 
 After changing to butterfly directory, you need to run installation script:
 
@@ -79,7 +79,7 @@ If you already created the tables, you can skip the database installation `--ski
 bin/butterfly install --skip-database 1
 ```
 
-### Folder Creation:
+### Folder Creation
 
 Butterfly needs the following folders to be owned by web server user. (Or chmod 777).
 
