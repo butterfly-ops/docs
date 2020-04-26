@@ -11,7 +11,7 @@ Butterfly is extensible. You can extend system by using Modules.
 
 Butterfly has 3 Modules out of box:
 
-### Butterfly\Core:
+### Butterfly\Core
 
 Butterfly Core module handles admin panel operations. It has API access for all operations.
 
