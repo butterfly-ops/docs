@@ -81,8 +81,17 @@ bin/butterfly install --skip-database 1
 
 ### Folder Creation:
 
-Butterfly needs the following folders to be owned by web server user. (Or chmod 777). If you don't have the folders, 
-you can run the following command to check or create folders:
+Butterfly needs the following folders to be owned by web server user. (Or chmod 777).
+
+```
+- var
+    |- cache
+    |- log
+    |- tmp
+- static
+```
+
+If you don't have the folders, you can run the following command to check or create folders:
 
 ```shell script
 bin/butterfly folders:create
