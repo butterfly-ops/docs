@@ -38,7 +38,7 @@ try {
 }
 ```
 
-## Using Parameter Binding for Queries
+## SQL Queries
 
 Using User Input Parameters in SQL Queries is most common pitfall which causes SQL Injection attacks. You should 
 consider using parameter binding instead of using un-safe user input in SQL Queries.
