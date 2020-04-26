@@ -106,3 +106,13 @@ mkdir static var var/tmp var/cache var/log;
 chmod -R 777 var static;
 ```
 
+### Admin User Creation:
+
+You may need to create new users when you initiated an empty project or you need another account. You can run the 
+following command to create a new user:
+
+```shell script
+bin/butterfly admin:user:create
+```
+
+The command will prompt for e-mail, password and name of the user. Name is optional.
