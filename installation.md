@@ -48,13 +48,20 @@ After changing to butterfly directory, you need to run installation script:
 bin/butterfly install
 ```
 
+!> Caution: You should create MySQL Database, Grant permission to user before running installation script. 
+Even for root users, you need to create database.
+
+> ***Recommended Database Encoding:*** utf8mb4, Collation: utf8mb4_general_ci. You can choose the collation suits to your language.
+
 You will be prompt to enter environment variables. You will need the following information:
 
-- Domain
-- Database Server Host
-- Database Server Username
-- Database Server Password
-- Database Name
+Parameter | Description
+--- | ---
+Domain | This is the domain which butterfly will run on without schema. Example: butterfly.rg 
+Database Server Host | Hostname of the database server
+Database Server Username | Username for the database server
+Database Server Password | Password for the database server
+Database Name | Database name that is created.
 
 !> **Caution:** In order to finish installation, there should be no tables in the database.
 
