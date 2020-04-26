@@ -1035,18 +1035,16 @@ will return
 ```php
 [
     [
-        [
-            'column_name' => 'id',
-            'data_type' => 'int',
-            'is_primary_key' => true,
-            'is_nullable' => false
-        ],
-        [
-            'column_name' => 'name',
-            'data_type' => 'varchar',
-            'is_primary_key' => false,
-            'is_nullable' => false
-        ]
+        'column_name' => 'id',
+        'data_type' => 'int',
+        'is_primary_key' => true,
+        'is_nullable' => false
+    ],
+    [
+        'column_name' => 'name',
+        'data_type' => 'varchar',
+        'is_primary_key' => false,
+        'is_nullable' => false
     ]
 ];
 ```
