@@ -56,7 +56,7 @@ You will be prompt to enter environment variables. You will need the following i
 - Database Server Password
 - Database Name
 
-!> **Caution:** In order to finish installation, target database should be empty.
+!> **Caution:** In order to finish installation, there should be no tables in the database.
 
 - Admin E-mail
 - Admin Username
@@ -72,3 +72,28 @@ https://butterfly.test/admin
 Username: info@thebutterfly.io
 Password: aji1854843!@Xsz
 ```
+
+If you already created the tables, you can skip the database installation `--skip-database` option. Following command will check for the needed folders, will create a user.
+
+```shell script
+bin/butterfly install --skip-database 1
+```
+
+### Folder Creation:
+
+Butterfly needs the following folders to be owned by web server user. (Or chmod 777). If you don't have the folders, 
+you can run the following command to check or create folders:
+
+```shell script
+bin/butterfly folders:create
+```
+
+If script cannot create or chmod folders, it will print the commands that should be run. You can also run the 
+following commands if you need in the root directory of the project.
+
+```shell script
+cd $PROJECT_DIRECTORY; ## Please change directory to project root.
+mkdir static var var/tmp var/cache var/log;
+chmod -R 777 var static;
+```
+
