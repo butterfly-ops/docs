@@ -8,7 +8,7 @@ Here is the Butterfly. It's built for building dynamic ecosystems where you have
 Butterfly is a Data Management Platform,
 - Where you define and manage **your data**,
 - You integrate your data with **your ecosystem**,
-- You present your data ***your own way***
+- You present your data **your own way**
 
 ## Our Mission
 
