@@ -20,7 +20,7 @@ Our mission is to help people do high quality products / projects faster and to 
 
 > We hate repeating ourselves. We don’t have so much time to do the same thing again and again. That’s why we’ve built Butterfly.
 
-> Butterfly is not something that can be considered as a CMS, VMS, CRM or even an ERP. You can use it for any purpose.
+> Butterfly is not something that can be considered as a Content Management System, Video Management System, Customer Relationship Management or even an ERP. It's a Platform that you can use it for any purpose.
 
 > Quality and functionality should be the standard. In order to build qualified software in a cost and time efficient manner, you need your tool to support it
 
