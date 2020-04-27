@@ -1,1 +1,27 @@
-# Welcome
+# Butterfly
+
+Here is the Butterfly. It's built for building dynamic ecosystems where you have any type Data, you have
+ any type of Device. 
+
+## What is Butterfly    
+
+Butterfly is a Data Management Platform,
+- Where you define and manage **your data**,
+- You integrate your data with **your ecosystem**,
+- You present your data ***your own way***
+
+## Our Mission
+
+Our mission is to help people do high quality products / projects faster and to save ***your time & energy*** 
+
+## Quotes from us
+
+> Butterflies are said to live short. If you are building a software for butterflies, you should use Butterfly. So that they may see your product before they pass away.
+
+> We hate repeating ourselves. We don’t have so much time to do the same thing again and again. That’s why we’ve built Butterfly.
+
+> Butterfly is not something that can be considered as a CMS, VMS, CRM or even an ERP. You can use it for any purpose.
+
+> Quality and functionality should be the standard. In order to build qualified software in a cost and time efficient manner, you need your tool to support it
+
+> Butterfly is lightweight, besides it can be used to build a high-level enterprise product; it can be embedded into your applications using Magento, Wordpress or anything else.
