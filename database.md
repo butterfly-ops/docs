@@ -203,6 +203,36 @@ will run the query:
 SELECT * FROM users WHERE id IN (1, 2, 3)
 ```
 
+#### whereNull
+
+By using **whereNull**, you can easily filter only null values:
+
+```php
+$users = db()->from('users')
+    ->whereNull('status')
+    ->get();
+```
+
+will run the query:
+
+```sql
+SELECT * FROM users WHERE status IS NULL
+```
+
+#### whereNotNull
+
+```php
+$users = db()->from('users')
+    ->whereNotNull('status')
+    ->get();
+```
+
+will run the query:
+
+```sql
+SELECT * FROM users WHERE status IS NOT NULL
+```
+
 
 #### Nested Clause
 
@@ -254,6 +284,51 @@ SELECT * FROM users
     WHERE id = 5 OR status = 2 
         OR (votes < 500 AND status = 3) 
     ORDER BY id DESC
+```
+
+#### orWhereIn
+
+```php
+$users = db()->from('users')
+->where('id', 5)
+->orWhereIn('status', [1,2,3])
+->get();
+```
+
+will run the query:
+
+```mysql
+SELECT * FROM users WHERE id = 5 OR status IN (1,2,3)
+```
+
+#### orWhereNull
+
+```php
+$users = db()->from('users')
+->where('id', 5)
+->orWhereNull('status')
+->get();
+```
+
+will run the query:
+
+```mysql
+SELECT * FROM users WHERE id = 5 OR status IS NULL
+```
+
+#### orWhereNotNull
+
+```php
+$users = db()->from('users')
+->where('id', 5)
+->orWhereNotNull('status')
+->get();
+```
+
+will run the query:
+
+```mysql
+SELECT * FROM users WHERE id = 5 OR status IS NOT NULL
 ```
 
 #### Distinct
