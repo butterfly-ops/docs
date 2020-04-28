@@ -82,7 +82,7 @@ namespace App\Hook;
 
 use Butterfly\Library\Hook;
 
-class User extends Hook
+class Users extends Hook
 {
 
 }
