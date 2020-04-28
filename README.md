@@ -16,7 +16,7 @@ Our mission is to help people do high quality products / projects faster and to 
 
 ## Quotes from us
 
-> Butterflies are said to live short. Do you have time to waste? Butterfly makes you reach your goals without wasting your time. 
+> Butterflies are said to live short. They don't have time to waste. Do we have? Butterfly makes you reach your goals without wasting your time. 
 
 > We hate repeating ourselves. We don’t have so much time to do the same thing again and again. That’s why we’ve built Butterfly.
 
