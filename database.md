@@ -176,7 +176,8 @@ will run:
 SELECT * FROM users WHERE id = 5 OR id = 10
 ```
 
-!> **Caution:** Question mark style binding, doesn't work with associative arrays.
+> [!DANGER]
+> Question mark style binding, doesn't work with associative arrays.
 
 **Following code will generate error:**
 
@@ -470,7 +471,8 @@ db()->from('users')
 
 will output the query that will be executed. 
 
-!> Please note that, die function will not run the query, just outputs it and **terminates the script**.
+> [!NOTE]
+> `die` function will not run the query, just outputs it and **terminates the script**.
 
 ### Returning Functions
 
@@ -731,7 +733,8 @@ will return:
 
 Transform function is used to transform the returning rows.
 
-!> **Caution:** Transform function should be called before returning functions.
+> [!DANGER]
+> Transform function should be called before returning functions.
 
 ```php
 db()->from('users')->transform(function($row) {

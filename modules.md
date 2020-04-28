@@ -4,7 +4,8 @@
 
 Butterfly is extensible. You can extend system by using Modules.
 
-!> ***Caution:*** Purpose of Modules is make reusable code. Which means that, if your code is project specific, you can just keep it
+> [!DANGER]
+> Purpose of Modules is make reusable code. Which means that, if your code is project specific, you can just keep it
  in project repository within app directory. If you are developing a new feature that can be used in other projects, than you can develop it as a Module.
 
 ## Modules of Butterfly

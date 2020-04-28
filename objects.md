@@ -34,7 +34,8 @@ you can use confirm function to alert user before doing the operation.
 
 > When you use before_ functions, since the operation is not done yet, you can run error function; you should use before function if you want to stop operation.
 
-!> We don't have an id yet when before_add operation is triggered.
+> [!DANGER]
+> We don't have an id yet when before_add operation is triggered.
 
 Following Hook will halt to operation and display an error on screen:
 
@@ -91,7 +92,8 @@ class Users extends Hook
 
 You can trigger error and stop the operation using this function.
 
-!> You should use `error` function with before_ events, since the operation is not done when before_ events are triggered.
+> [!WARNING]
+> You should use `error` function with before_ events, since the operation is not done when before_ events are triggered.
 
 Example:
 
@@ -148,7 +150,8 @@ should not be called more than once before calling confirm function.
 
 You can use getDataId function to retrieve the id of relevant column.
 
-!> ***Caution:*** You cannot use this function inside of before_add since record is not created yet which means there is no id.
+> [!DANGER]
+> You cannot use this function inside of before_add since record is not created yet which means there is no id.
 
 ```php
 <?php
@@ -192,13 +195,15 @@ class Articles extends Hook
 }
 ```
 
-!> ***Caution:*** getOldData function gets data from Database when it's called. Since database is updated before calling after_ events, if you call this function in after function, it will not work properly and return the latest data. If you need old data in after_ events, then, you can call it in before function and set it to another property.
+> [!NOTE]
+> `getOldData` function gets data from Database when it's called. Since database is updated before calling after_ events, if you call this function in after function, it will not work properly and return the latest data. If you need old data in after_ events, then, you can call it in before function and set it to another property.
 
 #### isChanged
 
 When user saves data in Butterfly Panel, you may want to check if a specific field is changed or not.  
 
-!> ***Caution:*** isChanged function returns if the field is changed or not. Since database is updated before calling after_ events, if you call this function in after function, it will not work properly and return the latest data. If you need old data in after_ events, then, you can call it in before function and set it to another property.
+> [!WARNING]
+> `isChanged` function returns if the field is changed or not. Since database is updated before calling after_ events, if you call this function in after function, it will not work properly and return the latest data. If you need old data in after_ events, then, you can call it in before function and set it to another property.
 
 In the following example, confirmation dialog will be displayed if the user changed `title`:
 

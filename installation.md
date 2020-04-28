@@ -38,7 +38,8 @@ Butterfly uses [Composer](https://getcomposer.org/) to manage dependencies and p
 /usr/local/bin/composer create-project butterfly/butterfly my_new_project --repository-url=https://repo.rglabs.co/
 ```
 
-!> **Caution:** You we need access token to access repo.rglabs.co and git repository.
+> [!NOTE]
+> You we need access token to access repo.rglabs.co and git repository.
 
 ### Running installation
 
@@ -48,9 +49,11 @@ After changing to butterfly directory, you need to run installation script:
 bin/butterfly install
 ```
 
-!> Caution: You should create MySQL Database, Grant permission to user before running installation script. 
-Even for root users, you need to create database.
+> [!WARNING]
+> You should create MySQL Database, Grant permission to user before running installation script. 
+> Even for root users, you need to create database.
 
+> [!TIP]
 > ***Recommended Database Encoding:*** utf8mb4, Collation: utf8mb4_general_ci. You can choose the collation suits to your language.
 
 You will be prompt to enter environment variables. You will need the following information:
@@ -90,6 +93,7 @@ bin/butterfly install --skip-database 1
 
 Butterfly needs the following folders to be owned by web server user. (Or chmod 777).
 
+> [!NOTE]
 > install command automatically calls this command after checking database. You don't need to run this command if you
 > run install command. 
 
