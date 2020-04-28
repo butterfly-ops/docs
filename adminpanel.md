@@ -14,7 +14,7 @@ and many more ...
 
 ## Objects
 
-Every created objects comes with special management screens. You can list, add, edit, 
+Every created object comes with special management screens. You can list, add, edit, 
 from it's auto-generated admin panel. You can even bulk edit, import or export your data. Besides having many unique features, 
 Management Screens can be customized easily.
 
