@@ -148,7 +148,7 @@ widget | Widget Name | Yes
 folder | Fodler Name | No
 
 ```shell script
- bin/butterfly make:widget basket product (optional folder)
+ bin/butterfly make:content-widget basket product (optional folder)
 ```
 
 ```shell script
