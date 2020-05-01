@@ -10,6 +10,7 @@
 - Added `bin/butterfly make:hook` command
 - Added `bin/butterfly make:controller` command
 - Added `bin/butterfly make:widget` command
+- Added `bin/butterfly make:content-widget` command
 - Added `bin/butterfly upgrade` command for Database Upgrades
 - Added `whereNotIn` function 
 - Added Object Migrations
