@@ -61,7 +61,7 @@ class Module extends Base
 
 In order to enable modules, first, you need to require the composer package from composer.
 
-```shell script
+```bash
 composer require vendorname\packagename;
 ```
 

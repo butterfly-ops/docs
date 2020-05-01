@@ -15,7 +15,7 @@ before a new entry is added to database, or you may want to send data to an exte
 
 You can create a hook using the following command:
 
-```shell script
+```bash
 bin/butterfly make:hook users
 ```  
 

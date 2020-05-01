@@ -22,11 +22,11 @@ Parameter Name | Description | Required
 controller | Controller Name | Yes
 folder | Folder Name | No
 
-```shell script
+```bash
  bin/butterfly make:controller Detail Commerce/Product
 ```
 
-```shell script
+```bash
 File created in "app/Controller/Commerce/Product/Detail.php";
 ```
 
@@ -54,11 +54,11 @@ Parameter Name | Description | Required
 model | Model Name | Yes
 folder | Folder Name | No
 
-```shell script
+```bash
  bin/butterfly make:model Detail Commerce/Product
 ```
 
-```shell script
+```bash
 File created in "app/Model/Commerce/Product/Detail.php";
 ```
 
@@ -83,11 +83,11 @@ Parameter Name | Description | Required
 --- | --- | ---
 hook | Hook Name | Yes
 
-```shell script
+```bash
  bin/butterfly make:hook User
 ```
 
-```shell script
+```bash
 File created in "app/Hook/User.php";
 ```
 ```php
@@ -112,11 +112,11 @@ Parameter Name | Description | Required
 widget | Widget Name | Yes
 folder | Fodler Name | No
 
-```shell script
+```bash
  bin/butterfly make:widget basket product (optional folder)
 ```
 
-```shell script
+```bash
 File successfully created in 'app/Widget/product/basket/basket.php'
 File successfully created in 'app/Widget/product/basket/basket.tpl'
 File successfully created in 'app/Widget/product/basket/parameters.yaml'
@@ -158,11 +158,11 @@ If you are creating a general widget, which you need it directly in `app/Widget/
 
 Example: 
 
-```shell script
+```bash
 bin/butterfly make:content-widget Product
 ```
 
-```shell script
+```bash
 File successfully created in app/Widget/Product/Product.php
 File successfully created in app/Widget/Product/Product.tpl
 File successfully created in app/Widget/Product/parameters.yaml
@@ -214,11 +214,11 @@ If you want to group your widgets, you can use second parameter to create your w
 
 Example: 
 
-```shell script
+```bash
 bin/butterfly make:content-widget ProductDetail General/Products
 ```
 
-```shell script
+```bash
 File successfully created in app/Widget/General/Products/ProductDetail/ProductDetail.php
 File successfully created in app/Widget/General/Products/ProductDetail/ProductDetail.tpl
 File successfully created in app/Widget/General/Products/ProductDetail/parameters.yaml

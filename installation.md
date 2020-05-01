@@ -26,7 +26,7 @@ Butterfly has minimum requirements on server side.
 
 >For Ubuntu 18.04, you can use the following command to install extensions
 
-```shell script
+```bash
 apt-get install php7.4 php7.4-json php7.4-xml
 ```
 
@@ -34,7 +34,7 @@ apt-get install php7.4 php7.4-json php7.4-xml
 
 Butterfly uses [Composer](https://getcomposer.org/) to manage dependencies and packages. You can easily install packages using the following command:
 
-```shell script
+```bash
 /usr/local/bin/composer create-project butterfly/butterfly my_new_project --repository-url=https://repo.rglabs.co/
 ```
 
@@ -45,7 +45,7 @@ Butterfly uses [Composer](https://getcomposer.org/) to manage dependencies and p
 
 After changing to butterfly directory, you need to run installation script:
 
-```shell script
+```bash
 bin/butterfly install
 ```
 
@@ -74,7 +74,7 @@ Database Name | Database name that is created.
 
 After the installation, you will see the admin information in shell.
 
-```shell script
+```bash
 Butterfly is successfully installed ! You can use the following information to access your panel:
 
 https://butterfly.test/admin
@@ -85,7 +85,7 @@ Password: aji1854843!@Xsz
 
 If you already created the tables, you can skip the database installation `--skip-database` option. Following command will check for the needed folders, will create a user.
 
-```shell script
+```bash
 bin/butterfly install --skip-database 1
 ```
 
@@ -107,14 +107,14 @@ Butterfly needs the following folders to be owned by web server user. (Or chmod 
 
 If you don't have the folders, you can run the following command to check or create folders:
 
-```shell script
+```bash
 bin/butterfly folders:create
 ```
 
 If script cannot create or chmod folders, it will print the commands that should be run. You can also run the 
 following commands if you need in the root directory of the project.
 
-```shell script
+```bash
 cd $PROJECT_DIRECTORY; ## Please change directory to project root.
 mkdir static var var/tmp var/cache var/log;
 chmod -R 777 var static;
@@ -125,7 +125,7 @@ chmod -R 777 var static;
 You may need to create new users when you initiated an empty project or you need another account. You can run the 
 following command to create a new user:
 
-```shell script
+```bash
 bin/butterfly admin:user:create
 ```
 
