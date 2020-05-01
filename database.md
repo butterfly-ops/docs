@@ -203,6 +203,22 @@ will run the query:
 SELECT * FROM users WHERE id IN (1, 2, 3)
 ```
 
+#### whereNotIn
+
+You can use arrays with where clauses:
+
+```php
+$users = db()->from('users')
+    ->whereNotIn('id', [1,2,3])
+    ->get();
+```
+
+will run the query:
+
+```sql
+SELECT * FROM users WHERE id NOT IN (1, 2, 3)
+```
+
 #### whereNull
 
 By using **whereNull**, you can easily filter only null values:
