@@ -47,43 +47,51 @@ class Detail extends Action
 }
 ```
 
-### Butterfly - Make Model 
+### Model 
 
-Example Model Create
+Parameters:
 
-User -- Model (Required)
-User/Auth -- Folder (Optional)
+Parameter Name | Description | Required
+--- | --- | ---
+model | Model Name | Yes
+folder | Folder Name | No
 
 ```shell script
- bin/butterfly make:model User User/Auth
+ bin/butterfly make:model Detail Commerce/Product
 ```
-- Output
-File created this path "/app/Model/User/Auth/User.php";
+
+```shell script
+File created in "app/Model/Commerce/Product/Detail.php";
+```
 
 ```php
 <?php
 
-namespace App\Model\User\Auth;
+namespace App\Model\Commerce\Product;
 
 use Butterfly\Library\Model;
 
-class User extends Model
+class Detail extends Model
 {
-    public $_name = "User";
+    public $_name = "Detail";
 }
 ```
-### Butterfly - Make Hook 
 
-Example Hook Create
+### Hook 
 
-User -- Hook (Required)
+Parameters:
+
+Parameter Name | Description | Required
+--- | --- | ---
+hook | Hook Name | Yes
 
 ```shell script
- bin/butterfly make:hook Users
+ bin/butterfly make:hook User
 ```
-- Output
-File created this path "/app/Hook/Users.php";
 
+```shell script
+File created in "app/Hook/User.php";
+```
 ```php
 <?php
 
@@ -91,8 +99,80 @@ namespace App\Hook;
 
 use Butterfly\Library\Hook;
 
-class Users extends Hook
+class User extends Hook
 {
 
 }
+```
+
+### Widget 
+
+Parameters:
+
+Parameter Name | Description | Required
+--- | --- | ---
+widget | Widget Name | Yes
+folder | Fodler Name | No
+
+```shell script
+ bin/butterfly make:widget basket product (optional folder)
+```
+
+```shell script
+File successfully created in 'app/Widget/product/basket/basket.php'
+File successfully created in 'app/Widget/product/basket/basket.tpl'
+File successfully created in 'app/Widget/product/basket/parameters.yaml'
+
+```
+```php
+<?php
+namespace App\Widget\product\basket;
+
+class basket extends \Butterfly\Library\Widget
+{
+    protected $_friendly_name = "Basket";
+
+    public function init() {
+        return $this->render();
+    }
+}
+```
+
+### Content Widget 
+
+Parameters:
+
+Parameter Name | Description | Required
+--- | --- | ---
+widget | Widget Name | Yes
+folder | Fodler Name | No
+
+```shell script
+ bin/butterfly make:widget basket product (optional folder)
+```
+
+```shell script
+File successfully created in 'app/Widget/product/basket/basket.php'
+File successfully created in 'app/Widget/product/basket/basket.tpl'
+File successfully created in 'app/Widget/product/basket/parameters.yaml'
+
+```
+```php
+<?php
+namespace App\Widget\product\basket;
+
+class basket extends \Butterfly\Library\Widget
+{
+    protected $_friendly_name = "Basket";
+
+    public function init() {
+        return $this->render();
+    }
+}
+```
+```yaml
+content_pool_id:
+    name: 'Content Pool'
+    column_name: content_pool_id
+    type: content_pool
 ```
