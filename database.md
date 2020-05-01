@@ -400,6 +400,8 @@ SELECT * FROM users WHERE status NOT BETWEEN 5 AND 10
 
 You can join tables:
 
+#### Inner Join
+
 ```php
 $users = db()->from('users')
     ->join('user_permissions', 'users.id', '=', 'user_permissions.id')
@@ -418,6 +420,8 @@ WHERE id = 1
 > [!WARNING]
 > Join function uses INNER JOIN Statement
 
+#### Left Join
+
 You can left join tables:
 
 ```php
@@ -434,6 +438,8 @@ SELECT * FROM users
     LEFT JOIN user_permissions ON users.id = user_permissions.id
 WHERE id = 1
 ```
+
+#### Right Join
 
 You can right join tables:
 
