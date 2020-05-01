@@ -407,6 +407,17 @@ $users = db()->from('users')
     ->get();
 ```
 
+will run the query:
+
+```sql
+SELECT * FROM users
+    INNER JOIN user_permissions ON users.id = user_permissions.id
+WHERE id = 1
+```
+
+> [!WARNING]
+> Join function uses INNER JOIN Statement
+
 You can left join tables:
 
 ```php
@@ -416,6 +427,14 @@ $users = db()->from('users')
     ->get();
 ```
 
+will run the query:
+
+```sql
+SELECT * FROM users
+    LEFT JOIN user_permissions ON users.id = user_permissions.id
+WHERE id = 1
+```
+
 You can right join tables:
 
 ```php
@@ -423,6 +442,14 @@ $users = db()->from('users')
     ->joinRight('user_permissions', 'users.id', '=', 'user_permissions.id')
     ->where('id', 1)
     ->get();
+```
+
+will run the query:
+
+```sql
+SELECT * FROM users
+    RIGHT JOIN user_permissions ON users.id = user_permissions.id
+WHERE id = 1
 ```
 
 ### Use Index
