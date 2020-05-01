@@ -157,6 +157,8 @@ File successfully created in 'app/Widget/product/basket/basket.tpl'
 File successfully created in 'app/Widget/product/basket/parameters.yaml'
 
 ```
+
+Php file :
 ```php
 <?php
 namespace App\Widget\product\basket;
@@ -170,6 +172,8 @@ class basket extends \Butterfly\Library\Widget
     }
 }
 ```
+
+Yaml file :
 ```yaml
 content_pool_id:
     name: 'Content Pool'
