@@ -145,7 +145,14 @@ Parameter Name | Description | Required
 widget | Widget Name | Yes
 folder | Fodler Name | No
 
-### Content Widget without Folder
+Content Widget is a type of Widget which aims to display your contents. Content Widgets accepts Content Pool parameter to 
+determine data that will be displayed.
+
+Content Pools make it easy to make your display layer content agnostic. Which means that, you can change the data to be displayed without changing your code.
+
+You can get more details from Content Pools Section.
+
+### Without Folder
 
 If you are creating a general widget, which you need it directly in `app/Widget/`, you can use command without folder.
 
@@ -201,7 +208,7 @@ content_pool_id:
     type: content_pool
 ```
 
-### Content Widget with Subfolders
+### With Subfolders
 
 If you want to group your widgets, you can use second parameter to create your widget in subfolder. Subfolder will be located in `app/Widget/`, you can use deeper folders.
 
