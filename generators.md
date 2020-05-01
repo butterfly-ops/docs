@@ -145,7 +145,7 @@ Parameter Name | Description | Required
 widget | Widget Name | Yes
 folder | Fodler Name | No
 
-### Content Widget without Folder.
+### Content Widget without Folder
 
 If you are creating a general widget, which you need it directly in `app/Widget/`, you can use command without folder.
 
@@ -201,7 +201,7 @@ content_pool_id:
     type: content_pool
 ```
 
-### Content Widget with Subfolders.
+### Content Widget with Subfolders
 
 If you want to group your widgets, you can use second parameter to create your widget in subfolder. Subfolder will be located in `app/Widget/`, you can use deeper folders.
 
