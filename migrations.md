@@ -1,43 +1,52 @@
 # Migrations
 
-## Introduction
+Migrations make it easy to create new files like Controller, Model, Widget, Hook etc. You can use migrations by various make commands.
 
-Butterfly is extensible. You can extend system by using Migrations.
+> [!TIP]
+> You can reach list of migrations by running `bin/butterfly list make` command.
 
-## Migrations of Butterfly
+## Commands
 
-Controller  => make:controller
-Model       => make:model
-Hook        => make:hook
+Command | Description
+--- | ---
+controller | Generates new Controller
+hook | Generates new Hook for creating hooks
+model | Generates new Model
+widget | Generates new Widget
+content-widget | Generates new Content Listing Widget
 
+### Controller 
 
-### Butterfly - Make Controller 
+Parameters:
 
-Example Controller Create
-
-User -- Controller (Required)
-User/Auth -- Folder (Optional)
+Parameter Name | Description | Required
+--- | --- | ---
+controller | Controller Name | Yes
+folder | Folder Name | No
 
 ```shell script
- bin/butterfly make:controller User User/Auth
+ bin/butterfly make:controller Detail Commerce/Product
 ```
-- Output
-File created this path "/app/Controller/User/Auth/User.php";
+
+```shell script
+File created in "app/Controller/Commerce/Product/Detail.php";
+```
 
 ```php
 <?php
 
-namespace App\Controller\User\Auth;
+namespace App\Controller\Commerce\Product;
 
 use Butterfly\Framework\Controller\Action;
 
-class User extends Action
+class Detail extends Action
 {
-    public function UserAction() {
+    public function indexAction() {
 
     }
 }
 ```
+
 ### Butterfly - Make Model 
 
 Example Model Create
