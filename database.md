@@ -149,6 +149,10 @@ SELECT id, name FROM users;
 
 You can use parameter binding, and bind parameters:
 
+> [!WARNING]
+> You can use `->where('id', 5)` short form instead of the following example. You don't need to use `bind` function for 
+> short operations.   
+
 ```php
 $user = db()->from('users')
     ->where('id = :id')
