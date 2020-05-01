@@ -5,8 +5,6 @@ Generators make it easy to create new files like Controller, Model, Widget, Hook
 > [!TIP]
 > You can reach list of generators by running `bin/butterfly list make` command.
 
-## Commands
-
 Command | Description
 --- | ---
 controller | Generates new Controller
@@ -15,7 +13,7 @@ model | Generates new Model
 widget | Generates new Widget
 content-widget | Generates new Content Listing Widget
 
-### Controller 
+## Controller 
 
 Parameters:
 
@@ -47,7 +45,7 @@ class Detail extends Action
 }
 ```
 
-### Model 
+## Model 
 
 Parameters:
 
@@ -77,7 +75,7 @@ class Detail extends Model
 }
 ```
 
-### Hook 
+## Hook 
 
 Parameters:
 
@@ -105,7 +103,7 @@ class User extends Hook
 }
 ```
 
-### Widget 
+## Widget 
 
 Parameters:
 
@@ -138,7 +136,7 @@ class basket extends \Butterfly\Library\Widget
 }
 ```
 
-### Content Widget 
+## Content Widget 
 
 Parameters:
 
