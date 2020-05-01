@@ -145,33 +145,110 @@ Parameter Name | Description | Required
 widget | Widget Name | Yes
 folder | Fodler Name | No
 
+### Content Widget without Folder.
+
+If you are creating a general widget, which you need it directly in `app/Widget/`, you can use command without folder.
+
+Example: 
+
 ```shell script
- bin/butterfly make:content-widget basket product (optional folder)
+bin/butterfly make:content-widget Product
 ```
 
 ```shell script
-File successfully created in 'app/Widget/product/basket/basket.php'
-File successfully created in 'app/Widget/product/basket/basket.tpl'
-File successfully created in 'app/Widget/product/basket/parameters.yaml'
+File successfully created in app/Widget/Product/Product.php
+File successfully created in app/Widget/Product/Product.tpl
+File successfully created in app/Widget/Product/parameters.yaml
 
 ```
 
-Php file :
+Php file:
 ```php
 <?php
-namespace App\Widget\product\basket;
+namespace App\Widget\Product;
 
-class basket extends \Butterfly\Library\Widget
+class Product extends \Butterfly\Framework\Widget\ContentPool
 {
-    protected $_friendly_name = "Basket";
+    protected $_friendly_name = "Product";
+    protected $content_pools = ['content_pool_id'];
 
     public function init() {
+        parent::init();
+
         return $this->render();
     }
 }
 ```
 
-Yaml file :
+Template file:
+```smarty
+<ul>
+{foreach $contents.content_pool_id.item as $item}
+    <li>
+        <a href="/{$item.seo}" title="{$item.label} - {$item.title}">
+            {$item.label}
+        </a>
+    </li>
+{/foreach}
+</ul>
+```
+
+Yaml file:
+```yaml
+content_pool_id:
+    name: 'Content Pool'
+    column_name: content_pool_id
+    type: content_pool
+```
+
+### Content Widget with Subfolders.
+
+If you want to group your widgets, you can use second parameter to create your widget in subfolder. Subfolder will be located in `app/Widget/`, you can use deeper folders.
+
+Example: 
+
+```shell script
+bin/butterfly make:content-widget ProductDetail General/Products
+```
+
+```shell script
+File successfully created in app/Widget/General/Products/ProductDetail/ProductDetail.php
+File successfully created in app/Widget/General/Products/ProductDetail/ProductDetail.tpl
+File successfully created in app/Widget/General/Products/ProductDetail/parameters.yaml
+```
+
+Php file:
+```php
+<?php
+namespace App\Widget\General\Products\ProductDetail;
+
+class ProductDetail extends \Butterfly\Framework\Widget\ContentPool
+{
+    protected $_friendly_name = "Product Detail";
+    protected $content_pools = ['content_pool_id'];
+
+    public function init() {
+        parent::init();
+
+        return $this->render();
+    }
+}
+```
+
+Template file:
+```smarty
+<ul>
+{foreach $contents.content_pool_id.item as $item}
+    <li>
+        <a href="/{$item.seo}" title="{$item.label} - {$item.title}">
+            {$item.label}
+        </a>
+    </li>
+{/foreach}
+</ul>
+```
+
+Yaml file:
 ```yaml
 content_pool_id:
     name: 'Content Pool'
