@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 1.5.29
 
 - Added `bin/butterfly publish:admin:template` command
 - Added `bin/butterfly make:model` command
