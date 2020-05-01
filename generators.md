@@ -1,9 +1,9 @@
-# Migrations
+# Generators
 
-Migrations make it easy to create new files like Controller, Model, Widget, Hook etc. You can use migrations by various make commands.
+Generators make it easy to create new files like Controller, Model, Widget, Hook etc. You can use generators by various make commands.
 
 > [!TIP]
-> You can reach list of migrations by running `bin/butterfly list make` command.
+> You can reach list of generators by running `bin/butterfly list make` command.
 
 ## Commands
 

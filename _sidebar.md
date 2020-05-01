@@ -4,7 +4,7 @@
 * [Installation](installation.md)
 * [Changelog](changelog.md)
 * [Module](modules.md)
-* [Migrations](migrations.md)
+* [Generators](generators.md)
 * [Database](database.md)
 * [Objects](objects.md)
 * [Admin Panel](adminpanel.md)
