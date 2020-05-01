@@ -135,40 +135,16 @@ Php file:
 <?php
 namespace App\Widget\Product;
 
-class Product extends \Butterfly\Framework\Widget\ContentPool
+class Product extends \Butterfly\Library\Widget
 {
     protected $_friendly_name = "Product";
-    protected $content_pools = ['content_pool_id'];
 
     public function init() {
-        parent::init();
 
         return $this->render();
     }
 }
 ```
-
-Template file:
-```smarty
-<ul>
-{foreach $contents.content_pool_id.item as $item}
-    <li>
-        <a href="/{$item.seo}" title="{$item.label} - {$item.title}">
-            {$item.label}
-        </a>
-    </li>
-{/foreach}
-</ul>
-```
-
-Yaml file:
-```yaml
-content_pool_id:
-    name: 'Content Pool'
-    column_name: content_pool_id
-    type: content_pool
-```
-
 ### With Subfolders
 
 If you want to group your widgets, you can use second parameter to create your widget in subfolder. Subfolder will be located in `app/Widget/`, you can use deeper folders.
@@ -190,40 +166,16 @@ Php file:
 <?php
 namespace App\Widget\General\Products\ProductDetail;
 
-class ProductDetail extends \Butterfly\Framework\Widget\ContentPool
+class ProductDetail extends \Butterfly\Library\Widget
 {
     protected $_friendly_name = "Product Detail";
-    protected $content_pools = ['content_pool_id'];
 
     public function init() {
-        parent::init();
 
         return $this->render();
     }
 }
 ```
-
-Template file:
-```smarty
-<ul>
-{foreach $contents.content_pool_id.item as $item}
-    <li>
-        <a href="/{$item.seo}" title="{$item.label} - {$item.title}">
-            {$item.label}
-        </a>
-    </li>
-{/foreach}
-</ul>
-```
-
-Yaml file:
-```yaml
-content_pool_id:
-    name: 'Content Pool'
-    column_name: content_pool_id
-    type: content_pool
-```
-
 
 ## Content Widget 
 
