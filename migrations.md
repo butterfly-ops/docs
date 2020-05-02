@@ -14,6 +14,9 @@ in `app/Migration` folder.
 
 There are two types of Migrations
 
+- [Install](#Install)
+- [Upgrade](#Upgrade)
+
 ## Install
 
 Install migrations run when the system is installed to a new database. Which means that, you can assume that, target database is empty
