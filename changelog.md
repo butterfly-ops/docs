@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.5.31
+
+- Fixed a bug in `make:content-widget` command.
+
 ## 1.5.30
 
 - Removed unnecessary `duration` column from Item->Refresh method
