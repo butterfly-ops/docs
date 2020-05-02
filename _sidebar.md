@@ -7,5 +7,6 @@
 * [Objects](objects.md)
 * [Admin Panel](adminpanel.md)
 * [Generators](generators.md)
+* [Migrations](migrations.md)
 * [Module](modules.md)
 * [Security](security.md)
