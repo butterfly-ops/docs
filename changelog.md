@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.5.30
+
+- Removed unnecessary `duration` column from Item->Refresh method
+
 ## 1.5.29
 
 - Added `bin/butterfly publish:admin:template` command
