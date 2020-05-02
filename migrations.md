@@ -89,7 +89,7 @@ $response = db()->schema('my_new_table')->object(function(\Butterfly\Framework\D
 
 #### Renaming Table Names
 
-You cao rename table names of existing Tables.
+You can rename table names of existing Tables.
 
 #### Creating new Object Specs
 
