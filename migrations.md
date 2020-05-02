@@ -46,6 +46,25 @@ bin/butterfly upgrade
 For migrations not to run more than once, you can use version numbers. Butterfly uses [semantic versioning](https://semver.org/) to version the Modules. Version numbers are written in module.yaml files. For more information about Modules 
 you can check [Modules documentation](https://thebutterfly.io/docs/#/modules)
 
+Example:
+
+```php
+namespace App\Migration;
+
+use Butterfly\Framework\Migration\Base;
+
+class Upgrade extends Base
+{
+    public function run()
+    {
+        if($this->currentVersionIsOlderThan('1.0.1'))
+        {
+            // Put some Migration Script code here
+        }
+    }
+}
+```
+
 ## Migration Scripts
 
 ### Objects
