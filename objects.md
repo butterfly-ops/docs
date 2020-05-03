@@ -147,6 +147,16 @@ class Users extends Hook
     }
 }
 ```
+
+#### before_delete
+
+This function is triggered before deleting an entry. You can access the data to be deleted by using `$crud->getDataId()` function.
+It will retrieve the id that will be deleted. Since the operation is not done yet, you can also access the data.
+
+#### after_delete
+
+This function is triggered after deleting an entry. Only parameter you can access is the ID `$crud->getDataId()` of the entry, since it's deleted from
+the database. 
  
 ### Crud Functions
 
