@@ -61,6 +61,93 @@ class Users extends Hook
 This function is triggered after adding new entry. You can use this function if you want to run your trigger
  when entry is actually added.
  
+ ```php
+<?php
+
+namespace App\Hook;
+ 
+use Butterfly\Framework\Data\Crud;
+use Butterfly\Library\Hook;
+ 
+class Users extends Hook
+{
+    public function after_add(Crud &$crud)
+    {
+        $data = $crud->getData();
+        $newId = $crud->getDataId();
+    
+        // You can call external service with $data variable here
+    }
+}
+```
+
+#### before_edit
+
+This function is triggered before updating an entry. You can also check if there is a difference with previous state using 
+[`isChanged`](#isChanged) function. You can also get the old info using [`getOldData`](#getOldData) function.
+
+```php
+<?php
+
+namespace App\Hook;
+ 
+use Butterfly\Framework\Data\Crud;
+use Butterfly\Library\Hook;
+ 
+class Users extends Hook
+{
+    public function before_edit(Crud &$crud)
+    {
+        // Following if block will ask user confirmation.
+        if($crud->isChanged('name'))
+        {
+            $oldData = $crud->getOldData('name');
+            $newData = $crud->get('name');
+                
+            $crud::confirm('You are changing name from ' . $oldData . ' to ' . $newData . '. Are you sure?');
+        }
+    }
+}
+```
+
+#### after_edit
+
+This function is triggered after updating an entry.
+
+> [!WARNING]
+> You cannot use `isChanged` and `getOldData` functions on after_edit section because the data is already updated. Because
+> of that, `isChanged` will always return `false` and `getOldData` will return the new data.
+
+> [!TIP]
+> You can use `before_edit` hook to check `isChanged` and `getOldData` and set the data to a variable in `$this` context. Then,
+> you can use variables you've created to access this information.   
+
+```php
+<?php
+
+namespace App\Hook;
+ 
+use Butterfly\Framework\Data\Crud;
+use Butterfly\Library\Hook;
+ 
+class Users extends Hook
+{
+    private $nameIsChanged;
+    private $oldName;
+
+    public function before_edit(Crud &$crud)
+        {
+            $this->nameIsChanged = $crud->isChanged('name');
+            $this->oldName = $crud->getOldData('name');
+        }
+
+    public function after_edit(Crud &$crud)
+    {
+        // Now, you can use $this->nameIsChanged or $this->oldName variables to access this information.
+    }
+}
+```
+ 
 ### Crud Functions
 
 #### get
