@@ -1077,7 +1077,7 @@ Example Usage:
 
 ```php
 db()->table('users')
-    ->join('INNER JOIN user_groups ON user_groups.id = users.user_group_id')
+    ->join('user_groups', 'user_groups.id', '=', 'users.user_group_id')
     ->where('users.id', 1)
     ->update([
         'name' => 'foo',
@@ -1119,7 +1119,7 @@ Multiple tables may be joined and deleted.
 
 ```php
 db()->table('user_groups')
-    ->join('INNER JOIN users ON user_groups.id = users.user_group_id')
+    ->join('users', 'user_groups.id', '=', 'users.user_group_id')
     ->whereNull('users.id')
     ->delete(['users'])
 ;
@@ -1139,7 +1139,7 @@ Example:
 
 ```php
 db()->table('user_groups')
-    ->join('INNER JOIN users ON user_groups.id = users.user_group_id')
+    ->join('users', 'user_groups.id', '=', 'users.user_group_id')
     ->whereNull('users.id')
     ->delete() // No table name is defined, user_groups table will be deleted. 
 ;
