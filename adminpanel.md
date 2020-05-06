@@ -17,6 +17,8 @@ and many more ...
 Admin Panel layout is the generic layout which includes all container information. You can customize admin panel layout 
 publishing admin panel layout to `app/Views/Cms/layout.tpl` file path.
 
+Run the following command to publish admin template:
+
 ```bash
 bin/butterfly publish:admin:template
 ```
