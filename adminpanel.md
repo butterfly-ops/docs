@@ -29,7 +29,7 @@ Blank template will look like the following code.
 {include_tpl file="admin_layout"}
 ```
 
-Congrats! You now have a layout.tpl works as is but now, you can make customizations.
+Congrats! You now have an admin layout file, works as is but now, you can make customizations.
 
 > [!WARNING]
 > This command will overwrite file in `app/Views/Cms/layout.tpl`. Please check if this file exists before running. It will warn 
