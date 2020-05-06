@@ -12,6 +12,19 @@ One of the most important features of Butterfly is it's Admin Panel.
 
 and many more ...    
 
+## General Layout Customization
+
+Admin Panel layout is the generic layout which includes all container information. You can customize admin panel layout 
+publishing admin panel layout to `app/Views/Cms/layout.tpl` file path.
+
+```bash
+bin/butterfly publish:admin:template
+```
+
+> [!WARNING]
+> This command will overwrite file in `app/Views/Cms/layout.tpl`. Please check if this file exists before running. It will warn 
+> if the file already exists. 
+
 ## Objects
 
 Every created object comes with special management screens. You can list, add, edit, 
