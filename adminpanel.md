@@ -12,7 +12,7 @@ One of the most important features of Butterfly is it's Admin Panel.
 
 and many more ...    
 
-## General Layout Customization
+## Layout
 
 Admin Panel layout is the generic layout which includes all container information. You can customize admin panel layout 
 publishing admin panel layout to `app/Views/Cms/layout.tpl` file path.
