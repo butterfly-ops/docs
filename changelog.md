@@ -2,7 +2,7 @@
 
 ## 1.5.32
 
-- Added `bin/butterfly publish:admin:layout` command. [Details](/docs/#/adminpanel?id=layout)
+- Added `bin/butterfly publish:admin:layout` command. [Details](https://thebutterfly.io/docs/#/adminpanel?id=layout)
 
 ## 1.5.31
 
