@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.5.33 
+
+- Updated Object Listing for `remote_image` field type. Now displays image in list. 
+
 ## 1.5.32
 
 - Added `bin/butterfly publish:admin:layout` command. [Details](https://thebutterfly.io/docs/#/adminpanel?id=layout)
