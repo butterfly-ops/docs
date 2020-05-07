@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.5.34
+
+- Hotfix for custom admin layouts 
+
 ## 1.5.33 
 
 - Updated Object Listing for `remote_image` field type. Now displays image in list. 
