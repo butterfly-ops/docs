@@ -64,6 +64,25 @@ page to work just like it was, you can place the following code to your template
 
 Now, you have a listing page, just working as it was but now, you can add new code blocks to top or bottom of the page.
 
+##### Action Buttons
+
+You can add a new button to listing page for row specific actions. New button will be added to left or right of the default buttons.
+
+Add Action button to left:
+
+```smarty
+{$action_buttons.left[] = '<a href="/admin/order/list?customer_id=<id>" title="" class="edit_button btn14 mr5 topDir" original-title="Customer Orders"><img src="/assets/core/admin/images/icons/dark/cart.png" alt=""></a>'}
+```
+
+Add Action button to right:
+
+```smarty
+{$action_buttons.right[] = '<a href="/admin/order/list?customer_id=<id>" title="" class="edit_button btn14 mr5 topDir" original-title="Customer Orders"><img src="/assets/core/admin/images/icons/dark/cart.png" alt=""></a>'}
+```
+
+> [!TIP]
+> As you see in the examples above, you can reach columns by using `<field_name>` syntax. `<id>` will be translated into `id` of the row.  
+
 ##### Field Based
 
 You may want to change look & feel or functionality of a specific Object Field.
