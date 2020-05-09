@@ -52,6 +52,9 @@ of this page will be: `/admin/article/list`.
 
 If you want to customize listing page, you can create a file called `list.tpl` as `app/Views/Cms/article/list.tpl`
 
+> [!TIP]
+> You can use `bin/butterfly publish:admin:template articles list` command to generate customization template.
+
 When you create an empty file, you can see that, listing page will also change to a blank page. If you want your custom 
 page to work just like it was, you can place the following code to your template file.
 
@@ -61,12 +64,12 @@ page to work just like it was, you can place the following code to your template
 
 Now, you have a listing page, just working as it was but now, you can add new code blocks to top or bottom of the page.
 
-> [!TIP]
-> You can use `bin/butterfly publish:admin:template articles list` command to generate customization template.
-
 ##### Field Based
 
 You may want to change look & feel or functionality of a specific Object Field.
+
+> [!TIP]
+> You can use `bin/butterfly publish:admin:template articles list title` command to generate customization template for specific field.
 
 Example:
 
@@ -85,9 +88,6 @@ or, you can use the field name instead
 ```smarty
 {$l.title}
 ```
-
-> [!TIP]
-> You can use `bin/butterfly publish:admin:template articles list title` command to generate customization template for specific field.
 
 #### Add Page
 
