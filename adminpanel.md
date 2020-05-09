@@ -48,6 +48,8 @@ of this page will be: `/admin/article/list`.
 
 #### Listing Page
 
+##### Full Layout
+
 If you want to customize listing page, you can create a file called `list.tpl` as `app/Views/Cms/article/list.tpl`
 
 When you create an empty file, you can see that, listing page will also change to a blank page. If you want your custom 
@@ -61,6 +63,8 @@ Now, you have a listing page, just working as it was but now, you can add new co
 
 > [!TIP]
 > You can use `bin/butterfly publish:admin:template articles list` command to generate customization template.
+
+##### Field Based
 
 You may want to change look & feel or functionality of a specific Object Field.
 
