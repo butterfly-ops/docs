@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.5.37
+
+- Performance Improvement for Objects - Multi-Database Support
+
 ## 1.5.36
 
 - Hotfix for Admin / Reports button display status
