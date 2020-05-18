@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.5.36
+
+- Hotfix for Admin / Reports button display status
+
 ## 1.5.34
 
 - Hotfix for custom admin layouts 
