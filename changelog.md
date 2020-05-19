@@ -1,10 +1,10 @@
 # Changelog
 
-## 1.5.38
+## 1.5.39
    
 - Hotfix for Widget Reload operation
 
-## 1.5.37
+## 1.5.38
 
 - Performance Improvement for Objects - Multi-Database Support
 
