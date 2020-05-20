@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.5.40
+
+- Hotfix for ObjectController list action display
+
 ## 1.5.39
    
 - Hotfix for Widget Reload operation
