@@ -1,5 +1,9 @@
 # Changelog
 
+## Not Released
+
+- Admin Left Menu fix for object / detail pages.
+
 ## 1.5.40
 
 - Hotfix for ObjectController list action display
