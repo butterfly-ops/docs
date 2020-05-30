@@ -1,8 +1,9 @@
 # Changelog
 
-## Not Released
+## 1.5.41
 
 - Admin Left Menu fix for object / detail pages.
+- Garbage Collector (`cron:garbage-collector`) performance update.
 
 ## 1.5.40
 
