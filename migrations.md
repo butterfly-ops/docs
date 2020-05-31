@@ -65,6 +65,12 @@ class Upgrade extends Base
 }
 ```
 
+## App Specific Migrations
+
+You can also use Migrations in `app` Folder. `app` is considered as a Module inside of the System. Which means that, you can 
+update your modules version from `app/module.yaml` and you can write down Migration scripts in `app/Migration/Install.php` and 
+`app/Migration/Upgrade.php` files.
+
 ## Migration Scripts
 
 ### Objects
