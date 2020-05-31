@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.5.48
+
+- Install / Upgrade support for Core + App is finalized. [Documentation](/docs/#/migrations)
+
 ## 1.5.41
 
 - Admin Left Menu fix for object / detail pages.
