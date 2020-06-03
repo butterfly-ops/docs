@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.5.50
+
+- Money field type fixes
+
 ## 1.5.48
 
 - Install / Upgrade support for Core + App is finalized. [Documentation](https://thebutterfly.io/docs/#/migrations)
