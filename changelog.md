@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- multiple object export hotfix
+
 ## 1.5.50
 
 - Money field type fixes
