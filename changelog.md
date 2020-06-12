@@ -2,7 +2,9 @@
 
 ## Unreleased
 
-- multiple object export hotfix
+- Multiple object export hotfix
+- Fixed a bug in Nested Fields occurs when Nested Field is the first field of the Object
+- Login As support is added for Users with User Add / Edit Permission.
 
 ## 1.5.50
 
