@@ -5,6 +5,7 @@
 - Multiple object export hotfix
 - Fixed a bug in Nested Fields occurs when Nested Field is the first field of the Object
 - Login As support is added for Users with User Add / Edit Permission.
+- Fixed Admin Menu's doesn't show up when Permitted Object is a SubMenu
 
 ## 1.5.50
 
