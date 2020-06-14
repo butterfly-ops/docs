@@ -13,6 +13,7 @@ Butterfly has minimum requirements on server side.
 * OpenSSL PHP Extension
 * PDO PHP Extension 
 * GD2 PHP Extension
+* Exif PHP Extension
 * Zip PHP Extension
 
 **Recommended:**
@@ -27,7 +28,7 @@ Butterfly has minimum requirements on server side.
 >For Ubuntu 18.04, you can use the following command to install extensions
 
 ```bash
-apt-get install php7.4 php7.4-json php7.4-xml
+apt-get install php7.4 php7.4-json php7.4-xml php7.4-exif php7.4-gd2
 ```
 
 ## Installing Butterfly
