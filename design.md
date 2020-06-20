@@ -38,6 +38,4 @@ As you see, Best Selling Products and Latest Products are the same Widget with d
 
 ## Personalization
 
-## Widgets
-
 ## Content Pools  
