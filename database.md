@@ -3,9 +3,9 @@ Butterfly uses multi-layer database management. It's possible to use multiple da
 All Butterfly related data is stored in MySQL but you can use the following database drivers: 
 
 - MySQL 5.6+
-- _ElasticSearch_ _7.x_ _(Coming soon)_
-- _Redis_ _(Coming soon)_
-- _MongoDB_ _(Coming soon)_
+- _ElasticSearch_
+- _Redis_
+- _MongoDB_
 
 # Configuration
 The database configurations are stored in `app/config/database.php`. Configurations can be customized by domain name with subfolders.
