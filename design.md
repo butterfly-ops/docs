@@ -19,6 +19,9 @@ Let's move on with an example case:
 You can think each of these pages as Designs which means that, Designs are generic Look & Feels of your website. You don't need
 to create different Designs for each Category or Product. You may have a single Product Detail Design for all Products.
 
+>[!TIP]
+> You can also define Design of a Specific Item or Design of Group of Items. 
+
 ### Widgets
 
 Widgets are the minor segments of Designs. For the Ecommerce Website Example, Let's think about Homepae,
@@ -32,9 +35,6 @@ Widgets are the minor segments of Designs. For the Ecommerce Website Example, Le
 In this case study, you will have the following Widgets: Header, Footer, Slider, ProductList
 
 As you see, Best Selling Products and Latest Products are the same Widget with different Parameters.
-
->[!TIP]
-> You can also define Design of a Specific Item or Design of Group of Items. 
 
 ## Personalization
 
