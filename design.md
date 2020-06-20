@@ -9,11 +9,12 @@ If you are building a Webpage, Designs outputs HTML. If you are building a webse
 
 Let's move on with an example case:
 
-- You want to build an Ecommerce Website,
-- You will have a Homepage
-- You will have a Product Detail Page
-- You will have a Category Listing Page
-- You will have a Cart Page
+- You want to build an Ecommerce Website.
+- You have the following Pages:
+    - Homepage
+    - Product Detail Page
+    - Category Listing Page
+    - Cart Page
 
 You can think each of these pages as Designs which means that, Designs are generic Look & Feels of your website. You don't need
 to create different Designs for each Category or Product. You may have a single Product Detail Design for all Products.
