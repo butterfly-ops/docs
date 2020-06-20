@@ -1,6 +1,6 @@
 # Butterfly
 
-Here is the Butterfly. It's built for building dynamic ecosystems where you have any type Data, you have
+Here is the Butterfly. It's built for building dynamic ecosystems where you have any type of Data, you have
  any type of Device. 
 
 ## What is Butterfly    
