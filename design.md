@@ -34,7 +34,7 @@ Widgets are the minor segments of Designs. For the Ecommerce Website Example, Le
 
 In this case study, you will have the following Widgets: Header, Footer, Slider, ProductList
 
-As you see, Best Selling Products and Latest Products are the same Widget with different Parameters.
+As you see, Best Selling Products and Latest Products are displayed using the same Widget with different Parameters.
 
 ## Personalization
 
