@@ -20,7 +20,7 @@ You can think each of these pages as Designs which means that, Designs are gener
 to create different Designs for each Category or Product. You may have a single Product Detail Design for all Products.
 
 >[!TIP]
-> You can also define Design of a Specific Item or Design of Group of Items. 
+> You can also define Design for a Specific Item or Group of Items. 
 
 ### Widgets
 
