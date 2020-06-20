@@ -150,13 +150,13 @@ SELECT id, name FROM users;
 You can use parameter binding, and bind parameters:
 
 > [!WARNING]
-> You can use `->where('id', 5)` short form instead of the following example. You don't need to use `bind` function for 
-> short operations.   
+> You don't need bind function for shorthand where clauses. You can use directly bind parameter as second parameter to where clauses.
+> For example: `->where('id', 5)` will bind parameters automatically. Don't use `bind` function for non-complex where operations.  
 
 ```php
 $user = db()->from('users')
-    ->where('id = :id')
-    ->bind('id', 5)
+    ->join('user_roles', 'user_roles.user_id', '=', 'users_id AND status = :status')
+    ->bind('status', 2)
     ->first();
 ```
 
