@@ -24,7 +24,7 @@ to create different Designs for each Category or Product. You may have a single 
 
 ### Widgets
 
-Widgets are the minor segments of Designs. For the Ecommerce Website Example, Let's think about Homepae,
+Widgets are the minor segments of Designs. For the Ecommerce Website Example, Let's think about Homepage,
 
 - You have a Homepage Design,
 - There are Header and Footer in the page,
