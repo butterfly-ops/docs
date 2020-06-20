@@ -20,7 +20,7 @@ publishing admin panel layout to `app/Views/Cms/layout.tpl` file path.
 Run the following command to publish admin template:
 
 ```bash
-bin/butterfly publish:admin:template
+bin/butterfly publish:admin:layout
 ```
 
 Blank template will look like the following code.
@@ -32,8 +32,13 @@ Blank template will look like the following code.
 Congrats! You now have an admin layout file, works as is but now, you can make customizations.
 
 > [!WARNING]
-> This command will overwrite file in `app/Views/Cms/layout.tpl`. Please check if this file exists before running. It will warn 
-> if the file already exists. 
+> This command will not overwrite file in `app/Views/Cms/layout.tpl`. It fails and displays the following error and stops.
+> 
+> `File already exists, operation is canceled /Users/ozanakcora/Sites/butterfly-app/app/Views/Cms/layout.tpl
+   You can check file content
+   File should contain the following content:
+   {include_tpl file="admin_layout"}
+` 
 
 ## Objects
 
@@ -44,7 +49,78 @@ Management Screens can be customized easily.
 ### Customizations
 
 Let's think that you have an Object named: `Articles`. Fields in Users object are: `title`, `introduction` and `content`. Admin panel link
-of this page will be: `/admin/article/list`.  
+of this page will be: `/admin/article/list`.
+
+#### Controller
+
+You can extend behaviour of a Object Controller. In order to extend, you can run the following command to publish Cms Controller.
+
+##### List / Add / Edit Actions
+
+```bash
+bin/butterfly publish:admin:controller articles
+```
+
+will create a file named `Article.php` under `app/Controller/Cms` directory with the following content:
+
+```php
+<?php
+
+namespace App\Controller\Cms;
+
+use Butterfly\Library\ObjectController;
+
+class Article extends ObjectController
+{
+    public function addAction($id = "", $extra = "")
+    {
+        parent::addAction($id, $extra);
+    }
+
+    public function editAction($id, $extra = '')
+    {
+        parent::editAction($id, $extra);
+    }
+
+    public function listAction($id, $extra)
+    {
+        parent::listAction($id, $extra);
+    }
+}
+```
+
+Now you can update behaviours of the page by updating each function or you can add a new action to the current Controller.
+
+##### Limit Per Page Options
+
+By default, butterfly has the following options for limit per page on admin panel: `20, 100, 250, 1000`. Sometimes, you may need to 
+change this options. You can do the following steps to change limit per page options:
+
+1) Run `bin/butterfly publish:admin:controller` command to publish the controller if it is not already.
+
+Example:
+
+```bash
+bin/butterfly publish:admin:controller articles
+```
+
+2) Add `$_limit_per_page` and `$_page_limit_options` parameters to published class.
+
+Example:
+
+```php
+<?php
+
+namespace App\Controller\Cms;
+
+use Butterfly\Library\ObjectController;
+
+class Article extends ObjectController
+{
+    protected $_limit_per_page = 5;
+    protected $_page_limit_options = [5, 10, 100];
+}
+```
 
 #### Listing Page
 

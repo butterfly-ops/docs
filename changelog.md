@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.5.54
+
+- Overriding Records Per Page options support is added for Admin Panel. [Details](https://thebutterfly.io/docs/#/adminpanel?id=limit-per-page-options)
+- Cms Controller Generator Command is added `bin/butterfly publish:admin:controller` for objects. [Details](https://thebutterfly.io/docs/#/adminpanel?id=list-add-edit-actions)
+
 ## 1.5.51
 
 - Multiple object export hotfix
