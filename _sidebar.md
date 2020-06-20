@@ -5,6 +5,7 @@
 * [Changelog](changelog.md)
 * [Database](database.md)
 * [Objects](objects.md)
+* [Designs](design.md)
 * [Admin Panel](adminpanel.md)
 * [Generators](generators.md)
 * [Migrations](migrations.md)
