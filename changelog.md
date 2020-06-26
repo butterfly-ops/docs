@@ -1,5 +1,9 @@
 # Changelog
 
+## unreleased
+
+- Excel Import Improvement. It now ignores fully empty lines at the end of the file.
+
 ## 1.5.54
 
 - Overriding Records Per Page options support is added for Admin Panel. [Details](https://thebutterfly.io/docs/#/adminpanel?id=limit-per-page-options)
