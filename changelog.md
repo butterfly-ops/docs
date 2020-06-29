@@ -1,8 +1,9 @@
 # Changelog
 
-## unreleased
+## 1.5.55
 
 - Excel Import Improvement. It now ignores fully empty lines at the end of the file.
+- Utils - Storage Type support added for download_image and download_file functions
 
 ## 1.5.54
 
