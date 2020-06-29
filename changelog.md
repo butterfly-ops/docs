@@ -5,6 +5,7 @@
 - Fixed - User / List onclick event fix (it opens edit page again)
 - Fixed a bug in ObjectSpec Migrations which causes new Object Spec to placed top instead of bottom of the current EditPage.
 - CrudHelper - Security Updates // Permission Check is added
+- Object Save Handler - Security Updates // Permission Check is added
 
 ## 1.5.55
 
