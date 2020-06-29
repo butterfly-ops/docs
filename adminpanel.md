@@ -147,13 +147,13 @@ You can add a new button to listing page for row specific actions. New button wi
 Add Action button to left:
 
 ```smarty
-{$action_buttons.left[] = '<a href="/admin/order/list?customer_id=<id>" title="" class="edit_button btn14 mr5 topDir" original-title="Customer Orders"><img src="/assets/core/admin/images/icons/dark/cart.png" alt=""></a>'}
+{$action_buttons.left[] = '<a href="/admin/order/list?customer_id=<id>" title="" class="btn14 mr5 topDir" original-title="Customer Orders"><img src="/assets/core/admin/images/icons/dark/cart.png" alt=""></a>'}
 ```
 
 Add Action button to right:
 
 ```smarty
-{$action_buttons.right[] = '<a href="/admin/order/list?customer_id=<id>" title="" class="edit_button btn14 mr5 topDir" original-title="Customer Orders"><img src="/assets/core/admin/images/icons/dark/cart.png" alt=""></a>'}
+{$action_buttons.right[] = '<a href="/admin/order/list?customer_id=<id>" title="" class="btn14 mr5 topDir" original-title="Customer Orders"><img src="/assets/core/admin/images/icons/dark/cart.png" alt=""></a>'}
 ```
 
 > [!TIP]
