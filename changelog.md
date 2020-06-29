@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- Fixed - User / List onclick event fix (it opens edit page again)
+
 ## 1.5.55
 
 - Excel Import Improvement. It now ignores fully empty lines at the end of the file.
