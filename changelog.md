@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 1.5.56
 
 - Fixed - User / List onclick event fix (it opens edit page again)
 - Fixed a bug in ObjectSpec Migrations which causes new Object Spec to placed top instead of bottom of the current EditPage.
