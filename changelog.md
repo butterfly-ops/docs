@@ -6,6 +6,7 @@
 - Fixed a bug in ObjectSpec Migrations which causes new Object Spec to placed top instead of bottom of the current EditPage.
 - CrudHelper - Security Updates // Permission Check is added
 - Object Save Handler - Security Updates // Permission Check is added
+- Fixed - Object list page excel export error (objects with more then 26 field on list page)
 
 ## 1.5.55
 
