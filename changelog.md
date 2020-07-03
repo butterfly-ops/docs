@@ -3,6 +3,7 @@
 ## Unreleased
 
 - Admin Menu Creation is added to Object Migrations. [Details](https://thebutterfly.io/docs/#/migrations?id=creating-admin-menus-for-objects)
+- Custom Permission Defitions are added
 
 ## 1.5.56
 

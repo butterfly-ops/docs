@@ -4,7 +4,81 @@
 
 Objects are one of the most special component of Butterfly. Objects are tables with detailed definition.
 While defining your object, you can define Url, Table Name, User Friendly Name etc. After defining your objects, you can
-start editing your contents from your admin panel, without writing a single line of code. 
+start editing your contents from your admin panel, without writing a single line of code.
+
+## Permissions
+
+You can define permissions per Object / per User Group in Butterfly Panel.
+
+There are three main types of permissions:
+
+- [Generic Permissions](#generic-permissions)
+- [Permission Exceptions](#permission-exceptions)
+- [Custom Permissions](#custom-permissions)
+
+### Generic Permissions
+
+Using Generic Permissions, you can define permissions for each Object / Object Spec.
+
+>[!TIP]
+> You can define permission exceptions to limit the User's permission to the defined Record Set. For example: You may want to 
+> grant user to edit Products in a specific Category. Or you may want your Junior Editor's to create Articles in a Pending State.
+> This definitions are handled in [Permission Exceptions](#permission-exceptions).
+
+#### Add Permission:
+
+This permission grants user to add a new Record to the Object.  
+
+#### Edit
+
+This permission grants user to edit an existing Record of the Object.
+
+#### View
+
+This permission grants user read only view access for existing Records of the Object 
+
+#### Delete
+
+This permission grants user delete permission for Records of the Object.
+
+### Permission Exceptions
+
+You may want to grant user to edit Products in a specific Category. Or you may want your Junior Editor's to create Articles in a Pending State.
+
+### Custom Permissions
+
+Custom Permissions are used for the Custom Permission checks. Permissions are saved in Permission Defitions Object in `cms_permissions`. You should also
+define Permission Groups to group permissions.
+
+#### Check Permission
+
+You can check defined permissions for the logged in user using the following example:
+
+```php
+$mUser = new \Butterfly\Core\Model\User();
+$mUser->checkCustomPermission('sales-order', 'approve');
+```
+
+```smarty
+{'sales_order::approve'|custom_permission}
+```
+
+#### Grant Permission
+
+Grant permission is used to Log Custom Permission granted to user.
+
+> [!WARNING]
+> Grant Permission Work In Progress. You can start using function calls for the future reference.
+
+```php
+$mUser = new \Butterfly\Core\Model\User();
+$mUser->grantCustomPermission('sales-order', 'approve', [
+        'entity_id' => 1234, 
+        'object_id' => \Butterfly\Core\Model\Objects::getObjectId('orders'),
+        'comment' => 'Testing' 
+    ]
+);
+```
 
 ## Hooks
 
