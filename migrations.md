@@ -112,6 +112,43 @@ $response = db()->schema('my_new_table')->object(function(\Butterfly\Framework\D
 });
 ```
 
+#### Creating Admin Menus for Objects
+
+You can create admin menus while creating an Object using Migrations.
+
+##### With Parent Menu
+
+Example:
+```php
+$response = db()->schema('my_new_table')->object(function(\Butterfly\Framework\Data\ButterflyObject $object) {
+    
+    // This will create System Settings > Sub System Settings > My New Table    
+    $object->setAdminParentMenu('System Settings', 'Sub System Settings');
+    
+    // You can update Menu Title. If you don't call this function it will default to Object Name
+    $object->setAdminMenuTitle('My Menu Title');
+       
+    return $object;
+});
+```
+
+##### Without Parent Menu
+
+If you want to create a Main Menu to link to Object Listing Page, you can use the following example:
+
+Example:
+```php
+$response = db()->schema('my_new_table')->object(function(\Butterfly\Framework\Data\ButterflyObject $object) {
+    // This will create a Main Menu with title: My Menu Title  
+    $object->setAdminMenuTitle('My Menu Title');
+    
+    // If you don't set the first argument, it will default to Object Name  
+    $object->setAdminMenuTitle(); // will create a menu with title: My New Table
+       
+    return $object;
+});
+``` 
+
 #### Renaming Table Names
 
 You can rename table names of existing Tables.
