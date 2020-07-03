@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- Admin Menu Creation is added to Object Migrations. [Details](https://thebutterfly.io/docs/#/migrations?id=creating-admin-menus-for-objects)
+
 ## 1.5.56
 
 - Fixed - User / List onclick event fix (it opens edit page again)
