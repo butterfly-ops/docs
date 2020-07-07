@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.5.58
+
+- Performance Improvement for first() and one() database functions
+- Image Crop bug is fixed which causes 1 pixel black line after image manipulation. 
+
 ## 1.5.57
 
 - Admin Menu Creation is added to Object Migrations. [Details](https://thebutterfly.io/docs/#/migrations?id=creating-admin-menus-for-objects)
