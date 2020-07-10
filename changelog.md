@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.5.59
+
+- Download image filename bugfix.
+
 ## 1.5.58
 
 - Performance Improvement for first() and one() database functions
