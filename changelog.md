@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.5.62
+
+- IAM Authentication Support for Amazon S3 is added.
+
 ## 1.5.61
 
 - Security enhancement. X-Frame-Options: SAMEORIGIN header is added to Admin.
