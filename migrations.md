@@ -65,6 +65,55 @@ class Upgrade extends Base
 }
 ```
 
+## Indexes
+
+You can add Unique or Normal index to the Objects you have created.
+
+### Index
+
+```php
+$response = db()->schema('my_new_table')->object(function(\Butterfly\Framework\Data\ButterflyObject $object) {
+    $object->string('name');
+    $object->dropdown('user_id', 'User')
+        ->parameters('users', 'name', 'id', '-')
+        ->searchable()
+        ->listColumn()
+        ->readonly()
+        ->index() // This will add index to column user_id
+        ->required()
+    ;
+
+    return $object;
+});
+```
+
+### Unique Index
+
+```php
+$response = db()->schema('my_new_table')->object(function(\Butterfly\Framework\Data\ButterflyObject $object) {
+    $object->string('name');
+    
+    $object->string('remote_user_id')->unique(); // This will add unique index to remote_user_id column
+
+    return $object;
+});
+```
+
+### Multiple Columns
+
+```php
+$response = db()->schema('my_new_table')->object(function(\Butterfly\Framework\Data\ButterflyObject $object) {
+    $object->string('title');
+    $object->string('sub_title');
+    
+    $object->unique(['title', 'sub_title']); // This will add unique index to title and sub_title columns together. 
+    
+    $object->index(['title', 'sub_title']); // This will add normal index to title and sub_title columns together.
+
+    return $object;
+});
+```
+
 ## App Specific Migrations
 
 You can also use Migrations in `app` Folder. `app` is considered as a Module inside of the System. Which means that, you can 

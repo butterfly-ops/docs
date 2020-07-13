@@ -3,6 +3,7 @@
 ## 1.5.62
 
 - IAM Authentication Support for Amazon S3 is added.
+- Index support is added for Objects. [Details] 
 
 ## 1.5.61
 
