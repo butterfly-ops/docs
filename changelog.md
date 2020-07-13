@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.5.61
+
+- Security enhancement. X-Frame-Options: SAMEORIGIN header is added to Admin.
+
 ## 1.5.59
 
 - Download image filename bugfix.
