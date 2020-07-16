@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.5.63
+
+- Hotfix for image manipulation operations. Now, it gets config from File Storages.
+
 ## 1.5.62
 
 - IAM Authentication Support for Amazon S3 is added.
