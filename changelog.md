@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- Table Name and Column Name format check is added. Valid Format: `[a-z]|[A-Z]|_|[0-9])+`
+
 ## 1.5.63
 
 - Hotfix for image manipulation operations. Now, it gets config from File Storages.
