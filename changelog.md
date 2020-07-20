@@ -1,8 +1,9 @@
 # Changelog
 
-## Unreleased
+## 1.5.64
 
 - Table Name and Column Name format check is added. Valid Format: `[a-z]|[A-Z]|_|[0-9])+`
+- Hotfix for where clauses with null as second parameter. (Example: ->where('id', null) will run query WHERE id IS NULL)
 
 ## 1.5.63
 
