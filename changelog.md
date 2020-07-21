@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.5.65
+
+- Readonly Permission (View Permission is added to system) [Details](https://thebutterfly.io/docs/#/objects?id=generic-permissions)
+
 ## 1.5.64
 
 - Table Name and Column Name format check is added. Valid Format: `[a-z]|[A-Z]|_|[0-9])+`
