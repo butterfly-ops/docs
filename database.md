@@ -1223,3 +1223,46 @@ will run the following query:
 ```sql
 CREATE TABLE `test` (`id` int(11) NOT NULL AUTO_INCREMENT,`name` varchar(255) NOT NULL, PRIMARY KEY (`id`)) ENGINE = `InnoDB`
 ```
+
+### createOrUpdateTable
+
+it checks for the table, if the table already exists, it will alter.
+
+> [!TIP]
+> This function also checks for columns, if column information is the same, then, it will skip it, if column is not identical, it will modify the column.
+
+> [!WARNING]
+> This function doesn't check auto_increment column for altering operations. Which means that, you may not change auto_increment column for existing tables.
+
+```php
+db()->schema()->createOrUpdateTable('test', [
+  [
+      'column_name' => 'id',
+      'identifier' => true,
+      'column_type' => 'int(11)'
+  ],
+  [
+      'column_name' => 'name',
+      'column_type' => 'varchar(255)',
+      'column_default' => 'John Doe'
+  ]
+]);
+```
+
+will run the following query if table doesn't exist:
+
+```sql
+CREATE TABLE `test` (`id` int(11) NOT NULL AUTO_INCREMENT,`name` varchar(255) NOT NULL DEFAULT 'John Doe', PRIMARY KEY (`id`)) ENGINE = `InnoDB`
+```
+
+will run the following query if table exists, id column exists but different then current info, name column is missing.
+
+```sql
+ALTER TABLE `test` MODIFY `id` int(11) NOT NULL,ADD `name` varchar(255) NOT NULL DEFAULT 'John Doe'
+```
+
+will run the following query if table exists, id column exists and identical, name column is missing.
+
+```sql
+ALTER TABLE `test` ADD `name` varchar(255) NOT NULL DEFAULT 'John Doe'
+```

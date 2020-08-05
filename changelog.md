@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- createOrUpdateTable is added to Schema [Details](https://thebutterfly.io/docs/#/database?id=createOrUpdateTable)
+
 ## 1.5.65
 
 - Readonly Permission (View Permission is added to system) [Details](https://thebutterfly.io/docs/#/objects?id=generic-permissions)
