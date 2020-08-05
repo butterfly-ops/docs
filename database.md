@@ -1266,3 +1266,17 @@ will run the following query if table exists, id column exists and identical, na
 ```sql
 ALTER TABLE `test` ADD `name` varchar(255) NOT NULL DEFAULT 'John Doe'
 ```
+
+### dropColumns
+
+Drop column drops the column from table. If column doesn't exist, then it will just return true
+
+```php
+db()->schema('test')->dropColumns(['test_column', 'test_column_2']);
+```
+
+will run the following query:
+
+```sql
+ALTER TABLE `test` DROP `test_column`,DROP `test_column_2`
+```

@@ -3,6 +3,7 @@
 ## Unreleased
 
 - createOrUpdateTable is added to Schema [Details](https://thebutterfly.io/docs/#/database?id=createOrUpdateTable)
+- dropColumns is added to Schema [Details](https://thebutterfly.io/docs/#/database?id=dropColumns)
 
 ## 1.5.65
 
