@@ -219,3 +219,19 @@ $response = db()->schema('my_existing_table')->objectSpecs(function(\Butterfly\F
 
 > [!TIP]
 > You can also check Create or Update Object section for adding new Specs to existing Objects. It will also upsert Object Specs.  
+
+#### Removing Object Specs
+
+You can remove an existing Object Specs using Migrations.
+
+Example:
+
+```php
+$cmsObjectModel = new \Butterfly\Core\Model\CmsObject();
+$cmsObjectModel->removeObjectSpec('test_table_name', 'test_column_name');
+```
+
+will remove Object Spec with column name: `test_column_name` of the Object with table name: `test_table_name`
+
+> [!WARNING]
+> This function removes column from database. Please beware that all data in the column will be destroyed.
