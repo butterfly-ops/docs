@@ -2,8 +2,8 @@
 
 ## Unreleased
 
-- createOrUpdateTable is added to Schema [Details](https://thebutterfly.io/docs/#/database?id=createOrUpdateTable)
-- dropColumns is added to Schema [Details](https://thebutterfly.io/docs/#/database?id=dropColumns)
+- createOrUpdateTable is added to Schema [Details](https://thebutterfly.io/docs/#/database?id=createorupdatetable)
+- dropColumns is added to Schema [Details](https://thebutterfly.io/docs/#/database?id=dropcolumns)
 - removeObjectSpec is added to Migrations [Details](https://thebutterfly.io/docs/#/migrations?id=removing-object-specs)
 
 ## 1.5.65
