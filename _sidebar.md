@@ -10,4 +10,5 @@
 * [Generators](generators.md)
 * [Migrations](migrations.md)
 * [Module](modules.md)
+* [Queue](queue.md)
 * [Security](security.md)
