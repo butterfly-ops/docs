@@ -1,7 +1,8 @@
 # Changelog
 
-## Unreleased
+## 1.5.69
 
+- vendor/butterfly/src/Core/Assets folder is symlinked to assets/core folder
 - createOrUpdateTable is added to Schema [Details](https://thebutterfly.io/docs/#/database?id=createorupdatetable)
 - dropColumns is added to Schema [Details](https://thebutterfly.io/docs/#/database?id=dropcolumns)
 - removeObjectSpec is added to Migrations [Details](https://thebutterfly.io/docs/#/migrations?id=removing-object-specs)
