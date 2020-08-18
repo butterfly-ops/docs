@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.5.70
+
+- Please check [Upgrade Notes](https://thebutterfly.io/docs/#/upgrade?id=_1570)
+- frontend template engine is moved to twig.
+
 ## 1.5.69
 
 - vendor/butterfly/src/Core/Assets folder is symlinked to assets/core folder
