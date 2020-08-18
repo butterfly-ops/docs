@@ -58,7 +58,7 @@ composer install
 >[!WARNING]
 > Please be sure that composer.lock file is not ignored in git and you have composer.lock file in git.
 
-## Step 3
+### Step 3
 
 Run the following command to make database changss:
 
