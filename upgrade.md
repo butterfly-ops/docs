@@ -3,7 +3,7 @@
 Butterfly's main aim is to make upgrades as easy as possible. Database schema changes, file additions, new objects and 
 each entity is upgraded with just a single command.
 
-## Upgrade locally:
+## Upgrade locally
 
 For a smooth upgrade, please check the following steps:
 
@@ -11,7 +11,7 @@ For a smooth upgrade, please check the following steps:
 > New versions may add new files to the system, in order to commit new files to your Code Repository (Most possible git) 
 run the updates locally.
 
-## Step 1:
+### Step 1
 
 Run the following command on your local:
 
@@ -19,7 +19,7 @@ Run the following command on your local:
 composer update
 ``` 
 
-## Step 2:
+### Step 2
 
 Run the following command for schema and file system changes:
 
@@ -30,7 +30,7 @@ bin/butterfly upgrade
 >[!WARNING]
 > This may update your files and database.
 
-## Step 3:
+### Step 3
 
 Check your local setup and commit composer.lock file to git.
 
@@ -43,11 +43,11 @@ Check your local setup and commit composer.lock file to git.
 >[!WARNING]
 > Before production upgrade, you should first apply the upgrade locally.
 
-## Step 1:
+### Step 1
 
 Deploy the code to your server.
 
-## Step 2:
+### Step 2
 
 Run the following command to update packages:
 
@@ -58,7 +58,7 @@ composer install
 >[!WARNING]
 > Please be sure that composer.lock file is not ignored in git and you have composer.lock file in git.
 
-## Step 3:
+## Step 3
 
 Run the following command to make database changss:
 
