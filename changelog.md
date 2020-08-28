@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.5.74
+
+- Please check [Upgrade Notes](https://thebutterfly.io/docs/#/upgrade?id=_1574)
+- `image_upload` Field Type includes data all sizes inside of Elastic Index.
+
 ## 1.5.70
 
 - Please check [Upgrade Notes](https://thebutterfly.io/docs/#/upgrade?id=_1570)
