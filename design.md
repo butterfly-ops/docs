@@ -38,4 +38,33 @@ As you see, Best Selling Products and Latest Products are displayed using the sa
 
 ## Personalization
 
-## Content Pools  
+## Content Pools
+
+## Customizing Frontend Templates
+
+### Layout
+
+Layout is the default container template for Designs. By default, it outputs all widgets defined in the current design. 
+If you want to customize layout, you can run the following command:
+
+```bash
+bin/butterfly publish:layout
+```
+
+### 404 Not Found
+
+Not Found file is stored in Error404.twig file. By default, it displays Not Found message. If you want to customize 404 file,
+you can run the following command:
+
+```bash
+bin/butterfly publish:template Error404
+```
+
+### 503 Server Error
+
+When an error occurs in the system, it outputs 503 Server Error (Maintenance Page). Error file is stored in Error503.twig. 
+If you want to customize 503 file, you can run the following command.
+
+```bash
+bin/butterfly publish:template Error503
+```
