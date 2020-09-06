@@ -73,18 +73,19 @@ bin/butterfly upgrade
 
 ## Version Upgrade Notes
 
-### 1.5.70
+### 1.5.74
+
+Version 1.5.74 has some breaking changes. Please check the following points:
+- Content Pool Items and Detail Info includes all sizes of the image with full path.
+Example: You should use `{$item.image.100x100}` instead of `{path alias="100x100"}{$item.image}`
+
+### 1.5.78
 
 Version 1.5.70 has some breaking changes. Please check the following points:
 - You should use `twig` templates instead of `smarty` for Frontend.
 - You should use `.twig` extension instead of `.tpl`
 - Widgets are extended from `\Butterfly\Framework\Widget\Base` instead of `\Butterfly\Library\Widget`
 
-### 1.5.74
-
-Version 1.5.74 has some breaking changes. Please check the following points:
-- Content Pool Items and Detail Info includes all sizes of the image with full path.
-Example: You should use `{$item.image.100x100}` instead of `{path alias="100x100"}{$item.image}`
 
 >[!TIP]
 > You can use regex replace `\{path alias=['"](.+)['"]\}\{(.+)\}` to `{$2.$1}`    
