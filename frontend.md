@@ -48,6 +48,26 @@ Test
 
 ## Twig Functions
 
+### image_path
+
+`image_path` function is used to access the full path of image or file aliases.
+
+```twig
+image_path('original')
+``` 
+
+will return the full path to access original image alias.
+
+### file_path
+
+`file_path` function is used to access the full path of image or file aliases.
+
+```twig
+image_path('excel')
+``` 
+
+will return the full path to access excel file alias.
+
 ### widget
 
 `widget` function is used to render a widget with given parameters.
@@ -84,7 +104,7 @@ include_file('test.twig')
 
 Example:
 
-When active page is https://thebutterfly.io/test.html
+When active page is thebutterfly.io/test.html
 
 ```twig
 {{ current_url() }}

@@ -5,8 +5,8 @@
 - Please check [Upgrade Notes](https://thebutterfly.io/docs/#/upgrade?id=_1578)
 - frontend template engine is moved to twig.
 - `bin/butterfly convert:twig` command is added for smarty => twig conversions
-- `count`, `registry`, `truncate` filters are added for twig. [Details](https://thebutterfly.io/docs/#/frontend?id=filters)
-- `widget`, `path`, `include_file` `current_url` functions are added for twig. [Details](https://thebutterfly.io/docs/#/frontend?id=filters) 
+- `count`, `registry`, `truncate` filters are added for twig. [Details](https://thebutterfly.io/docs/#/frontend?id=twig-filters)
+- `widget`, `path`, `include_file` `current_url` functions are added for twig. [Details](https://thebutterfly.io/docs/#/frontend?id=twig-functions) 
 
 ## 1.5.74
 
