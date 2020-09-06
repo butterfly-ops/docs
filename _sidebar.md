@@ -8,6 +8,7 @@
 * [Objects](objects.md)
 * [Designs](design.md)
 * [Admin Panel](adminpanel.md)
+* [Frontend](frontend.md)
 * [Generators](generators.md)
 * [Migrations](migrations.md)
 * [Module](modules.md)
