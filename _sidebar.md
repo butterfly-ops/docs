@@ -7,6 +7,7 @@
 * [Database](database.md)
 * [Objects](objects.md)
 * [Designs](design.md)
+* [File Storages](file-storage.md)
 * [Admin Panel](adminpanel.md)
 * [Frontend](frontend.md)
 * [Generators](generators.md)
