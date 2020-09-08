@@ -1,6 +1,6 @@
 # Changelog
 
-## 1.5.79
+## 1.5.80
 
 - Azure Blob Storage integration is added. [Details](https://thebutterfly.io/docs/#/file-storage) 
 
