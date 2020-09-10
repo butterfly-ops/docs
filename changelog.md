@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.5.82
+
+- Nested field supports recursive nested fields. [Details](https://thebutterfly.io/docs/#/objects?id=nested)
+
 ## 1.5.80
 
 - Azure Blob Storage integration is added. [Details](https://thebutterfly.io/docs/#/file-storage) 

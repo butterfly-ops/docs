@@ -118,10 +118,50 @@ will save the data in Database like follows:
 [
   {
     "test": "Test",
-    "people": {
-    
-    }
-  }   
+    "people": [
+       {
+        "name": "Test",
+        "surname": "Surname",
+        "images": [
+          {
+            "title": "Test",
+            "image": "20-09/01/test.png",
+            "credits": [
+              {
+                "name": "Name - 1"
+              },
+              {
+                "name": "Name - 2"
+              }     
+            ]   
+          }   
+        ]
+       }  
+    ]
+  },
+  {
+      "test": "Test - 2",
+      "people": [
+         {
+          "name": "Test - 2",
+          "surname": "Surname",
+          "images": [
+            {
+              "title": "Test - 2",
+              "image": "20-09/01/test-2.png",
+              "credits": [
+                {
+                  "name": "Name - 3"
+                },
+                {
+                  "name": "Name - 4"
+                }     
+              ]   
+            }   
+          ]
+         }  
+      ]
+    }  
 ]
 ```
 
