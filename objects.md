@@ -6,6 +6,129 @@ Objects are one of the most special component of Butterfly. Objects are tables w
 While defining your object, you can define Url, Table Name, User Friendly Name etc. After defining your objects, you can
 start editing your contents from your admin panel, without writing a single line of code.
 
+When you create an Object from `butterfly panel` or `upgrade migration`, `table` (for SQL) or `collection` (for MongoDB) or `index` (for ElasticSearch) is automatically generator
+which means that, you don't need to make Database creations manually.  
+
+## Object Specs
+
+All data types have their names and specifications. For example: If you have object named `blog_posts`, you would possibly need a 
+Object Spec named `title` with a type of `String`.
+
+When you create an admin panel or using a migration script, `columns` (for SQL), `fields` (for MongoDB), `mapping` for Elastic Search is automatically created.
+
+In other words, Object Specs is equavilant to `columns` in SQL.
+
+### String
+
+Strings are data types which have a short text (maximum length: 255).
+
+Parameters:
+
+Name | Column Name | Description
+--- | ---
+Limit| val_1 | Limits the number of characters in string. 
+
+### Nested
+
+When you want to store your multiple rows / fields in a single field as JSON, you can use Nested Field Type.
+
+As it's name explains, in nested fields, you can build your JSON using other field types.
+
+Parameters:
+
+Name | Column Name | Description
+--- | --- |---
+Configuration | val_1 | Field Configuration of the field as YAML (Example is below)
+Sortable | val_2 | Whether sub-fields can be sorted or not.
+Multiple | val_3 | If yes, you can add multiple rows
+
+Example Configuration:
+
+```yaml
+title:
+    name: 'Title'
+    type: 'string'
+image:
+    name: 'Image'
+    type: 'image_upload'
+    val_1: 'content'
+```
+
+will save the data in Database like follows:
+
+```json
+[
+  {
+    "title": "Test Title",
+    "image": "content/12-10/01/test.png"
+  }   
+]
+```
+
+will output:
+
+![Nested Field Type](images/nested-field-1.png "Nested Field Type")
+
+>[!TIP]
+> You can use nested field recursively, which means that, you can build endlessly deep JSON using the following example.
+
+More complex example:
+
+```yaml
+test:
+    name: 'Test'
+    type: string
+people:
+    name: 'People'
+    type: nested
+    val_1:
+        name:
+            name: 'Name'
+            type: string
+        surname:
+            name: 'Surname'
+            type: string
+        images:
+            name: 'Images'
+            type: nested
+            val_1:
+                title:
+                    name: 'Title'
+                    type: string
+                image:
+                    name: 'Image'
+                    type: image_upload
+                    val_1: content
+                people:
+                    name: 'Credits'
+                    type: 'nested'
+                    val_1:
+                        name:
+                            name: 'Name'
+                            type: 'string'
+            val_2: 1
+            val_3: 1
+    val_2: 1
+    val_3: 1
+```
+
+will save the data in Database like follows:
+
+```json
+[
+  {
+    "test": "Test",
+    "people": {
+    
+    }
+  }   
+]
+```
+
+will output:
+
+![Complex Example for Nested Field Type](images/nested-field-2.png "Complex Example for Nested Field Type")
+
 ## Permissions
 
 You can define permissions per Object / per User Group in Butterfly Panel.
