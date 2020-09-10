@@ -25,7 +25,7 @@ Strings are data types which have a short text (maximum length: 255).
 Parameters:
 
 Name | Column Name | Description
---- | ---
+--- | --- | ---
 Limit| val_1 | Limits the number of characters in string. 
 
 ### Nested
