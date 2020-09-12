@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- `git_version` function is added. https://thebutterfly.io/docs/#/frontend?id=git_version
+
 ## 1.5.82
 
 - Nested field supports recursive nested fields. [Details](https://thebutterfly.io/docs/#/objects?id=nested)

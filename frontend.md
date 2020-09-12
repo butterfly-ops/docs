@@ -115,3 +115,20 @@ will return
 ```text
 /test.html
 ```
+
+### git_version
+
+`git_version` returns hash of current git version for invalidating asset caches etc.
+
+You may use git_version function after static files to invalidate browser, cdn or output caches.
+
+Example usage:
+```twig
+<script src="/assets/test.js?v={{ git_version() }}"></script>
+```  
+
+>[!TIP]
+> In production, we recommend removing .git folder. This function checks for .git-version file in the root directory. Which means that, 
+> you may put a textfile including your git version or timestamp which will change in each release.
+> If your webserver root folder is `/var/www/vhosts/thebutterfly.io/public/` you can dump current git version to `/var/www/vhosts/thebutterfly.io/.git-version`.
+> This file won't be publicly accessible but `git_version()` function will read this file priorly.  
