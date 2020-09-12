@@ -28,6 +28,19 @@ Name | Column Name | Description
 --- | --- | ---
 Limit| val_1 | Limits the number of characters in string. 
 
+### Datetime
+
+Datetime Field type is used to store Date & Time information in [Unix Timestamp format](https://en.wikipedia.org/wiki/Unix_time).
+When you use this field type, it will create a column with type integer, since Unix Timestamp format designates the number of seconds 
+have passed since 1th of January 1970.
+
+This field type is suitable for Release Date's, Expiry Date's, Event Dates etc. Since it includes time and starts from 1970, we don't recommend this field type to be used 
+for birth dates.
+
+>[!TIP]
+> When you need a content to be disappear from site before Release Date or Expiry Date automatically, you can use the following special column names:
+> `release_date` for Publication Dates and `expiry_date` for auto Expiration. 
+
 ### Nested
 
 When you want to store your multiple rows / fields in a single field as JSON, you can use Nested Field Type.
