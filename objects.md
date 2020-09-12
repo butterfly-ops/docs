@@ -39,7 +39,7 @@ for birth dates.
 
 >[!TIP]
 > When you need a content to be disappear from site before Release Date or Expiry Date automatically, you can use the following special column names:
-> `release_date` for Publication Dates and `expiry_date` for auto Expiration. 
+> `release_date` for Publication Dates and `expiry_date` for auto Expiration.
 
 ### Nested
 
