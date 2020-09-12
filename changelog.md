@@ -1,8 +1,9 @@
 # Changelog
 
-## Unreleased
+## 1.5.85
 
 - `git_version` function is added. https://thebutterfly.io/docs/#/frontend?id=git_version
+- `datetime` field type is vanilla jsified [Details](https://thebutterfly.io/docs/#/objects?id=datetime)
 
 ## 1.5.82
 
