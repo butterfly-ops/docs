@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.5.90
+
+- `config` filter is added to twig filters. [Details](https://thebutterfly.io/docs/#/frontend?id=config)
+
 ## 1.5.88
 
 - Fixed a bug causing [Checkbox Field Type](https://thebutterfly.io/docs/#/objects?id=checkbox) not to be able to unchecked.  

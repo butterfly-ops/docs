@@ -68,6 +68,22 @@ will output
 Test
 ```
 
+### config
+
+`config` filter is used to return specific config set in `app/Config` directory.
+
+Example:
+
+```twig
+{{ 'app.url'|config }}
+```
+
+will return the url of the butterfly setup, which is set in `app/Config/app.php` with key: `url`.
+
+>[!TIP]
+> You can retrieve inner keys of the config. Example: `app.testkey.innerkey` will return the `testkey->innerkey`
+> inside `app/Config/app.php`  
+
 ## Twig Functions
 
 ### image_path
