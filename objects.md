@@ -41,6 +41,12 @@ for birth dates.
 > When you need a content to be disappear from site before Release Date or Expiry Date automatically, you can use the following special column names:
 > `release_date` for Publication Dates and `expiry_date` for auto Expiration.
 
+### Checkbox
+
+Checkbox Field type displays a checkbox as it's name describes. It will create a column with type tinyint.
+
+It will save value "1" if field is checked and "0" if it's not chekced. 
+
 ### Nested
 
 When you want to store your multiple rows / fields in a single field as JSON, you can use Nested Field Type.

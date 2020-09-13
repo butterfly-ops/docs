@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.5.88
+
+- Fixed a bug causing [Checkbox Field Type](https://thebutterfly.io/docs/#/objects?id=checkbox) not to be able to unchecked.  
+
 ## 1.5.85
 
 - `git_version` function is added. [Details](https://thebutterfly.io/docs/#/frontend?id=git_version)
