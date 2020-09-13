@@ -3,6 +3,28 @@
 Butterfly uses `twig` as the main frontend template engine. Although it's possible to use Smarty, we strongly recommend using 
 `twig` since `smarty` support will be dropped in the upcoming releases.
 
+## Layout
+
+Butterfly displays pages using [Designs](https://thebutterfly.io/docs/#/design). When you define a Design, you need to create a Layout and choose 
+Layout file from butterfly Admin.
+
+While creating a Layout, you can use the following predefined variables:
+
+Variable | Variable Type | Description
+--- | --- | ---
+page_title | string | Includes the Page Title rendered from settings defined on Cms Design
+page_description | string | Includes the Page Description rendered from settings defined on Cms Design
+widgets | array | Includes the widget renders. Detailed example below.
+
+### widgets
+
+```twig
+{% for render in widgets.content.renders %}
+    {{ render|raw }}
+{% endfor %}
+```
+ 
+
 ## Twig Filters
 
 ### count
