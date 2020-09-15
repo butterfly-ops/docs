@@ -45,7 +45,7 @@ for birth dates.
 
 Checkbox Field type displays a checkbox as it's name describes. It will create a column with type tinyint.
 
-It will save value "1" if field is checked and "0" if it's not chekced. 
+It will save value "1" if field is checked and "0" if it's not checked. 
 
 ### Nested
 
