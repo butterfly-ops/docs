@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- `place_after` and `place_before` positioning is added for `Migrations`.
+
 ## 1.5.90
 
 - `config` filter is added to twig filters. [Details](https://thebutterfly.io/docs/#/frontend?id=config)
