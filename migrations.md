@@ -161,6 +161,26 @@ $response = db()->schema('my_new_table')->object(function(\Butterfly\Framework\D
 });
 ```
 
+#### Defining Object Spec Position (Placement)
+
+When creating additional Object Specs, you can choose the relative position of the newly created Object Spec.
+
+Example:
+
+```php
+db()->schema('my_new_table')->objectSpecs(function(\Butterfly\Framework\Data\ButterflyObject $object) {
+            $object->integer('votes')->placeAfter('test');
+            $object->integer('vote_count')->defaultValue(100)->placeBefore('test_2');
+
+            return $object;
+        });
+```
+
+will place `votes` Object Spec, after `test` column and will place `vote_count` Object Spec, before `test_2` column. 
+
+>[!WARNING]
+> By default, new Object Specs are placed Left Side Bottom. If target Column Name is not found, Default rules are applied. 
+
 #### Creating Admin Menus for Objects
 
 You can create admin menus while creating an Object using Migrations.

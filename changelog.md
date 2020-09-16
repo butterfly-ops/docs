@@ -1,8 +1,9 @@
 # Changelog
 
-## Unreleased
+## 1.5.91
 
-- `place_after` and `place_before` positioning is added for `Migrations`.
+- `placeAfter` and `placeBefore` positioning is added for `Migrations`. [Details](https://thebutterfly.io/docs/#/migrations?id=removing-object-specs)
+- `multicheckbox` update for `Nested Field Type`. You can use multicheckbox's with `Nested Field Type` 
 
 ## 1.5.90
 
