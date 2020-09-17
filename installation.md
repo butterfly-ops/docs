@@ -125,15 +125,6 @@ chmod -R 777 var static;
 
 Config files are located in `app/Config` folder. When there are more than one environment, it is possible to override configuration.
 
-#### Domain Based Override
-
-`Butterfly` prioritize `app/Config/DOMAIN_NAME` for configurations. For example, if the domain name is thebutterfly.io, it will first check 
-`app/Config/thebutterfly.io/` folder for configurations. Files in the root folder will be appended to configurations.
-
->[!TIP]
-> You can add generic configs which are valid for all environments to `app/Config` folder, then you can only put environment specific configurations 
-> like database to domain folders.
-
 #### Environment Based Override
 
 Sometimes, you may have multiple domains in the same server / folder with same configuration. For this case, you can have a folder for that environment. `Butterfly` prioritize `app/Config/ENVIRONMENT` for configurations. Environment is set from your Web Server. For example, if the environment is set to `production`, it will first check 
@@ -152,6 +143,15 @@ Nginx Example for setting Environment:
 ```nginx
 fastcgi_param  ENVIRONMENT "production";
 ```
+
+#### Domain Based Override
+
+`Butterfly` prioritize `app/Config/DOMAIN_NAME` for configurations. For example, if the domain name is thebutterfly.io, it will first check 
+`app/Config/thebutterfly.io/` folder for configurations. Files in the root folder will be appended to configurations.
+
+>[!TIP]
+> You can add generic configs which are valid for all environments to `app/Config` folder, then you can only put environment specific configurations 
+> like database to domain folders.
 
 ### Admin User Creation
 

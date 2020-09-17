@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.5.94
+
+- Environment based configuration override is added. [Details](https://thebutterfly.io/docs/#/installation?id=environment-based-override)
+
 ## 1.5.91
 
 - `placeAfter` and `placeBefore` positioning is added for `Migrations`. [Details](https://thebutterfly.io/docs/#/migrations?id=removing-object-specs)
