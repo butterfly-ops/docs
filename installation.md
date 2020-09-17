@@ -127,7 +127,7 @@ Config files are located in `app/Config` folder. When there are more than one en
 
 #### Environment Based Override
 
-Sometimes, you may have multiple domains in the same server / folder with same configuration. For this case, you can have a folder for that environment. `Butterfly` prioritize `app/Config/ENVIRONMENT` for configurations. Environment is set from your Web Server. For example, if the environment is set to `production`, it will first check 
+Sometimes, you may have multiple domains in the same server / folder with same configuration. For this case, you can have a folder for that environment. Butterfly prioritize `app/Config/ENVIRONMENT` for configurations. Environment is set from your Web Server. For example, if the environment is set to `production`, it will first check 
 `app/Config/production/` folder for configurations. Files in the root folder will be appended to configurations.
 
 >[!TIP]
