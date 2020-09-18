@@ -2,7 +2,7 @@
 
 ## 1.5.96
 
-- Updated code field type to prevent unrelated Doctype syntax errors for HTML type. [Details] (https://thebutterfly.io/docs/#/objects?id=code)
+- Updated code field type to prevent unrelated Doctype syntax errors for HTML type. [Details](https://thebutterfly.io/docs/#/objects?id=code)
 
 ## 1.5.95
 
