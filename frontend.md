@@ -154,6 +154,18 @@ will return
 /test.html
 ```
 
+### setting
+
+`setting` function is used to return specific setting defined in Admin Panel. 
+
+Example:
+
+```twig
+{{ setting('site-settings', 'description') }}
+```
+
+will return the Setting with alias `description` defined in Setting Group with alias: `site-settings`
+
 ### git_version
 
 `git_version` returns hash of current git version for invalidating asset caches etc.
