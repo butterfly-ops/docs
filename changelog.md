@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.5.95
+
+- AdminTemplateGenerator hotfix
+- hide_action_buttons variable is added for custom list pages [Details](https://thebutterfly.io/docs/#/adminpanel?id=action_buttons)
+
 ## 1.5.94
 
 - Environment based configuration override is added. [Details](https://thebutterfly.io/docs/#/installation?id=environment-based-override)

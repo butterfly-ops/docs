@@ -159,6 +159,21 @@ Add Action button to right:
 > [!TIP]
 > As you see in the examples above, you can reach columns by using `<field_name>` syntax. `<id>` will be translated into `id` of the row.  
 
+
+You can also hide default action buttons if you would like to add them manually.
+
+Example template for hiding default action buttons (View / Edit / Delete)
+
+```smarty
+{$hide_action_buttons = true}
+
+{include_tpl file="object/list"}
+```
+
+> [!WARNING]
+> hide_action_buttons parameter doesn't revoke user permissions. It just removes buttons from admin panel visually. If you want 
+> to limit access for user, please check [permissions](https://thebutterfly.io/docs/#/object?id=permissions) page.
+
 ##### Field Based
 
 You may want to change look & feel or functionality of a specific Object Field.
