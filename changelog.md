@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.5.96
+
+- Updated code field type to prevent unrelated Doctype syntax errors for HTML type.
+
 ## 1.5.95
 
 - AdminTemplateGenerator hotfix

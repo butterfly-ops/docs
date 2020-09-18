@@ -188,6 +188,25 @@ will output:
 
 ![Complex Example for Nested Field Type](images/nested-field-2.png "Complex Example for Nested Field Type")
 
+### Code
+
+Code Field Type, displays a Code Editor in Admin. It automatically checks for Syntax error and highlights codes to present 
+a user-friendly Code Input.
+
+Supported Languages:
+- css
+- html
+- javascript
+- json
+- twig
+- xml
+
+Parameters:
+
+Name | Column Name | Description
+--- | --- |---
+Language | val_1 | Code Language
+
 ## Permissions
 
 You can define permissions per Object / per User Group in Butterfly Panel.
