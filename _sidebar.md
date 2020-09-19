@@ -3,6 +3,7 @@
 * [Home](/)
 * [Installation](installation.md)
 * [Changelog](changelog.md)
+* [Cloud](cloud.md)
 * [Upgrade](upgrade.md)
 * [Database](database.md)
 * [Objects](objects.md)
