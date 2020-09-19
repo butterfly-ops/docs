@@ -47,6 +47,31 @@ Checkbox Field type displays a checkbox as it's name describes. It will create a
 
 It will save value "1" if field is checked and "0" if it's not checked. 
 
+### Image Upload
+
+Image Upload field type is a specialized Image Upload Tool. You can upload images, generate sub images, crop images from Admin Panel.
+You can also enable Media Library for re-using uploaded images.
+
+Parameters:
+
+Name | Column Name | Description
+--- | --- |---
+Alias | val_1 | Image Upload alias to define upload paths, manipulation options etc.
+
+Supported file types are:
+
+* jpg, jpeg
+* png
+* gif
+* svg
+
+> [!TIP]
+> Butterfly has support for cropping / resizing `gif` images. Which means that, you can upload gif images and if defined,
+> it will be resized or cropped without loosing the animation. 
+
+> [!WARNING]
+> Since SVG is a format composed of XML, image manipulation operations are not supported when you upload svg files.
+
 ### Nested
 
 When you want to store your multiple rows / fields in a single field as JSON, you can use Nested Field Type.

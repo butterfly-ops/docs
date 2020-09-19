@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.5.100
+
+- `svg` support is added for Image Upload Types [Details](https://thebutterfly.io/docs/#/objects?id=image-upload)
+
 ## 1.5.97
 
 - `setting` function is added to twig functions. [Details](https://thebutterfly.io/docs/#/frontend?id=setting)
