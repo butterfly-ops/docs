@@ -230,6 +230,43 @@ Now, you have a edit form page, just working as it was but now, you can add new 
 
 > [!TIP]
 > You can use `bin/butterfly publish:admin:template articles edit` command to generate customization template.
-   
 
- 
+#### Behaviour Customisation with Javascript
+
+Butterfly makes it easy to input data for most cases but you may want to extend behaviours independently. You can do this by editing
+JS Code of the element.
+
+There are some special keywords to reach current element's DOM.
+
+keyword | description | example
+--- | --- | ---
+%element% | will reach the element in jQuery syntax | `%element%` will be replaced by `$('#button_type4')` if the column_name is button_type and the element is the 4th element in that page.
+%id% | will reach the id of the current element | `%id%` will be replaced by ``button_type4` if the column_name is button_type and the element is the 4th element in that page
+%container% | will reach the container of the element in jQuery syntax | `%container%' will be replaced by `$('#button_type4').parent().parent()` if the column_name is button_type and the element is the 4th element in that page.
+
+**Example Usages:**
+
+```javascript
+var value = %element%.val();
+alert(value);
+```
+
+will alert the value of the current element.
+
+##### Conditional Show/Hide
+
+When you need to show / hide other elements based on value of an Object Spec, you can use Conditional Show/Hide helper.
+`.condition` function is used for this purpose.
+
+**Example Usage:**
+
+```javascript
+%element%.condition({
+    "FirstValue": ["image", "title", "label"],
+    "SecondValue": ["image"],
+    "ThirdValue": ["subtitle"] 
+});
+```
+
+will hide Object Specs with column name: `image`, `title`, `label`, `subtitle` and will show the Object Specs based on the 
+value of the current Object Spec. For example: if the value is equal to `ThirdValue` it will show Object Spec with column name: `subtitle`.
