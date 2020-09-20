@@ -16,7 +16,7 @@ page_title | string | Includes the Page Title rendered from settings defined on 
 page_description | string | Includes the Page Description rendered from settings defined on Cms Design
 widgets | array | Includes the widget renders. Detailed example below.
 
-### widgets
+### `widgets`
 
 ```twig
 {% for render in widgets.content.renders %}
@@ -27,7 +27,7 @@ widgets | array | Includes the widget renders. Detailed example below.
 
 ## Twig Filters
 
-### count
+### `count`
 
 `count` filter returns number of elements in an array.
 
@@ -39,7 +39,7 @@ Example:
 {% endif %}
 ``` 
 
-### registry
+### `registry`
 
 `registry` filter is used to get a variable in the butterfly registry or set a variable to butterfly registry.
 
@@ -53,7 +53,7 @@ to set a variable:
 {{ 'registry-key'|registry('value') }}
 ```
 
-### truncate
+### `truncate`
 
 `truncate` filter is used to shorten strings. It returns the first X characters of the string. 
 
@@ -68,7 +68,7 @@ will output
 Test
 ```
 
-### config
+### `config`
 
 `config` filter is used to return specific config set in `app/Config` directory.
 
@@ -86,7 +86,7 @@ will return the url of the butterfly setup, which is set in `app/Config/app.php`
 
 ## Twig Functions
 
-### image_path
+### `image_path`
 
 `image_path` function is used to access the full path of image or file aliases.
 
@@ -96,7 +96,7 @@ image_path('original')
 
 will return the full path to access original image alias.
 
-### file_path
+### `file_path`
 
 `file_path` function is used to access the full path of image or file aliases.
 
@@ -106,7 +106,7 @@ image_path('excel')
 
 will return the full path to access excel file alias.
 
-### widget
+### `widget`
 
 `widget` function is used to render a widget with given parameters.
 
@@ -122,7 +122,7 @@ to render admin widgets, you can set admin: true
 {{ widget({name: 'FrontendAdmin', 'admin': true}) }}
 ```
 
-### include_file
+### `include_file`
 
 `include_file` function is used to include twig files. It automatically checks include directories to find the twig templates.
 Default frontend folders are: `app/Views`, `app/Widgets`, `Core/View/Frontend`.
@@ -136,7 +136,7 @@ include_file('test.twig')
 >[!TIP]
 > If you want to extend Frontend Folders, you can use `$this->getView()->addViewPath('FOLDER_NAME');` from any controller. 
 
-### current_url
+### `current_url`
 
 `current_url` function returns the contents of `$_SERVER['REQUEST_URI']` [Details](https://www.php.net/manual/tr/reserved.variables.server.php)
 
@@ -154,7 +154,7 @@ will return
 /test.html
 ```
 
-### setting
+### `setting`
 
 `setting` function is used to return specific setting defined in Admin Panel. 
 
@@ -166,7 +166,7 @@ Example:
 
 will return the Setting with alias `description` defined in Setting Group with alias: `site-settings`
 
-### git_version
+### `git_version`
 
 `git_version` returns hash of current git version for invalidating asset caches etc.
 
