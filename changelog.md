@@ -3,7 +3,7 @@
 ## Unreleased
 
 - butterfly current installed version information is added to page header in `Settings` page.
-- Conditional Show/Hide helpers are added for Object Specs. [Details](https://thebutterfly.io/docs/#/objects?id=conditional-show-hide) 
+- Conditional Show/Hide helpers are added for Object Specs. [Details](https://thebutterfly.io/docs/#/adminpanel?id=conditional-showhide) 
 
 ## 1.5.100
 
