@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased
+
+- butterfly current installed version information is added to page header in `Settings` page.
+- Conditional Show/Hide helpers are added for Object Specs. [Details](https://thebutterfly.io/docs/#/objects?id=conditional-show-hide) 
+
 ## 1.5.100
 
 - `svg` support is added for Image Upload Types [Details](https://thebutterfly.io/docs/#/objects?id=image-upload)
