@@ -269,4 +269,4 @@ When you need to show / hide other elements based on value of an Object Spec's v
 ```
 
 will hide Object Specs with column name: `image`, `title`, `label`, `subtitle` and will show the Object Specs based on the 
-value of the current Object Spec. For example: if the value is equal to `ThirdValue` it will show Object Spec with column name: `subtitle`.
+value of the current Object Spec. For example: if the value is `ThirdValue` it will show Object Spec with column name: `subtitle`.
