@@ -255,7 +255,7 @@ will alert the value of the current element.
 
 ##### Conditional Show/Hide
 
-When you need to show / hide other elements based on value of an Object Spec, you can use Conditional Show/Hide helper.
+When you need to show / hide other elements based on value of an Object Spec's value, you can use Conditional Show/Hide helper.
 `.condition` function is used for this purpose.
 
 **Example Usage:**
