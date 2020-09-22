@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.5.104
+
+- `nested` field type support is added for `Settings` 
+
 ## 1.5.101
 
 - butterfly current installed version information is added to page header in `Settings` page.
