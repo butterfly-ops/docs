@@ -17,3 +17,6 @@ You can add new settings from Admin Panel. We recommend you to create settings u
 without additional effort. You can check [this page](https://thebutterfly.io/docs/#/migrations?id=settings) to learn how to create settings using `Migrations`.  
 
 ### Updating Setting Values
+
+After creating Settings, you can update it from `Admin Panel` > `Settings` menu. You will see the Setting Groups and after clicking
+Setting Group names, all options in that Setting Group will be listed. 
