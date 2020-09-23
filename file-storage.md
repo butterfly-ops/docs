@@ -32,6 +32,25 @@ $mImageHelper->downloadImage('https://www.example.com/example.png', 'image_alias
 
 You can define Image Aliases from `System Settings` > `Image Uploads`.
 
+successful response:
+
+```php
+[
+    'success' => true,
+    'full_path' => 'https://thebutterfly.io/static/2020-01/01/test.png',
+    'filename' => '2020-01/01/test.png'
+];
+```
+
+failed response:
+
+```php
+[
+    'success' => false,
+    'message' => 'Error message'
+];
+```
+
 ## Handling Image Uploads
 
 If you need to upload an image programatically else than Admin Panel, you can do it easily using the following example:
@@ -42,6 +61,25 @@ $mImageHelper->processUpload('UPLOAD_KEY', 'image_alias');
 ```
 
 UPLOAD_KEY designates the key in $_FILES array which means the input name of the Upload. You can define Image Aliases from `System Settings` > `Image Uploads`.
+
+successful response:
+
+```php
+[
+    'success' => true,
+    'full_path' => 'https://thebutterfly.io/static/2020-01/01/test.png',
+    'filename' => '2020-01/01/test.png'
+];
+```
+
+failed response:
+
+```php
+[
+    'success' => false,
+    'message' => 'Error message'
+];
+```
 
 ## Downloading a File
 
@@ -57,6 +95,25 @@ $mFileHelper->downloadFile('https://www.example.com/example.xlsx', 'file_alias')
 
 You can define Image Aliases from `System Settings` > `Image Uploads`.
 
+successful response:
+
+```php
+[
+    'success' => true,
+    'full_path' => 'https://thebutterfly.io/static/2020-01/01/test.xlsx',
+    'filename' => '2020-01/01/test.xlsx'
+];
+```
+
+failed response:
+
+```php
+[
+    'success' => false,
+    'message' => 'Error message'
+];
+```
+
 ## Handling File Uploads
 
 If you need to upload an image programatically else than Admin Panel, you can do it easily using the following example:
@@ -67,3 +124,22 @@ $mFileHelper->processUpload('UPLOAD_KEY', 'file_alias');
 ```
 
 UPLOAD_KEY designates the key in $_FILES array which means the input name of the Upload. You can define Image Aliases from `System Settings` > `Image Uploads`.
+
+successful response:
+
+```php
+[
+    'success' => true,
+    'full_path' => 'https://thebutterfly.io/static/2020-01/01/test.xlsx',
+    'filename' => '2020-01/01/test.xlsx'
+];
+```
+
+failed response:
+
+```php
+[
+    'success' => false,
+    'message' => 'Error message'
+];
+```
