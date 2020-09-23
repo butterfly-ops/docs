@@ -18,7 +18,11 @@ File Storage Drivers are:
 - SFTP
 - FTP
 
-## Downloading an Image
+## Images
+
+Allowed extensions for images: `jpg, jpeg, gif, svg, png`
+
+### Downloading an Image
 
 You can upload / crop an image from Admin Panel if it's defined as Widget Spec, Setting or Object Spec; but you may need to download 
 an image programatically.
@@ -51,7 +55,7 @@ failed response:
 ];
 ```
 
-## Handling Image Uploads
+### Handling Image Uploads
 
 If you need to upload an image programatically else than Admin Panel, you can do it easily using the following example:
 
@@ -81,7 +85,13 @@ failed response:
 ];
 ```
 
-## Downloading a File
+## Files
+
+Allowed file upload extensions are defined from Admin panel.
+
+Restricted File Types: `php, php5, sh`
+
+### Downloading a File
 
 You can upload / crop an image from Admin Panel if it's defined as Widget Spec, Setting or Object Spec; but you may need to download 
 an image programatically.
@@ -114,7 +124,7 @@ failed response:
 ];
 ```
 
-## Handling File Uploads
+### Handling File Uploads
 
 If you need to upload an image programatically else than Admin Panel, you can do it easily using the following example:
 
