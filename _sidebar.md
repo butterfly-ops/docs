@@ -2,6 +2,7 @@
 
 * [Home](/)
 * [Installation](installation.md)
+* [Features](features.md)
 * [Changelog](changelog.md)
 * [Cloud](cloud.md)
 * [Upgrade](upgrade.md)
