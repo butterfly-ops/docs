@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.5.105
+
+- FTP Support for File Storages is added.
+- Flysystem is integrated [Details](https://thebutterfly.io/docs/#/file-storage)
+- Upload Handlers are added for easier File and Image Upload through API's [Details](https://thebutterfly.io/docs/#/file-storage)
+
 ## 1.5.104
 
 - `nested` field type support is added for `Settings` 
