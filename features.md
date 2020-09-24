@@ -1,7 +1,5 @@
 # Features
 
-## Admin Panel
-
 ### Objects
 
 Butterfly has your back(end). You can create your Admin Panel without writing a single code for creating Pages of Listing, Filtering, Editing,
