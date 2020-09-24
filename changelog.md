@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- Fixed a bug in Bulk Edits. (It was ignoring characters after `&` character in String Fields.)
+
 ## 1.5.105
 
 - FTP Support for File Storages is added.
