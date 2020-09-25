@@ -1,10 +1,13 @@
 # Changelog
 
-## Unreleased
+## 1.5.107
+
+- Real IP Access Headers are added to `security` config. [Details](https://thebutterfly.io/docs/#/security?id=accessing-real-ip-address)
+
+## 1.5.106
 
 - Fixed a bug in Bulk Edits. (It was ignoring characters after `&` character in String Fields.)
 - Nested Fields Visual Improvements
-- Real IP Access Headers are added to `security` config. [Details](https://thebutterfly.io/docs/#/security?id=accessing-real-ip-address)
 
 ## 1.5.105
 
