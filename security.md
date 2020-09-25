@@ -63,3 +63,35 @@ in the correct usage, user parameter is sent to MySQL Server using PDO Parameter
 can not manipulate query by just manipulating the input data itself. 
 
 You can check [database](#database) documentation for more usage examples.
+
+## Accessing Real IP Address
+
+Logging user activities and ip addresses is important for a secure system. Butterfly Admin Panel automatically logs this information 
+for your security.
+
+If you're using a Load Balancer, there may be a confusion about IP Address since IP Address of the Load Balancer may replace the user's Real IP Address.
+
+You can set the correct IP Header from `app/security.php`.
+
+Example:
+```php
+[
+    'ip_header' => 'HTTP_X_FORWARDED_FOR'    
+];
+``` 
+
+will use the X-Forwarded-For Header set from Load Balancer.
+
+If you need to access IP Address from `app` directory, you can use the following function:
+
+```php
+    $helper = new \Butterfly\Framework\Helper\Request();
+    $ip = $helper->getIpAddress();
+```
+
+> [!TIP]
+> You can check from Admin Panel > Settings screen if your IP Address is set correctly or not. On the right top corner, IP Address is shown.
+
+> [!WARNING]
+> Ask your Devops team before setting this parameter since setting a not-existing header may cause a security leak since hackers may set 
+> override a non-existing parameter.
