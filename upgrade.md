@@ -73,6 +73,11 @@ bin/butterfly upgrade
 
 ## Version Upgrade Notes
 
+### 1.5.116
+
+- Please change your webserver config and point root folder to `/public` folder. If the previous folder was `/var/www/vhosts/thebutterfly.io/` 
+now, it should be `/var/www/vhosts/thebutterfly.io/`. Please beware that your site will be down if you don't change your Document Root. 
+
 ### 1.5.74
 
 Version 1.5.74 has some breaking changes. Please check the following points:

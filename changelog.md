@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.5.116
+
+- Please check [Upgrade Notes](https://thebutterfly.io/docs/#/upgrade?id=15116)
+- Publicly accessible fiels are moved to `public`
+
 ## 1.5.107
 
 - Real IP Access Headers are added to `security` config. [Details](https://thebutterfly.io/docs/#/security?id=accessing-real-ip-address)
