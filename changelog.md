@@ -3,7 +3,7 @@
 ## 1.5.116
 
 - Please check [Upgrade Notes](https://thebutterfly.io/docs/#/upgrade?id=15116)
-- Publicly accessible fiels are moved to `public`
+- Publicly accessible files are moved to `public` folder for enhanced security.
 
 ## 1.5.107
 
