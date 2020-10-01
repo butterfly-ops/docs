@@ -22,16 +22,6 @@ File Storage Drivers are:
 
 This adapter ships with Butterfly by default.
 
-Usage
-
-```php
-use League\Flysystem\Filesystem;
-use League\Flysystem\Adapter\Local;
-
-$adapter = new Local(__DIR__.'/path/to/root');
-$filesystem = new Filesystem($adapter);
-```
-
 ### Amazon S3
 
 Installation
@@ -59,27 +49,6 @@ composer require league/flysystem-sftp
 ### FTP
 
 This adapter ships with Butterfly by default.
-
-Usage 
-
-```
-use League\Flysystem\Filesystem;
-use League\Flysystem\Adapter\Ftp as Adapter;
-
-$filesystem = new Filesystem(new Adapter([
-    'host' => 'ftp.example.com',
-    'username' => 'username',
-    'password' => 'password',
-
-    /** optional config settings */
-    'port' => 21,
-    'root' => '/path/to/root',
-    'passive' => true,
-    'ssl' => true,
-    'timeout' => 30,
-    'ignorePassiveAddress' => false,
-]));
-```
 
 ## Images
 
