@@ -24,7 +24,7 @@ This adapter ships with Butterfly by default.
 
 Usage
 
-```
+```php
 use League\Flysystem\Filesystem;
 use League\Flysystem\Adapter\Local;
 
@@ -36,71 +36,24 @@ $filesystem = new Filesystem($adapter);
 
 Installation
 
-```composer require league/flysystem-aws-s3-v3```
-
-Usage
-
-```
-use Aws\S3\S3Client;
-use League\Flysystem\AwsS3v3\AwsS3Adapter;
-use League\Flysystem\Filesystem;
-
-$client = new S3Client([
-    'credentials' => [
-        'key'    => 'your-key',
-        'secret' => 'your-secret',
-    ],
-    'region' => 'your-region',
-    'version' => 'latest|version',
-]);
-
-$adapter = new AwsS3Adapter($client, 'your-bucket-name', 'optional/path/prefix');
-
-$filesystem = new Filesystem($adapter);
+```bash
+composer require league/flysystem-aws-s3-v3
 ```
 
 ### Azure Blob Storage
 
 Installation
 
-```composer require league/flysystem-azure-blob-storage```
-
-Usage
-
-```
-use League\Flysystem\AzureBlobStorage\AzureBlobStorageAdapter;
-use League\Flysystem\Filesystem;
-use MicrosoftAzure\Storage\Blob\BlobRestProxy;
-
-include __DIR__.'/vendor/autoload.php';
-
-$client = BlobRestProxy::createBlobService('DefaultEndpointsProtocol=https;AccountName={YOUR_ACCOUNT_NAME};AccountKey={YOUR_ACCOUNT_KEY};');
-$adapter = new AzureBlobStorageAdapter($client, 'container_name');
-$filesystem = new Filesystem($adapter);
-var_dump($filesystem->listContents());
+```bash
+composer require league/flysystem-azure-blob-storage
 ```
 
 ### SFTP
 
 Installation
 
-```composer require league/flysystem-sftp```
-
-Usage 
-
-```
-use League\Flysystem\Filesystem;
-use League\Flysystem\Sftp\SftpAdapter;
-
-$filesystem = new Filesystem(new SftpAdapter([
-    'host' => 'example.com',
-    'port' => 22,
-    'username' => 'username',
-    'password' => 'password',
-    'privateKey' => 'path/to/or/contents/of/privatekey',
-    'root' => '/path/to/root',
-    'timeout' => 10,
-]));
+```bash
+composer require league/flysystem-sftp
 ```
 
 ### FTP
