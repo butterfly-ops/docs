@@ -117,6 +117,27 @@ failed response:
 ];
 ```
 
+### Getting Full Path
+
+When you use image uploads, only filenames are kept in the Database. Although full paths of the images for all possible sizes are 
+saved in Elastic Search Index (Data Pools), you may want to get data from Database.
+
+You can get the full path of an image alias like the following:
+
+- Getting image full path by alias from PHP Code:
+
+```php
+$mCmsImageUpload = new \Butterfly\Core\Model\CmsImageUpload();
+$mCmsImageUpload->getFullPathByAlias('original'); // `original` is the alias of image upload
+```
+
+- Getting image full path by alias from Twig Templates:
+
+```twig
+{{ image_path('image_alias') }}
+```
+
+
 ## Files
 
 Allowed file upload extensions are defined from Admin panel.
@@ -184,4 +205,24 @@ failed response:
     'success' => false,
     'message' => 'Error message'
 ];
+```
+
+### Getting Full Path
+
+When you use file uploads, only filenames are kept in the Database. Although full path of the file upload 
+saved in Elastic Search Index (Data Pools), you may want to get data from Database.
+
+You can get the full path of an file alias like the following:
+
+- Getting file full path by alias from PHP Code:
+
+```php
+$mCmsFileUpload = new \Butterfly\Core\Model\CmsFileUpload();
+$mCmsFileUpload->getFullPathByAlias('file_upload_alias'); // `original` is the alias of image upload
+```
+
+- Getting image full path by alias from Twig Templates:
+
+```twig
+{{ image_path('image_alias') }}
 ```
