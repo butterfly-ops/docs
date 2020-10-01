@@ -224,5 +224,5 @@ $mCmsFileUpload->getFullPathByAlias('file_upload_alias'); // `original` is the a
 - Getting image full path by alias from Twig Templates:
 
 ```twig
-{{ image_path('image_alias') }}
+{{ file_path('file_alias') }}
 ```

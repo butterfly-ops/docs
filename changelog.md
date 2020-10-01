@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.5.120
+
+- New Function to access image full paths is added. [Details](https://thebutterfly.io/docs/#/file-storage?id=getting-full-path)
+- New Function to access file full paths is added. [Details](https://thebutterfly.io/docs/#/file-storage?id=getting-full-path-1)
+
 ## 1.5.116
 
 - Please check [Upgrade Notes](https://thebutterfly.io/docs/#/upgrade?id=15116)
