@@ -68,6 +68,14 @@ will output
 Test
 ```
 
+### `json_decode`
+
+Twig doesn't come with a `json_decode` filter by default. You can use `json_decode` filter to return json encoded string to array.
+
+>[!TIP]
+>
+> `json_decode` filter converts to array by default (calls the following function: json_decode('JSON_STRING', true); 
+
 ### `config`
 
 `config` filter is used to return specific config set in `app/Config` directory.

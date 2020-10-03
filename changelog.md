@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.5.121
+
+- `json_decode` filter is added to TwigFilters. [Details](https://thebutterfly.io/docs/#/frontend?id=json_decode)
+
 ## 1.5.120
 
 - New Function to access image full paths is added. [Details](https://thebutterfly.io/docs/#/file-storage?id=getting-full-path)
