@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.5.123
+
+- `parse` filter is added to TwigFilters. [Details](https://thebutterfly.io/docs/#/frontend?id=parse)
+
 ## 1.5.122
 
 - `json_decode` filter is added to TwigFilters. [Details](https://thebutterfly.io/docs/#/frontend?id=json_decode)

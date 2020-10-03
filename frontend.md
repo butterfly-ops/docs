@@ -72,6 +72,11 @@ Test
 
 Twig doesn't come with a `json_decode` filter by default. You can use `json_decode` filter to return json encoded string to array.
 
+### `parse`
+
+`parse` filter is used to process strings and replaces dynamic values into strings. This filter is used to process dynamic strings specially entered from Admin Panel. 
+For example: In Item Detail page, you can enter string `%name%` from admin, and parse filter will replace `%name%` to name value of the array.
+
 >[!TIP]
 >
 > `json_decode` filter converts to array by default (calls the following function: json_decode('JSON_STRING', true); 
