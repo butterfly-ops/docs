@@ -54,8 +54,8 @@ $users = db()
 
 will run the query:
 
-```sql
-SELECT * FROM users;
+```json
+{"query":{"match_all":{}}}
 ``` 
 
 and return all results as associative array.
@@ -70,6 +70,12 @@ $users = db()
     ->get();
 ```
 
+will run query:
+
+```json
+{"query": {"match_all": {}}, "_source":["id","name"]}
+```
+
 ### Where
 
 You can write where clauses in many ways. Examples are the following:
@@ -82,61 +88,13 @@ $user = db()->from('users')
 
 will run the query:
 
-```sql
-SELECT * FROM users WHERE id = 5;
+```json
+{"query":{"query_string":{"query":"(id:5)"}}}
 ``` 
 
 and return one row as associative array.
 
-will run query:
-
-```sql
-SELECT id, name FROM users;
-```
-
 You can use parameter binding, and bind parameters:
-
-> [!WARNING]
-> You don't need bind function for shorthand where clauses. You can use directly bind parameter as second parameter to where clauses.
-> For example: `->where('id', 5)` will bind parameters automatically. Don't use `bind` function for non-complex where operations.  
-
-```php
-$user = db()->from('users')
-    ->join('user_roles', 'user_roles.user_id', '=', 'users_id AND status = :status')
-    ->bind('status', 2)
-    ->first();
-```
-
-will run the query:
-
-```sql
-SELECT * FROM users WHERE id = 5;
-``` 
-
-You can bind parameters using question marks (?)
-
-```php
-$users = db()->from('users')
-    ->where('id = ? OR id = ?', [5, 10])
-    ->get();
-```
-
-will run:
-
-```sql
-SELECT * FROM users WHERE id = 5 OR id = 10
-```
-
-> [!DANGER]
-> Question mark style binding, doesn't work with associative arrays.
-
-**Following code will generate error:**
-
-```php
-$users = db()->from('users')
-    ->where('id = ?', ['id' => 5])
-    ->get();
-```
 
 #### whereIn
 
@@ -145,13 +103,27 @@ You can use arrays with where clauses:
 ```php
 $users = db()->from('users')
     ->whereIn('id', [1,2,3])
+    ->orderByDesc('id')
     ->get();
 ```
 
 will run the query:
 
-```sql
-SELECT * FROM users WHERE id IN (1, 2, 3)
+```json
+{
+  "query": {
+    "query_string": {
+      "query": "id:(5 OR 10)"
+    }
+  },
+  "sort": [
+    {
+      "id": {
+        "order": "desc"
+      }
+    }
+  ]
+}
 ```
 
 #### whereNotIn
