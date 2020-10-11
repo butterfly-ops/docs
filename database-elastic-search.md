@@ -505,30 +505,30 @@ will run:
 }
 ```
 
-### Join
+### `Join`
 
 > [!WARNING]
-> Join Functions are not supported by Elastic Search.
+> `Join` Functions are not supported by Elastic Search.
 
-#### Left Join
-
-> [!WARNING]
-> Join Functions are not supported by Elastic Search.
-
-#### Right Join
+#### `Left Join`
 
 > [!WARNING]
-> Join Functions are not supported by Elastic Search.
+> `Join` Functions are not supported by Elastic Search.
 
-### Use Index
-
-> [!WARNING]
-> Use Index is supported by Elastic Search. Will not produce an error but it will just ignore this function call. 
-
-### Force Index
+#### `Right Join`
 
 > [!WARNING]
-> Use Index is supported by Elastic Search. Will not produce an error but it will just ignore this function call.
+> `Join` Functions are not supported by Elastic Search.
+
+### `Use Index`
+
+> [!WARNING]
+> `useIndex` is supported by Elastic Search. Will not produce an error but it will just ignore this function call. 
+
+### `Force Index`
+
+> [!WARNING]
+> `forceIndex` is supported by Elastic Search. Will not produce an error but it will just ignore this function call.
 
 ### Order By
 
