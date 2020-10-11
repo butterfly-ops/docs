@@ -122,7 +122,9 @@ will run the query:
 
 and return one row as associative array.
 
-You can use parameter binding, and bind parameters:
+>[!CAUTION]
+> Unlike MySQL Where Clauses, Elastic Search doesn't match only exact phrase when you search inside Text fields. For example: if you run `->where('name', 'John')` it will return rows where name is John or John Doe.
+> If you want to return exact records with name: John, you have to make that field `keyword` instead of `text`.
 
 #### whereIn
 
