@@ -266,10 +266,13 @@ $users = db()->from('users')
     ->get();
 ```
 
-Runs the following query:
+As you can see below, queries inside of the function will be evaluated seperately inside of braces and it will run:
 
 ```sql
-SELECT * FROM users WHERE id = 5 OR status = 2 OR (votes < 500 OR status = 3) ORDER BY id DESC
+SELECT * FROM users 
+    WHERE id = 5 OR status = 2 
+        OR (votes < 500 AND status = 3) 
+    ORDER BY id DESC
 ```
 
 #### orWhere
@@ -290,16 +293,6 @@ will run:
 
 ```sql
 SELECT * FROM users WHERE id = 3 OR (votes < 500 AND status = 3)
-```
-
-
-As you can see below, queries inside of the function will be evaluated seperately inside of braces and it will run:
-
-```sql
-SELECT * FROM users 
-    WHERE id = 5 OR status = 2 
-        OR (votes < 500 AND status = 3) 
-    ORDER BY id DESC
 ```
 
 #### orWhereIn

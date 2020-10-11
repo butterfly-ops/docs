@@ -44,6 +44,34 @@ Transactions are not supported for ElasticSearch.
 
 # Running Queries
 
+## search Function
+
+Since Elastic Search's main focus is searching, you can use `search` function to make a generic search:
+
+Example:
+
+```php
+$users = db()
+    ->from('users')
+    ->search('test', ['name', 'surname', 'email'])
+    ->get()
+;
+```
+
+will run the query:
+
+```json
+{
+  "query":{
+      "query_string": {,
+            "query":"test",
+            "fields": ["name", "surname","email"]
+      }
+}
+```
+
+and search for `test` in `name`, `surname`, `email` fields.
+
 ## SELECT Queries
 
 ```php
@@ -138,8 +166,21 @@ $users = db()->from('users')
 
 will run the query:
 
-```sql
-SELECT * FROM users WHERE id NOT IN (1, 2, 3)
+```json
+{
+  "query": {
+    "query_string": {
+      "query": "NOT id:(5 OR 10)"
+    }
+  },
+  "sort": [
+    {
+      "id": {
+        "order": "desc"
+      }
+    }
+  ]
+}
 ```
 
 #### whereNull
@@ -154,8 +195,21 @@ $users = db()->from('users')
 
 will run the query:
 
-```sql
-SELECT * FROM users WHERE status IS NULL
+```json
+{
+  "query": {
+    "query_string": {
+      "query": "NOT _exists_:status"
+    }
+  },
+  "sort": [
+    {
+      "id": {
+        "order": "desc"
+      }
+    }
+  ]
+}
 ```
 
 #### whereNotNull
@@ -168,8 +222,22 @@ $users = db()->from('users')
 
 will run the query:
 
-```sql
-SELECT * FROM users WHERE status IS NOT NULL
+
+```json
+{
+  "query": {
+    "query_string": {
+      "query": "_exists_:status"
+    }
+  },
+  "sort": [
+    {
+      "id": {
+        "order": "desc"
+      }
+    }
+  ]
+}
 ```
 
 
@@ -185,14 +253,28 @@ $users = db()->from('users')
         return $query->where('votes', '<', '500')
             ->orWhere('status', 3);
     })
-    ->orderBy('id DESC')
+    ->orderByDesc('id')
     ->get();
 ```
 
-Runs the following query:
+As you can see below, queries inside of the function will be evaluated seperately inside of braces and it will run:
 
-```sql
-SELECT * FROM users WHERE id = 5 OR status = 2 OR (votes < 500 OR status = 3) ORDER BY id DESC
+
+```json
+{
+  "query": {
+    "query_string": {
+      "query": "(id:5) OR (status:2) OR ((votes<500) AND (status:3))"
+    }
+  },
+  "sort": [
+    {
+      "id": {
+        "order": "desc"
+      }
+    }
+  ]
+}
 ```
 
 #### orWhere
@@ -211,199 +293,240 @@ $users = db()->from('users')
 
 will run:
 
-```sql
-SELECT * FROM users WHERE id = 3 OR (votes < 500 AND status = 3)
-```
 
-
-As you can see below, queries inside of the function will be evaluated seperately inside of braces and it will run:
-
-```sql
-SELECT * FROM users 
-    WHERE id = 5 OR status = 2 
-        OR (votes < 500 AND status = 3) 
-    ORDER BY id DESC
+```json
+{
+  "query": {
+    "query_string": {
+      "query": "(id:3) OR ((votes<500) AND (status:3))"
+    }
+  }
+}
 ```
 
 #### orWhereIn
 
 ```php
 $users = db()->from('users')
-->where('id', 5)
-->orWhereIn('status', [1,2,3])
-->get();
+    ->where('status', 2)
+    ->orWhereIn('id', [5, 10])
+    ->orderByDesc('id')
+    ->get()
+;
 ```
 
 will run the query:
 
-```mysql
-SELECT * FROM users WHERE id = 5 OR status IN (1,2,3)
+```json
+{
+  "query": {
+    "query_string": {
+      "query": "(status:2) OR id:(5 OR 10)"
+    }
+  },
+  "sort": [
+    {
+      "id": {
+        "order": "desc"
+      }
+    }
+  ]
+}
 ```
 
 #### orWhereNull
 
 ```php
 $users = db()->from('users')
-->where('id', 5)
-->orWhereNull('status')
-->get();
+    ->where('id', 5)
+    ->orWhereNull('status')
+    ->get()
+;
 ```
 
 will run the query:
 
-```mysql
-SELECT * FROM users WHERE id = 5 OR status IS NULL
+```json
+{
+  "query": {
+    "query_string": {
+      "query": "(id:5) OR (NOT _exists_:status)"
+    }
+  },
+  "sort": [
+    {
+      "id": {
+        "order": "desc"
+      }
+    }
+  ]
+}
 ```
 
 #### orWhereNotNull
 
 ```php
 $users = db()->from('users')
-->where('id', 5)
-->orWhereNotNull('status')
-->get();
+    ->where('id', 5)
+    ->orWhereNotNull('status')
+    ->get()
+;
 ```
 
 will run the query:
 
-```mysql
-SELECT * FROM users WHERE id = 5 OR status IS NOT NULL
+```json
+{
+  "query": {
+    "query_string": {
+      "query": "(id:5) OR (_exists_:status)"
+    }
+  }
+}
 ```
 
 #### Distinct
 
-```php
-$users = db()
-   ->from('users')->distinct(['name', 'phone'])
-    ->get();
-```
+Distinct query is not supported by Elastic Search Adapter.
+
+#### whereBetween
 
 ```php
-$users = db()
-   ->from('users', ['name', 'phone'])->distinct()
-    ->get();
+db()->from('users')
+    ->where('status', 5)
+    ->whereBetween('id', 1, 20)
+    ->orderByDesc('id')
+    ->get()
+;
+```
+will run:
+
+```json
+{
+  "query": {
+    "query_string": {
+      "query": "(status:5) AND (id:(1 TO 20))"
+    }
+  },
+  "sort": [
+    {
+      "id": {
+        "order": "desc"
+      }
+    }
+  ]
+}
 ```
 
-will run the queris:
+#### orWhereBetween
 
-```sql
-SELECT DISTINCT name,phone FROM users;
-``` 
+```php
+db()->from('users')
+    ->where('status', 5)
+    ->orWhereBetween('id', 1, 20)
+    ->orderByDesc('id')
+    ->get()
+;
+```
+will run:
 
-#### Between
+```json
+{
+  "query": {
+    "query_string": {
+      "query": "(status:5) OR (id:(1 TO 20))"
+    }
+  },
+  "sort": [
+    {
+      "id": {
+        "order": "desc"
+      }
+    }
+  ]
+}
+```
+
+#### orWhereNotBetween
 
 ```php
 $users = db()->from('users')
-    ->orWhereBetween('status', [5, 10])
+    ->where('status', 5)
+    ->orWhereNotBetween('id', 1, 20)
+    ->orderByDesc('id')
     ->get();
 ```
 will run:
 
-```sql
-SELECT * FROM users WHERE status BETWEEN 5 AND 10
+```json
+{
+  "query": {
+    "query_string": {
+      "query": "(status:5) OR (NOT id:(1 TO 20))"
+    }
+  },
+  "sort": [
+    {
+      "id": {
+        "order": "desc"
+      }
+    }
+  ]
+}
 ```
-#### Not Between
+
+#### whereNotBetween
 
 ```php
 $users = db()->from('users')
-    ->orWhereNotBetween('status', [5, 10])
+    ->where('status', 5)
+    ->whereNotBetween('id', 1, 20)
+    ->orderByDesc('id')
     ->get();
 ```
 will run:
 
-```sql
-SELECT * FROM users WHERE status NOT BETWEEN 5 AND 10
+```json
+{
+  "query": {
+    "query_string": {
+      "query": "(status:5) AND (NOT id:(1 TO 20))"
+    }
+  },
+  "sort": [
+    {
+      "id": {
+        "order": "desc"
+      }
+    }
+  ]
+}
 ```
 
 ### Join
 
-You can join tables:
-
-#### Inner Join
-
-```php
-$users = db()->from('users')
-    ->join('user_permissions', 'users.id', '=', 'user_permissions.id')
-    ->where('id', 1)
-    ->get();
-```
-
-will run the query:
-
-```sql
-SELECT * FROM users
-    INNER JOIN user_permissions ON users.id = user_permissions.id
-WHERE id = 1
-```
-
 > [!WARNING]
-> Join function uses INNER JOIN Statement
+> Join Functions are not supported by Elastic Search.
 
 #### Left Join
 
-You can left join tables:
-
-```php
-$users = db()->from('users')
-    ->joinLeft('user_permissions', 'users.id', '=', 'user_permissions.id')
-    ->where('id', 1)
-    ->get();
-```
-
-will run the query:
-
-```sql
-SELECT * FROM users
-    LEFT JOIN user_permissions ON users.id = user_permissions.id
-WHERE id = 1
-```
+> [!WARNING]
+> Join Functions are not supported by Elastic Search.
 
 #### Right Join
 
-You can right join tables:
-
-```php
-$users = db()->from('users')
-    ->joinRight('user_permissions', 'users.id', '=', 'user_permissions.id')
-    ->where('id', 1)
-    ->get();
-```
-
-will run the query:
-
-```sql
-SELECT * FROM users
-    RIGHT JOIN user_permissions ON users.id = user_permissions.id
-WHERE id = 1
-```
+> [!WARNING]
+> Join Functions are not supported by Elastic Search.
 
 ### Use Index
 
-```php
-$users = db()
-   ->from('users')->useIndex('name, phone')
-    ->get();
-```
-
-will run the query:
-
-```sql
-SELECT * FROM users USE INDEX (name, phone);
-``` 
+> [!WARNING]
+> Use Index is supported by Elastic Search. Will not produce an error but it will just ignore this function call. 
 
 ### Force Index
 
-```php
-$users = db()
-   ->from('users')->forceIndex('name, phone')
-    ->get();
-```
-
-will run the query:
-
-```sql
-SELECT * FROM users FORCE INDEX (name, phone);
-``` 
+> [!WARNING]
+> Use Index is supported by Elastic Search. Will not produce an error but it will just ignore this function call.
 
 ### Order By
 
@@ -423,36 +546,81 @@ $users = db()->from('users')
 
 ### Group By
 
-You can group by column:
+You can use group by function to get aggregations in Elastic Search Implementation
 
 ```php
 $users = db()->from('users')
-    ->groupBy('id')
-    ->get();
+    ->groupBy('status')
+;
+$result = $users->get();
+$aggregations = $users->aggregations();
 ```
 
-For multiple columns, you can use comma seperator:
+will return
+
+```php
+return [
+    'status' => [
+        'buckets' => [
+            [
+                'key' => 2,
+                'doc_count' => 2
+            ],
+            [
+                'key' => 3,
+                'doc_count' => 1
+            ]
+        ]       
+    ]    
+];
+```
+
+For multiple columns, you can use array:
 
 ```php
 $users = db()->from('users')
-    ->groupBy('status,votes')
-    ->get();
+    ->groupBy(['status','votes'])
+;
+
+$result = $users->get();
+$aggregations = $users->aggregations();
+```
+
+will return
+
+```php
+return [
+    'status' => [
+        'buckets' => [
+            [
+                'key' => 2,
+                'doc_count' => 2
+            ],
+            [
+                'key' => 3,
+                'doc_count' => 1
+            ]
+        ]       
+    ],
+    'votes' => [
+        'buckets' => [
+            [
+                'key' => 2,
+                'doc_count' => 2
+            ],
+            [
+                'key' => 3,
+                'doc_count' => 1
+            ]
+        ]       
+    ]    
+];
 ```
 
 ### Having
 
-```php
-db()->from('users', ['users.id'])
-    ->groupBy('role_id')
-    ->having('a > 5')
-->get();
-```
-
-will run the following query:
-
-```sql
-SELECT users.id FROM users GROUP BY role_id HAVING a > 5
-```
+> [!WARNING]
+> Having is not supported by Elastic Search. It will throw error: "Having function is not supported by ElasticSearch"
 
 ### Limit
 
@@ -465,13 +633,18 @@ db()->from('users')
 
 Will run the query:
 
-```sql
-SELECT * FROM users LIMIT 10
+```json
+{
+  "size": 10
+}
 ```
 
-And will return first 10 rows from `users` table.
+And will return first 10 rows from `users` index.
 
 ### Pagination
+
+>[!WARNING]
+> Pagination doesnt work correctly in Elastic Search if no sorting is set. Please use orderBy functions before calling pagination
 
 You can define paginate results by using `paginate` function.
 
@@ -488,11 +661,14 @@ db()->from('users')
 
 Will run the following query:
 
-```sql
-SELECT * FROM users LIMIT 5, 5
+```json
+{
+  "size": 5,
+  "from": 5
+}
 ```
 
-And will return the results from 2nd page starting from `6.` to `10.` record. 
+And will return the results from 2nd page starting from `6.` to `10.` record.  
 
 ### Find
 
