@@ -13,14 +13,14 @@ are using MySQL or ElasticSearch. We have built a system with same behaviours in
 Why you should mess with Elastic Search complex JSON Queries if there is a better solution. You don't need anymore. Just give a shot to Butterfly 
 implementations. 
 
-## MySQL
+# MySQL
 
-### Introduction
+## Introduction
 
 Butterfly MySQL Implementation syntax is inspired from Laravel. Core aim of implementation is to maintain readability besides having performant queries. 
 You can generate performant queries easily by using built-in functions.  
 
-### Configuration
+## Configuration
 The database configurations are stored in `app/config/database.php`. Configurations can be customized by domain name with subfolders.
 Example configuration:
 
@@ -48,11 +48,11 @@ return [
 ];
 ```
 
-#### Slave Database
+### Slave Database
 
 Butterfly uses slave database if it's defined. If not, it uses default database for the SELECT operations.
 
-#### Using The Database Client
+### Using The Database Client
 
 Database client can be reached using `db()` helper. You can also reach defined databases using the database alias as the first parameter.
  
@@ -66,29 +66,29 @@ Following function call will return a database client connected to database exte
 db('external');
 ```
 
-### Transactions
+## Transactions
 
 You can begin, rollback or commit a transaction.
 
-#### Begin
+### Begin
 
 ```php
 db()->transaction();
 ```
 
-#### Commit
+### Commit
 
 ```php
 db()->commit();
 ````
 
-#### Rollback
+### Rollback
 
 ```php
 db()->rollback();
 ```
 
-#### Example Usage
+### Example Usage
 
 ```php
 db()->transaction();
@@ -108,9 +108,9 @@ try {
 }
 ```
 
-### Running Queries
+## Running Queries
 
-#### SELECT Queries
+### SELECT Queries
 
 ```php
 $users = db()
@@ -126,7 +126,7 @@ SELECT * FROM users;
 
 and return all results as associative array.
 
-##### Specifying Columns
+#### Specifying Columns
 
 You may want to return specific columns:
 
@@ -136,7 +136,7 @@ $users = db()
     ->get();
 ```
 
-##### Where
+#### Where
 
 You can write where clauses in many ways. Examples are the following:
 
@@ -204,7 +204,7 @@ $users = db()->from('users')
     ->get();
 ```
 
-###### whereIn
+##### whereIn
 
 You can use arrays with where clauses:
 
@@ -220,7 +220,7 @@ will run the query:
 SELECT * FROM users WHERE id IN (1, 2, 3)
 ```
 
-###### whereNotIn
+##### whereNotIn
 
 You can use arrays with where clauses:
 
@@ -236,7 +236,7 @@ will run the query:
 SELECT * FROM users WHERE id NOT IN (1, 2, 3)
 ```
 
-###### whereNull
+##### whereNull
 
 By using **whereNull**, you can easily filter only null values:
 
@@ -252,7 +252,7 @@ will run the query:
 SELECT * FROM users WHERE status IS NULL
 ```
 
-###### whereNotNull
+##### whereNotNull
 
 ```php
 $users = db()->from('users')
@@ -267,7 +267,7 @@ SELECT * FROM users WHERE status IS NOT NULL
 ```
 
 
-###### Nested Clause
+##### Nested Clause
 
 Nested SQL Queries can be generated using callback functions.
 
@@ -292,7 +292,7 @@ SELECT * FROM users
     ORDER BY id DESC
 ```
 
-###### orWhere
+##### orWhere
 
 You can also use operators in where clauses. If you pass where clauses as an array, all clauses in the array will be joined using `AND` operator.
 
@@ -312,7 +312,7 @@ will run:
 SELECT * FROM users WHERE id = 3 OR (votes < 500 AND status = 3)
 ```
 
-###### orWhereIn
+##### orWhereIn
 
 ```php
 $users = db()->from('users')
@@ -327,7 +327,7 @@ will run the query:
 SELECT * FROM users WHERE id = 5 OR status IN (1,2,3)
 ```
 
-###### orWhereNull
+##### orWhereNull
 
 ```php
 $users = db()->from('users')
@@ -342,7 +342,7 @@ will run the query:
 SELECT * FROM users WHERE id = 5 OR status IS NULL
 ```
 
-###### orWhereNotNull
+##### orWhereNotNull
 
 ```php
 $users = db()->from('users')
@@ -357,7 +357,7 @@ will run the query:
 SELECT * FROM users WHERE id = 5 OR status IS NOT NULL
 ```
 
-###### Distinct
+##### Distinct
 
 ```php
 $users = db()
@@ -377,7 +377,7 @@ will run the queris:
 SELECT DISTINCT name,phone FROM users;
 ``` 
 
-###### Between
+##### Between
 
 ```php
 $users = db()->from('users')
@@ -389,7 +389,7 @@ will run:
 ```sql
 SELECT * FROM users WHERE status BETWEEN 5 AND 10
 ```
-###### Not Between
+##### Not Between
 
 ```php
 $users = db()->from('users')
@@ -402,11 +402,11 @@ will run:
 SELECT * FROM users WHERE status NOT BETWEEN 5 AND 10
 ```
 
-##### Join
+#### Join
 
 You can join tables:
 
-###### Inner Join
+##### Inner Join
 
 ```php
 $users = db()->from('users')
@@ -426,7 +426,7 @@ WHERE id = 1
 > [!WARNING]
 > Join function uses INNER JOIN Statement
 
-###### Left Join
+##### Left Join
 
 You can left join tables:
 
@@ -445,7 +445,7 @@ SELECT * FROM users
 WHERE id = 1
 ```
 
-###### Right Join
+##### Right Join
 
 You can right join tables:
 
@@ -464,7 +464,7 @@ SELECT * FROM users
 WHERE id = 1
 ```
 
-##### Use Index
+#### Use Index
 
 ```php
 $users = db()
@@ -478,7 +478,7 @@ will run the query:
 SELECT * FROM users USE INDEX (name, phone);
 ``` 
 
-##### Force Index
+#### Force Index
 
 ```php
 $users = db()
@@ -492,7 +492,7 @@ will run the query:
 SELECT * FROM users FORCE INDEX (name, phone);
 ``` 
 
-##### Order By
+#### Order By
 
 You can order by column ascending or descending order:
 
@@ -508,7 +508,7 @@ $users = db()->from('users')
     ->get();
 ```
 
-##### Group By
+#### Group By
 
 You can group by column:
 
@@ -526,7 +526,7 @@ $users = db()->from('users')
     ->get();
 ```
 
-##### Having
+#### Having
 
 ```php
 db()->from('users', ['users.id'])
@@ -541,7 +541,7 @@ will run the following query:
 SELECT users.id FROM users GROUP BY role_id HAVING a > 5
 ```
 
-##### Limit
+#### Limit
 
 Results can be limited using limit function. Only the first number of rows will be returned.
 
@@ -558,7 +558,7 @@ SELECT * FROM users LIMIT 10
 
 And will return first 10 rows from `users` table.
 
-##### Pagination
+#### Pagination
 
 You can define paginate results by using `paginate` function.
 
@@ -581,7 +581,7 @@ SELECT * FROM users LIMIT 5, 5
 
 And will return the results from 2nd page starting from `6.` to `10.` record. 
 
-##### Find
+#### Find
 
 You can use `find` function to return one row using identifier
 
@@ -593,7 +593,7 @@ $user = db()
 
 will return one row with id = 1
 
-##### Die 
+#### Die 
 
 For debugging purposes, you can use `die` function to output the SQL Query that will run.
 
@@ -608,7 +608,7 @@ will output the query that will be executed.
 > [!NOTE]
 > `die` function will not run the query, just outputs it and **terminates the script**.
 
-##### Returning Functions
+#### Returning Functions
 
 Returning functions are used to execute the query and return the processed result.
 
@@ -621,7 +621,7 @@ id | name | status
 3 | Jack Hamel | active
   
 
-###### get
+##### get
 
 Will return all rows as associative array.
 
@@ -652,7 +652,7 @@ will return
 ];
 ```
 
-###### first
+##### first
 
 Will just return the first row as associative array
 
@@ -671,7 +671,7 @@ will return
 ];
 ```
 
-###### count
+##### count
 
 Will return the number of rows for the query without any Group By statement.
 
@@ -684,7 +684,7 @@ will return:
 
 `(int) 3`
 
-###### one
+##### one
 
 Will return only one column value
 
@@ -697,7 +697,7 @@ will return the name column value of the first row.
 
 `John Doe`
 
-###### column
+##### column
 
 Will return the values of specific column as an array list
 
@@ -716,7 +716,7 @@ will return names as an array list.
 ];
 ```
 
-###### keyToValue
+##### keyToValue
 
 Will return result indexed by key_column. Value will be the row as the associative array.
 
@@ -766,7 +766,7 @@ will return result indexed by key_column. Value will be value of the specified c
 ];
 ```
 
-###### keyToValues
+##### keyToValues
 
 when key_column is not unique, you can use this function to group results by key_column (e.g. status). Value will be the row as the associative array.
 
@@ -824,7 +824,7 @@ will return result indexed by key_column. Value will be array of values of the s
 ];
 ```
 
-###### max
+##### max
 
 Will return maximum value of the specific column as a single value
 
@@ -837,7 +837,7 @@ will return:
 
 `3`
 
-###### min
+##### min
 
 Will return minimum value of the specific column as a single value
 
@@ -850,7 +850,7 @@ will return:
 
 `1`
 
-###### average
+##### average
 
 Will return average value of the specific column as a single value
 
@@ -863,7 +863,7 @@ will return:
 
 `2`
 
-###### transform
+##### transform
 
 Transform function is used to transform the returning rows.
 
@@ -888,11 +888,11 @@ will return
 ];
 ```
 
-#### INSERT Queries
+### INSERT Queries
 
 You can run insert queries using database client.
 
-##### Insert
+#### Insert
 
 Single insert statement can be run as the following example: 
 
@@ -904,7 +904,7 @@ $userId = db()->table('users')->insert([
 
 will return the auto increment id of the created row.
 
-##### InsertOrUpdate
+#### InsertOrUpdate
 
 Inserts or updates single record. First parameter is used to find if the row already exist,
 - There are two options:
@@ -934,7 +934,7 @@ It will check if there is a record having id => 1,\
 if it doesnt exist, then this will become an insert statement.\
 If it exist, then, the call become an update statement.
 
-##### InsertOrIgnore
+#### InsertOrIgnore
 
 When inserting a record to database, if there is a unique index, you may get an error. When this function is used, it ignores insert errors and returns without inserting the record on error. Which means that, the record will not be inserted if it already exist.
 
@@ -947,7 +947,7 @@ db()->table('users')->insertOrIgnore([
 
 will not insert record if there is already a record with id = 1
 
-##### BulkInsert
+#### BulkInsert
 
 Bulk inserts can improve performance since multiple records will be inserted in a single query.
 
@@ -968,7 +968,7 @@ db()->table('users')
 ;
 ```
 
-##### BulkInsertOrUpdate
+#### BulkInsertOrUpdate
 
 When bulk inserting data, if there is a unique index and new data already exists, than you may want to update the existing data.
 There are two options:
@@ -1013,7 +1013,7 @@ db()->table('users')
 ;
 ```
 
-##### BulkInsertOrIgnore
+#### BulkInsertOrIgnore
 
 When bulk inserting data, if there is a unique index and new data already exists, than you may want to ignore the new data without any error.
 
@@ -1034,11 +1034,11 @@ db()->table('users')
 ;
 ```
 
-#### UPDATE Queries
+### UPDATE Queries
 
 You can run update queries using database client.
 
-##### Update
+#### Update
 
 Simple update statement can be run as the following example:
 
@@ -1051,7 +1051,7 @@ db()->table('users')
     ]);
 ```
 
-##### Limit
+#### Limit
 
 You can limit the number of rows the update query can update by using limit function.
 
@@ -1071,11 +1071,11 @@ will run the query:
 UPDATE users SET name = 'foo', surname = 'bar' WHERE id = 1 LIMIT 1;
 ```
 
-##### Where Clause
+#### Where Clause
 
 > **Note:** You can use all type of where clauses with update queries. Please check [WHERE](#where) section for this.
 
-##### Join Statement
+#### Join Statement
 
 > **Note:** You can use all type of join clauses with update queries. Please check [JOIN](#join) section for this.
 
@@ -1098,11 +1098,11 @@ will run the following query:
 UPDATE `users` INNER JOIN user_groups ON user_groups.id = users.user_group_id SET `name` = 'foo',`user_groups`.`name` = 'bar' WHERE users.id = 1
 ```
 
-#### DELETE Queries
+### DELETE Queries
 
 You can run delete queries using database client.
 
-##### Delete
+#### Delete
 
 Simple delete statement can be run as the following example:
 
@@ -1119,7 +1119,7 @@ will run the following query and will return `number of rows affected`
 DELETE FROM users WHERE id = 5
 ```
 
-##### Join Statement
+#### Join Statement
 
 Multiple tables may be joined and deleted.
 
@@ -1157,11 +1157,11 @@ Will run the following query:
 DELETE user_groups FROM user_groups INNER JOIN users ON user_groups.id = users.user_group_id WHERE users.id IS NULL
 ```
 
-#### Schema
+### Schema
 
 You can run schema operations with `Butterfly\Database`
 
-##### tables
+#### tables
 
 Will return the list of tables in the databases.
 
@@ -1179,7 +1179,7 @@ will return the list of tables as an array list.
 ];
 ```
 
-##### columns
+#### columns
 
 Will return the list of columns in a table.
 
@@ -1206,7 +1206,7 @@ will return
 ];
 ```
 
-##### createTable
+#### createTable
 
 will create a table with the specified columns.
 
@@ -1230,7 +1230,7 @@ will run the following query:
 CREATE TABLE `test` (`id` int(11) NOT NULL AUTO_INCREMENT,`name` varchar(255) NOT NULL, PRIMARY KEY (`id`)) ENGINE = `InnoDB`
 ```
 
-##### createOrUpdateTable
+#### createOrUpdateTable
 
 it checks for the table, if the table already exists, it will alter.
 
@@ -1273,7 +1273,7 @@ will run the following query if table exists, id column exists and identical, na
 ALTER TABLE `test` ADD `name` varchar(255) NOT NULL DEFAULT 'John Doe'
 ```
 
-##### dropColumns
+#### dropColumns
 
 Drop column drops the column from table. If column doesn't exist, then it will just return true
 
@@ -1287,9 +1287,9 @@ will run the following query:
 ALTER TABLE `test` DROP `test_column`,DROP `test_column_2`
 ```
 
-## ElasticSearch
+# ElasticSearch
 
-### Introduction
+## Introduction
 
 Audience is getting more and more everyday, data you should keeps growing. User's are getting more demanding. 
 
@@ -1300,7 +1300,7 @@ Butterfly Elastic Search implemenation aims to make developer comfortable while 
 You can write down queries easier than ever using Butterfly. Just change your adapter and that's it. You can use built-in functions to handle most complex operations like Bulk Inserts,
 Insert Or Ignore operations, Insert Or Update operations, Fetching or updating specific columns.
 
-### Configuration
+## Configuration
 The database configurations are stored in `app/config/database.php`. Configurations can be customized by domain name with subfolders.
 Example configuration:
 
@@ -1319,7 +1319,7 @@ return [
 ];
 ```
 
-#### Using The Database Client
+### Using The Database Client
 
 Database client can be reached using `db()` helper. You can also reach defined databases using the database alias as the first parameter.
  
@@ -1329,13 +1329,13 @@ db('elastic-search');
 
 You can define multiple databases for different purposes. For example, you may create a logging ElasticSearch Instance / Database.
 
-### Transactions
+## Transactions
 
 Transactions are not supported for ElasticSearch.
 
-### Running Queries
+## Running Queries
 
-#### search Function
+### search Function
 
 Since Elastic Search's main focus is searching, you can use `search` function to make a generic search:
 
@@ -1363,7 +1363,7 @@ will run the query:
 
 and search for `test` in `name`, `surname`, `email` fields.
 
-#### SELECT Queries
+### SELECT Queries
 
 ```php
 $users = db()
@@ -1379,7 +1379,7 @@ will run the query:
 
 and return all results as associative array.
 
-##### Specifying Columns
+#### Specifying Columns
 
 You may want to return specific columns:
 
@@ -1395,7 +1395,7 @@ will run query:
 {"query": {"match_all": {}}, "_source":["id","name"]}
 ```
 
-##### Where
+#### Where
 
 You can write where clauses in many ways. Examples are the following:
 
@@ -1417,7 +1417,7 @@ and return one row as associative array.
 > Unlike MySQL Where Clauses, Elastic Search doesn't match only exact phrase when you search inside Text fields. For example: if you run `->where('name', 'John')` it will return rows where name is John or John Doe.
 > If you want to return exact records with name: John, you should use `keyword` field type, instead of `text`.
 
-###### whereIn
+##### whereIn
 
 You can use arrays with where clauses:
 
@@ -1447,7 +1447,7 @@ will run the query:
 }
 ```
 
-###### whereNotIn
+##### whereNotIn
 
 You can use arrays with where clauses:
 
@@ -1476,7 +1476,7 @@ will run the query:
 }
 ```
 
-###### whereNull
+##### whereNull
 
 By using **whereNull**, you can easily filter only null values:
 
@@ -1505,7 +1505,7 @@ will run the query:
 }
 ```
 
-###### whereNotNull
+##### whereNotNull
 
 ```php
 $users = db()->from('users')
@@ -1534,7 +1534,7 @@ will run the query:
 ```
 
 
-###### Nested Clause
+##### Nested Clause
 
 Nested SQL Queries can be generated using callback functions.
 
@@ -1570,7 +1570,7 @@ As you can see below, queries inside of the function will be evaluated seperatel
 }
 ```
 
-###### orWhere
+##### orWhere
 
 You can also use operators in where clauses. If you pass where clauses as an array, all clauses in the array will be joined using `AND` operator.
 
@@ -1597,7 +1597,7 @@ will run:
 }
 ```
 
-###### orWhereIn
+##### orWhereIn
 
 ```php
 $users = db()->from('users')
@@ -1627,7 +1627,7 @@ will run the query:
 }
 ```
 
-###### orWhereNull
+##### orWhereNull
 
 ```php
 $users = db()->from('users')
@@ -1656,7 +1656,7 @@ will run the query:
 }
 ```
 
-###### orWhereNotNull
+##### orWhereNotNull
 
 ```php
 $users = db()->from('users')
@@ -1678,11 +1678,11 @@ will run the query:
 }
 ```
 
-###### Distinct
+##### Distinct
 
 Distinct query is not supported by Elastic Search Adapter.
 
-###### whereBetween
+##### whereBetween
 
 ```php
 db()->from('users')
@@ -1711,7 +1711,7 @@ will run:
 }
 ```
 
-###### orWhereBetween
+##### orWhereBetween
 
 ```php
 db()->from('users')
@@ -1740,7 +1740,7 @@ will run:
 }
 ```
 
-###### orWhereNotBetween
+##### orWhereNotBetween
 
 ```php
 $users = db()->from('users')
@@ -1768,7 +1768,7 @@ will run:
 }
 ```
 
-###### whereNotBetween
+##### whereNotBetween
 
 ```php
 $users = db()->from('users')
@@ -1796,32 +1796,32 @@ will run:
 }
 ```
 
-##### `Join`
+#### `Join`
 
 > [!WARNING]
 > `Join` Functions are not supported by Elastic Search.
 
-###### `Left Join`
+##### `Left Join`
 
 > [!WARNING]
 > `Join` Functions are not supported by Elastic Search.
 
-###### `Right Join`
+##### `Right Join`
 
 > [!WARNING]
 > `Join` Functions are not supported by Elastic Search.
 
-##### `Use Index`
+#### `Use Index`
 
 > [!WARNING]
 > `useIndex` is supported by Elastic Search. Will not produce an error but it will just ignore this function call. 
 
-##### `Force Index`
+#### `Force Index`
 
 > [!WARNING]
 > `forceIndex` is supported by Elastic Search. Will not produce an error but it will just ignore this function call.
 
-##### Order By
+#### Order By
 
 You can order by column ascending or descending order:
 
@@ -1837,7 +1837,7 @@ $users = db()->from('users')
     ->get();
 ```
 
-##### Group By
+#### Group By
 
 You can use group by function to get aggregations in Elastic Search Implementation
 
@@ -1910,12 +1910,12 @@ return [
 ];
 ```
 
-##### Having
+#### Having
 
 > [!WARNING]
 > Having is not supported by Elastic Search. It will throw error: "Having function is not supported by ElasticSearch"
 
-##### Limit
+#### Limit
 
 Results can be limited using limit function. Only the first number of rows will be returned.
 
@@ -1934,7 +1934,7 @@ Will run the query:
 
 And will return first 10 rows from `users` index.
 
-##### Pagination
+#### Pagination
 
 >[!WARNING]
 > Pagination doesnt work correctly in Elastic Search if no sorting is set. Please use orderBy functions before calling pagination
@@ -1963,7 +1963,7 @@ Will run the following query:
 
 And will return the results from 2nd page starting from `6.` to `10.` record.  
 
-##### Find
+#### Find
 
 You can use `find` function to return one row using identifier
 
@@ -1975,7 +1975,7 @@ $user = db()
 
 will return one row with id = 1
 
-##### Die 
+#### Die 
 
 For debugging purposes, you can use `die` function to output the SQL Query that will run.
 
@@ -1990,7 +1990,7 @@ will output the query that will be executed.
 > [!NOTE]
 > `die` function will not run the query, just outputs it and **terminates the script**.
 
-##### Returning Functions
+#### Returning Functions
 
 Returning functions are used to execute the query and return the processed result.
 
@@ -2003,7 +2003,7 @@ id | name | status
 3 | Jack Hamel | active
   
 
-###### get
+##### get
 
 Will return all rows as associative array.
 
@@ -2034,7 +2034,7 @@ will return
 ];
 ```
 
-###### first
+##### first
 
 Will just return the first row as associative array
 
@@ -2053,7 +2053,7 @@ will return
 ];
 ```
 
-###### count
+##### count
 
 Will return the number of rows for the query without any Group By statement.
 
@@ -2066,7 +2066,7 @@ will return:
 
 `(int) 3`
 
-###### one
+##### one
 
 Will return only one column value
 
@@ -2079,7 +2079,7 @@ will return the name column value of the first row.
 
 `John Doe`
 
-###### column
+##### column
 
 Will return the values of specific column as an array list
 
@@ -2098,7 +2098,7 @@ will return names as an array list.
 ];
 ```
 
-###### keyToValue
+##### keyToValue
 
 Will return result indexed by key_column. Value will be the row as the associative array.
 
@@ -2148,7 +2148,7 @@ will return result indexed by key_column. Value will be value of the specified c
 ];
 ```
 
-###### keyToValues
+##### keyToValues
 
 when key_column is not unique, you can use this function to group results by key_column (e.g. status). Value will be the row as the associative array.
 
@@ -2206,7 +2206,7 @@ will return result indexed by key_column. Value will be array of values of the s
 ];
 ```
 
-###### max
+##### max
 
 Will return maximum value of the specific column as a single value
 
@@ -2219,7 +2219,7 @@ will return:
 
 `3`
 
-###### min
+##### min
 
 Will return minimum value of the specific column as a single value
 
@@ -2232,7 +2232,7 @@ will return:
 
 `1`
 
-###### average
+##### average
 
 Will return average value of the specific column as a single value
 
@@ -2245,7 +2245,7 @@ will return:
 
 `2`
 
-###### transform
+##### transform
 
 Transform function is used to transform the returning rows.
 
@@ -2270,11 +2270,11 @@ will return
 ];
 ```
 
-#### INSERT Queries
+### INSERT Queries
 
 You can run insert queries using database client.
 
-##### Insert
+#### Insert
 
 Single insert statement can be run as the following example: 
 
@@ -2286,7 +2286,7 @@ $userId = db()->table('users')->insert([
 
 will return the auto increment id of the created row.
 
-##### InsertOrUpdate
+#### InsertOrUpdate
 
 Inserts or updates single record. First parameter is used to find if the row already exist,
 - There are two options:
@@ -2316,7 +2316,7 @@ It will check if there is a record having id => 1,\
 if it doesnt exist, then this will become an insert statement.\
 If it exist, then, the call become an update statement.
 
-##### InsertOrIgnore
+#### InsertOrIgnore
 
 When inserting a record to database, if there is a unique index, you may get an error. When this function is used, it ignores insert errors and returns without inserting the record on error. Which means that, the record will not be inserted if it already exist.
 
@@ -2329,7 +2329,7 @@ db()->table('users')->insertOrIgnore([
 
 will not insert record if there is already a record with id = 1
 
-##### BulkInsert
+#### BulkInsert
 
 Bulk inserts can improve performance since multiple records will be inserted in a single query.
 
@@ -2350,7 +2350,7 @@ db()->table('users')
 ;
 ```
 
-##### BulkInsertOrUpdate
+#### BulkInsertOrUpdate
 
 When bulk inserting data, if there is a unique index and new data already exists, than you may want to update the existing data.
 There are two options:
@@ -2395,7 +2395,7 @@ db()->table('users')
 ;
 ```
 
-##### BulkInsertOrIgnore
+#### BulkInsertOrIgnore
 
 When bulk inserting data, if there is a unique index and new data already exists, than you may want to ignore the new data without any error.
 
@@ -2416,11 +2416,11 @@ db()->table('users')
 ;
 ```
 
-#### UPDATE Queries
+### UPDATE Queries
 
 You can run update queries using database client.
 
-##### Update
+#### Update
 
 Simple update statement can be run as the following example:
 
@@ -2433,7 +2433,7 @@ db()->table('users')
     ]);
 ```
 
-##### Limit
+#### Limit
 
 You can limit the number of rows the update query can update by using limit function.
 
@@ -2453,11 +2453,11 @@ will run the query:
 UPDATE users SET name = 'foo', surname = 'bar' WHERE id = 1 LIMIT 1;
 ```
 
-##### Where Clause
+#### Where Clause
 
 > **Note:** You can use all type of where clauses with update queries. Please check [WHERE](#where) section for this.
 
-##### Join Statement
+#### Join Statement
 
 > **Note:** You can use all type of join clauses with update queries. Please check [JOIN](#join) section for this.
 
@@ -2480,11 +2480,11 @@ will run the following query:
 UPDATE `users` INNER JOIN user_groups ON user_groups.id = users.user_group_id SET `name` = 'foo',`user_groups`.`name` = 'bar' WHERE users.id = 1
 ```
 
-#### DELETE Queries
+### DELETE Queries
 
 You can run delete queries using database client.
 
-##### Delete
+#### Delete
 
 Simple delete statement can be run as the following example:
 
@@ -2501,7 +2501,7 @@ will run the following query and will return `number of rows affected`
 DELETE FROM users WHERE id = 5
 ```
 
-##### Join Statement
+#### Join Statement
 
 Multiple tables may be joined and deleted.
 
@@ -2539,11 +2539,11 @@ Will run the following query:
 DELETE user_groups FROM user_groups INNER JOIN users ON user_groups.id = users.user_group_id WHERE users.id IS NULL
 ```
 
-#### Schema
+### Schema
 
 You can run schema operations with `Butterfly\Database`
 
-##### tables
+#### tables
 
 Will return the list of tables in the databases.
 
@@ -2561,7 +2561,7 @@ will return the list of tables as an array list.
 ];
 ```
 
-##### columns
+#### columns
 
 Will return the list of columns in a table.
 
@@ -2588,7 +2588,7 @@ will return
 ];
 ```
 
-##### createTable
+#### createTable
 
 will create a table with the specified columns.
 
@@ -2612,7 +2612,7 @@ will run the following query:
 CREATE TABLE `test` (`id` int(11) NOT NULL AUTO_INCREMENT,`name` varchar(255) NOT NULL, PRIMARY KEY (`id`)) ENGINE = `InnoDB`
 ```
 
-##### createOrUpdateTable
+#### createOrUpdateTable
 
 it checks for the table, if the table already exists, it will alter.
 
@@ -2655,7 +2655,7 @@ will run the following query if table exists, id column exists and identical, na
 ALTER TABLE `test` ADD `name` varchar(255) NOT NULL DEFAULT 'John Doe'
 ```
 
-##### dropColumns
+#### dropColumns
 
 Drop column drops the column from table. If column doesn't exist, then it will just return true
 
