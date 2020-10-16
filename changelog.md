@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased
+
+- Multiple Replacement support for Object Listing customizations action buttons.
+- Game Changer `:)` Elastic Search Integration for Database Layer. [Details](https://thebutterfly.io/docs/#/database?id=elasticsearch)
+
 ## 1.5.123
 
 - `parse` filter is added to TwigFilters. [Details](https://thebutterfly.io/docs/#/frontend?id=parse)
