@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 1.5.124
 
 - Multiple Replacement support for Object Listing customizations action buttons.
 - Game Changer `:)` Elastic Search Integration for Database Layer. [Details](https://thebutterfly.io/docs/#/database?id=elasticsearch)
