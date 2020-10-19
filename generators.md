@@ -45,6 +45,52 @@ class Detail extends Action
 }
 ```
 
+## Command 
+
+Parameters:
+
+Parameter Name | Description | Required
+--- | --- | ---
+class | Class Name | Yes
+
+Parameter Name | Description | Required
+--- | --- | ---
+name | Function Name | Yes
+
+Parameter Name | Description | Required
+--- | --- | ---
+description | Description | No (Optional)
+
+```bash
+ bin/butterfly make:command User user:login:update 'User login update'
+```
+
+```bash
+File created in "app/Command/User.php";
+```
+```php
+<?php
+namespace App\Command;
+
+use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Input\InputOption;
+use Symfony\Component\Console\Output\OutputInterface;
+
+class User extends Command
+{
+    public function configure()
+    {
+        $this->setName("user:login:update")->setDescription("User login update");
+        parent::configure();
+    }
+
+    public function execute(InputInterface $input, OutputInterface $output)
+    {
+    }
+}
+```
+
 ## Model 
 
 Parameters:
