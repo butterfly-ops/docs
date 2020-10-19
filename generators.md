@@ -103,6 +103,42 @@ class User extends Hook
 }
 ```
 
+
+## Event - (like hook but no crud operations) 
+
+Parameters:
+
+Parameter Name | Description | Required
+--- | --- | ---
+class | Class Name | Yes
+
+Parameter Name | Description | Required
+--- | --- | ---
+func | Function Name | Yes
+
+```bash
+ bin/butterfly make:event User login
+```
+
+```bash
+File created in "app/Event/User.php";
+```
+```php
+<?php
+
+namespace App\Event;
+
+use Butterfly\Library\Hook;
+
+class User extends Hook
+{
+    public function login()
+    {
+    
+    }
+}
+```
+
 ## Widget 
 
 Parameters:
