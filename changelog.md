@@ -2,7 +2,8 @@
 
 ## 1.5.127
 
-- 
+- Object Import and Multi Image upload bugs are fixed.
+- `make:hook` and `make:event` commands are added. 
 
 ## 1.5.124
 
