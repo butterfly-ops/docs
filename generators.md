@@ -104,7 +104,7 @@ class User extends Hook
 ```
 
 
-## Event - (like hook but no crud operations) 
+## Event
 
 Parameters:
 
