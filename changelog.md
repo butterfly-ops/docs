@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.5.128
+   
+- Fixed a bug causing Cms Widget Refresh not to update Widget Parameters.
+
 ## 1.5.127
 
 - Object Import and Multi Image upload bugs are fixed.
