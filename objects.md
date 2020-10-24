@@ -72,6 +72,19 @@ Supported file types are:
 > [!WARNING]
 > Since SVG is a format composed of XML, image manipulation operations are not supported when you upload svg files.
 
+### Block
+
+While creating content, you can use texterea if you don't have styles or other type of contents like limage or so in your content; 
+another alternative is textarea_with_editor which includes a Text Editor.
+
+Problem with Rich Text Editors is it creates HTML output which is nearly impossible to process on Mobile Applications or so.
+
+Block field type is as it's name designates is a rich text content editor which outputs JSON including json information about Blocks.
+
+You can enable / disable blocks per Object Spec and also you can add custom blocks for your Field Type.
+
+You can check https://editorjs.io for more information about EditorJS. 
+
 ### Nested
 
 When you want to store your multiple rows / fields in a single field as JSON, you can use Nested Field Type.
