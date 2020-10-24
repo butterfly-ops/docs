@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.5.129
+
+- Block field type is added [Details](https://thebutterfly.io/docs/#/objects?id=block)
+
 ## 1.5.128
    
 - Fixed a bug causing Cms Widget Refresh not to update Widget Parameters.
