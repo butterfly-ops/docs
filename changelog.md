@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.5.130
+
+- ColorPicker Field Type is fixed to use in NestedField
+
 ## 1.5.129
 
 - Block field type is added [Details](https://thebutterfly.io/docs/#/objects?id=block)
