@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.5.131
+
+- Symlink support for Windows is added for `bin/butterfly folders:create` command.
+- `isWindows` function is added to Server Helpers [Details](https://thebutterfly.io/docs/#/helpers?id=iswindows)
+
 ## 1.5.130
 
 - ColorPicker Field Type is fixed to use in NestedField

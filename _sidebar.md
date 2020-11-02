@@ -9,6 +9,7 @@
 * [Database](database.md)
 * [Objects](objects.md)
 * [Designs](design.md)
+* [Helpers](helpers.md)
 * [File Storages](file-storage.md)
 * [Admin Panel](adminpanel.md)
 * [Frontend](frontend.md)
