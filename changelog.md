@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.5.133
+
+- Fixed a bug in ImageManipulations
+
 ## 1.5.132
 
 - Symlink support for Windows is added for `bin/butterfly folders:create` command.
