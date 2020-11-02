@@ -1,6 +1,6 @@
 # Changelog
 
-## 1.5.131
+## 1.5.132
 
 - Symlink support for Windows is added for `bin/butterfly folders:create` command.
 - `isWindows` function is added to Server Helpers [Details](https://thebutterfly.io/docs/#/helpers?id=iswindows)
