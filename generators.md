@@ -91,6 +91,67 @@ class User extends Command
 }
 ```
 
+## `twig-filter`
+
+Parameters:
+
+Parameter Name | Description | Required
+--- | --- | ---
+name | Filter Name | Yes
+
+```bash
+bin/butterfly make:twig-filter test_filter
+```
+
+```bash
+Filter created in "app/View/TwigFilter/TestFilter.php
+```
+
+```php
+<?php
+
+namespace App\View\TwigFilter;
+
+class TestFilter
+{
+    public function filter($parameter)
+    {
+        return $parameter;
+    }
+}
+```
+
+## `twig-function`
+
+Parameters:
+
+Parameter Name | Description | Required
+--- | --- | ---
+name | Function Name | Yes
+
+```bash
+bin/butterfly make:twig-function test_function
+```
+
+```bash
+Filter created in "app/View/TwigFunction/TestFunction.php
+```
+
+```php
+<?php
+
+namespace App\View\TwigFunction;
+
+class TestFunction
+{
+    public function execute($params)
+    {
+
+        return print_r($params, true);
+    }
+}
+```
+
 ## Model 
 
 Parameters:
