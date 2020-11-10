@@ -74,7 +74,6 @@ namespace App\Command;
 
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
 class User extends Command
@@ -253,12 +252,12 @@ Parameters:
 Parameter Name | Description | Required
 --- | --- | ---
 widget | Widget Name | Yes
-folder | Fodler Name | No
+folder | Folder Name | No
 
 
 ### Without Folder
 
-If you are creating a general widget, which you need it directly in `app/Widget/`, you can use command without folder.
+If you are creating a general widget, which you need it directly in `app/Widget/`, you can use command without a folder.
 
 Example: 
 
@@ -288,9 +287,9 @@ class Product extends \Butterfly\Library\Widget
     }
 }
 ```
-### With Subfolders
+### With Sub Folders
 
-If you want to group your widgets, you can use second parameter to create your widget in subfolder. Subfolder will be located in `app/Widget/`, you can use deeper folders.
+If you want to group your widgets, you can use second parameter to create your widget in a sub folder. Sub folder will be located in `app/Widget/`, you can use deeper folders.
 
 Example: 
 
@@ -327,7 +326,7 @@ Parameters:
 Parameter Name | Description | Required
 --- | --- | ---
 widget | Widget Name | Yes
-folder | Fodler Name | No
+folder | Folder Name | No
 
 Content Widget is a type of Widget which aims to display your contents. Content Widgets accepts Content Pool parameter to 
 determine data that will be displayed.
@@ -338,7 +337,7 @@ You can get more details from Content Pools Section.
 
 ### Without Folder
 
-If you are creating a general widget, which you need it directly in `app/Widget/`, you can use command without folder.
+If you are creating a general widget, which you need it directly in `app/Widget/`, you can use command without a folder.
 
 Example: 
 
@@ -392,9 +391,9 @@ content_pool_id:
     type: content_pool
 ```
 
-### With Subfolders
+### With Sub folders
 
-If you want to group your widgets, you can use second parameter to create your widget in subfolder. Subfolder will be located in `app/Widget/`, you can use deeper folders.
+If you want to group your widgets, you can use second parameter to create your widget in sub folder. Sub folder will be located in `app/Widget/`, you can use deeper folders.
 
 Example: 
 
