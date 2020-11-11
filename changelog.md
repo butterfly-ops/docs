@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.5.144
+
+- `Nested Clause with Multiple Depth` is added. [Details]
+
+## 1.5.143
+
+- Improved Data Pool page. It now lists contents of Data Pool in edit page.
+
 ## 1.5.139
 
 - Added `make:twig-function` and `make:twig-filter` [Details](https://thebutterfly.io/docs/#/generators?id=twig-filter) 

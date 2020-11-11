@@ -293,6 +293,45 @@ SELECT * FROM users
     ORDER BY id DESC
 ```
 
+##### Nested Clause with Multiple Depth
+
+Nested SQL Queries can be generated using multiple callback functions.
+
+```php
+db()->from('users')
+    ->where('id', 5)
+    ->where(function($query) {
+        $query->where(function($innerQuery) {
+            return $innerQuery->where('test', 1)
+                ->where('test_2', 2)
+            ;
+        });
+
+        $query->orWhere(function($innerQuery) {
+            return $innerQuery->where('test', 3)
+                ->where('test_2', 4)
+                ;
+        });
+
+        return $query;
+    })
+->get();
+```
+
+As you can see below, queries inside of the function will be evaluated seperately inside of braces and it will run:
+
+```sql
+SELECT 
+    * 
+FROM users 
+WHERE id = :param_1 
+    AND (
+        (test = 1 AND test = 2) 
+            OR 
+        (test = 3 AND test = 4)
+    )
+```
+
 ##### orWhere
 
 You can also use operators in where clauses. If you pass where clauses as an array, all clauses in the array will be joined using `AND` operator.
