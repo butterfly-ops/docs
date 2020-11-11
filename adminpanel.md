@@ -199,6 +199,58 @@ or, you can use the field name instead
 {$l.title}
 ```
 
+##### Hiearchical Lists
+
+When you have an object with Self Child > Parent relationship, you may want to display main records in the first page with a button.
+For example: You may have an object of multiple depth category having a column named `parent_id` which means that, Main records will 
+have parent_id = `0` and others will have the `id` of the parent record.
+
+By default, all records including parent and child ones will be listed together.
+
+Apply following steps to make admin panel hiearchical:
+
+Let's think that, you have object with table name: `categories` and `parent_id` hiearchical column.
+
+```bash
+bin/butterfly publish:admin:controller categories
+```
+
+will create (if not exists)
+
+```bash
+app/Controller/Cms/Category.php
+```
+
+Add `$list_hierarchy_column_name` variable to the class
+
+```php
+<?php
+
+namespace App\Controller\Cms;
+
+use Butterfly\Library\ObjectController;
+
+class Category extends ObjectController
+{
+    public $list_hierarchy_column_name = 'parent_id';
+
+    public function addAction($id = "", $extra = "")
+    {
+        parent::addAction($id, $extra);
+    }
+
+    public function editAction($id, $extra = '')
+    {
+        parent::editAction($id, $extra);
+    }
+
+    public function listAction($id, $extra)
+    {
+        parent::listAction($id, $extra);
+    }
+}
+```
+
 #### Add Page
 
 If you want to customize add page, you can create a file called add.tpl as `app/Views/Cms/article/add.tpl`
