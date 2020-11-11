@@ -2,7 +2,7 @@
 
 ## 1.5.145
    
-- New Admin Panel Customization for Objects with Parent / Child Record relationship is added. [Details]() 
+- New Admin Panel Customization for Objects with Parent / Child Record relationship is added. [Details](https://thebutterfly.io/docs/#/adminpanel?id=hiearchical-lists) 
 
 ## 1.5.144
 
