@@ -3,13 +3,7 @@
 ## 1.5.144
 
 - `Nested Clause with Multiple Depth` is added. [Details](https://thebutterfly.io/docs/#/database?id=nested-clause-with-multiple-depth)
-
-## 1.5.143
-
 - Added language option to Elastic Search Integration
-
-## 1.5.142
-
 - Improved Data Pool page. It now lists contents of Data Pool in edit page.
 
 ## 1.5.139
