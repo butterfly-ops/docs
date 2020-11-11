@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.5.145
+   
+- New Admin Panel Customization for Objects with Parent / Child Record relationship is added. [Details]() 
+
 ## 1.5.144
 
 - `Nested Clause with Multiple Depth` is added. [Details](https://thebutterfly.io/docs/#/database?id=nested-clause-with-multiple-depth)
