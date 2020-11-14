@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.5.149
+
+- Added `make:event:object:detail` Command [Details](https://thebutterfly.io/docs/#/events?id=object-detail)
+
 ## 1.5.145
    
 - New Admin Panel Customization for Objects with Parent / Child Record relationship is added. [Details](https://thebutterfly.io/docs/#/adminpanel?id=hiearchical-lists) 

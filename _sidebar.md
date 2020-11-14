@@ -18,3 +18,4 @@
 * [Module](modules.md)
 * [Queue](queue.md)
 * [Security](security.md)
+* [Events](events.md)
