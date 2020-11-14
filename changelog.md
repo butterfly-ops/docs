@@ -2,7 +2,7 @@
 
 ## 1.5.149
 
-- Added `make:event:object:detail` Command [Details](https://thebutterfly.io/docs/#/events?id=object-detail)
+- Added `make:event:object:detail` Command [Details](https://thebutterfly.io/docs/#/events?id=objectdetail)
 
 ## 1.5.145
    
