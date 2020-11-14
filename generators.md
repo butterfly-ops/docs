@@ -99,7 +99,7 @@ Parameter Name | Description | Required
 name | Filter Name | Yes
 
 ```bash
-bin/butterfly make:twig-filter test_filter
+bin/butterfly make:twig:filter test_filter
 ```
 
 ```bash
@@ -129,7 +129,7 @@ Parameter Name | Description | Required
 name | Function Name | Yes
 
 ```bash
-bin/butterfly make:twig-function test_function
+bin/butterfly make:twig:function test_function
 ```
 
 ```bash

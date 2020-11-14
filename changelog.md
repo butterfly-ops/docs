@@ -12,7 +12,7 @@
 
 ## 1.5.139
 
-- Added `make:twig-function` and `make:twig-filter` [Details](https://thebutterfly.io/docs/#/generators?id=twig-filter) 
+- Added `make:twig:function` and `make:twig:filter` [Details](https://thebutterfly.io/docs/#/generators?id=twig-filter) 
 
 ## 1.5.133
 
