@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.5.151
+
+- `cron:refresh-items` command and refresh items operation in admin panel is speeded up 100x times.
+- Data Pool improvements. (It has 3 different types: manual, automatic, advanced)
+- You can now add elastic search query string to Data Pools (Advanced Mode)
+- Customer and Design Segmentations are added
+
 ## 1.5.149
 
 - Added `make:event:object:detail` Command [Details](https://thebutterfly.io/docs/#/events?id=objectdetail)
