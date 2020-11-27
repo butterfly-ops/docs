@@ -979,6 +979,109 @@ will return
 ];
 ```
 
+### Caching Results
+
+To improve performance of your application, you may want to cache results to use it multiple times. On the other hand,
+you may need the same result in the same code (For example: in a background job, you may have a where query in for loop)
+For these cases, if you use registry, then you may get rid of `Cache Driver Connection` time.  
+
+#### Cache
+
+You can use cache function to cache results.
+
+##### Without Parameters
+
+Example:
+
+```php
+db()->from('users')
+    ->where('id', 5)
+    ->cache()
+->get();
+```
+
+will cache the result after first call for 60 seconds by default. 
+
+> [!TIP]
+> Result will return result without caching if cache is disabled.
+
+##### With Duration
+
+Example:
+
+```php
+db()->from('users')
+    ->where('id', 5)
+    ->cache(120)
+->get();
+```
+
+will cache the result after first call for 120 seconds.
+
+> [!TIP]
+> Result will return result without caching if cache is disabled.
+
+##### With Duration and Cache Key
+
+Example:
+
+```php
+db()->from('users')
+    ->where('id', 5)
+    ->cache(120, 'test-cache-key')
+->get();
+```
+
+will cache the result using `test-cache-key` in Cache. Which means that, you can remove cache using following code:
+
+```php
+\Cache::delete('test-cache-key');
+```
+
+#### Registry
+
+You can use registry to cache results for the running code.
+
+##### Without Registry Key
+
+Example:
+
+```php
+db()->from('users')
+    ->where('id', 5)
+    ->registry()
+->get();
+```
+
+will save the result to application registry and returned  
+
+##### With Registry Key
+
+Example:
+
+```php
+db()->from('users')
+    ->where('id', 5)
+    ->registry('test-key')
+->get();
+```
+
+will save the result to application registry using `test-key` as key. Which means that, you can access and manipulate result 
+using following code block:
+
+```php
+\Butterfly\Framework\Registry\Registry::get('test-key');
+```
+
+```php
+\Butterfly\Framework\Registry\Registry::set('test-key', [
+    'changed-data'
+]);
+```
+
+> [!TIP]
+> Although you may use registry keys while saving results to registry, there is no known use case for this feature :)
+
 ## INSERT Queries
 
 You can run insert queries using database client.
