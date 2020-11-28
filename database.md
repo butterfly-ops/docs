@@ -581,6 +581,25 @@ will run the following query:
 SELECT users.id FROM users GROUP BY role_id HAVING a > 5
 ```
 
+#### Skip (Offset)
+
+You can add an offset to the result using `skip` function 
+
+```php
+db()->from('users')
+    ->skip(5);
+```
+
+will run the query:
+
+```sql
+SELECT * FROM users OFFSET 5
+```
+
+> [!TIP]
+> You can use skip function with limit or pagination functions. It will basically skip `X` 
+> results and limit or paginate after skipped records.
+
 #### Limit
 
 Results can be limited using limit function. Only the first number of rows will be returned.
