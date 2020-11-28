@@ -1445,3 +1445,21 @@ DROP TABLE `test`;
 
 > [!TIP]
 > As you may guess, if you define parameter to the function, it will be used instead of tableName property of the class.
+
+### rename
+
+You can rename tables using `rename` function.
+
+Following example renames table `test` to `test_2`:
+
+```php
+db()
+    ->schema('test')->rename('test_2')
+;
+```
+
+will run the following query:
+
+```sql
+RENAME TABLE `test` tO `test_2`;
+```
