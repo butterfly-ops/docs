@@ -1457,6 +1457,25 @@ will run the following query if table exists, id column exists and identical, na
 ALTER TABLE `test` ADD `name` varchar(255) NOT NULL DEFAULT 'John Doe'
 ```
 
+#### createColumns
+
+```php
+db()->schema()->createColumns('test', [
+    [
+        'column_name' => 'name',
+        'column_type' => 'varchar(255)',
+        'column_default' => 'John Doe',
+        'after' => 'id'
+    ]
+]);
+```
+
+will run the query
+
+```sql
+ALTER TABLE `test` ADD `name` varchar(255) NOT NULL DEFAULT 'John Doe' AFTER id
+```
+
 #### dropColumns
 
 Drop column drops the column from table. If column doesn't exist, then it will just return true
@@ -1470,7 +1489,6 @@ will run the following query:
 ```sql
 ALTER TABLE `test` DROP `test_column`,DROP `test_column_2`
 ```
-
 
 #### rename
 
