@@ -127,11 +127,11 @@ SELECT * FROM users;
 
 and return all results as associative array.
 
-### Specifying Columns
+#### Specifying Columns
 
 You may want to return specific columns:
 
-#### Column List
+##### Column List
 
 ```php
 $users = db()
@@ -139,7 +139,7 @@ $users = db()
     ->get();
 ```
 
-#### Column List with Alias
+##### Column List with Alias
 
 You can also use aliases using following example:
 
