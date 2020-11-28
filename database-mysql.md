@@ -113,10 +113,32 @@ and return all results as associative array.
 
 You may want to return specific columns:
 
+#### Column List
+
 ```php
 $users = db()
     ->from('users', ['id', 'name'])
     ->get();
+```
+
+#### Column List with Alias
+
+You can also use aliases using following example:
+
+```php
+$users = db()->from('users', [
+    '*',
+    'relation_id' => 'object_relations.id'
+])
+    ->where('id', 5)
+    ->orderBy('id DESC')
+    ->get();
+```
+
+will run the following query:
+
+```sql
+SELECT *,object_relations.id AS relation_id FROM users WHERE id = :param_1 ORDER BY id DESC
 ```
 
 ### Where
