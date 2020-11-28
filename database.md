@@ -1523,6 +1523,8 @@ DROP TABLE `test`;
 > [!TIP]
 > As you may guess, if you define parameter to the function, it will be used instead of tableName property of the class.# ElasticSearch
 
+# Elastic Search
+
 ## Introduction
 
 Audience is getting more and more everyday, data you should keeps growing. User's are getting more demanding. 
