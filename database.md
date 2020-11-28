@@ -1369,7 +1369,7 @@ ALTER TABLE `test` DROP `test_column`,DROP `test_column_2`
 ```
 
 
-### rename
+#### rename
 
 You can rename tables using `rename` function.
 
@@ -1387,7 +1387,38 @@ will run the following query:
 RENAME TABLE `test` tO `test_2`;
 ```
 
-# ElasticSearch
+
+#### dropTable
+
+Drop table removes the table from database. If table doesn't exist, then it will just return true
+
+```php
+db()->schema('test')->dropTable();
+``` 
+
+will run the following query:
+
+```sql
+DROP TABLE `test`;
+```
+
+> [!TIP]
+> Drop table function checks if table exists before running the query
+
+Alternatively, you can also call function with table name as first parameter.
+
+```php
+db()->schema()->dropTable('test');
+```
+
+will run the following query:
+
+```sql
+DROP TABLE `test`;
+```
+
+> [!TIP]
+> As you may guess, if you define parameter to the function, it will be used instead of tableName property of the class.# ElasticSearch
 
 ## Introduction
 
@@ -2369,6 +2400,109 @@ will return
     'id_with_name' => '1 John Doe'  
 ];
 ```
+
+### Caching Results
+
+To improve performance of your application, you may want to cache results to use it multiple times. On the other hand,
+you may need the same result in the same code (For example: in a background job, you may have a where query in for loop)
+For these cases, if you use registry, then you may get rid of `Cache Driver Connection` time.  
+
+#### Cache
+
+You can use cache function to cache results.
+
+##### Without Parameters
+
+Example:
+
+```php
+db()->from('users')
+    ->where('id', 5)
+    ->cache()
+->get();
+```
+
+will cache the result after first call for 60 seconds by default. 
+
+> [!TIP]
+> Result will return result without caching if cache is disabled.
+
+##### With Duration
+
+Example:
+
+```php
+db()->from('users')
+    ->where('id', 5)
+    ->cache(120)
+->get();
+```
+
+will cache the result after first call for 120 seconds.
+
+> [!TIP]
+> Result will return result without caching if cache is disabled.
+
+##### With Duration and Cache Key
+
+Example:
+
+```php
+db()->from('users')
+    ->where('id', 5)
+    ->cache(120, 'test-cache-key')
+->get();
+```
+
+will cache the result using `test-cache-key` in Cache. Which means that, you can remove cache using following code:
+
+```php
+\Cache::delete('test-cache-key');
+```
+
+#### Registry
+
+You can use registry to cache results for the running code.
+
+##### Without Registry Key
+
+Example:
+
+```php
+db()->from('users')
+    ->where('id', 5)
+    ->registry()
+->get();
+```
+
+will save the result to application registry and returned  
+
+##### With Registry Key
+
+Example:
+
+```php
+db()->from('users')
+    ->where('id', 5)
+    ->registry('test-key')
+->get();
+```
+
+will save the result to application registry using `test-key` as key. Which means that, you can access and manipulate result 
+using following code block:
+
+```php
+\Butterfly\Framework\Registry\Registry::get('test-key');
+```
+
+```php
+\Butterfly\Framework\Registry\Registry::set('test-key', [
+    'changed-data'
+]);
+```
+
+> [!TIP]
+> Although you may use registry keys while saving results to registry, there is no known use case for this feature :)
 
 ### INSERT Queries
 
