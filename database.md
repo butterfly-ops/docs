@@ -127,14 +127,36 @@ SELECT * FROM users;
 
 and return all results as associative array.
 
-#### Specifying Columns
+### Specifying Columns
 
 You may want to return specific columns:
+
+#### Column List
 
 ```php
 $users = db()
     ->from('users', ['id', 'name'])
     ->get();
+```
+
+#### Column List with Alias
+
+You can also use aliases using following example:
+
+```php
+$users = db()->from('users', [
+    '*',
+    'relation_id' => 'object_relations.id'
+])
+    ->where('id', 5)
+    ->orderBy('id DESC')
+    ->get();
+```
+
+will run the following query:
+
+```sql
+SELECT *,object_relations.id AS relation_id FROM users WHERE id = :param_1 ORDER BY id DESC
 ```
 
 #### Where
@@ -1344,6 +1366,25 @@ will run the following query:
 
 ```sql
 ALTER TABLE `test` DROP `test_column`,DROP `test_column_2`
+```
+
+
+### rename
+
+You can rename tables using `rename` function.
+
+Following example renames table `test` to `test_2`:
+
+```php
+db()
+    ->schema('test')->rename('test_2')
+;
+```
+
+will run the following query:
+
+```sql
+RENAME TABLE `test` tO `test_2`;
 ```
 
 # ElasticSearch
