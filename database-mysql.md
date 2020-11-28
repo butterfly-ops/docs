@@ -1372,3 +1372,35 @@ will run the following query:
 ```sql
 ALTER TABLE `test` DROP `test_column`,DROP `test_column_2`
 ```
+
+### dropTable
+
+Drop table removes the table from database. If table doesn't exist, then it will just return true
+
+```php
+db()->schema('test')->dropTable();
+``` 
+
+will run the following query:
+
+```sql
+DROP TABLE `test`;
+```
+
+> [!TIP]
+> Drop table function checks if table exists before running the query
+
+Alternatively, you can also call function with table name as first parameter.
+
+```php
+db()->schema()->dropTable('test');
+```
+
+will run the following query:
+
+```sql
+DROP TABLE `test`;
+```
+
+> [!TIP]
+> As you may guess, if you define parameter to the function, it will be used instead of tableName property of the class.
