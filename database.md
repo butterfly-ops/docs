@@ -12,7 +12,10 @@ When you check MySQL and other database implementations you will see that it's w
 are using MySQL or ElasticSearch. We have built a system with same behaviours independent from which driver you use.
 
 Why you should mess with Elastic Search complex JSON Queries if there is a better solution. You don't need anymore. Just give a shot to Butterfly 
-implementations. 
+implementations.
+
+> [!TIP]
+> Butterfly Database Layer syntax is inspired by [Laravel](https://laravel.com) 
 
 # MySQL
 
