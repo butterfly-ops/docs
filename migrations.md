@@ -220,7 +220,17 @@ $response = db()->schema('my_new_table')->object(function(\Butterfly\Framework\D
 
 #### Renaming Table Names
 
-You can rename table names of existing Tables.
+You can rename table names of existing Objects.
+
+```php
+db()->schema('old_table_name')->object(function (\Butterfly\Framework\Data\ButterflyObject $butterflyObject) {
+    $butterflyObject->setName('Desired Object Name');
+    $butterflyObject->renameTable('new_table_name');
+});
+```
+
+> [!TIP]
+> Renaming table name will change the name of Object. You may use `setName` function to override auto-generated object name 
 
 #### Creating new Object Specs
 
