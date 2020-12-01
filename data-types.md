@@ -1,4 +1,4 @@
-# Objects
+# Data Types
 
 ## Introduction
 
@@ -9,18 +9,18 @@ start editing your contents from your admin panel, without writing a single line
 When you create an Object from `butterfly panel` or `upgrade migration`, `table` (for SQL) or `collection` (for MongoDB) or `index` (for ElasticSearch) is automatically generator
 which means that, you don't need to make Database creations manually.  
 
-## Object Specs
+## Data Fields
 
-All data types have their names and specifications. For example: If you have object named `blog_posts`, you would possibly need a 
-Object Spec named `title` with a type of `String`.
+All data types have their names and fields. For example: If you have data type named `blog_posts`, you would possibly need a 
+Data Field named `title` with a type of `String`.
 
 When you create an admin panel or using a migration script, `columns` (for SQL), `fields` (for MongoDB), `mapping` for Elastic Search is automatically created.
 
-In other words, Object Specs is equavilant to `columns` in SQL.
+In other words, Data Field is equavilant to `columns` in SQL.
 
 ### String
 
-Strings are data types which have a short text (maximum length: 255).
+Strings are field types which have a short text (maximum length: 255).
 
 Parameters:
 

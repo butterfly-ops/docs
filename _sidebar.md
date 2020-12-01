@@ -7,7 +7,7 @@
 * [Cloud](cloud.md)
 * [Upgrade](upgrade.md)
 * [Database](database.md)
-* [Objects](objects.md)
+* [Data Types](data-types.md)
 * [Designs](design.md)
 * [Helpers](helpers.md)
 * [File Storages](file-storage.md)
