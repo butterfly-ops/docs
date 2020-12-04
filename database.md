@@ -7,6 +7,8 @@ All Butterfly related data is stored in MySQL but you can use the following data
 - ElasticSearch 7+
 - _MongoDB_
 - _Redis_
+- _MSSQL_
+- _Oracle Database_
 
 When you check MySQL and other database implementations you will see that it's written to make developer comfortable whether you 
 are using MySQL or ElasticSearch. We have built a system with same behaviours independent from which driver you use.
