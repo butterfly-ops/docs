@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.5.154
+
+- Refresh button is added to Dropdown Field Type
+- `twig` support is added to `Code` Field Type.
+- Elastic Search query improvements.
+- Fixed Elastic Search Index mapping for `label` and `title`
+- Migration functions for FileUpload Field Type and DropdownFromClass is added
+- Fixed a bug prevents the system to start when Turkish Locale is installed to Web Server.
+- Security Improvement: Additional security checks are added to image and file uploads.
+
 ## 1.5.151
 
 - `cron:refresh-items` command and refresh items operation in admin panel is speeded up 100x times.
