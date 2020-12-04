@@ -6,7 +6,7 @@
 - `twig` support is added to `Code` Field Type.
 - Elastic Search query improvements.
 - Fixed Elastic Search Index mapping for `label` and `title`
-- Migration functions for FileUpload Field Type and DropdownFromClass is added
+- Migration functions for FileUpload Field Type and DropdownFromClass are added
 - Fixed a bug prevents the system to start when Turkish Locale is installed to Web Server.
 - Security Improvement: Additional security checks are added to image and file uploads.
 
