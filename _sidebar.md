@@ -8,6 +8,7 @@
 * [Upgrade](upgrade.md)
 * [Database](database.md)
 * [Data Types](data-types.md)
+* [Data Manager](data-manager.md)
 * [Designs](design.md)
 * [Helpers](helpers.md)
 * [File Storages](file-storage.md)

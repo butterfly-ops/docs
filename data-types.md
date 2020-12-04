@@ -7,7 +7,9 @@ While defining your object, you can define Url, Table Name, User Friendly Name e
 start editing your contents from your admin panel, without writing a single line of code.
 
 When you create an Object from `butterfly panel` or `upgrade migration`, `table` (for SQL) or `collection` (for MongoDB) or `index` (for ElasticSearch) is automatically generator
-which means that, you don't need to make Database creations manually.  
+which means that, you don't need to make Database creations manually.
+
+You can checkout [Data Manager documentation](https://thebutterfly.io/docs/#/object-manager) for a brief introduction to Data Manager.
 
 ## Data Fields
 
