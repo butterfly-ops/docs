@@ -9,7 +9,7 @@ start editing your contents from your admin panel, without writing a single line
 When you create an Object from `butterfly panel` or `upgrade migration`, `table` (for SQL) or `collection` (for MongoDB) or `index` (for ElasticSearch) is automatically generator
 which means that, you don't need to make Database creations manually.
 
-You can checkout [Data Manager documentation](https://thebutterfly.io/docs/#/object-manager) for a brief introduction to Data Manager.
+You can checkout [Data Manager documentation](https://thebutterfly.io/docs/#/data-manager) for a brief introduction to Data Manager.
 
 ## Data Fields
 
