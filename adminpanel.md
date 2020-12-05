@@ -183,7 +183,7 @@ You may want to change look & feel or functionality of a specific Object Field.
 
 Example:
 
-If you want to change look & feel of `title` column of `articles` object, then you can create a file in `app/Views/Cms/article/list/title.tpl`
+If you want to change look & feel of `title` column of `articles` object, then you can create a file in `app/Views/Cms/Article/List/Title.twig`
 
 When you create an empty template, you can see that the field will be empty in listing page. You have a variable named `$l` in the template.
 
@@ -253,13 +253,13 @@ class Category extends ObjectController
 
 #### Add Page
 
-If you want to customize add page, you can create a file called add.tpl as `app/Views/Cms/article/add.tpl`
+If you want to customize add page, you can create a file called Add.twig as `app/Views/Cms/Article/Add.twig`
 
 When you create an empty file, you can see that, add form page will also change to a blank page. If you want your custom 
 page to work just like it was, you can place the following code to your template file.
 
-```smarty
-{include_tpl file="object/add"}
+```twig
+{{ include_file('Data/Add') }}
 ``` 
 
 Now, you have a add form page, just working as it was but now, you can add new code blocks to top or bottom of the page.
@@ -269,13 +269,13 @@ Now, you have a add form page, just working as it was but now, you can add new c
 
 #### Edit Page
 
-If you want to customize add page, you can create a file called edit.tpl as `app/Views/Cms/article/edit.tpl`
+If you want to customize add page, you can create a file called edit.tpl as `app/Views/Cms/Article/Edit.twig`
 
 When you create an empty file, you can see that, edit form page will also change to a blank page. If you want your custom 
 page to work just like it was, you can place the following code to your template file.
 
-```smarty
-{include_tpl file="object/edit"}
+```twig
+{{ include_tpl("Data/Edit") }}
 ``` 
 
 Now, you have a edit form page, just working as it was but now, you can add new code blocks to top or bottom of the page.
