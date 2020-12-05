@@ -134,9 +134,9 @@ If you want to customize listing page, you can create a file called `list.tpl` a
 When you create an empty file, you can see that, listing page will also change to a blank page. If you want your custom 
 page to work just like it was, you can place the following code to your template file.
 
-```smarty
-{include_tpl file="object/list"}
-``` 
+```twig
+{{ include_file("Data/List") }}
+```
 
 Now, you have a listing page, just working as it was but now, you can add new code blocks to top or bottom of the page.
 
@@ -164,10 +164,10 @@ You can also hide default action buttons if you would like to add them manually.
 
 Example template for hiding default action buttons (View / Edit / Delete)
 
-```smarty
-{$hide_action_buttons = true}
+```twig
+{% set hide_action_buttons = true %}
 
-{include_tpl file="object/list"}
+{{ include_file("Data/List") }}
 ```
 
 > [!WARNING]
@@ -189,14 +189,14 @@ When you create an empty template, you can see that the field will be empty in l
 
 If you want to display of your field you can use the following code:
 
-```smarty
-{$l[$os.column_name]}
+```twig
+{{ record[field.column_name] }}
 ```
 
 or, you can use the field name instead
 
-```smarty
-{$l.title}
+```twig
+{{ record.title }}
 ```
 
 ##### Hiearchical Lists
