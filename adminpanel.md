@@ -165,9 +165,9 @@ You can also hide default action buttons if you would like to add them manually.
 Example template for hiding default action buttons (View / Edit / Delete)
 
 ```twig
-{% set hide_action_buttons = true %}
-
-{{ include_file("Data/List") }}
+{{ include_file("Data/List", {
+    hide_action_buttons: true
+}) }}
 ```
 
 > [!WARNING]
