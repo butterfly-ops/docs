@@ -63,7 +63,9 @@ When you need to download an image, you can use the following code example:
 
 ```php
 $mImageHelper = new \Butterfly\Framework\Helper\Image();
-$mImageHelper->downloadImage('https://www.example.com/example.png', 'image_alias');
+
+// Subfolder parameter is optional, it defaults to current year and month
+$mImageHelper->downloadImage('https://www.example.com/example.png', 'image_alias', 'sub_folder/');
 ```
 
 You can define Image Aliases from `System Settings` > `Image Uploads`.
@@ -93,7 +95,9 @@ If you need to upload an image programatically else than Admin Panel, you can do
 
 ```php
 $mImageHelper = new \Butterfly\Framework\Helper\Image();
-$mImageHelper->processUpload('UPLOAD_KEY', 'image_alias');
+
+// Subfolder parameter is optional, it defaults to current year and month
+$mImageHelper->processUpload('UPLOAD_KEY', 'image_alias', 'sub_folder/');
 ```
 
 UPLOAD_KEY designates the key in $_FILES array which means the input name of the Upload. You can define Image Aliases from `System Settings` > `Image Uploads`.
@@ -153,7 +157,9 @@ When you need to download an image, you can use the following code example:
 
 ```php
 $mFileHelper = new \Butterfly\Framework\Helper\File();
-$mFileHelper->downloadFile('https://www.example.com/example.xlsx', 'file_alias');
+
+// Subfolder parameter is optional, it defaults to current year and month
+$mFileHelper->downloadFile('https://www.example.com/example.xlsx', 'file_alias', 'sub_folder/');
 ```
 
 You can define Image Aliases from `System Settings` > `Image Uploads`.
@@ -183,7 +189,9 @@ If you need to upload an image programatically else than Admin Panel, you can do
 
 ```php
 $mFileHelper = new \Butterfly\Framework\Helper\File();
-$mFileHelper->processUpload('UPLOAD_KEY', 'file_alias');
+
+// Subfolder parameter is optional, it defaults to current year and month
+$mFileHelper->processUpload('UPLOAD_KEY', 'file_alias', 'sub_folder/');
 ```
 
 UPLOAD_KEY designates the key in $_FILES array which means the input name of the Upload. You can define Image Aliases from `System Settings` > `Image Uploads`.
