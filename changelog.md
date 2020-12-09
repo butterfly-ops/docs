@@ -2,7 +2,7 @@
 
 ## 1.5.157
 
-- Optional Sub Folder parameter is added to File and Image Upload Handlers (Details)[https://thebutterfly.io/docs/#/file-storage?id=handling-file-uploads]
+- Optional Sub Folder parameter is added to File and Image Upload Handlers [Details](https://thebutterfly.io/docs/#/file-storage?id=handling-file-uploads)
 
 ## 1.5.154
 
