@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.5.159
+
+- Registry is cleared after each test-run
+
 ## 1.5.157
 
 - Optional Sub Folder parameter is added to File and Image Upload Handlers [Details](https://thebutterfly.io/docs/#/file-storage?id=handling-file-uploads)
