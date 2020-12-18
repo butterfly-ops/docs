@@ -34,7 +34,7 @@ Checkout [Designs](https://thebutterfly.io/docs/#/design) page for more details.
 
 ### Data Pools
 
-You hava defined your Data Types, you input your data, now it's time to stream it to other systems or your end-users.
+You have defined your Data Types, you input your data using integrations or Admin Panel, now it's time to stream it to other systems or your end-users.
 
 ### Settings Manager
 
