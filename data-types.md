@@ -30,6 +30,20 @@ Name | Column Name | Description
 --- | --- | ---
 Limit| val_1 | Limits the number of characters in string. 
 
+### Autocomplete
+
+When you have more than one Data Type, you may need to link them. For example: If you have an E-commerce Orders Data Type, you would have a Customers Data Type,
+Autocomplete Field Type makes it easier to link your fields.
+
+Parameters:
+
+Name | Column Name | Description
+--- | --- | ---
+Source Data Type | val_1 | Data Type you want to link
+Display Field | val_2 | Data Field to be shown in listings
+Value Field | val_3 | Source Data Field to be saved into current field
+Condition | val_4 | Where clause for the source records
+
 ### Datetime
 
 Datetime Field type is used to store Date & Time information in [Unix Timestamp format](https://en.wikipedia.org/wiki/Unix_time).
