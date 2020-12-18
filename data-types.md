@@ -44,6 +44,11 @@ Display Field | val_2 | Data Field to be shown in listings
 Value Field | val_3 | Source Data Field to be saved into current field
 Condition | val_4 | Where clause for the source records
 
+>[!TIP]
+> For a cleaner database schema, Butterfly suggests following naming convention standard: If you want to link a field to other tables id column,
+> you can name the singular version of the table name followed by `_id`. For example: If your Source Data Type is `customers` you can name field type as
+> `customer_id`. When you use this syntax, Butterfly automatically detects the relationship and select rest inputs in `Data Field creation Admin Panel`
+
 ### Datetime
 
 Datetime Field type is used to store Date & Time information in [Unix Timestamp format](https://en.wikipedia.org/wiki/Unix_time).
