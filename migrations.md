@@ -32,6 +32,32 @@ You can use the following command to run migrations:
 bin/butterfly install
 ```
 
+## Generator
+
+Install script aims to install an application from scratch. You may want to generate or update Install script with the following command:
+
+```bash
+bin/butterfly object:migration:create
+```
+
+This command will update app/Migration/Install.php with the migrations of all Data Types in the active database.
+
+You can also filter table names
+
+```bash
+bin/butterfly object:migration:create --tables=users,faqs
+```
+
+will generate migration for Data Type: users and faqs tables.
+
+You may also use wildcards for table names
+
+```bash
+bin/butterfly object:migration:create --tables=user%
+```
+
+will generate a single migration file with tables starting with user*.
+
 ## Upgrade
 
 Upgrade migrations should run after each deployment. Upgrade migrations make it easy to maintain structure of your Database. Besides creating new Tables, Objects, Indexes, you can also delete or update 
