@@ -121,6 +121,56 @@ failed response:
 ];
 ```
 
+### Uploading Images Via API
+
+You can upload images using Butterfly REST Api.
+
+For ```api/upload/image``` endpoint, available options:
+
+- alias: Butterfly image upload alias, default: content
+- sub_folder: Image upload path, default: null 
+- files: Array of Images
+
+Sample request:
+```
+curl --location --request POST 'http://domain.tld/api/upload/image' \
+--form 'files[0]=@"/path/image1.png"' \
+--form 'files[1]=@"/path/image2.png"'
+```
+
+Sample success response:
+```
+{
+    "success": true,
+    "result": [
+        {
+            "full_path": "https://cdn.url/static/img/content/21-01/24/image1.png",
+            "filename": "image.png"
+        },
+        {
+            "full_path": "https://cdn.url/static/img/content/21-01/24/image2.png",
+            "filename": "image.png"
+        }
+    ]
+}
+```
+
+Sample error response:
+```
+{
+    "success": false,
+    "errors": [
+        {
+            "message": "error message",
+            "filename": "image1.png"
+        },
+        {
+            "message": "error message",
+            "filename": "image2.png"
+        }
+    ]
+}
+```
 ### Getting Full Path
 
 When you use image uploads, only filenames are kept in the Database. Although full paths of the images for all possible sizes are 
