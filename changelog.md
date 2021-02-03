@@ -1,5 +1,20 @@
 # Changelog
 
+## 1.5.164
+
+- Rest API Module is added
+- Cms Image Upload API is added
+- Cms Login API is added
+- Fixed bug on Designs Permissions for Non-Administrator Users.
+- Passive Method is added for FTP Connections
+- Fixed a bug on Bulk Edits that prevents data's to be set from Hooks.
+- Fixed a bug causing URL's to be redirected when there is a `.` in the URL.
+- Ignore Unmapped parameter is added for Sorting on ElasticSearch.
+- Widget Parameters now supports Nested Field Type.
+- Added additional class name to Frontend Renders.
+- Improved design rendering to prevent errors when target Widget doesn't exist.
+- Added support for passwordless auth for SMTP Servers.
+
 ## 1.5.159
 
 - Registry is cleared after each test-run
