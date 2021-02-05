@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.5.165
+
+- Fixed a bug causing object duplication while updating existing Objects
+
 ## 1.5.164
 
 - Rest API Module is added
