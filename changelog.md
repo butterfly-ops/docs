@@ -3,6 +3,7 @@
 ## 1.5.165
 
 - Fixed a bug causing object duplication while updating existing Objects
+- Updated Object Import to allow imports if column exists but doesn't show in Admin
 
 ## 1.5.164
 
