@@ -448,25 +448,56 @@ SELECT DISTINCT name,phone FROM users;
 
 ```php
 $users = db()->from('users')
+    ->where('city', 34)
+    ->whereBetween('status', 5, 10) 
+    ->get();
+```
+will run:
+
+```sql
+SELECT * FROM users WHERE city = 34 AND status BETWEEN 5 AND 10
+```
+
+##### Not Between
+
+```php
+$users = db()->from('users')
+    ->where('city', 34)
+    ->whereNotBetween('status', 5, 10) 
+    ->get();
+```
+will run:
+
+```sql
+SELECT * FROM users WHERE city = 34 AND status NOT BETWEEN 5 AND 10
+```
+
+
+##### OR Between
+
+```php
+$users = db()->from('users')
+    ->where('city', 34)
     ->orWhereBetween('status', [5, 10])
     ->get();
 ```
 will run:
 
 ```sql
-SELECT * FROM users WHERE status BETWEEN 5 AND 10
+SELECT * FROM users WHERE city = 34 OR status BETWEEN 5 AND 10
 ```
 ##### Not Between
 
 ```php
 $users = db()->from('users')
+    ->where('city', 34)
     ->orWhereNotBetween('status', [5, 10])
     ->get();
 ```
 will run:
 
 ```sql
-SELECT * FROM users WHERE status NOT BETWEEN 5 AND 10
+SELECT * FROM users WHERE city = 34 OR status NOT BETWEEN 5 AND 10
 ```
 
 #### Join
