@@ -2169,6 +2169,45 @@ return [
 ];
 ```
 
+#### Group By Range
+
+You can define ranges to get aggregations using Elastic Search Range Spec.
+
+Example:
+
+```php
+$select->from('users', ['id'])->groupByRange('price', [
+    0 => 100,
+    100 => 200,
+    200 => 0
+])->get();
+
+$aggregations = $select->aggregations();
+```
+
+will return:
+```php
+[
+    'price_range' => [
+        'buckets' => [
+            "*-100.0" => [
+                'to' => 100,
+                'doc_count' => 2
+            ],
+            "100.0-200.0" => [
+                'from' => 100,
+                'to' => 200,
+                'doc_count' => 2
+            ],
+            "200.0-*" => [
+                'from' => 200,
+                'doc_count' => 2
+            ]
+    ]
+]
+```
+
+
 #### Having
 
 > [!WARNING]
