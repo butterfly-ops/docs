@@ -1970,6 +1970,60 @@ will run:
 }
 ```
 
+##### boostWhere
+
+```php
+db()->from('users')
+    ->boostWhere(5, function($query) {
+        $query->where('id', 5);
+        $query->orWhere('type', 'test');
+
+        return $query;
+    })
+    ->orWhere('status', 2)
+    ->get()
+;
+```
+
+will run:
+
+```json
+{
+ 'query': {
+    'query_string': {
+        'query':'((id:5) OR (type:"test"))^5 OR (status:2)',
+        'default_operator':'and'
+    }
+}
+
+```
+##### orBoostWhere
+
+```php
+db()->from('users')
+    ->where('status', 2)
+    ->orBoostWhere(5, function($query) {
+        $query->where('id', 5);
+        $query->orWhere('type', 'test');
+
+        return $query;
+    })
+    ->get()
+;
+```
+
+will run:
+
+```json
+{
+ 'query': {
+    'query_string': {
+        'query':'(status:2) OR ((id:5) OR (type:"test"))^5',
+        'default_operator':'and'
+    }
+}
+```
+
 ##### orWhereBetween
 
 ```php
