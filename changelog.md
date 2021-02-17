@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- HTTPS Redirection to outside domains support is added for Redirect Maps.
+
 ## 1.5.165
 
 - Fixed a bug causing object duplication while updating existing Objects
