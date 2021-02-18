@@ -3,6 +3,7 @@
 ## Unreleased
 
 - HTTPS Redirection to outside domains support is added for Redirect Maps.
+- Fixed a bug causing false security errors on Login
 
 ## 1.5.165
 
