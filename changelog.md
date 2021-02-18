@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 1.5.170
 
 - HTTPS Redirection to outside domains support is added for Redirect Maps.
 - Fixed a bug causing false security errors on Login
