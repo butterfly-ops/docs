@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased
+
+- design widgets - drag & drop fix for nested fields
+- design widgets - new line character fix for textarea_with_editor in nested fields
+
 ## 1.5.170
 
 - HTTPS Redirection to outside domains support is added for Redirect Maps.
