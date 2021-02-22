@@ -4,6 +4,7 @@
 
 - design widgets - drag & drop fix for nested fields
 - design widgets - new line character fix for textarea_with_editor in nested fields
+- fixed a bug causing elastic search queries with boolean value not working as expected
 
 ## 1.5.170
 
