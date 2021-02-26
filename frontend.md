@@ -122,7 +122,7 @@ will return the full path to access original image alias.
 `file_path` function is used to access the full path of image or file aliases.
 
 ```twig
-image_path('excel')
+file_path('excel')
 ``` 
 
 will return the full path to access excel file alias.
@@ -141,6 +141,61 @@ to render admin widgets, you can set admin: true
 
 ```twig
 {{ widget({name: 'FrontendAdmin', 'admin': true}) }}
+```
+
+### `image`
+
+`image` function is used to generate an img tag with support of Lazy Loading and Webp.
+
+Example:
+
+```twig
+image({item:item,alias:"content",field:"field_name", "class":"test"})
+```
+
+will return
+
+```html
+<img class="test" src="https://xxx.com/test.png.webp" />
+```
+
+if browser doesn't support webp or if webp not enabled for that image it will return:
+
+```html
+<img class="test" src="https://xxx.com/test.png" />
+```
+
+It has the following parameters:
+
+Parameter | Description | Default | Required
+--- | --- | --- | ---
+`item` | Variable including all item data | - | Yes
+`alias` | Image Config Alias | `content` | No
+`field` | Image Field Name | `image` | No
+`class` | Class Name | - | No
+
+### `image_source`
+
+`image_source` function returns just the image url based on `webp` and other configurations.
+
+It has the following parameters:
+
+Parameter | Description | Default | Required
+--- | --- | --- | ---
+`item` | Variable including all item data | - | Yes
+`alias` | Image Config Alias | `content` | No
+`field` | Image Field Name | `image` | No
+
+will return
+
+```html
+https://xxx.com/test.png.webp
+```
+
+if browser doesn't support webp or if webp not enabled for that image it will return:
+
+```html
+https://xxx.com/test.png
 ```
 
 ### `include_file`
