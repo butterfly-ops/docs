@@ -35,4 +35,4 @@ You can follow next steps to enable webp in your application:
 
 Frontend:
 
-For frontend, we have to twig functions to call images: `image` and `image_source`.
+For frontend, we have to twig functions to call images: [`image`](https://thebutterfly.io/docs/#/frontend?id=image) and [`image_source`](https://thebutterfly.io/docs/#/frontend?id=image_source).
