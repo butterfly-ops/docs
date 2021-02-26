@@ -31,7 +31,7 @@ HTTP_BUTTERFLY_ACCESS_TOKEN: Access token received from Authentication
 Example:
 
 ```curl
-curl --location --request POST 'https://vdf.rglabs.co/api/upload/image' \
+curl --location --request POST '##BASE_URL##/api/upload/image' \
 --header 'HTTP_BUTTERFLY_API_KEY: ##API_KEY##' \
 --header 'HTTP_BUTTERFLY_ACCESS_TOKEN: 600dd1d69983a4.72658127-6ae75bff5b0a4de826de2a93510241a1' \
 --form 'files[]=@"/Users/butterfly/examples/logos/test.jpeg"' \
