@@ -73,16 +73,16 @@ bin/butterfly upgrade
 
 ## Version Upgrade Notes
 
+### 1.5.179
+
+Although there is no breaking change in version 1.5.179, ElasticSearch queries are being migrated to new dynamic
+[Database](https://thebutterfly.io/docs/#/database?id=elastic-search) Layer. Because of this, elastic-search database
+config should be added to app/Config/database.php or app/Config/DOMAIN/database.php or app/Config/ENVIRONMENT/database.php
+
 ### 1.5.116
 
 - Please change your webserver config and point root folder to `/public` folder. If the previous folder was `/var/www/vhosts/thebutterfly.io/` 
 now, it should be `/var/www/vhosts/thebutterfly.io/`. Please beware that your site will be down if you don't change your Document Root. 
-
-### 1.5.74
-
-Version 1.5.74 has some breaking changes. Please check the following points:
-- Content Pool Items and Detail Info includes all sizes of the image with full path.
-Example: You should use `{$item.image.100x100}` instead of `{path alias="100x100"}{$item.image}`
 
 ### 1.5.78
 
@@ -95,8 +95,8 @@ Version 1.5.78 has some breaking changes. Please check the following points:
 >[!TIP]
 > You can use `bin/butterfly convert:twig app/` command to convert your tpl's to twig files inside of your app directory.
 
-### 1.5.179
+### 1.5.74
 
-Although there is no breaking change in version 1.5.179, ElasticSearch queries are being migrated to new dynamic
-[Database](https://thebutterfly.io/docs/#/database?id=elastic-search) Layer. Because of this, elastic-search database
-config should be added to app/Config/database.php or app/Config/DOMAIN/database.php or app/Config/ENVIRONMENT/database.php
+Version 1.5.74 has some breaking changes. Please check the following points:
+- Content Pool Items and Detail Info includes all sizes of the image with full path.
+Example: You should use `{$item.image.100x100}` instead of `{path alias="100x100"}{$item.image}`
