@@ -17,7 +17,7 @@ caching queries to reduce connection counts between web-application and database
 
 ## webp
 
-webp is an image format developed by Google for `web`. Webp format is not supported by all browser, but since it has a big improvement
+`webp` is an image format developed by Google for web. `webp` format is not supported by all browser, but since it has a big improvement
 on image file sizes, we highly recommend you to use it.
 
 `Butterfly` supports webp natively, which means that, if you enable Webp Support for a specific `Image Config`, an image file ending with .`webp`
