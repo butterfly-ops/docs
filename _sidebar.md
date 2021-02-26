@@ -12,6 +12,7 @@
 * [Designs](design.md)
 * [Performance](performance.md)
 * [Helpers](helpers.md)
+* [Commands](commands.md)
 * [File Storages](file-storage.md)
 * [Admin Panel](adminpanel.md)
 * [Frontend](frontend.md)
