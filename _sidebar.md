@@ -10,6 +10,7 @@
 * [Data Types](data-types.md)
 * [Data Manager](data-manager.md)
 * [Designs](design.md)
+* [Performance](performance.md)
 * [Helpers](helpers.md)
 * [File Storages](file-storage.md)
 * [Admin Panel](adminpanel.md)

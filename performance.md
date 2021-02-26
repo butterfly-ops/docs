@@ -36,3 +36,15 @@ You can follow next steps to enable webp in your application:
 Frontend:
 
 For frontend, we have to twig functions to call images: [`image`](https://thebutterfly.io/docs/#/frontend?id=image) and [`image_source`](https://thebutterfly.io/docs/#/frontend?id=image_source).
+
+Webservices:
+
+If you are using default ElasticSearch or Data Sources to get data, image fields automatically includes all sub-sizes as a key -> value array. You can retrieve
+field ending with `_webp` to check whether webp version of the image exists or not.
+
+If you are using Database, you need to be sure that, related image config has "Webp Support Enabled". You can also verify images by adding .webp at the end of the url.
+After verification, you can basically add `.webp` at the end of current urls.
+
+> [!WARNING]
+> When you enable `Webp Support` for a previously used alias, images are not generated automatically.
+> You need to run `bin/butterfly image:webp:generate` command to generate images.
