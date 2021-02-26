@@ -93,4 +93,10 @@ Version 1.5.78 has some breaking changes. Please check the following points:
 
 
 >[!TIP]
-> You can use `bin/butterfly convert:twig app/` command to convert your tpl's to twig files inside of your app directory.   
+> You can use `bin/butterfly convert:twig app/` command to convert your tpl's to twig files inside of your app directory.
+
+### 1.5.179
+
+Although there is no breaking change in version 1.5.179, ElasticSearch queries are being migrated to new dynamic
+[Database](https://thebutterfly.io/docs/#/database?id=elastic-search) Layer. Because of this, elastic-search database
+config should be added to app/Config/database.php or app/Config/DOMAIN/database.php or app/Config/ENVIRONMENT/database.php

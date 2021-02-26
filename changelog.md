@@ -1,7 +1,8 @@
 # Changelog
 
-## Unreleased
+## 1.5.179
 
+- Please check [Upgrade Notes](https://thebutterfly.io/docs/#/upgrade?id=_15179)
 - design widgets - drag & drop fix for nested fields
 - design widgets - new line character fix for textarea_with_editor in nested fields
 - fixed a bug causing elastic search queries with boolean value not working as expected
