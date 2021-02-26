@@ -4,7 +4,7 @@ You can see list of commands by running `bin/butterfly` command.
 
 ## Listing Commands
 
-`bin/butterfly list`
+`bin/butterfly`
 
 will return:
 
