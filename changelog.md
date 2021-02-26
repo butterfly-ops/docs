@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- `bin/butterfly health-check` command is added to check environment configs.
+
 ## 1.5.179
 
 - Please check [Upgrade Notes](https://thebutterfly.io/docs/#/upgrade?id=_15179)
