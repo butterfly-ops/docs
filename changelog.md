@@ -4,7 +4,16 @@
 
 - `bin/butterfly health-check` command is added to check environment configs.
 
-## 1.5.179
+## 1.5.174
+- File upload endpoint added for Butterfly Api.
+
+## 1.5.173
+- Sms integration updated.
+
+## 1.5.172
+- Webp support added to manipulated images.
+
+## 1.5.171
 
 - Please check [Upgrade Notes](https://thebutterfly.io/docs/#/upgrade?id=_15179)
 - design widgets - drag & drop fix for nested fields

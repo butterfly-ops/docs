@@ -73,9 +73,9 @@ bin/butterfly upgrade
 
 ## Version Upgrade Notes
 
-### 1.5.179
+### 1.5.171
 
-Although there is no breaking change in version 1.5.179, ElasticSearch queries are being migrated to new dynamic
+Although there is no breaking change in version 1.5.171, ElasticSearch queries are being migrated to new dynamic
 [Database](https://thebutterfly.io/docs/#/database?id=elastic-search) Layer. Because of this, elastic-search database
 config should be added to app/Config/database.php or app/Config/DOMAIN/database.php or app/Config/ENVIRONMENT/database.php
 
