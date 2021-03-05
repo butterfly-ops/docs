@@ -176,59 +176,6 @@ Sample error response:
 }
 ```
 
-
-### Uploading Files Via API
-
-You can upload files using Butterfly REST Api.
-
-For ```api/upload/file``` endpoint, available options:
-
-- alias: Butterfly file upload alias, default: content
-- sub_folder: File upload path, default: null 
-- files: Array of Files
-
-Sample request:
-```
-curl --location --request POST 'http://domain.tld/api/upload/file' \
---form 'files[0]=@"/path/file.mp4"' \
---form 'files[1]=@"/path/file2.pdf"'
-```
-
-Sample success response:
-```
-{
-    "success": true,
-    "result": [
-        {
-            "full_path": "https://cdn.url/static/file/content/21-01/24/file.mp4",
-            "filename": "file.mp4"
-        },
-        {
-            "full_path": "https://cdn.url/static/file/content/21-01/24/file2.pdf",
-            "filename": "file2.pdf"
-        }
-    ]
-}
-```
-
-Sample error response:
-```
-{
-    "success": false,
-    "errors": [
-        {
-            "message": "error message",
-            "filename": "file.mp4"
-        },
-        {
-            "message": "error message",
-            "filename": "file2.pdf"
-        }
-    ]
-}
-```
-
-
 ### Getting Full Path
 
 When you use image uploads, only filenames are kept in the Database. Although full paths of the images for all possible sizes are 
