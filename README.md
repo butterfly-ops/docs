@@ -16,6 +16,8 @@ Our mission is to help people do high quality products / projects faster and to 
 
 ## Quotes from us
 
+> We believe that kindness is contagious, so is good software. We call it: `Butterfly Effect`. Just give it a chance and watch it while spreading inside your organization.
+
 > Butterflies are said to live short. They don't have time to waste. Do we have? Butterfly makes you reach your goals without wasting your time. 
 
 > We hate repeating ourselves. We don’t have so much time to do the same thing again and again. That’s why we’ve built Butterfly.
