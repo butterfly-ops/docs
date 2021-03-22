@@ -5,7 +5,7 @@ All Butterfly related data is stored in MySQL but you can use the following data
 
 - MySQL 5.6+
 - ElasticSearch 7+
-- _MongoDB_
+- MongoDB
 - _Redis_
 - _MSSQL_
 - _Oracle Database_
@@ -2933,38 +2933,11 @@ db()->table('users')
     ]);
 ```
 
-will run the query:
-
-```sql
-UPDATE users SET name = 'foo', surname = 'bar' WHERE id = 1 LIMIT 1;
-```
+will update column where `id = 1`
 
 #### Where Clause
 
-> **Note:** You can use all type of where clauses with update queries. Please check [WHERE](#where) section for this.
-
-#### Join Statement
-
-> **Note:** You can use all type of join clauses with update queries. Please check [JOIN](#join) section for this.
-
-Example Usage:
-
-```php
-db()->table('users')
-    ->join('user_groups', 'user_groups.id', '=', 'users.user_group_id')
-    ->where('users.id', 1)
-    ->update([
-        'name' => 'foo',
-        'user_groups.name' => 'bar'
-    ])
-;
-```
-
-will run the following query:
-
-```sql
-UPDATE `users` INNER JOIN user_groups ON user_groups.id = users.user_group_id SET `name` = 'foo',`user_groups`.`name` = 'bar' WHERE users.id = 1
-```
+> **Note:** You can use all type of where clauses with update queries. Please check [WHERE](#where-1) section for this.
 
 ### DELETE Queries
 
@@ -2981,53 +2954,16 @@ $affected = db()->table('users')
 ;
 ```
 
-will run the following query and will return `number of rows affected`
-
-```sql
-DELETE FROM users WHERE id = 5
+will delete column where `id = 5` and will return `number of rows affected`
 ```
 
 #### Join Statement
 
-Multiple tables may be joined and deleted.
-
-```php
-db()->table('user_groups')
-    ->join('users', 'user_groups.id', '=', 'users.user_group_id')
-    ->whereNull('users.id')
-    ->delete(['users'])
-;
-```
-
-Will run the following query:
-
-```sql
-DELETE users FROM user_groups INNER JOIN users ON user_groups.id = users.user_group_id WHERE users.id IS NULL
-```
-
-> **Note:** Delete function accepts array of table names, if tables names are not given, then it will only delete the main table which is defined when table function is called. Which is `user_groups` table in the example.
-
-When using join statements, if no delete tables is defined when delete function is called, only main table will be deleted.
-
-Example:
-
-```php
-db()->table('user_groups')
-    ->join('users', 'user_groups.id', '=', 'users.user_group_id')
-    ->whereNull('users.id')
-    ->delete() // No table name is defined, user_groups table will be deleted. 
-;
-```
-
-Will run the following query:
-
-```sql
-DELETE user_groups FROM user_groups INNER JOIN users ON user_groups.id = users.user_group_id WHERE users.id IS NULL
-```
+Elastic Search doesn't support join statements.
 
 ### Schema
 
-You can run schema operations with `Butterfly\Database`
+You can run schema operations using `Butterfly\Database`
 
 #### tables
 
@@ -3092,11 +3028,8 @@ db()->createTable('test', [
 ]);
 ```
 
-will run the following query:
-
-```sql
-CREATE TABLE `test` (`id` int(11) NOT NULL AUTO_INCREMENT,`name` varchar(255) NOT NULL, PRIMARY KEY (`id`)) ENGINE = `InnoDB`
-```
+> [!WARNING]
+> Work in progress
 
 #### createOrUpdateTable
 
@@ -3123,34 +3056,13 @@ db()->schema()->createOrUpdateTable('test', [
 ]);
 ```
 
-will run the following query if table doesn't exist:
-
-```sql
-CREATE TABLE `test` (`id` int(11) NOT NULL AUTO_INCREMENT,`name` varchar(255) NOT NULL DEFAULT 'John Doe', PRIMARY KEY (`id`)) ENGINE = `InnoDB`
-```
-
-will run the following query if table exists, id column exists but different then current info, name column is missing.
-
-```sql
-ALTER TABLE `test` MODIFY `id` int(11) NOT NULL,ADD `name` varchar(255) NOT NULL DEFAULT 'John Doe'
-```
-
-will run the following query if table exists, id column exists and identical, name column is missing.
-
-```sql
-ALTER TABLE `test` ADD `name` varchar(255) NOT NULL DEFAULT 'John Doe'
+> [!WARNING]
+> Work in progress
 ```
 
 #### dropColumns
 
 Drop column drops the column from table. If column doesn't exist, then it will just return true
 
-```php
-db()->schema('test')->dropColumns(['test_column', 'test_column_2']);
-```
-
-will run the following query:
-
-```sql
-ALTER TABLE `test` DROP `test_column`,DROP `test_column_2`
-```
+> [!WARNING]
+> Work in progress
