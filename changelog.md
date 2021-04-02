@@ -1,8 +1,10 @@
 # Changelog
 
-## Unreleased
+## 1.5.178
 
 - `bin/butterfly health-check` command is added to check environment configs.
+- CmsObject->refreshItemsByEntityIds function is added.
+- refreshItem methods automatically add redirections now.
 
 ## 1.5.174
 - File upload endpoint added for Butterfly Api.
