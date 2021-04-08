@@ -66,3 +66,57 @@ class Campaigns extends Event
     }
 }
 ```
+
+### BulkImageUpload::before_add
+
+When you are using one-to-many relations with Multi Upload option. You can use this feature to manipulate Bulk Image Uploads.
+Since this trigger is common for all Bulk Image Uploads, you need to narrow it's scope like the following example.
+
+You can also change one-to-many import behaviour, for example you can define unique_keys to override existing records.
+
+Example:
+
+```php
+<?php
+namespace App\Hook;
+
+use Butterfly\Core\Model\Objects;
+use Butterfly\Core\View\TwigFunction\ImagePath;
+
+class BulkImageUpload
+{
+    public function before_add($params)
+    {
+        $object_id = $params['object_id'];
+        $table_name = Objects::getTableName($object_id);
+
+        if($table_name != 'banner_images_bulk_upload')
+        {
+            return $params;
+        }
+
+        $entity_id = $params['data']['banner_images_bulk_upload_id'];
+
+        $imageUpload = db()
+            ->table('banner_images_bulk_upload')
+            ->find($entity_id)
+        ;
+
+        $path = new ImagePath();
+        $imageBasePath = $path->execute('content');
+
+        $filename = $params['db_filename'];
+
+        $params['data']['title'] = $imageUpload['title'];
+        $params['data']['link'] = $imageBasePath . $filename;
+        $params['data']['link_webp'] = $imageBasePath . $filename . '.webp';
+
+        // If you want to override existing records, you can define unique_keys
+        $params['unique_keys'] = [
+            'sku', 'position', 'image_type'
+        ];
+
+        return $params;
+    }
+}
+```
