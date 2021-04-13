@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.5.179
+
+- app/Widget/Cms/ directory is added for overriding Butterfly Core Widget Templates
+- Added Pagination widget to Butterfly Core
+
 ## 1.5.178
 
 - `bin/butterfly health-check` command is added to check environment configs.
