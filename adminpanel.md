@@ -122,6 +122,38 @@ class Article extends ObjectController
 }
 ```
 
+# Custom Checkbox
+
+However Butterfly automatically creates filters on Admin Panel, sometimes you may need additional logical checkboxes.
+
+For example:
+You may want to filter Stocks lower than 5 as Critical Stock when Critical Stock checkbox is selected.
+
+You can use addFilter function to add customized filters to your Listing Page.
+
+First you need to publish Controller for that Data Type.
+
+Example:
+```bash
+bin/butterfly publish:admin:controller articles
+```
+
+Example:
+```php
+function listAction($id, $extra)
+{
+    $this->addFilter('checkbox', 'Get Valid Records', [
+        'join' => [
+            'INNER JOIN child_object_tests ON child_object_tests.article_id = articles.id'
+        ],
+        'where' => 'child_object_tests.is_valid = 1'
+    ]);
+
+    parent::listAction($id, $extra);
+}
+```
+
+
 #### Listing Page
 
 ##### Full Layout
