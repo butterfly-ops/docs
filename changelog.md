@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.5.182
+- `Custom Filters support` for Admin / Listing Page is added. [Details](https://thebutterfly.io/docs/#/adminpanel?id=custom-checkbox)
+
 ## 1.5.179
 
 - app/Widget/Cms/ directory is added for overriding Butterfly Core Widget Templates

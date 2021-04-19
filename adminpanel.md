@@ -122,7 +122,7 @@ class Article extends ObjectController
 }
 ```
 
-# Custom Checkbox
+##### Custom Checkbox
 
 However Butterfly automatically creates filters on Admin Panel, sometimes you may need additional logical checkboxes.
 
