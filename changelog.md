@@ -1,6 +1,6 @@
 # Changelog
 
-## 1.5.184
+## 1.5.185
 - `fill` operation type is added for Image Uploads. [Details](https://thebutterfly.io/docs/#/data-types?id=image-upload)
 
 ## 1.5.182
