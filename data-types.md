@@ -101,6 +101,14 @@ Supported file types are:
 
 Image will not be updated. Just uploaded as is.
 
+##### Resize
+
+Image will be resized first to resize in a box with given sizes.
+
+For example:
+If you have an image with size: 1000x1200 and the configution is set to resize image to 600x600. The image will be
+resized to 500x600
+
 ##### Center Crop
 
 Image will be resized first and cropped from wider size that outfits given sizes.
