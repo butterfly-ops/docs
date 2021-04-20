@@ -109,6 +109,9 @@ For example:
 If you have an image with size: 1000x1200 and the configution is set to resize image to 600x600. The image will be
 resized to 500x600
 
+> [!TIP]
+You can define just one dimension to fit the image to that dimension. Other dimension will resized respectively constraining proportion.
+
 ##### Center Crop
 
 Image will be resized first and cropped from wider size that outfits given sizes.
@@ -123,7 +126,7 @@ If you have an image with size: 1000x1200 and the configution is set to center c
 Image will be resized first to resize in a box with given sizes. Then it will be filled with given fill color to fit given size.
 
 For example:
-If you have an image with size: 1000x1200 and the configution is set to center crop image to 600x600
+If you have an image with size: 1000x1200 and the configution is set to fill image to 600x600
  First, the image will be resized to 500x600 then it will be filled with solid color (white by default) to fit 600x600
 
 ### Block
