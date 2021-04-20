@@ -70,6 +70,8 @@ It will save value "1" if field is checked and "0" if it's not checked.
 
 ### Image Upload
 
+#### Introduction
+
 Image Upload field type is a specialized Image Upload Tool. You can upload images, generate sub images, crop images from Admin Panel.
 You can also enable Media Library for re-using uploaded images.
 
@@ -92,6 +94,29 @@ Supported file types are:
 
 > [!WARNING]
 > Since SVG is a format composed of XML, image manipulation operations are not supported when you upload svg files.
+
+#### Operation Types
+
+##### No Operation
+
+Image will not be updated. Just uploaded as is.
+
+##### Center Crop
+
+Image will be resized first and cropped from wider size that outfits given sizes.
+
+For example:
+If you have an image with size: 1000x1200 and the configution is set to center crop image to 500x500.
+ First, the image will be resized to 500x600, then it will be cropped to 500x500 which means that, 50px from both side
+ of the image will be removed.
+
+##### Fill
+
+Image will be resized first to resize in a box with given sizes. Then it will be filled with given fill color to fit given size.
+
+For example:
+If you have an image with size: 1000x1200 and the configution is set to center crop image to 600x600
+ First, the image will be resized to 500x600 then it will be filled with solid color (white by default) to fit 600x600
 
 ### Block
 
