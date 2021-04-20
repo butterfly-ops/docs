@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.5.184
+- `fill` operation type is added for Image Uploads. [Details](https://thebutterfly.io/docs/#/data-types?id=image-upload)
+
 ## 1.5.182
 - `Custom Filters support` for Admin / Listing Page is added. [Details](https://thebutterfly.io/docs/#/adminpanel?id=custom-checkbox)
 
