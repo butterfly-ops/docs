@@ -9,6 +9,7 @@ One of the most important features of Butterfly is it's Admin Panel.
 - Manage Search Engine Settings,
 - Change Look & Feel of your Applications
 - Drag & Drop new Widgets to your Applications
+- Add custom filters to your listing pages.
 
 and many more ...    
 
@@ -122,7 +123,7 @@ class Article extends ObjectController
 }
 ```
 
-##### Custom Checkbox
+##### Custom Checkbox Filters
 
 However Butterfly automatically creates filters on Admin Panel, sometimes you may need additional logical checkboxes.
 
