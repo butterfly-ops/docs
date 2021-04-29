@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.5.191
+- Auth Support is added for Redis Queue Workers
+- `mailer:test` command is added to bin/butterfly
+- Added support Dropdown field type override from `app` folder
+- CSV Load improvements
+- ElasticSearch field limit is increased to 10.000
+- Object Listing filter improvements
+- datetime_mysql field type defaults to NULL instead of "0000-00-00 00:00:00"
+
 ## 1.5.185
 - `fill` operation type is added for Image Uploads. [Details](https://thebutterfly.io/docs/#/data-types?id=image-upload)
 
