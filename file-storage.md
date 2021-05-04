@@ -341,3 +341,15 @@ $mCmsFileUpload->getFullPathByAlias('file_upload_alias'); // `original` is the a
 ```twig
 {{ file_path('file_alias') }}
 ```
+
+### Updating Sub Folder for Uploads
+
+By default, `butterfly` creates subfolders in year-month/day format. Which means that, when you upload a file named `x.jpg`
+your file will be uploaded to 21-05/01/x.jpg if date is 1th of May in 2021.
+
+You can change this behaviour by updating Sub Folder Format on File Storage Admin. If you leave this field empty, it will default to
+default behaviour.
+
+If you set `/` to this setting, it will upload file to the root.
+
+If you want to use different dates, you can use strftime function format. You can checkout [https://www.php.net/strftime](this link)

@@ -1,5 +1,8 @@
 # Changelog
 
+## Unreleased
+- Sub Folder Format support is added for File Storages. [Details](https://thebutterfly.io/docs/#/file-storage#updating-sub-folder-for-uploads)
+
 ## 1.5.191
 - Auth Support is added for Redis Queue Workers
 - `mailer:test` command is added to bin/butterfly
