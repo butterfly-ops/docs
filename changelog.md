@@ -1,7 +1,7 @@
 # Changelog
 
 ## Unreleased
-- Sub Folder Format support is added for File Storages. [Details](https://thebutterfly.io/docs/#/file-storage#updating-sub-folder-for-uploads)
+- columnType is added for migrations to override default column type for fields. [Details](https://thebutterfly.io/docs/#/migrations#overriding-column-type)
 
 ## 1.5.191
 - Auth Support is added for Redis Queue Workers
@@ -11,6 +11,7 @@
 - ElasticSearch field limit is increased to 10.000
 - Object Listing filter improvements
 - datetime_mysql field type defaults to NULL instead of "0000-00-00 00:00:00"
+- Sub Folder Format support is added for File Storages. [Details](https://thebutterfly.io/docs/#/file-storage#updating-sub-folder-for-uploads)
 
 ## 1.5.185
 - `fill` operation type is added for Image Uploads. [Details](https://thebutterfly.io/docs/#/data-types?id=image-upload)

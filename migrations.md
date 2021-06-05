@@ -291,3 +291,18 @@ will remove Object Spec with column name: `test_column_name` of the Object with 
 
 > [!WARNING]
 > This function removes column from database. Please beware that all data in the column will be destroyed.
+
+#### Overriding Column Type
+
+Sometimes you may need different column types in database, for example: default column type for integers is `int(11)` but
+you may want to increase the limit and update it to `bigint(20)`. You can use `columnType` function to update column type.
+
+Example:
+```php
+$response = db()->schema('my_existing_table')->objectSpecs(function(\Butterfly\Framework\Data\ButterflyObject $object) {
+    $object->integer('votes');
+    $object->integer('vote_count')->columnType('bigint(20)');
+
+    return $object;
+});
+```
