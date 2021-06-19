@@ -353,3 +353,27 @@ default behaviour.
 If you set `/` to this setting, it will upload file to the root.
 
 If you want to use different dates, you can use strftime function format. You can checkout [https://www.php.net/strftime](this link)
+
+### File Overwrite Strategy
+
+When you let users to upload files or images, files with same filename is always something you need to consider. You can set Overwrite Strategy
+option under `File Storages` for uploaded files with same name.
+ 
+#### Append Time:
+
+If you choose this option, unix time will be added to filename if there is already a file with same name.
+
+For example: Let's say that you uploaded a file named `test.png`. If you upload another file with the same name, it will be saved as 
+`test-1624119416.png`.
+
+Advantages:
+- Existing files with the same name used by other records will not be affected.
+- Since the name of the file is changed, CDN Caches automatically becomes invalid for updated images.
+
+#### Overwrite:
+
+Simple: It will replace the old file if a file with same name is added.
+
+> [!WARNING]
+> Don't choose `overwrite` option if you really don't need it. It may lead data loss since old files with same name is 
+> overridden. And if you need this option just for some Upload Config, create additional File Storage for these Upload Configs.
