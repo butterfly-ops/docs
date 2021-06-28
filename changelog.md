@@ -1,8 +1,9 @@
 # Changelog
 
-## Unreleased
+## 1.5.192
 - columnType is added for migrations to override default column type for fields. [Details](https://thebutterfly.io/docs/#/migrations#overriding-column-type)
 - Overwrite Strategy is added for File Storages. [Details](https://thebutterfly.io/docs/#/file-storage#file-overwrite-strategy)
+- Many to Many relations improvement. It now uses tag field type for better performance when there is thousands of child records.
 
 ## 1.5.191
 - Auth Support is added for Redis Queue Workers
