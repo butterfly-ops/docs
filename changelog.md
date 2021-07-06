@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.5.212
+- Image Processing optimisation: Source Image is not oriented if it doesnt need.
+- Image Size Limit is added to Image Configs.
+- Enable Debug Mode is added to Admin Panel to enable Debug Mode on Production.
+- Hotfix for Multiple Database Configurations for Objects.
+- Pagination fix for Object List filters on Admin Panel.
+- Remove button for One to Many relations is added to Admin Panel.
+- `BulkImageUpload` `after_add` Hook is added.
+- Total count optimisation is enabled for tables having more than 10.000 records. (It was 1.000.000 before)
+- Bugfix for Object Spec Management Screen.
+
 ## 1.5.205
 - columnType is added for migrations to override default column type for fields. [Details](https://thebutterfly.io/docs/#/migrations#overriding-column-type)
 - Overwrite Strategy is added for File Storages. [Details](https://thebutterfly.io/docs/#/file-storage#file-overwrite-strategy)
