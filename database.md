@@ -980,6 +980,19 @@ will return:
 
 `2`
 
+##### sum
+
+Will return sum of the specific column values as a single value
+
+```php
+db()->from('users')
+    ->sum('amount');
+```
+
+will return:
+
+`2`
+
 ##### transform
 
 Transform function is used to transform the returning rows.
