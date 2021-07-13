@@ -1,5 +1,8 @@
 # Changelog
 
+## Unreleased
+- Sanitize Filename checkbox is added to File Storages [Details](https://thebutterfly.io/docs/#/file-storage#filename-sanitization-for-uploads)
+
 ## 1.5.212
 - Image Processing optimisation: Source Image is not oriented if it doesnt need.
 - Image Size Limit is added to Image Configs.
