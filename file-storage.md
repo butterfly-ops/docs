@@ -377,3 +377,21 @@ Simple: It will replace the old file if a file with same name is added.
 > [!WARNING]
 > Don't choose `overwrite` option if you really don't need it. It may lead data loss since old files with same name is 
 > overridden. And if you need this option just for some Upload Config, create additional File Storage for these Upload Configs.
+
+### Filename Sanitization for Uploads
+
+When you upload a file or image to Butterfly, it's a good practice to replace white-spaces and special characters in the filename to 
+prevent errors on browsers etc, but sometimes you may want to leave filename as-is.
+
+Sanitize Option is enabled by default in `File Storage` settings, but if you uncheck this box, then it will leave the filename and spaces 
+as-is.
+
+Example:
+
+If you upload a file named `Test Filename ÇÖĞ.jpg`
+
+Sanitized version will be
+`test-filename-cog.jpg`
+
+Not Sanitized version
+`Test Filename ÇÖĞ.jpg`
