@@ -1,7 +1,11 @@
 # Changelog
 
-## Unreleased
+## 1.5.213
 - Sanitize Filename checkbox is added to File Storages [Details](https://thebutterfly.io/docs/#/file-storage#filename-sanitization-for-uploads)
+- Column Based Permissions for Draft Mode is added.
+- Fixed a bug for Many to Many Relation Filters
+- Object List Improvement for Tag Field Type.
+- Fixed a bug causing Object List pagination not displaying correctly for pages bigger than 1. 
 
 ## 1.5.212
 - Image Processing optimisation: Source Image is not oriented if it doesnt need.
