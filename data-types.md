@@ -49,6 +49,23 @@ Condition | val_4 | Where clause for the source records
 > you can name the singular version of the table name followed by `_id`. For example: If your Source Data Type is `customers` you can name field type as
 > `customer_id`. When you use this syntax, Butterfly automatically detects the relationship and select rest inputs in `Data Field creation Admin Panel`
 
+#### Updating minimum character length
+
+By default autocomplete field type sends request when minimum character length is 2. You can update by applying following updates:
+
+1) publish template of the page you want to override behaviour using bin/butterfly publish:admin:template table_name action
+2) add following javascript to that page:
+```javascript
+<script>
+ window.minCharacterLength = 1;
+</script>
+```
+
+>[!TIP]
+> If you want to change behaviour for all pages, you can simply use publish:admin:layout to publish container layout for all pages and set the variable 
+> for all pages.
+
+
 ### Datetime
 
 Datetime Field type is used to store Date & Time information in [Unix Timestamp format](https://en.wikipedia.org/wiki/Unix_time).

@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.5.216
+- window.minCharacterCount is added for manipulating autocomplete minimum character count for specific pages [Details](https://thebutterfly.io/docs/#/data-types#updating-minimum-character-length)
+
 ## 1.5.215
 - Sanitize Filename checkbox is added to File Storages [Details](https://thebutterfly.io/docs/#/file-storage#filename-sanitization-for-uploads)
 - Column Based Permissions for Draft Mode is added.
