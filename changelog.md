@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.5.217
+- Image Crop Improvement. Minimum image size restrictio is disabled on cropping when Restrict Minimum is disabled for File Storage.
+
 ## 1.5.216
 - window.minCharacterCount is added for manipulating autocomplete minimum character count for specific pages [Details](https://thebutterfly.io/docs/#/data-types#updating-minimum-character-length)
 
