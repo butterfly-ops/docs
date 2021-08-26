@@ -1,6 +1,6 @@
 # Changelog
 
-## 1.5.217
+## 1.5.219
 - Image Crop Improvement. Minimum image size restrictio is disabled on cropping when Restrict Minimum is disabled for File Storage.
 
 ## 1.5.216
