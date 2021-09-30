@@ -2267,6 +2267,23 @@ return [
 ];
 ```
 
+#### Group By With Filters
+
+You can use group by with filters function to get filtered aggregations
+
+```php
+$select->from('users', ['id'])
+    ->where('id', 5)
+    ->groupByWithFilters([
+        'type', 
+        'type_2',
+        'type_3'
+    ],[
+        'type' => 1,
+        'type_2' => 2
+    ])->get();
+```
+
 #### Group By Range
 
 You can define ranges to get aggregations using Elastic Search Range Spec.

@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.5.227
+- Added new method groupByWithFilter for Elasticsearch. [Details](https://thebutterfly.io/docs/#/database#group-by-with-filters)
+- Added new hook called after_save [Details](https://thebutterfly.io/docs/#/data-types#data-validation)
+- Added AMP Cache Invalidation feature, for example usage please read after_save hook details.  
+- Added new data field validation for accessibility. It checks field has img and anchor tags with required alt and title attributes.
+- Improved hierarchy data field.
+- Updated webp generator command.
+- Added app name to elasticsearch alert email subject.
+
+
 ## 1.5.219
 - Image Crop Improvement. Minimum image size restrictio is disabled on cropping when Restrict Minimum is disabled for File Storage.
 

@@ -319,6 +319,17 @@ Name | Column Name | Description
 --- | --- |---
 Language | val_1 | Code Language
 
+## Data Validation
+
+Butterfly allows field based data validation with these options;
+
+- Email
+- Phone
+- Password
+- Url
+- Unique
+- Accessibility
+
 ## Permissions
 
 You can define permissions per Object / per User Group in Butterfly Panel.
@@ -544,6 +555,27 @@ It will retrieve the id that will be deleted. Since the operation is not done ye
 
 This function is triggered after deleting an entry. Only parameter you can access is the ID `$crud->getDataId()` of the entry, since it's deleted from
 the database. 
+
+#### after_save
+
+This function is triggered after successfully saving an entry. You can do whatever you need with your entity.
+
+Example usage for the event to invalidate AMP Cache. Add this class into app\Hook folder.
+```php
+<?php
+
+namespace App\Hook;
+
+use Butterfly\Library\Hook;
+
+class Objects extends Hook
+{
+    public function afterSave($params)
+    {
+        \Queue::push(\Butterfly\Core\Task\AmpCache::class, $params);
+    }
+}
+```
  
 ### Crud Functions
 
