@@ -1,6 +1,6 @@
 # Changelog
 
-## 1.5.227
+## 1.5.228
 - Added new method groupByWithFilter for Elasticsearch. [Details](https://thebutterfly.io/docs/#/database?id=group-by-with-filters)
 - Added new hook called after_save [Details](https://thebutterfly.io/docs/#/data-types#data-validation)
 - Added AMP Cache Invalidation feature, for example usage please read after_save hook details.  
