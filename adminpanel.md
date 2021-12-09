@@ -355,3 +355,12 @@ When you need to show / hide other elements based on value of an Object Spec's v
 
 will hide Object Specs with column name: `image`, `title`, `label`, `subtitle` and will show the Object Specs based on the 
 value of the current Object Spec. For example: if the value is `ThirdValue` it will show Object Spec with column name: `subtitle`.
+
+##### Loading Message
+
+You can customize loading messages and failure redirection for `add`, `edit` and `duplicate` operations.
+
+```javascript
+window.blockMessage = 'Report is being created.';
+window.onFailureRedirect = '/admin/example-table-name/latest';
+```
