@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.5.232
+- Updated AJAX response for Expired Sessions. It returns 401 status code and a message instead of trying to redirect the request.
+- MAX File Size support is added to File Uploads
+- `bin/butterfly connection:test` command is added to test connectivity of a server.
+- SFTP Permission Improvement for NFS Environments.
+- Nested field type supports Folder List field types now.
+- `APCU` support is added
+- Improvement on Nested Field Sorting.
+- Hotfix on MySQL Select Queries. Fixed queries returning '*' and aliased columns.
+
 ## 1.5.228
 - Added new method groupByWithFilter for Elasticsearch. [Details](https://thebutterfly.io/docs/#/database?id=group-by-with-filters)
 - Added new hook called after_save [Details](https://thebutterfly.io/docs/#/data-types#data-validation)
