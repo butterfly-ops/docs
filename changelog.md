@@ -1,5 +1,8 @@
 # Changelog
 
+## Unreleased
+- Condition type is added to Permission Exceptions. [Details will be added]
+
 ## 1.5.232
 - Updated AJAX response for Expired Sessions. It returns 401 status code and a message instead of trying to redirect the request.
 - MAX File Size support is added to File Uploads
