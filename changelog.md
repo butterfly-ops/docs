@@ -2,6 +2,7 @@
 
 ## Unreleased
 - Condition type is added to Permission Exceptions. [Details will be added]
+- Improvement for `search:reindex` command to add ID to error logs.
 
 ## 1.5.232
 - Updated AJAX response for Expired Sessions. It returns 401 status code and a message instead of trying to redirect the request.
