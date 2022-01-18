@@ -36,6 +36,39 @@ In this case study, you will have the following Widgets: Header, Footer, Slider,
 
 As you see, Best Selling Products and Latest Products are displayed using the same Widget with different Parameters.
 
+## Frontend
+
+When you build a website, frontend of the website is the pages that faces end users. (If it's a mobile app, it may be the api's).
+All frontend can be managed from Butterfly Admin Panel using Drag and Drop features.
+
+### Layouts
+
+You may have multiple layout places in a Design like Header, Left Content, Right Content, Footer etc. These places are defined in Layout. Layout Places 
+are defined with column sizes like 4-4-4-4, 12, 3-3-3, 9-3 etc. If you want to put a full page header, then, you can set the Layout Place size to 12.
+
+### Partial Rendering
+
+Even though you have multiple places on a Design, you may want to render it partially. For example, you may want to omit Header and Footer and render just Content section 
+in a page for a specific embed.
+
+You can add `renderPlaces` parameter as a GET parameter at the end of the request to render specific place.
+
+Example:
+```
+https://butterfly.app/category-page?renderPlaces=content
+```
+
+will render just the widgets in layout place aliased as `content`.
+
+You can also add multiple places seperated by comma.
+
+Example:
+```
+https://butterfly.app/category-page?renderPlaces=header,content
+```
+
+will render just the widgets in layout place aliased as `header` and content.
+
 ## Personalization
 
 ## Content Pools
