@@ -67,7 +67,7 @@ Example:
 https://butterfly.app/category-page?renderPlaces=header,content
 ```
 
-will render just the widgets in layout place aliased as `header` and content.
+will render just the widgets in layout place aliased as `header` and `content`.
 
 ## Personalization
 
