@@ -6,6 +6,7 @@
 - `admin:menus:check` command is added to relate admin menus to objects for permission management.
 - `CMD` `.` (or `CTRL` + `.` for windows) Quick Search Menu now matches table names and Objects. (It was searching just in Admin Menus before.)
 - `renderPlaces` parameter is added to filter places to be rendered in Frontend. [Details](https://thebutterfly.io/docs/#/design?id=partial-rendering)
+- You can filter multiple values in Integer field types using comma seperated filter.
 
 ## 1.5.232
 - Updated AJAX response for Expired Sessions. It returns 401 status code and a message instead of trying to redirect the request.
