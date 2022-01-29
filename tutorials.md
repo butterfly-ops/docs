@@ -39,7 +39,7 @@ Technically if you would like to add AMP Support for your website, you need to c
 platforms suffers from managing content of these pages seperately which causes additional effort to maintain content of 
 AMP Pages.
 
-### Creating AMP Version of the Design:
+### Creating AMP Version of the Design
 
 First of all, you need to Create seperate Layout and Designs for AMP:
 
