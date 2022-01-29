@@ -49,7 +49,7 @@ First of all, you need to Create seperate Layout and Designs for AMP:
 - Step 4 - Run `bin/butterfly widget:refresh` Command and add widgets to AMP Designs.
 
 >[!TIP]
-> You can use `info` variable to reach content details in `Widgets`
+> You can use `info` variable to access content details in `Widgets`
 
 >[!TIP]
 > You should repeat the previous steps for each Object Type you want to specialize for AMP.
