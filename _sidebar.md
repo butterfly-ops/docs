@@ -4,6 +4,7 @@
 * [Installation](installation.md)
 * [Features](features.md)
 * [Changelog](changelog.md)
+* [Tutorials](tutorials.md)
 * [Cloud](cloud.md)
 * [Upgrade](upgrade.md)
 * [Database](database.md)
