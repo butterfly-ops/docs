@@ -56,7 +56,7 @@ page as AMP.
 
 We have two different way of defining the new page format:
 
-### Strategy - 1
+### Strategy - 1 - Using Object Subpages Feature
 
 Butterfly Subpages feature helps you add multiple url's for a specific Content Item. To add AMP Support for a Content Type, 
 you can follow these steps:
