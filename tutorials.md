@@ -49,6 +49,9 @@ First of all, you need to Create seperate Layout and Designs for AMP:
 - Step 4 - Run `bin/butterfly widget:refresh` Command and add widgets to AMP Designs.
 
 >[!TIP]
+> You can use `info` variable to reach content details in `Widgets`
+
+>[!TIP]
 > You should repeat the previous steps for each Object Type you want to specialize for AMP.
 
 Now you have special designs, widgets and a layout for AMP. We need to define a new URL Format that will render the same 
