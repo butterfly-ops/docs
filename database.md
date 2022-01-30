@@ -2284,7 +2284,7 @@ $select->from('users', ['id'])
     ])->get();
 ```
 
-### Group By And Size Limit
+#### Group By And Size Limit
 By default, there is a limit for each group by field in the Elasticsearch settings as 10. It is possible to change this limit as you can see in the following array example.
 
 ```php
