@@ -2284,6 +2284,39 @@ $select->from('users', ['id'])
     ])->get();
 ```
 
+### Group By And Size Limit
+By default, there is a limit for each group by field in the Elasticsearch settings as 10. It is possible to change this limit as you can see in the following array example.
+
+```php
+$users = db()->from('users')
+    ->groupBy([
+        [
+            'field' => 'badge',
+            'limit' => 30 // overrides default size
+        ],
+        'votes' // uses default size (10)
+    ])
+;
+```
+
+It can be used in the same way when you group by filter.
+
+```php
+$select->from('users', ['id'])
+    ->where('id', 5)
+    ->groupByWithFilters([
+        'type',  // uses default size (10)
+        'type_2', // uses default size (10)
+        [
+            'field' => 'type_3',
+            'size' => 20 // overrides default size
+        ]
+    ],[
+        'type' => 1,
+        'type_2' => 2
+    ])->get();
+```
+
 #### Group By Range
 
 You can define ranges to get aggregations using Elastic Search Range Spec.
