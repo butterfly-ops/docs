@@ -7,6 +7,7 @@
 - `CMD` `.` (or `CTRL` + `.` for windows) Quick Search Menu now matches table names and Objects. (It was searching just in Admin Menus before.)
 - `renderPlaces` parameter is added to filter places to be rendered in Frontend. [Details](https://thebutterfly.io/docs/#/design?id=partial-rendering)
 - You can filter multiple values in Integer field types using comma seperated filter.
+- `config:cache:clear` command is added to clean Config cache after production deployments.
 
 ## 1.5.232
 - Updated AJAX response for Expired Sessions. It returns 401 status code and a message instead of trying to redirect the request.
