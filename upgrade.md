@@ -82,7 +82,7 @@ config should be added to app/Config/database.php or app/Config/DOMAIN/database.
 ### 1.5.116
 
 - Please change your webserver config and point root folder to `/public` folder. If the previous folder was `/var/www/vhosts/thebutterfly.io/` 
-now, it should be `/var/www/vhosts/thebutterfly.io/`. Please beware that your site will be down if you don't change your Document Root. 
+now, it should be `/var/www/vhosts/thebutterfly.io/public`. Please beware that your site will be down if you don't change your Document Root. 
 
 ### 1.5.78
 
