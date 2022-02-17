@@ -1,6 +1,7 @@
 # Changelog
 
-## Unreleased
+## 1.5.233
+- Amazon RabbitMQ Support is added. [Details will be added]
 - Condition type is added to Permission Exceptions. [Details will be added]
 - Improvement for `search:reindex` command to add ID to error logs.
 - `admin:menus:check` command is added to relate admin menus to objects for permission management.
