@@ -21,6 +21,51 @@ bin/butterfly make:event Frontend Bootstrap
 > Don't forget that, the code written inside of Frontend>Bootstrap event will run for each request which means that it may decrease 
 > performance of your website.
 
+### `not_found`
+
+Not Found Event is triggered when a page is not found. Dynamic redirections can be handled in this event. To create a Not Found hook, you can run the following command:
+
+```bash
+bin/butterfly make:event Frontend not_found
+```
+
+Example:
+```php
+<?php
+
+namespace App\Event;
+
+use App\Controller\Item;
+use App\Model\Article;
+use Butterfly\Framework\Registry\Registry;
+use Butterfly\Library\Hook;
+
+class Frontend extends Hook
+{
+    public function not_found($params)
+    {
+        $url = $params['url'];
+        if(preg_match('~en/(.+)~', $url, $tmp))
+        {
+            $mArticle = new Article();
+            $article = $mArticle->getByCustom_seo_en($tmp[1]);
+
+            if(! empty($article))
+            {
+                Registry::set('url', $article['seo']);
+                Registry::set('language', 'en');
+
+                $controller = new Item();
+                $controller->designPrefix = 'en-';
+                $controller->detailAction();
+                echo $controller->renderLayout();
+                exit;
+            }
+        }
+    }
+}
+```
+
 ### `object::detail`
 
 ```bash

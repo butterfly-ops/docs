@@ -9,7 +9,8 @@
 - You can filter multiple values in Integer field types using comma seperated filter.
 - `config:cache:clear` command is added to clean Config cache after production deployments.
 - `cookie` twig:filter is added.
-- Redirect check for 404 url's is updated to prevent redirecting to same URL if the url is not found to prevent infinite loop. 
+- Redirect check for 404 url's is updated to prevent redirecting to same URL if the url is not found to prevent infinite loop.
+- `Frontend`.`not_found` Event is added to be able to manipulate results of 404 pages. (Example: Redirecting 404 pages to another page.)
 
 ## 1.5.232
 - Updated AJAX response for Expired Sessions. It returns 401 status code and a message instead of trying to redirect the request.
