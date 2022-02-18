@@ -57,7 +57,7 @@ By default autocomplete field type sends request when minimum character length i
 2) add following javascript to that page:
 ```html
 <script>
- window.minCharacterLength = 1;
+  window.minCharacterLength = 1;
 </script>
 ```
 
