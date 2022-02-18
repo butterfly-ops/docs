@@ -55,7 +55,7 @@ By default autocomplete field type sends request when minimum character length i
 
 1) publish template of the page you want to override behaviour using `bin/butterfly publish:admin:template` table_name action
 2) add following javascript to that page:
-```javascript
+```html
 <script>
  window.minCharacterLength = 1;
 </script>
