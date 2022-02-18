@@ -53,7 +53,7 @@ Condition | val_4 | Where clause for the source records
 
 By default autocomplete field type sends request when minimum character length is 2. You can update by applying following updates:
 
-1) publish template of the page you want to override behaviour using bin/butterfly publish:admin:template table_name action
+1) publish template of the page you want to override behaviour using `bin/butterfly publish:admin:template` table_name action
 2) add following javascript to that page:
 ```javascript
 <script>
