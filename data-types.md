@@ -62,7 +62,7 @@ By default autocomplete field type sends request when minimum character length i
 ```
 
 >[!TIP]
-> If you want to change behaviour for all pages, you can simply use publish:admin:layout to publish container layout for all pages and set the variable 
+> If you want to change behaviour for all pages, you can simply use `bin/butterfly publish:admin:layout` to publish container layout for all pages and set the variable 
 > for all pages.
 
 
