@@ -1,5 +1,8 @@
 # Changelog
 
+## Unreleased
+- Custom endpoint and Proxy support is added to S3 File Storage
+
 ## 1.5.233
 - Amazon RabbitMQ Support is added. [Details](https://thebutterfly.io/docs/#/queue)
 - Condition type is added to Permission Exceptions. [Details will be added]
