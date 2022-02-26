@@ -329,6 +329,39 @@ Name | Column Name | Description
 --- | --- |---
 Language | val_1 | Code Language
 
+### From List
+
+From List field lists given options as dropdown and saves value in database.
+
+Name | Column Name | Description
+--- | --- |---
+Options | val_1 | Options sepereated by `|`
+
+>[!TIP]
+> From List is useful when you have predefined list of options that doesn't 
+> need to be added by your end-users from Admin. If you need non-developer users to 
+> add options, it is better to use `Dropdown Field Type`.
+
+There are two ways to define options:
+
+#### Key to Value
+
+You can define key:value options in `val_1` 
+
+Example:
+`1:Yes|2:No`
+
+This will list Yes and No in Dropdown and save 1 or 2 in database upon users selection.
+
+#### Value List
+
+You can define value options in `val_1`
+
+Example:
+Yes|No
+
+This will list Yes and No in Dropdown and save selected value in database as Yes or No.
+
 ### Constant
 
 ### Content Pool
@@ -348,8 +381,6 @@ Language | val_1 | Code Language
 ### Float
 
 ### Folder List
-
-### From List
 
 ### Hidden Integer
 
