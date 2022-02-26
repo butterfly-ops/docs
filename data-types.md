@@ -329,6 +329,68 @@ Name | Column Name | Description
 --- | --- |---
 Language | val_1 | Code Language
 
+### Constant
+
+### Content Pool
+
+### Date
+
+### Datetime SQL
+
+### Decimal
+
+### Dropdown
+
+### Dropdown from Class
+
+### File Upload
+
+### Float
+
+### Folder List
+
+### From List
+
+### Hidden Integer
+
+### Hidden String
+
+### Hierarch
+
+### Image Map
+
+### Image Upload Multiple
+
+### Integer
+
+### Link
+
+### Money
+
+### Month
+
+### Multicheckbox
+
+### Password
+
+### Remote Image
+
+### Slider
+
+### Slug
+
+### Status
+
+### Tag
+
+### Textarea
+
+### Textarea with Editor
+
+### Time Period
+
+### Yes / No
+
 ## Data Validation
 
 Butterfly allows field based data validation with these options;
