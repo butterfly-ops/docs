@@ -65,24 +65,6 @@ By default autocomplete field type sends request when minimum character length i
 > If you want to change behaviour for all pages, you can simply use `bin/butterfly publish:admin:layout` to publish container layout for all pages and set the variable 
 > for all pages.
 
-### Code
-
-Code Field Type is used to provide a user-friendly Code Input in Admin. It uses [ACE Editor](https://ace.c9.io/). 
-
-Name | Column Name | Description
---- | --- | ---
-Code Language| val_1 | Code selection for Syntax highlight and syntax error detection.
-
-Supported Languages:
-* css
-* html
-* javascript
-* json
-* smarty
-* xml
-* yaml
-* twig
-
 ### Color Picker
 
 Color Picker Type provides a color picker for inputs. It stores color code as like FFFFFF.
@@ -332,12 +314,14 @@ Code Field Type, displays a Code Editor in Admin. It automatically checks for Sy
 a user-friendly Code Input.
 
 Supported Languages:
-- css
-- html
-- javascript
-- json
-- twig
-- xml
+* css
+* html
+* javascript
+* json
+* smarty
+* xml
+* yaml
+* twig
 
 Parameters:
 
