@@ -2,6 +2,7 @@
 
 ## Unreleased
 - Custom endpoint and Proxy support is added to S3 File Storage
+- Design Widget Operation Logs are added [Details](https://thebutterfly.io/docs/#/audit-logs?id=design-changes)
 
 ## 1.5.233
 - Amazon RabbitMQ Support is added. [Details](https://thebutterfly.io/docs/#/queue)
