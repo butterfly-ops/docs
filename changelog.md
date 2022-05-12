@@ -5,6 +5,8 @@
 - Design Widget Operation Logs are added [Details](https://thebutterfly.io/docs/#/audit-logs?id=design-changes)
 - Linked Dropdown Optimization for Nested Field Types
 - Add New Option is added for Tag Field Type
+- Added searchable support on ElasticSearch for Tag Field Type
+- Last X Days hit updater command is added `bin/butterfly search:stats`
 
 ## 1.5.233
 - Amazon RabbitMQ Support is added. [Details](https://thebutterfly.io/docs/#/queue)
