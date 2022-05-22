@@ -7,6 +7,7 @@
 - Add New Option is added for Tag Field Type
 - Added searchable support on ElasticSearch for Tag Field Type
 - Last X Days hit updater command is added `bin/butterfly search:stats`
+- `Pinned Items` feature is added to Streams
 
 ## 1.5.233
 - Amazon RabbitMQ Support is added. [Details](https://thebutterfly.io/docs/#/queue)
