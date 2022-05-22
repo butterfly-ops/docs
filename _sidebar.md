@@ -23,6 +23,7 @@
 * [Module](modules.md)
 * [Queue](queue.md)
 * [Security](security.md)
+* [Streams](stream.md)
 * [Events](events.md)
 * [Webservice](webservice.md)
 * [Testing](testing.md)
