@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 1.5.240
 - Custom endpoint and Proxy support is added to S3 File Storage
 - Design Widget Operation Logs are added [Details](https://thebutterfly.io/docs/#/audit-logs?id=design-changes)
 - Linked Dropdown Optimization for Nested Field Types
@@ -8,6 +8,7 @@
 - Added searchable support on ElasticSearch for Tag Field Type
 - Last X Days hit updater command is added `bin/butterfly search:stats`
 - `Pinned Items` feature is added to Streams
+- LinkedDropdown Support for DropdownFieldType Bulk Data Import
 
 ## 1.5.233
 - Amazon RabbitMQ Support is added. [Details](https://thebutterfly.io/docs/#/queue)
