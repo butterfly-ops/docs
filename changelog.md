@@ -3,6 +3,7 @@
 ## Unreleased
 - Improvement on Object Logs. It logs when a user deletes a record
 - Improvement in Item Relations. It logs when a user adds or delete a relation
+- "Login Expired" error that occurs when using multiple servers with different session storages is fixed.
 
 ## 1.5.240
 - Custom endpoint and Proxy support is added to S3 File Storage
