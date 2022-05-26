@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+- Improvement on Object Logs. It logs when a user deletes a record
+- Improvement in Item Relations. It logs when a user adds or delete a relation
+
 ## 1.5.240
 - Custom endpoint and Proxy support is added to S3 File Storage
 - Design Widget Operation Logs are added [Details](https://thebutterfly.io/docs/#/audit-logs?id=design-changes)
