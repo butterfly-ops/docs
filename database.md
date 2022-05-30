@@ -3119,9 +3119,12 @@ db()->schema()->createOrUpdateTable('test', [
 ]);
 ```
 
-> [!WARNING]
-> Work in progress
-```
+> [!wARNING]
+> Column alteration checks field types not to update larger column types to smaller ones.
+> bigint will not be converted to integer, longtext will not be converted to mediumtext or text.
+> it first checks column type and column size.
+> 
+> If you need to decrease column size, you should do it manually
 
 #### dropColumns
 
