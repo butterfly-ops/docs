@@ -1,9 +1,10 @@
 # Changelog
 
-## Unreleased
+## 1.5.241
 - Improvement on Object Logs. It logs when a user deletes a record
 - Improvement in Item Relations. It logs when a user adds or delete a relation
 - "Login Expired" error that occurs when using multiple servers with different session storages is fixed.
+- Migrations are updated not to alter larger columns to smaller once. If ID column is updated to bigint, it won't be reverted back to id column anymore. 
 
 ## 1.5.240
 - Custom endpoint and Proxy support is added to S3 File Storage
