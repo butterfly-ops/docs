@@ -6,6 +6,7 @@
 - `raw` function is added to Database Queries for statements like `CURRENT_TIMESTAMP()` [Details]
 - `forSharedLock` and `forUpdateLock` functions are added for Database Locking on MySQL Database. [Details]
 - This version comes with backward incompatible changes. [Details]
+- `bin/butterfly search:update command is added`
 
 ## 1.5.241
 - Improvement on Object Logs. It logs when a user deletes a record

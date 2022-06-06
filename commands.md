@@ -50,6 +50,7 @@ Available commands:
   queue:worker:start        Runs Queue Workers
  search
   search:reindex            Creates a new Search index and populates with items
+  search:update             Updates specific object data in search index
  set
   set:domain                Sets the Domain Name
  widget
