@@ -129,7 +129,7 @@ return [
 Removed constants and replacements:
 
 Constant Name | Replace with
---- | --- |---
+--- | ---
 `DB_SERVER` | `\Config::get('database.default.server')`
 `DB_NAME` | `\Config::get('database.default.name')`
 `DB_USERNAME` | `\Config::get('database.default.user')`
