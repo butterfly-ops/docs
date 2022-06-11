@@ -104,6 +104,11 @@ Example: You should use `{$item.image.100x100}` instead of `{path alias="100x100
 ### 1.6.0
 
 Version 1.6.0 has some breaking changes. Please check the following points:
+- You should manually run following commnands in the home folder of the project:
+```bash
+cp vendor/butterfly/core/src/Core/Generator/stubs/container.stub app/container.php;
+cp vendor/butterfly/core/src/Core/Generator/stubs/app-tests-bootstrap.stub tests/bootstrap.php;
+```
 - \Cache::get is deprecated, you should use cache()->get() etc. You can check details on [https://thebutterfly.io/docs/#/cache](Cache Page)
 - You should update [https://thebutterfly.io/docs/#/cache?id=configuration](Cache Configuration)
 
