@@ -1071,10 +1071,27 @@ db()->from('users')
 ->get();
 ```
 
-will cache the result using `test-cache-key` in Cache. Which means that, you can remove cache using following code:
+will cache the result using `test-cache-key` in Cache of Default Cache Driver. Which means that, you can remove cache using following code:
 
 ```php
-\Cache::delete('test-cache-key');
+cache()->delete('test-cache-key');
+```
+
+##### With Duration, Cache Key and Cache Driver
+
+Example:
+
+```php
+db()->from('users')
+    ->where('id', 5)
+    ->cache(120, 'test-cache-key', 'apc')
+->get();
+```
+
+will cache the result using `test-cache-key` in Cache of `apc` Driver. Which means that, you can remove cache using following code:
+
+```php
+cache('apc')->delete('test-cache-key');
 ```
 
 #### Registry
@@ -2772,7 +2789,7 @@ db()->from('users')
 will cache the result using `test-cache-key` in Cache. Which means that, you can remove cache using following code:
 
 ```php
-\Cache::delete('test-cache-key');
+cache()->delete('test-cache-key');
 ```
 
 #### Registry
@@ -4268,7 +4285,24 @@ db()->from('users')
 will cache the result using `test-cache-key` in Cache. Which means that, you can remove cache using following code:
 
 ```php
-\Cache::delete('test-cache-key');
+cache()->delete('test-cache-key');
+```
+
+##### With Duration, Cache Key and Cache Driver
+
+Example:
+
+```php
+db()->from('users')
+    ->where('id', 5)
+    ->cache(120, 'test-cache-key', 'apc')
+->get();
+```
+
+will cache the result using `test-cache-key` in Cache of `apc` Driver. Which means that, you can remove cache using following code:
+
+```php
+cache('apc')->delete('test-cache-key');
 ```
 
 #### Registry
