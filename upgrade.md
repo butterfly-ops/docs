@@ -100,3 +100,59 @@ Version 1.5.78 has some breaking changes. Please check the following points:
 Version 1.5.74 has some breaking changes. Please check the following points:
 - Content Pool Items and Detail Info includes all sizes of the image with full path.
 Example: You should use `{$item.image.100x100}` instead of `{path alias="100x100"}{$item.image}`
+
+### 1.6.0
+
+Version 1.6.0 has some breaking changes. Please check the following points:
+- \Cache::get is deprecated, you should use cache()->get() etc. You can check details on [https://thebutterfly.io/docs/#/cache](Cache Page)
+- You should update [https://thebutterfly.io/docs/#/cache?id=configuration](Cache Configuration)
+
+Example cache.php content:
+
+```php
+return [
+    'default' => [
+        'adapter' => 'Redis',
+        'prefix' => '[' . HOST . ']',
+        'server' => '127.0.0.1',
+        'password' => null // Optional
+    ],
+
+    'disable' => false
+];
+```
+Removed constants and replacements:
+
+Constant Name | Replace with
+--- | --- |---
+`DB_SERVER` | `\Config::get('database.default.server')`
+`DB_NAME` | `\Config::get('database.default.name')`
+`DB_USERNAME` | `\Config::get('database.default.user')`
+`DB_PASSWORD` | `\Config::get('database.default.password')`
+`DB_PORT` | `\Config::get('database.default.port')`
+`DEVEL` | `\Config::get('app.devel')`
+`SITE_URL` | `\Config::get('app.url')`
+`PROJECT_NAME` | `\Config::get('app.name')`
+`FB_APP_ID` | `\Config::get('social.facebook.id')`
+`FB_APP_SECRET` | `\Config::get('social.facebook.secret')`
+`TWITTER_KEY` | `\Config::get('social.twitter.key')`
+`TWITTER_APP_SECRET` | `\Config::get('social.twitter.secret')`
+`ASSET_SITE` | `\Config::get('asset.asset_site')`
+`ASSET_URL` | `\Config::get('asset.asset_url')`
+`USE_MINIFIED` | `\Config::get('asset.use_minified')`
+`SUPER_PASSWORD` | `\Config::get('security.super_password')`
+`DISABLE_ADMIN` | `\Config::get('security.disable_admin')`
+`SECRET_KEY` | `\Config::get('security.secret_key')`
+
+Following constants are removed:
+
+`IMAGES_URL`
+`STATIC_BASE_URL`
+`STATIC_BASE_FOLDER`
+`FRONTEND_FOLDER`
+`SITEMAP_DIR`
+`CAPTCHA_PUB_KEY`
+`CAPTCHA_PRIV_KEY`
+`DISABLE_CACHE`
+`RABBITMQ_SERVER`
+`DISABLE_QUEUE`

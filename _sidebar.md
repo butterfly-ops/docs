@@ -5,6 +5,7 @@
 * [Features](features.md)
 * [Changelog](changelog.md)
 * [Tutorials](tutorials.md)
+* [Cache](cache.md)
 * [Cloud](cloud.md)
 * [Upgrade](upgrade.md)
 * [Database](database.md)
