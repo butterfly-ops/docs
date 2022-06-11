@@ -104,15 +104,35 @@ Example: You should use `{$item.image.100x100}` instead of `{path alias="100x100
 ### 1.6.0
 
 Version 1.6.0 has some breaking changes. Please check the following points:
-- You should manually run following commnands in the home folder of the project:
-```bash
-cp vendor/butterfly/core/src/Core/Generator/stubs/container.stub app/container.php;
-cp vendor/butterfly/core/src/Core/Generator/stubs/app-tests-bootstrap.stub tests/bootstrap.php;
-```
-- \Cache::get is deprecated, you should use cache()->get() etc. You can check details on [https://thebutterfly.io/docs/#/cache](Cache Page)
-- You should update [https://thebutterfly.io/docs/#/cache?id=configuration](Cache Configuration)
 
-Example cache.php content:
+#### Step 1:
+
+Add post install and post upgrade scripts to your `composer.json` file
+
+```json
+  "scripts": {
+    "post-install-cmd": "\\Butterfly\\Core\\Migration\\Composer::postInstall",
+    "post-update-cmd": "\\Butterfly\\Core\\Migration\\Composer::postUpdate"
+  }
+```
+
+#### Step 2:
+
+Update your composer.json file to use butterfly/core `1.6.*`
+
+#### Step 3:
+
+Run composer update command
+
+#### Step 4:
+
+Add default cache configuration to cache.php files for all domains. [https://thebutterfly.io/docs/#/cache?id=configuration](Cache Configuration)
+
+#### Step 5:
+
+Update application code to use `cache()` function to access cache instead of `Cache::` syntax. [https://thebutterfly.io/docs/#/cache?id=configuration](Cache Configuration)
+
+Example cache config file:
 
 ```php
 return [
@@ -121,11 +141,19 @@ return [
         'prefix' => '[' . HOST . ']',
         'server' => '127.0.0.1',
         'password' => null // Optional
-    ],
-
-    'disable' => false
+    ]
 ];
 ```
+
+#### Step 6:
+
+Run `bin/butterfly upgrade` and commit update files to your repository after doing local tests.
+
+#### Step 7:
+
+Verify that following constants are not used in your views and application code. If it is used, 
+replace with new versions.
+
 Removed constants and replacements:
 
 Constant Name | Replace with
