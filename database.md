@@ -4690,7 +4690,6 @@ db()->schema()->createOrUpdateTable('test', [
 
 > [!WARNING]
 > Work in progress
-```
 
 #### dropColumns
 
