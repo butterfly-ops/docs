@@ -182,6 +182,8 @@ $response = db()->schema('my_new_table')->object(function(\Butterfly\Framework\D
         ->readonly()
         ->required()
     ;
+    
+    $object->datetimeMysql('created_at')->defaultValue(db()->raw('CURRENT_TIMESTAMP()'));
 
     return $object;
 });

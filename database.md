@@ -3015,6 +3015,26 @@ db()->table('users')
 
 will update column where `id = 1`
 
+#### Raw Values
+
+You can use values that are dynamic like column to column assignment, or mysql functions 
+
+```php
+db()->table('users')
+    ->where('id', 1)
+    ->limit(1)
+    ->update([
+        'order_no' => db()->raw('`order_no` + 1')
+    ])
+;
+```
+
+will run the following SQL Query
+
+```sql
+UPDATE `users` SET `order_no` = `order_no` + 1 WHERE id = 1 LIMIT 1
+```
+
 #### Where Clause
 
 > **Note:** You can use all type of where clauses with update queries. Please check [WHERE](#where-1) section for this.
@@ -4364,6 +4384,25 @@ $userId = db()->table('users')->insert([
 ```
 
 will return the auto increment id of the created row.
+
+#### Insert with raw values
+
+Insert statements can use raw column values
+
+```php
+$userId = db()->table('users')
+  ->insert([
+      'id' => 1,
+      'name' => 'foo',
+      'created_at' => db()->raw('CURRENT_TIMESTAMP()')
+]);
+```
+
+will run the following query:
+
+```sql
+INSERT INTO `users` (`id`,`name`,`created_at`) VALUES (1,'foo',CURRENT_TIMESTAMP());
+```
 
 #### InsertOrUpdate
 

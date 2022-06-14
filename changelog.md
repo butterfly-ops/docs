@@ -5,9 +5,10 @@
 - `cache` and `registry` functions are added to Database Queries [Details]
 - `raw` function is added to Database Queries for statements like `CURRENT_TIMESTAMP()` [Details]
 - `forSharedLock` and `forUpdateLock` functions are added for Database Locking on MySQL Database. [Details]
-- This version comes with backward incompatible changes. [Details]
-- `bin/butterfly search:update command is added`
+- This version comes with backward incompatible changes. [Details](https://thebutterfly.io/docs/#/upgrade?id=_160)
+- `bin/butterfly search:update` command is added to update elastic index for specific object types.
 - Bugfix on Item Relation Ordering
+- `bin/butterlfy console` command is added
 
 ## 1.5.241
 - Improvement on Object Logs. It logs when a user deletes a record

@@ -10,6 +10,7 @@ will return:
 
 ```
 Available commands:
+  console                   Interactive console to run Buttefly Codes interactively
   health-check              Checks system resources and connections
   help                      Displays help for a command
   install                   Installs the Butterfly
