@@ -1,3 +1,4 @@
+
 # Upgrade
 
 Butterfly's main aim is to make upgrades as easy as possible. Database schema changes, file additions, new objects and 
@@ -126,11 +127,11 @@ Run composer update command
 
 #### Step 4:
 
-Add default cache configuration to cache.php files for all domains. [https://thebutterfly.io/docs/#/cache?id=configuration](Cache Configuration)
+Add default cache configuration to cache.php files for all domains. [Cache Configuration](https://thebutterfly.io/docs/#/cache?id=configuration)
 
 #### Step 5:
 
-Update application code to use `cache()` function to access cache instead of `Cache::` syntax. [https://thebutterfly.io/docs/#/cache?id=configuration](Cache Configuration)
+Update application code to use `cache()` function to access cache instead of `Cache::` syntax. [Cache Configuration](https://thebutterfly.io/docs/#/cache?id=configuration)
 
 Example cache config file:
 
