@@ -131,7 +131,7 @@ Add default cache configuration to cache.php files for all domains. [Cache Confi
 
 #### Step 5:
 
-Update application code to use `cache()` function to access cache instead of `Cache::` syntax. [Cache Configuration](https://thebutterfly.io/docs/#/cache?id=configuration)
+Update application code to use `cache()` function to access cache instead of `Cache::` syntax. [Cache Usage](https://thebutterfly.io/docs/#/cache?id=cache-operations)
 
 Example cache config file:
 
