@@ -1,5 +1,12 @@
 # Changelog
 
+## Unreleased
+- readonly function is added for ObjectSpec migration
+- readonly mode is added for not-changelable object fields
+- Object Logs module is added to listing page
+- Performance improvements for Object Logs Module
+- Bugfix: Login page not working without refreshing the page after wrong password entry.
+
 ## 1.6.0
 - `cache()` function is added for multiple cache driver usage. [Details]
 - `cache` and `registry` functions are added to Database Queries [Details]
