@@ -16,6 +16,7 @@
 - `bin/butterfly search:update` command is added to update elastic index for specific object types.
 - Bugfix on Item Relation Ordering
 - `bin/butterlfy console` command is added
+- Decreased Content Pool Release Date check intervals from 5 minutes to 1 minute 
 
 ## 1.5.241
 - Improvement on Object Logs. It logs when a user deletes a record
