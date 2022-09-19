@@ -8,6 +8,7 @@
 - Bugfix: Login page not working without refreshing the page after wrong password entry.
 - `id` and `item_id` fields are restricted for updates. (It doesn't change even if there are object specs) 
 - Added session storage check to `bin/butterfly health-check` command
+- Updated error message for secure password when SSL config in `app/Config/security.php` and Request Type doesn't match.
 
 ## 1.6.0
 - `cache()` function is added for multiple cache driver usage. [Details]
