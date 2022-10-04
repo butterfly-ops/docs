@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.6.17
+- `butterfly` notification provider is added for forgotten passwords
+
 ## 1.6.16
 - readonly function is added for ObjectSpec migration
 - readonly mode is added for not-changelable object fields
