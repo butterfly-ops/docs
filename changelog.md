@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 1.6.16
 - readonly function is added for ObjectSpec migration
 - readonly mode is added for not-changelable object fields
 - Object Logs module is added to listing page
@@ -8,7 +8,11 @@
 - Bugfix: Login page not working without refreshing the page after wrong password entry.
 - `id` and `item_id` fields are restricted for updates. (It doesn't change even if there are object specs) 
 - Added session storage check to `bin/butterfly health-check` command
-- Updated error message for secure password when SSL config in `app/Config/security.php` and Request Type doesn't match.
+- Updated error message for secure password when SSL config in `app/Config/security.php` and Request Type doesn't match
+- Bugfix: Approve Request emails cannot be send when there are special characters in change text
+- Added Static Pages and Object Subpages to usage information in Design Edit page
+- On page editing mode is added
+- Report View and Export are improved. It limits results to 500 in preview mode and exports to CSV instead of XLSX when record count is more than 10.000
 
 ## 1.6.0
 - `cache()` function is added for multiple cache driver usage. [Details]
