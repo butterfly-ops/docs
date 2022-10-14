@@ -1142,6 +1142,11 @@ using following code block:
 
 You can run insert queries using database client.
 
+> [!TIP]
+> You can call `runInBackground` function before sending insert queries to make queries asynchronous on Elastic Search.
+> If you want your code to wait until all queued insert tasks finish, you can use `db('elastic-search')->from(''')->refresh()`
+> to make the code wait.
+
 #### Insert
 
 Single insert statement can be run as the following example: 
@@ -4593,107 +4598,10 @@ will delete column where `id = 5` and will return `number of rows affected`
 
 Elastic Search doesn't support join statements.
 
-### Schema
+### Performance Tips
 
-You can run schema operations using `Butterfly\Database`
+Butterfly Database implementation gives opportunity for developers to get same expected result from all databases. Elastic Search 
+queries runs in background by default, but in Butterfly when you send an insert query it waits for query to be finalized.
 
-#### tables
-
-Will return the list of tables in the databases.
-
-```php
-db()->schema()->tables();
-```
-
-will return the list of tables as an array list.
-
-```php
-[
-    'cms_admin_users',
-    'videos',
-    'articles'
-];
-```
-
-#### columns
-
-Will return the list of columns in a table.
-
-```php
-db()->schema('users')->columns();
-```
-
-will return
-
-```php
-[
-    [
-        'column_name' => 'id',
-        'data_type' => 'int',
-        'is_primary_key' => true,
-        'is_nullable' => false
-    ],
-    [
-        'column_name' => 'name',
-        'data_type' => 'varchar',
-        'is_primary_key' => false,
-        'is_nullable' => false
-    ]
-];
-```
-
-#### createTable
-
-will create a table with the specified columns.
-
-```php
-db()->createTable('test', [
-  [
-      'column_name' => 'id',
-      'identifier' => true,
-      'column_type' => 'int(11)'
-  ],
-  [
-      'column_name' => 'name',
-      'column_type' => 'varchar(255)'
-  ]
-]);
-```
-
-> [!WARNING]
-> Work in progress
-
-#### createOrUpdateTable
-
-it checks for the table, if the table already exists, it will alter.
-
-> [!TIP]
-> This function also checks for columns, if column information is the same, then, it will skip it, if column is not identical, it will modify the column.
-
-> [!WARNING]
-> This function doesn't check auto_increment column for altering operations. Which means that, you may not change auto_increment column for existing tables.
-
-```php
-db()->schema()->createOrUpdateTable('test', [
-  [
-      'column_name' => 'id',
-      'identifier' => true,
-      'column_type' => 'int(11)'
-  ],
-  [
-      'column_name' => 'name',
-      'column_type' => 'varchar(255)',
-      'column_default' => 'John Doe'
-  ]
-]);
-```
-
-> [!WARNING]
-> Work in progress
-
-#### dropColumns
-
-Drop column drops the column from table. If column doesn't exist, then it will just return true
-
-> [!WARNING]
-> Work in progress
+You can call `runInBackground` function before sending insert queries to make queries asynchronous on Elastic Search.
+If you want your code to wait until all queued insert tasks finish, you can use `db('elastic-search')->from(''')->refresh()`
