@@ -165,3 +165,51 @@ class BulkImageUpload
     }
 }
 ```
+
+### AdminUser::before_login
+
+- When you want to integrate your admin login to SSO or LDAP
+- When you would like to implement additional features to admin login like logging, fraud check etc.
+
+You can use AdminUser::before_login event
+
+Example:
+
+```php
+<?php
+namespace App\Event;
+
+use Butterfly\Framework\Data\Crud;
+use Butterfly\Library\Hook;
+
+class AdminUser extends Hook
+{
+    public function before_login($parameters)
+    {
+        $email = $parameters['email'];
+        $password = $parameters['password'];
+
+        // Send Request to external system
+        // ....
+
+
+        /**
+        * Check credentials from LDAP, disable login if account is disabled
+
+        return [
+            'success' => false,
+            'error_message' => 'Login prohibited'
+        ];
+        */
+
+        /**
+         * Create a record in `users` table and return id to bypass login
+        TODO: Don't forget to map user roles.
+
+         return [
+            'user_id' => 5
+        ];
+         */
+    }
+}
+```
