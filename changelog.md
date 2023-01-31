@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.7
+- Custom Queries can return results. [Details]
+- MySQL 8.0 compability update 
+
+## 1.6.45
+- MySQL 8.0 compability update
+
 ## 1.6.17
 - `butterfly` notification provider is added for forgotten passwords
 
