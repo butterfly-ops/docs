@@ -190,3 +190,16 @@ Following constants are removed:
 `DISABLE_CACHE`
 `RABBITMQ_SERVER`
 `DISABLE_QUEUE`
+
+### 1.7
+
+Version 1.7 has some breaking changes. Please check the following points:
+
+Admin Panel Links are now depth of 3. First level is for module, second is for the group and the third is
+   for the objects which are shown as tabs.
+
+### 1.8
+
+Version 1.8 has some breaking changes. Please check the following points:
+
+1) Reporting pages are moved from report/list to cms_report/list. All other links are updated respectively.
