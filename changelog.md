@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.8
+- Config loader is rewritten [Details]
+- This version comes with backward incompatible changes. [Details](https://thebutterfly.io/docs/#/upgrade?id=_180)
+
 ## 1.7
 - Custom Queries can return results. [Details]
 - MySQL 8.0 compability update 

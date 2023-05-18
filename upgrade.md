@@ -203,3 +203,8 @@ Admin Panel Links are now depth of 3. First level is for module, second is for t
 Version 1.8 has some breaking changes. Please check the following points:
 
 1) Reporting pages are moved from report/list to cms_report/list. All other links are updated respectively.
+2) Removed Constants:
+   - `ENVIRONMENT` (No replacement)
+3) app/.domain file is removed
+4) Remove all folder based configurations and use $_ENV variables to make it work in multiple environments
+
