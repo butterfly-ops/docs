@@ -3,6 +3,7 @@
 ## 1.8
 - Config loader is rewritten [Details]
 - This version comes with backward incompatible changes. [Details](https://thebutterfly.io/docs/#/upgrade?id=_180)
+- Database configs throws exception if conenction setting couldn't be found.
 
 ## 1.7
 - Custom Queries can return results. [Details]
