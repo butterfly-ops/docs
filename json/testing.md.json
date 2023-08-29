@@ -1,0 +1,17 @@
+{
+    "file_name": "testing.md",
+    "sections": [
+        {
+            "header": "Testing",
+            "content": "\n<p>Testing is the most important gem of a Robust Application. While building applications in a wide ecosystem, Test Driven \nDevelopment makes it easy to move forward.</p>\n<p>All features of Butterfly are developed using Test Driven Development methodology. We encourage all developers to use this \nmethodology to stay safe.</p>\n"
+        },
+        {
+            "header": "Unit Tests",
+            "content": "\n<p>Butterfly has built-in support for <code>PHPUnit</code> with predefined configurations in <code>phpunit.xml</code> file. You can start writing tests \n<code>app/Test</code> folder.</p>\n"
+        },
+        {
+            "header": "Browser Tests",
+            "content": "\n<p>Butterfly has built-in support for <code>PHPUnit</code> and <code>Selenium</code>.</p>"
+        }
+    ]
+}

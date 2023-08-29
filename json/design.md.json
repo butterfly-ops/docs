@@ -1,0 +1,29 @@
+{
+    "file_name": "design.md",
+    "sections": [
+        {
+            "header": "Introduction",
+            "content": "\n<p>Designs are the gateway for Butterfly Presentation Layer. You can manage your outputs using Designs. Designs are composed of Widgets.\nIf you are building a Webpage, Designs outputs HTML. If you are building a webservice, Designs outputs JSON data.</p>\n"
+        },
+        {
+            "header": "Terminologies",
+            "content": "\n<h3>Designs</h3>\n<p>Let's move on with an example case:</p>\n<ul>\n<li>You want to build an Ecommerce Website.</li>\n<li>You have the following Pages:<ul>\n<li>Homepage</li>\n<li>Product Detail Page</li>\n<li>Category Listing Page</li>\n<li>Cart Page</li>\n</ul>\n</li>\n</ul>\n<p>You can think each of these pages as Designs which means that, Designs are generic Look &amp; Feels of your website. You don't need\nto create different Designs for each Category or Product. You may have a single Product Detail Design for all Products.</p>\n<blockquote>\n<p>[!TIP]\nYou can also define Design for a Specific Item or Group of Items. </p>\n</blockquote>\n<h3>Widgets</h3>\n<p>Widgets are the minor segments of Designs. For the Ecommerce Website Example, Let's think about Homepage,</p>\n<ul>\n<li>You have a Homepage Design,</li>\n<li>There are Header and Footer in the page,</li>\n<li>There is a Slider under Header.</li>\n<li>Best Selling Products</li>\n<li>Latest Products (with the Same Look &amp; Feel with Best Selling Products)</li>\n</ul>\n<p>In this case study, you will have the following Widgets: Header, Footer, Slider, ProductList</p>\n<p>As you see, Best Selling Products and Latest Products are displayed using the same Widget with different Parameters.</p>\n"
+        },
+        {
+            "header": "Frontend",
+            "content": "\n<p>When you build a website, frontend of the website is the pages that faces end users. (If it's a mobile app, it may be the api's).\nAll frontend can be managed from Butterfly Admin Panel using Drag and Drop features.</p>\n<h3>Layouts</h3>\n<p>You may have multiple layout places in a Design like Header, Left Content, Right Content, Footer etc. These places are defined in Layout. Layout Places \nare defined with column sizes like 4-4-4-4, 12, 3-3-3, 9-3 etc. If you want to put a full page header, then, you can set the Layout Place size to 12.</p>\n<h3>Partial Rendering</h3>\n<p>Even though you have multiple places on a Design, you may want to render it partially. For example, you may want to omit Header and Footer and render just Content section \nin a page for a specific embed.</p>\n<p>You can add <code>renderPlaces</code> parameter as a GET parameter at the end of the request to render specific place.</p>\n<p>Example:\n<code>https://butterfly.app/category-page?renderPlaces=content</code></p>\n<p>will render just the widgets in layout place aliased as <code>content</code>.</p>\n<p>You can also add multiple places seperated by comma.</p>\n<p>Example:\n<code>https://butterfly.app/category-page?renderPlaces=header,content</code></p>\n<p>will render just the widgets in layout place aliased as <code>header</code> and <code>content</code>.</p>\n"
+        },
+        {
+            "header": "Personalization",
+            "content": "\n"
+        },
+        {
+            "header": "Content Pools",
+            "content": "\n"
+        },
+        {
+            "header": "Customizing Frontend Templates",
+            "content": "\n<h3>Layout</h3>\n<p>Layout is the default container template for Designs. By default, it outputs all widgets defined in the current design. \nIf you want to customize layout, you can run the following command:</p>\n<p><code>bash\nbin/butterfly publish:layout</code></p>\n<h3>404 Not Found</h3>\n<p>Not Found file is stored in Error404.twig file. By default, it displays Not Found message. If you want to customize 404 file,\nyou can run the following command:</p>\n<p><code>bash\nbin/butterfly publish:template Error404</code></p>\n<h3>503 Server Error</h3>\n<p>When an error occurs in the system, it outputs 503 Server Error (Maintenance Page). Error file is stored in Error503.twig. \nIf you want to customize 503 file, you can run the following command.</p>\n<p><code>bash\nbin/butterfly publish:template Error503</code></p>"
+        }
+    ]
+}

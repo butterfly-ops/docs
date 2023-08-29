@@ -1,0 +1,21 @@
+{
+    "file_name": "items.md",
+    "sections": [
+        {
+            "header": "Items",
+            "content": "\n"
+        },
+        {
+            "header": "Introduction",
+            "content": "\n<p>Butterfly really cares about <code>Clean Data</code>. When you create a <code>Data Type</code> from Admin Panel, it creates a table with name\nyou define from Admin or Migration Code.</p>\n<p>Items have multiple usages:</p>\n<ul>\n<li>When you want your records to have Globally Unique ID in your system</li>\n<li>When you want your records to be synced to ElasticSearch automatically</li>\n<li>If you want to have your records to have a Design in Frontend and have a Generated Link</li>\n</ul>\n<p>Items also have a dynamic many - to - many relation with each other. Let's say that you have Products Data Type and Photo Galleries\nData Type. If both are items, you can relate records right from Admin Panel.</p>\n"
+        },
+        {
+            "header": "Sync",
+            "content": "\n<p>When you make an operation from the Butterfly Admin Panel, Sync operation is handled automatically. If you are importing some data\nprogramatically, you should call some functions to sync data to <code>items</code> table.</p>\n<h3>itemRefreshByItemIds</h3>\n<p>If you have itemIds on hand, you can use following function to update those items.</p>\n<p><code>php\n$mCmsObject = new \\Butterfly\\Core\\Model\\CmsObject();\n$mCmsObject-&gt;itemRefreshByItemIds([1,2,3], false);</code></p>\n<blockquote>\n<p>[!TIP]\nIf <code>forceSeoUpdate</code> parameter is false, then the link of the item won't be changed if it already exists.\nIf true, it automatically update links and inserts redirection record to <code>redirect_map</code> if the link is changed.</p>\n<p>[!TIP]\nIf you have missing items that's not created yet, you can use <code>itemRefreshByEntityIds</code></p>\n</blockquote>\n<h3>itemRefreshByEntityIds</h3>\n<p>If you have only the ID in the table, you can use <code>refreshItemsByEntityIds</code> method.</p>\n<p><code>php\n$mCmsObject = new \\Butterfly\\Core\\Model\\CmsObject();\n$mCmsObject-&gt;itemRefreshByEntityIds([1,2,3], Butterfly\\Core\\Model\\Objects::getObjectId('TABLE_NAME'), false);</code></p>\n<blockquote>\n<p>[!TIP]\nIf <code>forceSeoUpdate</code> parameter is false, then the link of the item won't be changed if it already exists.\nIf true, it automatically update links and inserts redirection record to <code>redirect_map</code> if the link is changed.</p>\n</blockquote>\n<h3>itemFix</h3>\n<p>You can use this function to create missing items or update seo columns for all or specific Data Types.</p>\n<p><code>php\n$mCmsObject = new \\Butterfly\\Core\\Model\\CmsObject();\n$mCmsObject-&gt;itemFix(); // You can also define Data Type Ids here.</code></p>\n<blockquote>\n<p>[!TIP]\nIf you want Label and Title columns in <code>items</code> table. You can use <code>itemRefresh</code> method.</p>\n</blockquote>\n<h3>itemRefresh</h3>\n<p>You can use this function to refresh all items for all or specific Data Type.</p>\n<p><code>php\n$mCmsObject = new \\Butterfly\\Core\\Model\\CmsObject();\n$mCmsObject-&gt;itemRefresh(); // You can also define Data Type Ids here.</code></p>\n"
+        },
+        {
+            "header": "Commands",
+            "content": "\n<p>You can also use commands to sync items.</p>\n<h3><code>cron:garbage-collector</code></h3>\n<p>Cleans up items table for not used items</p>\n<p>Usage:</p>\n<p><code>bash\nbin/butterfly cron:garbage-collector</code></p>\n<h3><code>cron:refresh-items</code></h3>\n<p>Updates items table with the entity table information</p>\n<p>Usage:</p>\n<p><code>bash\nbin/butterfly cron:refresh-items 72 ## Will refresh all records for Data Type #72</code></p>"
+        }
+    ]
+}

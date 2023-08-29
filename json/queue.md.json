@@ -1,0 +1,25 @@
+{
+    "file_name": "queue.md",
+    "sections": [
+        {
+            "header": "Queue",
+            "content": "\n"
+        },
+        {
+            "header": "Introduction",
+            "content": "\n<p>When you have higher work loads or long running operations; you can use Queue's to send these long running to background \nand respond quickly.</p>\n<p>Advantages of using Queue's are:\n- You can limit number of jobs running concurrently\n- You can postpone long-running operations and respond quicker\n- You can split jobs into pieces and parallel process</p>\n"
+        },
+        {
+            "header": "Configuration",
+            "content": "\n<p>Queue configurations are in <code>app/Config/queue.php</code>. You can use Redis or RabbitMQ as the Queue Manager.</p>\n<blockquote>\n<p>[!TIP]\nIf you want to use different configurations for different domains, you can simply put configuration file in <code>app/Config/example.domain/queue.php</code> to differentiate \nconfiguration for specific domain.</p>\n</blockquote>\n<p>Example Redis Configuration:</p>\n<p>```php\n&lt;?php</p>\n<p>return [\n    'type' =&gt; 'redis',\n    'resque' =&gt; 'localhost:6379'\n];\n```</p>\n<p>Example RabbitMQ Configuration:</p>\n<p>```php\n&lt;?php</p>\n<p>return [\n    'type' =&gt; 'rabbitmq',\n    'server' =&gt; 'localhost' // Default port for RabbitMQ is 5672\n];\n```</p>\n"
+        },
+        {
+            "header": "Running Workers",
+            "content": "\n<p>You can run multiple jobs per server. Redis / RabbitMQ Server will handle not to run the same job more than once.</p>\n<p>In order to run the jobs, you can run the following command:</p>\n<p>```bash</p>\n"
+        },
+        {
+            "header": "* is the queue_name and 1 is the worker count.",
+            "content": "\n<p>bin/butterfly queue:worker:start '*' 1\n```</p>\n<blockquote>\n<p>[!TIP]\nWhen you start 1 worker, it will stay attached to the screen, you can stop jobs by using CTRL + C.\nIf you start more than 1 worker, then you can use <code>bin/butterfly queue:worker:kill</code> command to stop workers.</p>\n</blockquote>"
+        }
+    ]
+}

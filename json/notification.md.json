@@ -1,0 +1,13 @@
+{
+    "file_name": "notification.md",
+    "sections": [
+        {
+            "header": "Notification",
+            "content": "\n<p>When you're building an application that includes user interaction, it's obvious that you will need notifications.\nThere are multiple ways to notify a user: <code>E-mail</code>, <code>SMS</code>, <code>Instant Messaging</code>, <code>Database Notifications</code>. Butterfly\nmakes it easy to send different type of notification using a simple common way.</p>\n"
+        },
+        {
+            "header": "Sending Notifications:",
+            "content": ""
+        }
+    ]
+}

@@ -1,0 +1,17 @@
+{
+    "file_name": "audit-logs.md",
+    "sections": [
+        {
+            "header": "Audit Logs",
+            "content": "\n<p>Butterfly is an Enterprise-Ready product. An enterprise solution cannot be thought without advanced action logging for users.</p>\n"
+        },
+        {
+            "header": "Object Logs",
+            "content": "\n<p>When you create an Object Type in Butterfly, it comes with Object Logging out-of-box.</p>\n<p>Logged actions:\n* Add\n* Edit\n* Delete</p>\n"
+        },
+        {
+            "header": "Design Changes",
+            "content": "\n<p>Butterfly logs changes on designs. When a user creates a new design, it's automatically logged by Object Logging mechanism which means that,\nAdd, Edit and Delete action are logged.</p>\n<p>If you make changes on Widgets of Designs, they are also logged.</p>\n<p>Logged actions:\n* Add Widget</p>\n<p>If the user adds a widget to a Design, it's logged with parameters: Widget Name, Place Name. </p>\n<ul>\n<li>Duplicate Widget</li>\n</ul>\n<p>If the user duplicates a widget on a Design, it's logged with parameters: Widget Name, Place Name and Initial Parameters</p>\n<ul>\n<li>Update Widget</li>\n</ul>\n<p>If the user updates a widget, Widget Name, Place Name and only updated parameters are logged with old and new values of the parameter.</p>\n<ul>\n<li>Delete Widget</li>\n</ul>\n<p>If the user deletes a widget, Widget Name and Place Name are logged.</p>\n<ul>\n<li>Reorder Widgets</li>\n</ul>\n<p>If the user reorders widgets in Admin Panel, only ReOrder operation is logged. Old and New Orders are not logged to avoid saving unnecessary data.</p>"
+        }
+    ]
+}

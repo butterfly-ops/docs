@@ -1,0 +1,377 @@
+{
+    "file_name": "changelog.md",
+    "sections": [
+        {
+            "header": "Changelog",
+            "content": "\n"
+        },
+        {
+            "header": "1.8",
+            "content": "\n<ul>\n<li>Config loader is rewritten [Details]</li>\n<li>This version comes with backward incompatible changes. <a href=\"https://thebutterfly.io/docs/#/upgrade?id=_180\">Details</a></li>\n<li>Database configs throws exception if conenction setting couldn't be found.</li>\n</ul>\n"
+        },
+        {
+            "header": "1.7",
+            "content": "\n<ul>\n<li>Custom Queries can return results. [Details]</li>\n<li>MySQL 8.0 compability update </li>\n</ul>\n"
+        },
+        {
+            "header": "1.6.45",
+            "content": "\n<ul>\n<li>MySQL 8.0 compability update</li>\n</ul>\n"
+        },
+        {
+            "header": "1.6.17",
+            "content": "\n<ul>\n<li><code>butterfly</code> notification provider is added for forgotten passwords</li>\n</ul>\n"
+        },
+        {
+            "header": "1.6.16",
+            "content": "\n<ul>\n<li>readonly function is added for ObjectSpec migration</li>\n<li>readonly mode is added for not-changelable object fields</li>\n<li>Object Logs module is added to listing page</li>\n<li>Performance improvements for Object Logs Module</li>\n<li>Bugfix: Login page not working without refreshing the page after wrong password entry.</li>\n<li><code>id</code> and <code>item_id</code> fields are restricted for updates. (It doesn't change even if there are object specs) </li>\n<li>Added session storage check to <code>bin/butterfly health-check</code> command</li>\n<li>Updated error message for secure password when SSL config in <code>app/Config/security.php</code> and Request Type doesn't match</li>\n<li>Bugfix: Approve Request emails cannot be send when there are special characters in change text</li>\n<li>Added Static Pages and Object Subpages to usage information in Design Edit page</li>\n<li>On page editing mode is added</li>\n<li>Report View and Export are improved. It limits results to 500 in preview mode and exports to CSV instead of XLSX when record count is more than 10.000</li>\n</ul>\n"
+        },
+        {
+            "header": "1.6.0",
+            "content": "\n<ul>\n<li><code>cache()</code> function is added for multiple cache driver usage. [Details]</li>\n<li><code>cache</code> and <code>registry</code> functions are added to Database Queries [Details]</li>\n<li><code>raw</code> function is added to Database Queries for statements like <code>CURRENT_TIMESTAMP()</code> [Details]</li>\n<li><code>forSharedLock</code> and <code>forUpdateLock</code> functions are added for Database Locking on MySQL Database. [Details]</li>\n<li>This version comes with backward incompatible changes. <a href=\"https://thebutterfly.io/docs/#/upgrade?id=_160\">Details</a></li>\n<li><code>bin/butterfly search:update</code> command is added to update elastic index for specific object types.</li>\n<li>Bugfix on Item Relation Ordering</li>\n<li><code>bin/butterlfy console</code> command is added</li>\n<li>Decreased Content Pool Release Date check intervals from 5 minutes to 1 minute </li>\n</ul>\n"
+        },
+        {
+            "header": "1.5.241",
+            "content": "\n<ul>\n<li>Improvement on Object Logs. It logs when a user deletes a record</li>\n<li>Improvement in Item Relations. It logs when a user adds or delete a relation</li>\n<li>\"Login Expired\" error that occurs when using multiple servers with different session storages is fixed.</li>\n<li>Migrations are updated not to alter larger columns to smaller once. If ID column is updated to bigint, it won't be reverted back to id column anymore. </li>\n</ul>\n"
+        },
+        {
+            "header": "1.5.240",
+            "content": "\n<ul>\n<li>Custom endpoint and Proxy support is added to S3 File Storage</li>\n<li>Design Widget Operation Logs are added <a href=\"https://thebutterfly.io/docs/#/audit-logs?id=design-changes\">Details</a></li>\n<li>Linked Dropdown Optimization for Nested Field Types</li>\n<li>Add New Option is added for Tag Field Type</li>\n<li>Added searchable support on ElasticSearch for Tag Field Type</li>\n<li>Last X Days hit updater command is added <code>bin/butterfly search:stats</code></li>\n<li><code>Pinned Items</code> feature is added to Streams</li>\n<li>LinkedDropdown Support for DropdownFieldType Bulk Data Import</li>\n</ul>\n"
+        },
+        {
+            "header": "1.5.233",
+            "content": "\n<ul>\n<li>Amazon RabbitMQ Support is added. <a href=\"https://thebutterfly.io/docs/#/queue\">Details</a></li>\n<li>Condition type is added to Permission Exceptions. [Details will be added]</li>\n<li>Improvement for <code>search:reindex</code> command to add ID to error logs.</li>\n<li><code>admin:menus:check</code> command is added to relate admin menus to objects for permission management.</li>\n<li><code>CMD</code> <code>.</code> (or <code>CTRL</code> + <code>.</code> for windows) Quick Search Menu now matches table names and Objects. (It was searching just in Admin Menus before.)</li>\n<li><code>renderPlaces</code> parameter is added to filter places to be rendered in Frontend. <a href=\"https://thebutterfly.io/docs/#/design?id=partial-rendering\">Details</a></li>\n<li>You can filter multiple values in Integer field types using comma seperated filter.</li>\n<li><code>config:cache:clear</code> command is added to clean Config cache after production deployments.</li>\n<li><code>cookie</code> twig:filter is added.</li>\n<li>Redirect check for 404 url's is updated to prevent redirecting to same URL if the url is not found to prevent infinite loop.</li>\n<li><code>Frontend</code>.<code>not_found</code> Event is added to be able to manipulate results of 404 pages. (Example: Redirecting 404 pages to another page.)</li>\n</ul>\n"
+        },
+        {
+            "header": "1.5.232",
+            "content": "\n<ul>\n<li>Updated AJAX response for Expired Sessions. It returns 401 status code and a message instead of trying to redirect the request.</li>\n<li>MAX File Size support is added to File Uploads</li>\n<li><code>bin/butterfly connection:test</code> command is added to test connectivity of a server.</li>\n<li>SFTP Permission Improvement for NFS Environments.</li>\n<li>Nested field type supports Folder List field types now.</li>\n<li><code>APCU</code> support is added</li>\n<li>Improvement on Nested Field Sorting.</li>\n<li>Hotfix on MySQL Select Queries. Fixed queries returning '*' and aliased columns.</li>\n</ul>\n"
+        },
+        {
+            "header": "1.5.228",
+            "content": "\n<ul>\n<li>Added new method groupByWithFilter for Elasticsearch. <a href=\"https://thebutterfly.io/docs/#/database?id=group-by-with-filters\">Details</a></li>\n<li>Added new hook called after_save <a href=\"https://thebutterfly.io/docs/#/data-types#data-validation\">Details</a></li>\n<li>Added AMP Cache Invalidation feature, for example usage please read after_save hook details.  </li>\n<li>Added new data field validation for accessibility. It checks field has img and anchor tags with required alt and title attributes.</li>\n<li>Improved hierarchy data field.</li>\n<li>Updated webp generator command.</li>\n<li>Added app name to elasticsearch alert email subject.</li>\n</ul>\n"
+        },
+        {
+            "header": "1.5.219",
+            "content": "\n<ul>\n<li>Image Crop Improvement. Minimum image size restrictio is disabled on cropping when Restrict Minimum is disabled for File Storage.</li>\n</ul>\n"
+        },
+        {
+            "header": "1.5.216",
+            "content": "\n<ul>\n<li>window.minCharacterCount is added for manipulating autocomplete minimum character count for specific pages <a href=\"https://thebutterfly.io/docs/#/data-types#updating-minimum-character-length\">Details</a></li>\n</ul>\n"
+        },
+        {
+            "header": "1.5.215",
+            "content": "\n<ul>\n<li>Sanitize Filename checkbox is added to File Storages <a href=\"https://thebutterfly.io/docs/#/file-storage#filename-sanitization-for-uploads\">Details</a></li>\n<li>Column Based Permissions for Draft Mode is added.</li>\n<li>Fixed a bug for Many to Many Relation Filters</li>\n<li>Object List Improvement for Tag Field Type.</li>\n<li>Fixed a bug causing Object List pagination not displaying correctly for pages bigger than 1. </li>\n</ul>\n"
+        },
+        {
+            "header": "1.5.212",
+            "content": "\n<ul>\n<li>Image Processing optimisation: Source Image is not oriented if it doesnt need.</li>\n<li>Image Size Limit is added to Image Configs.</li>\n<li>Enable Debug Mode is added to Admin Panel to enable Debug Mode on Production.</li>\n<li>Hotfix for Multiple Database Configurations for Objects.</li>\n<li>Pagination fix for Object List filters on Admin Panel.</li>\n<li>Remove button for One to Many relations is added to Admin Panel.</li>\n<li><code>BulkImageUpload</code> <code>after_add</code> Hook is added.</li>\n<li>Total count optimisation is enabled for tables having more than 10.000 records. (It was 1.000.000 before)</li>\n<li>Bugfix for Object Spec Management Screen.</li>\n</ul>\n"
+        },
+        {
+            "header": "1.5.205",
+            "content": "\n<ul>\n<li>columnType is added for migrations to override default column type for fields. <a href=\"https://thebutterfly.io/docs/#/migrations#overriding-column-type\">Details</a></li>\n<li>Overwrite Strategy is added for File Storages. <a href=\"https://thebutterfly.io/docs/#/file-storage#file-overwrite-strategy\">Details</a></li>\n<li>Many to Many relations improvement. It now uses tag field type for better performance when there is thousands of child records.</li>\n<li>Draft Mode is added for Objects. When enabled, only users with Approve permission can publish changes.</li>\n<li>Preview Mode is added</li>\n</ul>\n"
+        },
+        {
+            "header": "1.5.191",
+            "content": "\n<ul>\n<li>Auth Support is added for Redis Queue Workers</li>\n<li><code>mailer:test</code> command is added to bin/butterfly</li>\n<li>Added support Dropdown field type override from <code>app</code> folder</li>\n<li>CSV Load improvements</li>\n<li>ElasticSearch field limit is increased to 10.000</li>\n<li>Object Listing filter improvements</li>\n<li>datetime_mysql field type defaults to NULL instead of \"0000-00-00 00:00:00\"</li>\n<li>Sub Folder Format support is added for File Storages. <a href=\"https://thebutterfly.io/docs/#/file-storage#updating-sub-folder-for-uploads\">Details</a></li>\n</ul>\n"
+        },
+        {
+            "header": "1.5.185",
+            "content": "\n<ul>\n<li><code>fill</code> operation type is added for Image Uploads. <a href=\"https://thebutterfly.io/docs/#/data-types?id=image-upload\">Details</a></li>\n</ul>\n"
+        },
+        {
+            "header": "1.5.182",
+            "content": "\n<ul>\n<li><code>Custom Filters support</code> for Admin / Listing Page is added. <a href=\"https://thebutterfly.io/docs/#/adminpanel?id=custom-checkbox\">Details</a></li>\n</ul>\n"
+        },
+        {
+            "header": "1.5.179",
+            "content": "\n<ul>\n<li>app/Widget/Cms/ directory is added for overriding Butterfly Core Widget Templates</li>\n<li>Added Pagination widget to Butterfly Core</li>\n</ul>\n"
+        },
+        {
+            "header": "1.5.178",
+            "content": "\n<ul>\n<li><code>bin/butterfly health-check</code> command is added to check environment configs.</li>\n<li>CmsObject-&gt;refreshItemsByEntityIds function is added.</li>\n<li>refreshItem methods automatically add redirections now.</li>\n</ul>\n"
+        },
+        {
+            "header": "1.5.174",
+            "content": "\n<ul>\n<li>File upload endpoint added for Butterfly Api.</li>\n</ul>\n"
+        },
+        {
+            "header": "1.5.173",
+            "content": "\n<ul>\n<li>Sms integration updated.</li>\n</ul>\n"
+        },
+        {
+            "header": "1.5.172",
+            "content": "\n<ul>\n<li>Webp support added to manipulated images.</li>\n</ul>\n"
+        },
+        {
+            "header": "1.5.171",
+            "content": "\n<ul>\n<li>Please check <a href=\"https://thebutterfly.io/docs/#/upgrade?id=_15179\">Upgrade Notes</a></li>\n<li>design widgets - drag &amp; drop fix for nested fields</li>\n<li>design widgets - new line character fix for textarea_with_editor in nested fields</li>\n<li>fixed a bug causing elastic search queries with boolean value not working as expected</li>\n</ul>\n"
+        },
+        {
+            "header": "1.5.170",
+            "content": "\n<ul>\n<li>HTTPS Redirection to outside domains support is added for Redirect Maps.</li>\n<li>Fixed a bug causing false security errors on Login</li>\n</ul>\n"
+        },
+        {
+            "header": "1.5.165",
+            "content": "\n<ul>\n<li>Fixed a bug causing object duplication while updating existing Objects</li>\n<li>Updated Object Import to allow imports if column exists but doesn't show in Admin</li>\n</ul>\n"
+        },
+        {
+            "header": "1.5.164",
+            "content": "\n<ul>\n<li>Rest API Module is added</li>\n<li>Cms Image Upload API is added</li>\n<li>Cms Login API is added</li>\n<li>Fixed bug on Designs Permissions for Non-Administrator Users.</li>\n<li>Passive Method is added for FTP Connections</li>\n<li>Fixed a bug on Bulk Edits that prevents data's to be set from Hooks.</li>\n<li>Fixed a bug causing URL's to be redirected when there is a <code>.</code> in the URL.</li>\n<li>Ignore Unmapped parameter is added for Sorting on ElasticSearch.</li>\n<li>Widget Parameters now supports Nested Field Type.</li>\n<li>Added additional class name to Frontend Renders.</li>\n<li>Improved design rendering to prevent errors when target Widget doesn't exist.</li>\n<li>Added support for passwordless auth for SMTP Servers.</li>\n</ul>\n"
+        },
+        {
+            "header": "1.5.159",
+            "content": "\n<ul>\n<li>Registry is cleared after each test-run</li>\n</ul>\n"
+        },
+        {
+            "header": "1.5.157",
+            "content": "\n<ul>\n<li>Optional Sub Folder parameter is added to File and Image Upload Handlers <a href=\"https://thebutterfly.io/docs/#/file-storage?id=handling-file-uploads\">Details</a></li>\n</ul>\n"
+        },
+        {
+            "header": "1.5.154",
+            "content": "\n<ul>\n<li>Refresh button is added to Dropdown Field Type</li>\n<li><code>twig</code> support is added to <code>Code</code> Field Type.</li>\n<li>Elastic Search query improvements.</li>\n<li>Fixed Elastic Search Index mapping for <code>label</code> and <code>title</code></li>\n<li>Migration functions for FileUpload Field Type and DropdownFromClass are added</li>\n<li>Fixed a bug prevents the system to start when Turkish Locale is installed to Web Server.</li>\n<li>Security Improvement: Additional security checks are added to image and file uploads.</li>\n</ul>\n"
+        },
+        {
+            "header": "1.5.151",
+            "content": "\n<ul>\n<li><code>cron:refresh-items</code> command and refresh items operation in admin panel is speeded up 100x times.</li>\n<li>Data Pool improvements. (It has 3 different types: manual, automatic, advanced)</li>\n<li>You can now add elastic search query string to Data Pools (Advanced Mode)</li>\n<li>Customer and Design Segmentations are added</li>\n</ul>\n"
+        },
+        {
+            "header": "1.5.149",
+            "content": "\n<ul>\n<li>Added <code>make:event:object:detail</code> Command <a href=\"https://thebutterfly.io/docs/#/events?id=objectdetail\">Details</a></li>\n</ul>\n"
+        },
+        {
+            "header": "1.5.145",
+            "content": "\n<ul>\n<li>New Admin Panel Customization for Objects with Parent / Child Record relationship is added. <a href=\"https://thebutterfly.io/docs/#/adminpanel?id=hiearchical-lists\">Details</a> </li>\n</ul>\n"
+        },
+        {
+            "header": "1.5.144",
+            "content": "\n<ul>\n<li><code>Nested Clause with Multiple Depth</code> is added. <a href=\"https://thebutterfly.io/docs/#/database?id=nested-clause-with-multiple-depth\">Details</a></li>\n<li>Added language option to Elastic Search Integration</li>\n<li>Improved Data Pool page. It now lists contents of Data Pool in edit page.</li>\n</ul>\n"
+        },
+        {
+            "header": "1.5.139",
+            "content": "\n<ul>\n<li>Added <code>make:twig:function</code> and <code>make:twig:filter</code> <a href=\"https://thebutterfly.io/docs/#/generators?id=twig-filter\">Details</a> </li>\n</ul>\n"
+        },
+        {
+            "header": "1.5.133",
+            "content": "\n<ul>\n<li>Fixed a bug in ImageManipulations</li>\n</ul>\n"
+        },
+        {
+            "header": "1.5.132",
+            "content": "\n<ul>\n<li>Symlink support for Windows is added for <code>bin/butterfly folders:create</code> command.</li>\n<li><code>isWindows</code> function is added to Server Helpers <a href=\"https://thebutterfly.io/docs/#/helpers?id=iswindows\">Details</a></li>\n</ul>\n"
+        },
+        {
+            "header": "1.5.130",
+            "content": "\n<ul>\n<li>ColorPicker Field Type is fixed to use in NestedField</li>\n</ul>\n"
+        },
+        {
+            "header": "1.5.129",
+            "content": "\n<ul>\n<li>Block field type is added <a href=\"https://thebutterfly.io/docs/#/objects?id=block\">Details</a></li>\n</ul>\n"
+        },
+        {
+            "header": "1.5.128",
+            "content": "\n<ul>\n<li>Fixed a bug causing Cms Widget Refresh not to update Widget Parameters.</li>\n</ul>\n"
+        },
+        {
+            "header": "1.5.127",
+            "content": "\n<ul>\n<li>Object Import and Multi Image upload bugs are fixed.</li>\n<li><code>make:hook</code> and <code>make:event</code> commands are added. </li>\n</ul>\n"
+        },
+        {
+            "header": "1.5.124",
+            "content": "\n<ul>\n<li>Multiple Replacement support for Object Listing customizations action buttons.</li>\n<li>Game Changer <code>:)</code> Elastic Search Integration for Database Layer. <a href=\"https://thebutterfly.io/docs/#/database?id=elasticsearch\">Details</a></li>\n<li>Fixed a bug causing auto_increment feature removal on duplicate runs for migrations.</li>\n<li>Frontend&gt;Bootstrap event is added. <a href=\"https://thebutterfly.io/docs/#/events?id=bootstrap\">Details</a></li>\n</ul>\n"
+        },
+        {
+            "header": "1.5.123",
+            "content": "\n<ul>\n<li><code>parse</code> filter is added to TwigFilters. <a href=\"https://thebutterfly.io/docs/#/frontend?id=parse\">Details</a></li>\n</ul>\n"
+        },
+        {
+            "header": "1.5.122",
+            "content": "\n<ul>\n<li><code>json_decode</code> filter is added to TwigFilters. <a href=\"https://thebutterfly.io/docs/#/frontend?id=json_decode\">Details</a></li>\n</ul>\n"
+        },
+        {
+            "header": "1.5.120",
+            "content": "\n<ul>\n<li>New Function to access image full paths is added. <a href=\"https://thebutterfly.io/docs/#/file-storage?id=getting-full-path\">Details</a></li>\n<li>New Function to access file full paths is added. <a href=\"https://thebutterfly.io/docs/#/file-storage?id=getting-full-path-1\">Details</a></li>\n</ul>\n"
+        },
+        {
+            "header": "1.5.116",
+            "content": "\n<ul>\n<li>Please check <a href=\"https://thebutterfly.io/docs/#/upgrade?id=15116\">Upgrade Notes</a></li>\n<li>Publicly accessible files are moved to <code>public</code> folder for enhanced security.</li>\n</ul>\n"
+        },
+        {
+            "header": "1.5.107",
+            "content": "\n<ul>\n<li>Real IP Access Headers are added to <code>security</code> config. <a href=\"https://thebutterfly.io/docs/#/security?id=accessing-real-ip-address\">Details</a></li>\n</ul>\n"
+        },
+        {
+            "header": "1.5.106",
+            "content": "\n<ul>\n<li>Fixed a bug in Bulk Edits. (It was ignoring characters after <code>&amp;</code> character in String Fields.)</li>\n<li>Nested Fields Visual Improvements</li>\n</ul>\n"
+        },
+        {
+            "header": "1.5.105",
+            "content": "\n<ul>\n<li>FTP Support for File Storages is added.</li>\n<li>Flysystem is integrated <a href=\"https://thebutterfly.io/docs/#/file-storage\">Details</a></li>\n<li>Upload Handlers are added for easier File and Image Upload through API's <a href=\"https://thebutterfly.io/docs/#/file-storage\">Details</a></li>\n</ul>\n"
+        },
+        {
+            "header": "1.5.104",
+            "content": "\n<ul>\n<li><code>nested</code> field type support is added for <code>Settings</code> </li>\n</ul>\n"
+        },
+        {
+            "header": "1.5.101",
+            "content": "\n<ul>\n<li>butterfly current installed version information is added to page header in <code>Settings</code> page.</li>\n<li>Conditional Show/Hide helpers are added for Object Specs. <a href=\"https://thebutterfly.io/docs/#/adminpanel?id=conditional-showhide\">Details</a> </li>\n</ul>\n"
+        },
+        {
+            "header": "1.5.100",
+            "content": "\n<ul>\n<li><code>svg</code> support is added for Image Upload Types <a href=\"https://thebutterfly.io/docs/#/objects?id=image-upload\">Details</a></li>\n</ul>\n"
+        },
+        {
+            "header": "1.5.97",
+            "content": "\n<ul>\n<li><code>setting</code> function is added to twig functions. <a href=\"https://thebutterfly.io/docs/#/frontend?id=setting\">Details</a></li>\n</ul>\n"
+        },
+        {
+            "header": "1.5.96",
+            "content": "\n<ul>\n<li>Updated code field type to prevent unrelated Doctype syntax errors for HTML type. <a href=\"https://thebutterfly.io/docs/#/objects?id=code\">Details</a></li>\n</ul>\n"
+        },
+        {
+            "header": "1.5.95",
+            "content": "\n<ul>\n<li>AdminTemplateGenerator hotfix</li>\n<li>hide_action_buttons variable is added for custom list pages <a href=\"https://thebutterfly.io/docs/#/adminpanel?id=action_buttons\">Details</a></li>\n</ul>\n"
+        },
+        {
+            "header": "1.5.94",
+            "content": "\n<ul>\n<li>Environment based configuration override is added. <a href=\"https://thebutterfly.io/docs/#/installation?id=environment-based-override\">Details</a></li>\n</ul>\n"
+        },
+        {
+            "header": "1.5.91",
+            "content": "\n<ul>\n<li><code>placeAfter</code> and <code>placeBefore</code> positioning is added for <code>Migrations</code>. <a href=\"https://thebutterfly.io/docs/#/migrations?id=removing-object-specs\">Details</a></li>\n<li><code>multicheckbox</code> update for <code>Nested Field Type</code>. You can use multicheckbox's with <code>Nested Field Type</code> </li>\n</ul>\n"
+        },
+        {
+            "header": "1.5.90",
+            "content": "\n<ul>\n<li><code>config</code> filter is added to twig filters. <a href=\"https://thebutterfly.io/docs/#/frontend?id=config\">Details</a></li>\n</ul>\n"
+        },
+        {
+            "header": "1.5.88",
+            "content": "\n<ul>\n<li>Fixed a bug causing <a href=\"https://thebutterfly.io/docs/#/objects?id=checkbox\">Checkbox Field Type</a> not to be able to unchecked.  </li>\n</ul>\n"
+        },
+        {
+            "header": "1.5.85",
+            "content": "\n<ul>\n<li><code>git_version</code> function is added. <a href=\"https://thebutterfly.io/docs/#/frontend?id=git_version\">Details</a></li>\n<li><code>datetime</code> field type is vanilla jsified <a href=\"https://thebutterfly.io/docs/#/objects?id=datetime\">Details</a></li>\n</ul>\n"
+        },
+        {
+            "header": "1.5.82",
+            "content": "\n<ul>\n<li>Nested field supports recursive nested fields. <a href=\"https://thebutterfly.io/docs/#/objects?id=nested\">Details</a></li>\n</ul>\n"
+        },
+        {
+            "header": "1.5.80",
+            "content": "\n<ul>\n<li>Azure Blob Storage integration is added. <a href=\"https://thebutterfly.io/docs/#/file-storage\">Details</a> </li>\n</ul>\n"
+        },
+        {
+            "header": "1.5.78",
+            "content": "\n<ul>\n<li>Please check <a href=\"https://thebutterfly.io/docs/#/upgrade?id=_1578\">Upgrade Notes</a></li>\n<li>frontend template engine is moved to twig.</li>\n<li><code>bin/butterfly convert:twig</code> command is added for smarty =&gt; twig conversions</li>\n<li><code>count</code>, <code>registry</code>, <code>truncate</code> filters are added for twig. <a href=\"https://thebutterfly.io/docs/#/frontend?id=twig-filters\">Details</a></li>\n<li><code>widget</code>, <code>file_path</code>, <code>image_path</code>, <code>include_file</code> <code>current_url</code> functions are added for twig. <a href=\"https://thebutterfly.io/docs/#/frontend?id=twig-functions\">Details</a> </li>\n</ul>\n"
+        },
+        {
+            "header": "1.5.74",
+            "content": "\n<ul>\n<li>Please check <a href=\"https://thebutterfly.io/docs/#/upgrade?id=_1574\">Upgrade Notes</a></li>\n<li><code>image_upload</code> Field Type includes data all sizes inside of Elastic Index.</li>\n</ul>\n"
+        },
+        {
+            "header": "1.5.69",
+            "content": "\n<ul>\n<li>vendor/butterfly/src/Core/Assets folder is symlinked to assets/core folder</li>\n<li>createOrUpdateTable is added to Schema <a href=\"https://thebutterfly.io/docs/#/database?id=createorupdatetable\">Details</a></li>\n<li>dropColumns is added to Schema <a href=\"https://thebutterfly.io/docs/#/database?id=dropcolumns\">Details</a></li>\n<li>removeObjectSpec is added to Migrations <a href=\"https://thebutterfly.io/docs/#/migrations?id=removing-object-specs\">Details</a></li>\n</ul>\n"
+        },
+        {
+            "header": "1.5.65",
+            "content": "\n<ul>\n<li>Readonly Permission (View Permission is added to system) <a href=\"https://thebutterfly.io/docs/#/objects?id=generic-permissions\">Details</a></li>\n</ul>\n"
+        },
+        {
+            "header": "1.5.64",
+            "content": "\n<ul>\n<li>Table Name and Column Name format check is added. Valid Format: <code>[a-z]|[A-Z]|_|[0-9])+</code></li>\n<li>Hotfix for where clauses with null as second parameter. (Example: -&gt;where('id', null) will run query WHERE id IS NULL)</li>\n</ul>\n"
+        },
+        {
+            "header": "1.5.63",
+            "content": "\n<ul>\n<li>Hotfix for image manipulation operations. Now, it gets config from File Storages.</li>\n</ul>\n"
+        },
+        {
+            "header": "1.5.62",
+            "content": "\n<ul>\n<li>IAM Authentication Support for Amazon S3 is added.</li>\n<li>Index support is added for Objects. [Details] </li>\n</ul>\n"
+        },
+        {
+            "header": "1.5.61",
+            "content": "\n<ul>\n<li>Security enhancement. X-Frame-Options: SAMEORIGIN header is added to Admin.</li>\n</ul>\n"
+        },
+        {
+            "header": "1.5.59",
+            "content": "\n<ul>\n<li>Download image filename bugfix.</li>\n</ul>\n"
+        },
+        {
+            "header": "1.5.58",
+            "content": "\n<ul>\n<li>Performance Improvement for first() and one() database functions</li>\n<li>Image Crop bug is fixed which causes 1 pixel black line after image manipulation. </li>\n</ul>\n"
+        },
+        {
+            "header": "1.5.57",
+            "content": "\n<ul>\n<li>Admin Menu Creation is added to Object Migrations. <a href=\"https://thebutterfly.io/docs/#/migrations?id=creating-admin-menus-for-objects\">Details</a></li>\n<li>Custom Permission Defitions are added. <a href=\"https://thebutterfly.io/docs/#/objects?id=custom-permissions\">Details</a></li>\n</ul>\n"
+        },
+        {
+            "header": "1.5.56",
+            "content": "\n<ul>\n<li>Fixed - User / List onclick event fix (it opens edit page again)</li>\n<li>Fixed a bug in ObjectSpec Migrations which causes new Object Spec to placed top instead of bottom of the current EditPage.</li>\n<li>CrudHelper - Security Updates // Permission Check is added</li>\n<li>Object Save Handler - Security Updates // Permission Check is added</li>\n<li>Fixed - Object list page excel export error (objects with more then 26 field on list page)</li>\n</ul>\n"
+        },
+        {
+            "header": "1.5.55",
+            "content": "\n<ul>\n<li>Excel Import Improvement. It now ignores fully empty lines at the end of the file.</li>\n<li>Utils - Storage Type support added for download_image and download_file functions</li>\n</ul>\n"
+        },
+        {
+            "header": "1.5.54",
+            "content": "\n<ul>\n<li>Overriding Records Per Page options support is added for Admin Panel. <a href=\"https://thebutterfly.io/docs/#/adminpanel?id=limit-per-page-options\">Details</a></li>\n<li>Cms Controller Generator Command is added <code>bin/butterfly publish:admin:controller</code> for objects. <a href=\"https://thebutterfly.io/docs/#/adminpanel?id=list-add-edit-actions\">Details</a></li>\n</ul>\n"
+        },
+        {
+            "header": "1.5.51",
+            "content": "\n<ul>\n<li>Multiple object export hotfix</li>\n<li>Fixed a bug in Nested Fields occurs when Nested Field is the first field of the Object</li>\n<li>Login As support is added for Users with User Add / Edit Permission.</li>\n<li>Fixed Admin Menu's doesn't show up when Permitted Object is a SubMenu</li>\n</ul>\n"
+        },
+        {
+            "header": "1.5.50",
+            "content": "\n<ul>\n<li>Money field type fixes</li>\n</ul>\n"
+        },
+        {
+            "header": "1.5.48",
+            "content": "\n<ul>\n<li>Install / Upgrade support for Core + App is finalized. <a href=\"https://thebutterfly.io/docs/#/migrations\">Documentation</a></li>\n</ul>\n"
+        },
+        {
+            "header": "1.5.41",
+            "content": "\n<ul>\n<li>Admin Left Menu fix for object / detail pages.</li>\n<li>Garbage Collector (<code>cron:garbage-collector</code>) performance update.</li>\n</ul>\n"
+        },
+        {
+            "header": "1.5.40",
+            "content": "\n<ul>\n<li>Hotfix for ObjectController list action display</li>\n</ul>\n"
+        },
+        {
+            "header": "1.5.39",
+            "content": "\n<ul>\n<li>Hotfix for Widget Reload operation</li>\n</ul>\n"
+        },
+        {
+            "header": "1.5.38",
+            "content": "\n<ul>\n<li>Performance Improvement for Objects - Multi-Database Support</li>\n</ul>\n"
+        },
+        {
+            "header": "1.5.36",
+            "content": "\n<ul>\n<li>Hotfix for Admin / Reports button display status</li>\n</ul>\n"
+        },
+        {
+            "header": "1.5.34",
+            "content": "\n<ul>\n<li>Hotfix for custom admin layouts </li>\n</ul>\n"
+        },
+        {
+            "header": "1.5.33",
+            "content": "\n<ul>\n<li>Updated Object Listing for <code>remote_image</code> field type. Now displays image in list. </li>\n</ul>\n"
+        },
+        {
+            "header": "1.5.32",
+            "content": "\n<ul>\n<li>Added <code>bin/butterfly publish:admin:layout</code> command. <a href=\"https://thebutterfly.io/docs/#/adminpanel?id=layout\">Details</a></li>\n</ul>\n"
+        },
+        {
+            "header": "1.5.31",
+            "content": "\n<ul>\n<li>Fixed a bug in <code>make:content-widget</code> command.</li>\n</ul>\n"
+        },
+        {
+            "header": "1.5.30",
+            "content": "\n<ul>\n<li>Removed unnecessary <code>duration</code> column from Item-&gt;Refresh method</li>\n</ul>\n"
+        },
+        {
+            "header": "1.5.29",
+            "content": "\n<ul>\n<li>Added <code>bin/butterfly publish:admin:template</code> command</li>\n<li>Added <code>bin/butterfly make:model</code> command</li>\n<li>Added <code>bin/butterfly install</code> command</li>\n<li><code>tables</code> function is added to Schema</li>\n<li>Added <code>bin/butterfly admin:user:create</code> command</li>\n<li>Added <code>bin/butterfly make:hook</code> command</li>\n<li>Added <code>bin/butterfly make:controller</code> command</li>\n<li>Added <code>bin/butterfly make:widget</code> command</li>\n<li>Added <code>bin/butterfly make:content-widget</code> command</li>\n<li>Added <code>bin/butterfly upgrade</code> command for Database Upgrades</li>\n<li>Added <code>whereNotIn</code> function </li>\n<li>Added Object Migrations</li>\n</ul>\n"
+        },
+        {
+            "header": "1.5.28",
+            "content": "\n<ul>\n<li>Added ability to customize column based views for Objects.</li>\n</ul>"
+        }
+    ]
+}

@@ -1,0 +1,17 @@
+{
+    "file_name": "commands.md",
+    "sections": [
+        {
+            "header": "Commands",
+            "content": "\n<p>You can see list of commands by running <code>bin/butterfly</code> command.</p>\n"
+        },
+        {
+            "header": "Listing Commands",
+            "content": "\n<p><code>bin/butterfly</code></p>\n<p>will return:</p>\n<p><code>Available commands:\n  console                   Interactive console to run Buttefly Codes interactively\n  health-check              Checks system resources and connections\n  help                      Displays help for a command\n  install                   Installs the Butterfly\n  list                      Lists commands\n  upgrade                   Upgrades database schema\n admin\n  admin:user:create         Creates admin user\n convert\n  convert:twig              Convert Smarty templates to Twig\n cron\n  cron:garbage-collector    Cleans up items table for not used items\n  cron:refresh-items        Updates items table with the entity table information\n folders\n  folders:create            Creates needed folders for Butterfly\n image\n  image:webp:generate       Regenerates all aliases with webp support\n make\n  make:command              Generates new Command for creating Command\n  make:content-widget       Generates new Content Widget\n  make:controller           Generates new Controller\n  make:event                Generates new Event code\n  make:event:object:detail  Generates new Event code\n  make:hook                 Generates new Hook for creating hooks\n  make:model                Generates new Model\n  make:twig:filter          Generates new Twig Filter\n  make:twig:function        Generates new Twig Function\n  make:widget               Generates new Widget\n object\n  object:migration:create   Generates Migration For Existing Objects\n publish\n  publish:admin:controller  Publishes custom controller for admin panel controller customizations\n  publish:admin:layout      Publishes admin layout for customizations\n  publish:admin:template    Publishes templates for admin panel template customizations\n  publish:layout            Publishes frontend layout for customizations\n  publish:template          Publishes frontend templates for customizations\n queue\n  queue:worker:kill         Kill Queue Workers\n  queue:worker:start        Runs Queue Workers\n search\n  search:reindex            Creates a new Search index and populates with items\n  search:update             Updates specific object data in search index\n set\n  set:domain                Sets the Domain Name\n widget\n  widget:refresh            Refreshes Widgets</code></p>\n"
+        },
+        {
+            "header": "health-check",
+            "content": "\n<p>Checks system resources and connections</p>\n<p>Example:</p>\n<p><code>bash\nbin/butterfly health-check</code></p>\n<p>will return:</p>\n<p>```\n✓ app/.domain file exists\nCurrent Domain: butterfly.rg</p>\n<p>Checking for folders in var folder\n✓ Folders in var folder exists and writable</p>\n<p>Found 5 database configs\nChecking connection for default\n✓ Successfully connected</p>\n<p>Checking connection for default-test\n✓ Successfully connected</p>\n<p>Checking connection for elastic-search\n✓ Successfully connected</p>\n<p>Checking connection for slave\n✓ Successfully connected</p>\n<p>Checking connection for reports\n✓ Successfully connected\n```</p>"
+        }
+    ]
+}

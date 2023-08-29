@@ -1,0 +1,21 @@
+{
+    "file_name": "README.md",
+    "sections": [
+        {
+            "header": "Butterfly",
+            "content": "\n<p>Here is the Butterfly. It's built for building dynamic ecosystems where you have any type of Data, you have\n any type of Device. </p>\n"
+        },
+        {
+            "header": "What is Butterfly",
+            "content": "\n<p>Butterfly is a Data Management Platform,\n- Where you define and manage <strong>your data</strong>,\n- You integrate your data with <strong>your ecosystem</strong>,\n- You present your data <strong>your own way</strong></p>\n"
+        },
+        {
+            "header": "Our Mission",
+            "content": "\n<p>Our mission is to help people do high quality products / projects faster and to save <strong><em>your time &amp; energy</em></strong> </p>\n"
+        },
+        {
+            "header": "Quotes from us",
+            "content": "\n<blockquote>\n<p>We believe that kindness is contagious, so is good software. We call it: <code>Butterfly Effect</code>. Just give it a chance and watch it while spreading inside your organization.</p>\n<p>Butterflies are said to live short. They don't have time to waste. Do we have? Butterfly makes you reach your goals without wasting your time. </p>\n<p>We hate repeating ourselves. We don’t have so much time to do the same thing again and again. That’s why we’ve built Butterfly.</p>\n<p>Butterfly is not something that can be considered as a Content Management System, Video Management System, Customer Relationship Management or even an ERP. It's a Platform that you can use it for any purpose.</p>\n<p>Quality and functionality should be the standard. In order to build qualified software in a cost and time efficient manner, you need your tool to support it</p>\n<p>Butterfly is lightweight, besides it can be used to build a high-level enterprise product; it can be embedded into your applications using Magento, Wordpress or anything else.</p>\n</blockquote>"
+        }
+    ]
+}
