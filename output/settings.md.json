@@ -1,0 +1,17 @@
+{
+    "file_name": "settings.md",
+    "sections": [
+        {
+            "header": "Settings",
+            "content": "\n<p>Settings are single-value options for your application. You can define generic options that will be used on Frontend, Webservices or Mobile Applications \nfrom Settings.</p>\n"
+        },
+        {
+            "header": "Setting Groups",
+            "content": "\n<p>Setting Groups are used to Group different settings together. Settings from same group can be reach together and managed in the same page on Admin Panel.</p>\n<p>To define a new Setting Group, go to <code>System Settings</code> &gt; <code>Setting Groups</code> menu in Admin Panel.</p>\n"
+        },
+        {
+            "header": "Settings",
+            "content": "\n<h3>Creating Settings</h3>\n<p>You can add new settings from Admin Panel. We recommend you to create settings using <code>Migrations</code>, so that, settings will be populated to different environments \nwithout additional effort. You can check <a href=\"https://thebutterfly.io/docs/#/migrations?id=settings\">this page</a> to learn how to create settings using <code>Migrations</code>.  </p>\n<h3>Updating Setting Values</h3>\n<p>After creating Settings, you can update it from <code>Admin Panel</code> &gt; <code>Settings</code> menu. You will see the Setting Groups and after clicking\nSetting Group names, all options in that Setting Group will be listed. </p>"
+        }
+    ]
+}

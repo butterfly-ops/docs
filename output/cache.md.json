@@ -1,0 +1,33 @@
+{
+    "file_name": "cache.md",
+    "sections": [
+        {
+            "header": "Introduction",
+            "content": "\n<p>Butterfly uses multi-layer cache management. It's possible to use multiple caches at the same time. You can configure multiple caches and use it. Butterfly uses APC as the primary cache for the configuration files.</p>\n<p>Default cache driver is registry on application cycle but you can use the following cache drivers: </p>\n<ul>\n<li>Redis</li>\n<li>Memcached</li>\n<li>Apc</li>\n<li>Database</li>\n</ul>\n<p>When you check Redis and other cache implementations you will see that it's written to make developer comfortable whether you \nare using Redis or Memcached. We have built a system with same behaviours independent from which driver you use. </p>\n"
+        },
+        {
+            "header": "Configuration",
+            "content": "\n<p>Butterfly Cache Implementation usages are similar to Butterfly Database implementation.   </p>\n<p>The cache configurations are stored in <code>app/config/cache.php</code>. Configurations can be customized by domain name with subfolders.</p>\n"
+        },
+        {
+            "header": "Redis",
+            "content": "\n<p>Before enable redis cache, please check <a href=\"https://github.com/predis/predis\">predis/predis package</a> installed.</p>\n<p>Example configuration:</p>\n<p>```php\n&lt;?php</p>\n<p>return [\n    'default' =&gt; 'backend', // default cache</p>\n<pre><code>'backend' =&gt; [\n    'driver' =&gt; 'Redis',\n    'parameters' =&gt; [\n        'scheme' =&gt; 'tcp',\n        'host'   =&gt; '10.0.0.1',\n        'port'   =&gt; 6379,\n    ],\n    'options' =&gt; [\n        'prefix' =&gt; 'be:',\n        'parameters' =&gt; [\n            'password' =&gt; 'SECRET_PASSWORD',\n            'database' =&gt; 10,\n        ],\n    ]    \n],\n\n'frontend' =&gt; [\n    'driver' =&gt; 'Redis',\n    'parameters' =&gt; [\n        'scheme' =&gt; 'tcp',\n        'host'   =&gt; '10.0.0.1',\n        'port'   =&gt; 6379,\n    ],\n    'options' =&gt; [\n        'prefix' =&gt; 'fe:',\n        'parameters' =&gt; [\n            'password' =&gt; 'SECRET_PASSWORD',\n            'database' =&gt; 10, \n        ],\n    ]    \n],\n\n'external' =&gt; [\n    'driver' =&gt; 'Redis',\n    'parameters' =&gt; [\n        'scheme' =&gt; 'tcp',\n        'host'   =&gt; '1.1.1.1',\n        'port'   =&gt; 6379,\n    ],\n    'options' =&gt; [\n        'prefix' =&gt; null,\n        'parameters' =&gt; [\n            'password' =&gt; 'SECRET_PASSWORD',\n            'database' =&gt; 0, \n        ],\n    ]    \n],\n</code></pre>\n<p>];\n```</p>\n<blockquote>\n<p>[!TIP]\nFurther information for parameters and options, please read <a href=\"https://github.com/predis/predis\">predis/predis</a> documentation</p>\n</blockquote>\n"
+        },
+        {
+            "header": "Database",
+            "content": "\n<p>Database cache needs to <code>database_cache</code> table. \nYou can use following migration to create the table.</p>\n<p><code>db()-&gt;schema('database_cache')-&gt;object(function(\\Butterfly\\Framework\\Data\\ButterflyObject $object) {\n    $object-&gt;setDescription('Butterfly Database Cache');\n    $object-&gt;string('cache_key', 'Cache Key');\n    $object-&gt;textarea('value', 'Value');\n    $object-&gt;integer('expire', 'Expire In Seconds');\n    $object-&gt;datetimeMysql('created_at');\n    $object-&gt;unique(['cache_key']);\n    return $object;\n});</code></p>\n<p>Example configuration for database:</p>\n<p>```\nreturn [\n    // other cache configurations in cache.php</p>\n<pre><code>'foo' =&gt; [ \n    'driver' =&gt; 'Database',\n    'prefix' =&gt; 'docs:'\n]\n</code></pre>\n<p>];\n```</p>\n<p>Sample usage for the configuration:</p>\n<p><code>cache('foo');</code></p>\n"
+        },
+        {
+            "header": "Memcached",
+            "content": "\n<p>Before enable memcached cache, please check <a href=\"https://pecl.php.net/package/memcached\">memcached pecl package</a> installed and enabled.</p>\n<p>Example configuration for memcached:</p>\n<p>```\nreturn [\n    // other cache configurations in cache.php</p>\n<pre><code>'bar' =&gt; [ \n    'driver' =&gt; 'Memcached',\n    'servers' =&gt; [\n        ['127.0.0.1', 11211]\n    ],\n    'prefix' =&gt; 'docs:'\n]\n</code></pre>\n<p>];\n```</p>\n<p>Sample usage for the configuration:</p>\n<p><code>cache('bar');</code></p>\n"
+        },
+        {
+            "header": "Apc",
+            "content": "\n<p>Before enable apc cache, please check <a href=\"https://pecl.php.net/package/apc\">apc pecl package</a> installed and enabled.</p>\n<p>Example configuration for apc:</p>\n<p>```\nreturn [\n    // other cache configurations in cache.php</p>\n<pre><code>'baz' =&gt; [ \n    'driver' =&gt; 'Apc',\n    'prefix' =&gt; 'docs:'\n]\n</code></pre>\n<p>];\n```</p>\n<p>Sample usage for the configuration:</p>\n<p><code>cache('baz');</code></p>\n<h3>Using The Cache Client</h3>\n<p>Cache client can be reached using <code>cache()</code> helper. You can also reach defined cache drivers using the cache alias as the first parameter.</p>\n<p><code>php\ncache(); // Cache Driver defaults to default cache configuration.</code></p>\n<p>Following function call will return a cache client connected to cache external defined in configuration.</p>\n<p><code>php\ncache('external');</code></p>\n"
+        },
+        {
+            "header": "Cache Operations",
+            "content": "\n<h3>GET</h3>\n<p><code>php\n$foo = cache()\n    -&gt;get('foo');</code></p>\n<h3>SET</h3>\n<p><code>php\n$value = 'bar';\ncache()\n    -&gt;set('foo', 'bar');</code></p>\n<h3>DELETE</h3>\n<p><code>php\ncache()\n    -&gt;delete('foo');</code></p>\n<h3>INCREMENT</h3>\n<p>Increment cached values with optional step amount.</p>\n<p><code>php\ncache()\n    -&gt;increment('foo', 1);</code></p>\n<h3>DECREMENT</h3>\n<p>Decrement cached values with optional step amount.</p>\n<p><code>php\ncache()\n    -&gt;decrement('foo', 1);</code></p>\n<h3>FLUSH</h3>\n<p>To clear all cache, use flush method to flush related cache source.</p>\n<p><code>php\ncache()\n    -&gt;flush();</code></p>"
+        }
+    ]
+}

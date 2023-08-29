@@ -1,0 +1,25 @@
+{
+    "file_name": "modules.md",
+    "sections": [
+        {
+            "header": "Modules",
+            "content": "\n"
+        },
+        {
+            "header": "Introduction",
+            "content": "\n<p>Butterfly is extensible. You can extend system by using Modules.</p>\n<blockquote>\n<p>[!DANGER]\nPurpose of Modules is make reusable code. Which means that, if your code is project specific, you can just keep it\n in project repository within app directory. If you are developing a new feature that can be used in other projects, than you can develop it as a Module.</p>\n</blockquote>\n"
+        },
+        {
+            "header": "Modules of Butterfly",
+            "content": "\n<p>Butterfly has 3 Modules out of box:</p>\n<h3>Butterfly\\Core</h3>\n<p>Butterfly Core module handles admin panel operations. It has API access for all operations.</p>\n<h3>Butterfly\\Framework</h3>\n<p>Butterfly Framework module has Base Classes for integrations like Database, Cache, Search etc.</p>\n<h3>Butterfly\\Library</h3>\n<p>Butterfly Framework module has utility classes and functions like StringHelper, Utils. This is a legacy which will merge into Butterfly\\Framework Module.    </p>\n"
+        },
+        {
+            "header": "Module Structure",
+            "content": "\n<p>Every module has the following pieces:</p>\n<ul>\n<li>module.yaml</li>\n</ul>\n<p>Example yaml file content as follows: </p>\n<p><code>yaml\nname: 'Butterfly Framework Module'\nnamespace: 'Butterfly\\Framework'\nversion: '1.0.0'</code></p>\n<ul>\n<li>VendorName\\ModuleName\\Module class: This is an empty class extended from <code>Butterfly\\Framework\\Module\\Base</code></li>\n</ul>\n<p>Example file:</p>\n<p>```php\n&lt;?php</p>\n<p>namespace Butterfly\\Framework;</p>\n<p>use Butterfly\\Framework\\Module\\Base;</p>\n<p>class Module extends Base\n{</p>\n<p>}\n```</p>\n"
+        },
+        {
+            "header": "Enabling Modules",
+            "content": "\n<p>In order to enable modules, first, you need to require the composer package from composer.</p>\n<p><code>bash\ncomposer require vendorname\\packagename;</code></p>\n<p>In order to enable the Module, you need to add Module class reference to modules.php.</p>\n<blockquote>\n<p>You can enable different modules in different domains. For example: You can enable your development module only in development domain.\nPlease check <code>config</code> section for more details.</p>\n</blockquote>\n<p>Example modules config file:</p>\n<p><code>php\nreturn [\n    \\Butterfly\\Core\\Module::class,\n    \\Butterfly\\Framework\\Module::class,\n    \\Butterfly\\Library\\Module::class\n];</code></p>\n<blockquote>\n<p><strong><em>Note:</em></strong> Modules are initiated in the order of config array. You can change order in the array to manage dependencies.  </p>\n</blockquote>"
+        }
+    ]
+}

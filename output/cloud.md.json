@@ -1,0 +1,29 @@
+{
+    "file_name": "cloud.md",
+    "sections": [
+        {
+            "header": "Cloud",
+            "content": "\n<p>Butterfly is a high performance-first system. Which means that, we really care about performance. For maximum redundancy and \nscalability, it's obvious Cloud Compability is a must-have.</p>\n<p>Butterfly has native support for widely-used Cloud Solutions.</p>\n"
+        },
+        {
+            "header": "Amazon Web Services",
+            "content": "\n<ul>\n<li>EC2</li>\n<li>RDS</li>\n<li>Amazon S3</li>\n<li>ElastiCache</li>\n<li>ElasticSearch</li>\n<li>SQS</li>\n<li>Simple Email Service</li>\n</ul>\n"
+        },
+        {
+            "header": "Azure Cloud",
+            "content": "\n<ul>\n<li>App Service</li>\n<li>Blob Storage</li>\n</ul>\n"
+        },
+        {
+            "header": "Openshift",
+            "content": "\n"
+        },
+        {
+            "header": "Docker",
+            "content": "\n"
+        },
+        {
+            "header": "Kubernetes",
+            "content": ""
+        }
+    ]
+}

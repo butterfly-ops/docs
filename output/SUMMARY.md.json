@@ -1,0 +1,9 @@
+{
+    "file_name": "SUMMARY.md",
+    "sections": [
+        {
+            "header": "Table of contents",
+            "content": "\n<ul>\n<li><a href=\"README.md\">Butterfly</a></li>\n<li><a href=\"installation.md\">Installation</a></li>\n<li><a href=\"features.md\">Features</a></li>\n<li><a href=\"changelog.md\">Changelog</a></li>\n<li><a href=\"tutorials.md\">Tutorials</a></li>\n<li><a href=\"cloud.md\">Cloud</a></li>\n<li><a href=\"upgrade.md\">Upgrade</a></li>\n<li><a href=\"database.md\">database</a></li>\n<li><a href=\"data-types.md\">Data Types</a></li>\n<li><a href=\"data-manager.md\">Data Manager</a></li>\n<li><a href=\"design.md\">Designs</a></li>\n<li><a href=\"performance.md\">Performance</a></li>\n<li><a href=\"helpers.md\">Helpers</a></li>\n<li><a href=\"commands.md\">Commands</a></li>\n<li><a href=\"items.md\">Items</a></li>\n<li><a href=\"file-storage.md\">File Storage</a></li>\n<li><a href=\"adminpanel.md\">Admin Panel</a></li>\n<li><a href=\"settings.md\">Settings</a></li>\n<li><a href=\"frontend.md\">Frontend</a></li>\n<li><a href=\"generators.md\">Generators</a></li>\n<li><a href=\"migrations.md\">Migrations</a></li>\n<li><a href=\"modules.md\">Modules</a></li>\n<li><a href=\"cache.md\">Cache</a></li>\n<li><a href=\"queue.md\">Queue</a></li>\n<li><a href=\"security.md\">Security</a></li>\n<li><a href=\"events.md\">Events</a></li>\n<li><a href=\"webservice.md\">Webservice</a></li>\n<li><a href=\"testing.md\">Testing</a></li>\n</ul>"
+        }
+    ]
+}

@@ -1,0 +1,13 @@
+{
+    "file_name": "webservice.md",
+    "sections": [
+        {
+            "header": "Webservice",
+            "content": "\n"
+        },
+        {
+            "header": "Authentication",
+            "content": "\n<p>In order to use webservices, you need to log in to webservice.</p>\n<p>Example:</p>\n<p><code>curl\ncurl --location --request POST '##BASE_URL##/api/auth/generateToken' \\\n--header 'Content-Type: application/x-www-form-urlencoded' \\\n--data-urlencode 'api_key=##API_KEY##' \\\n--data-urlencode 'password=##PASSWORD##'</code></p>\n<p>Response:</p>\n<p><code>json\n{\n    \"success\": true,\n    \"token\": \"600dd1d69983a4.72658127-6ae75bff5b0a4de826de2a93510241a1\",\n    \"expires_at\": 1611522022\n}</code></p>\n<p>Then, you should use token in further requests,</p>\n<p>HTTP_BUTTERFLY_API_KEY: Api Key of the authenticating user.\nHTTP_BUTTERFLY_ACCESS_TOKEN: Access token received from Authentication</p>\n<p>Example:</p>\n<p><code>curl\ncurl --location --request POST '##BASE_URL##/api/upload/image' \\\n--header 'HTTP_BUTTERFLY_API_KEY: ##API_KEY##' \\\n--header 'HTTP_BUTTERFLY_ACCESS_TOKEN: 600dd1d69983a4.72658127-6ae75bff5b0a4de826de2a93510241a1' \\\n--form 'files[]=@\"/Users/butterfly/examples/logos/test.jpeg\"' \\\n--form 'files[]=@\"/Users/butterfly/examples/logos/test2.png\"'</code></p>"
+        }
+    ]
+}

@@ -1,0 +1,13 @@
+{
+    "file_name": "helpers.md",
+    "sections": [
+        {
+            "header": "Helpers",
+            "content": "\n"
+        },
+        {
+            "header": "Server",
+            "content": "\n<p>Server Helpers are used to access system informations.</p>\n<h3><code>isWindows</code></h3>\n<p>Returns <code>true</code> if the operating system of Server is Windows, returns <code>false</code> otherwise.</p>\n<p>Example:</p>\n<p><code>php\n$helper = new \\Butterfly\\Framework\\Helper\\Server();\n$isWindows = $helper-&gt;isWindows();</code></p>"
+        }
+    ]
+}

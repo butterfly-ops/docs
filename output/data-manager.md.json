@@ -1,0 +1,9 @@
+{
+    "file_name": "data-manager.md",
+    "sections": [
+        {
+            "header": "Data Manager",
+            "content": "\n<p>Dynamic Data Management is one the core parts of Butterfly. When you define your data\nin Admin Panel, your new Entity Manager will have the essential features of Data Manager.</p>\n<p>Essential Features of Data Manager are:</p>\n<ul>\n<li>Add</li>\n<li>Edit</li>\n<li>Duplicate</li>\n<li>Bulk Edit</li>\n<li>Delete</li>\n<li>Permissions</li>\n<li>Audit Logs</li>\n<li>Listing</li>\n<li>Filtering</li>\n<li>Export<ul>\n<li>Excel</li>\n<li>CSV</li>\n<li>JSON</li>\n</ul>\n</li>\n<li>Import<ul>\n<li>Excel</li>\n<li>CSV</li>\n<li>JSON</li>\n</ul>\n</li>\n<li>Webservices</li>\n</ul>\n<p>Which means that, you can create a fully functional Admin Panel without writing a single line of<br/>\ncode.</p>\n<p>Besides it's functional and useful features, Butterfly Panel is extensible. Developers can easily extend<br/>\nfunctionality to integrate Butterfly with your ecosystem.</p>\n<p>You can create your own customisation using the following features:</p>\n<ul>\n<li>Hooks</li>\n<li>Controller Customisation</li>\n<li>Template Customisation</li>\n<li>Admin Layout Customisation</li>\n<li>Full Page Customisation</li>\n<li>Field Based Customisations<ul>\n<li>Adding Custom JS</li>\n<li>Adding Custom CSS</li>\n<li>Overriding Template File</li>\n</ul>\n</li>\n<li>Webservice Integration</li>\n</ul>"
+        }
+    ]
+}

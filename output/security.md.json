@@ -1,0 +1,21 @@
+{
+    "file_name": "security.md",
+    "sections": [
+        {
+            "header": "Security",
+            "content": "\n<p>Butterfly has security features out of box. We follow the guides of OWASP regularly and since Butterfly is used by enterprise companies, we run regular security tests to ensure it's as secure as possible.</p>\n<p>Altough it has security features, developers should follow this guide:</p>\n"
+        },
+        {
+            "header": "CSRF Token",
+            "content": "\n<p>CSRF Tokens are composed of two parts:</p>\n<ul>\n<li>Token Generation</li>\n<li>Token Validation</li>\n</ul>\n<h3>Token Generation</h3>\n<p>In order to generate a token (to use on client side) you can use the following code:</p>\n<p><code>php\n$csrf = new \\Butterfly\\Framework\\Security\\Csrf();\n$csrf-&gt;token();</code></p>\n<p>this function will return a token with generated timestamp on it.</p>\n<h3>Token Validation</h3>\n<p>For validation, you can use the following code on controller:</p>\n<p>```php\n$token = \\Input::get('csrf_token');\n$csrf = new \\Butterfly\\Framework\\Security\\Csrf();</p>\n<p>try {\n    $csrf-&gt;check($token);\n} catch (\\Exception $e)\n{\n    // Error case.\n}\n```</p>\n"
+        },
+        {
+            "header": "SQL Queries",
+            "content": "\n<p>Using User Input Parameters in SQL Queries is most common pitfall which causes SQL Injection attacks. You should \nconsider using parameter binding instead of using un-safe user input in SQL Queries.</p>\n<p>All database functions in Butterfly uses parameter binding by default. You can leverage these functions to write secure code.</p>\n<p>Wrong Usage Example:</p>\n<p><code>php\n$userIdInput = \\Input::get('userIdInput');\ndb()-&gt;where('id = ' . $userIdInput);</code></p>\n<p>Correct Usage Example:</p>\n<p><code>php\n$userIdInput = \\Input::get('userIdInput');\ndb()-&gt;where('id', $userIdInput);</code></p>\n<p>in the correct usage, user parameter is sent to MySQL Server using PDO Parameter Binding, which means that, an attacker \ncan not manipulate query by just manipulating the input data itself. </p>\n<p>You can check <a href=\"#database\">database</a> documentation for more usage examples.</p>\n"
+        },
+        {
+            "header": "Accessing Real IP Address",
+            "content": "\n<p>Logging user activities and ip addresses is important for a secure system. Butterfly Admin Panel automatically logs this information \nfor your security.</p>\n<p>If you're using a Load Balancer, there may be a confusion about IP Address since IP Address of the Load Balancer may replace the user's Real IP Address.</p>\n<p>You can set the correct IP Header from <code>app/security.php</code>.</p>\n<p>Example:\n<code>php\n[\n    'ip_header' =&gt; 'HTTP_X_FORWARDED_FOR'    \n];</code> </p>\n<p>will use the X-Forwarded-For Header set from Load Balancer.</p>\n<p>If you need to access IP Address from <code>app</code> directory, you can use the following function:</p>\n<p><code>php\n    $helper = new \\Butterfly\\Framework\\Helper\\Request();\n    $ip = $helper-&gt;getIpAddress();</code></p>\n<blockquote>\n<p>[!TIP]\nYou can check from Admin Panel &gt; Settings screen if your IP Address is set correctly or not. On the right top corner, IP Address is shown.</p>\n<p>[!WARNING]\nAsk your Devops team before setting this parameter since setting a not-existing header may cause a security leak since hackers may set \noverride a non-existing parameter.</p>\n</blockquote>"
+        }
+    ]
+}

@@ -1,0 +1,21 @@
+{
+    "file_name": "performance.md",
+    "sections": [
+        {
+            "header": "Performance",
+            "content": "\n<p>Butterfly is a high performance-first system. Butterfly framework and it's core features are built with Performance in mind.\nYou can check the following performance instructions:</p>\n"
+        },
+        {
+            "header": "Opcache",
+            "content": "\n<p>As you may know, php is a scripting language which is processed and run by C code behind the scenes. When opcache is not enabled on your\nweb server, in each server request, your code is re-read and processed which is a massive operation if we get 100.000's of requests in seconds.</p>\n<p>Enabling opcache on production cache's the opcode and re-use it from memory.</p>\n"
+        },
+        {
+            "header": "Datalayer Caching",
+            "content": "\n<p>To be build a performant application, your queries should be optimized; but after optimizing your queries, next step should be\ncaching queries to reduce connection counts between web-application and database. You can check <code>Cache</code> section for more information.</p>\n"
+        },
+        {
+            "header": "webp",
+            "content": "\n<p><code>webp</code> is an image format developed by Google for web. <code>webp</code> format is not supported by all browser, but since it has a big improvement\non image file sizes, we highly recommend you to use it.</p>\n<p><code>Butterfly</code> supports webp natively, which means that, if you enable Webp Support for a specific <code>Image Config</code>, an image file ending with .<code>webp</code>\nextension will be uploaded to same location with the original image.</p>\n<p>You can follow next steps to enable webp in your application:</p>\n<ol>\n<li>\n<p>Upgrade your Butterfly setup to 1.5.170+</p>\n</li>\n<li>\n<p>Enable Webp Support from /admin/cms_image_upload/list in <code>Admin Panel</code></p>\n</li>\n<li>\n<p>Run <code>bin/butterfly image:webp:generate</code> command to generate images for previously uploaded files.</p>\n</li>\n<li>\n<p>Usage:</p>\n</li>\n</ol>\n<p>Frontend:</p>\n<p>For frontend, we have to twig functions to call images: <a href=\"https://thebutterfly.io/docs/#/frontend?id=image\"><code>image</code></a> and <a href=\"https://thebutterfly.io/docs/#/frontend?id=image_source\"><code>image_source</code></a>.</p>\n<p>Webservices:</p>\n<p>If you are using default ElasticSearch or Data Sources to get data, image fields automatically includes all sub-sizes as a key -&gt; value array. You can retrieve\nfield ending with <code>_webp</code> to check whether webp version of the image exists or not.</p>\n<p>If you are using Database, you need to be sure that, related image config has \"Webp Support Enabled\". You can also verify images by adding .webp at the end of the url.\nAfter verification, you can basically add <code>.webp</code> at the end of current urls.</p>\n<blockquote>\n<p>[!WARNING]\nWhen you enable <code>Webp Support</code> for a previously used alias, images are not generated automatically.\nYou need to run <code>bin/butterfly image:webp:generate</code> command to generate images.</p>\n</blockquote>"
+        }
+    ]
+}
