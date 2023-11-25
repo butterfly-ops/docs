@@ -3212,11 +3212,11 @@ return [
 Database client can be reached using `db()` helper. You can also reach defined databases using the database alias as the first parameter.
 
 ```php
-db('mongo-db');
+db('mongodb');
 ```
 
 > [!WARNING]
-> `mongo-db` in this example is the database alias defined in configuration.
+> `mongodb` in this example is the database alias defined in configuration.
 
 You can define multiple databases for different purposes. For example, you may create a logging MongoDB Instance / Database.
 
@@ -3235,24 +3235,23 @@ Example:
 ```php
 $users = db()
     ->from('users')
-    ->search('test', ['name', 'surname', 'email'])
+    ->search('test', ['email', 'company'])
     ->get()
 ;
 ```
 
 will run the query:
 
-```json
-{
-  "query":{
-      "query_string": {,
-            "query":"test",
-            "fields": ["name", "surname","email"]
-      }
-}
+```mongodb
+db.collection.find({
+  $or: [
+    { email: { $regex: 'test' } },
+    { company: { $regex: 'test' } }
+  ]
+})
 ```
 
-and search for `test` in `name`, `surname`, `email` fields.
+and search for `test` in `email`, `company` fields.
 
 ### SELECT Queries
 
@@ -3264,8 +3263,8 @@ $users = db()
 
 will run the query:
 
-```json
-{"query":{"match_all":{}}}
+```mongodb
+db.users.find()
 ```
 
 and return all results as associative array.
@@ -3282,8 +3281,8 @@ $users = db()
 
 will run query:
 
-```json
-{"query": {"match_all": {}}, "_source":["id","name"]}
+```mongodb
+db.users.find({}, { id: 1, name: 1 })
 ```
 
 #### Where
@@ -3299,14 +3298,10 @@ $user = db()->from('users')
 will run the query:
 
 ```json
-{"query":{"query_string":{"query":"(id:5)"}}}
+db.users.findOne({ id: 5 })
 ```
 
 and return one row as associative array.
-
-> [!WARNING]
-> Unlike MySQL Where Clauses, Elastic Search doesn't match only exact phrase when you search inside Text fields. For example: if you run `->where('name', 'John')` it will return rows where name is John or John Doe.
-> If you want to return exact records with name: John, you should use `keyword` field type, instead of `text`.
 
 ##### whereIn
 
@@ -3321,21 +3316,8 @@ $users = db()->from('users')
 
 will run the query:
 
-```json
-{
-  "query": {
-    "query_string": {
-      "query": "id:(5 OR 10)"
-    }
-  },
-  "sort": [
-    {
-      "id": {
-        "order": "desc"
-      }
-    }
-  ]
-}
+```mongodb
+db.users.find({ id: { $in: [1, 2, 3] } }).sort({ id: -1 })
 ```
 
 ##### whereNotIn
@@ -3350,21 +3332,8 @@ $users = db()->from('users')
 
 will run the query:
 
-```json
-{
-  "query": {
-    "query_string": {
-      "query": "NOT id:(5 OR 10)"
-    }
-  },
-  "sort": [
-    {
-      "id": {
-        "order": "desc"
-      }
-    }
-  ]
-}
+```mongodb
+db.users.find({ id: { $nin: [1, 2, 3] } })
 ```
 
 ##### whereNull
@@ -3379,21 +3348,8 @@ $users = db()->from('users')
 
 will run the query:
 
-```json
-{
-  "query": {
-    "query_string": {
-      "query": "NOT _exists_:status"
-    }
-  },
-  "sort": [
-    {
-      "id": {
-        "order": "desc"
-      }
-    }
-  ]
-}
+```mongodb
+db.users.find({ status: null })
 ```
 
 ##### whereNotNull
@@ -3407,23 +3363,9 @@ $users = db()->from('users')
 will run the query:
 
 
-```json
-{
-  "query": {
-    "query_string": {
-      "query": "_exists_:status"
-    }
-  },
-  "sort": [
-    {
-      "id": {
-        "order": "desc"
-      }
-    }
-  ]
-}
+```mongodb
+db.users.find({ status: { $ne: null } })
 ```
-
 
 ##### Nested Clause
 
@@ -3444,21 +3386,19 @@ $users = db()->from('users')
 As you can see below, queries inside of the function will be evaluated seperately inside of braces and it will run:
 
 
-```json
-{
-  "query": {
-    "query_string": {
-      "query": "(id:5) OR (status:2) OR ((votes<500) AND (status:3))"
-    }
-  },
-  "sort": [
+```mongodb
+db.users.find({
+  $or: [
+    { id: 5 },
+    { status: 2 },
     {
-      "id": {
-        "order": "desc"
-      }
+      $or: [
+        { votes: { $lt: 500 } },
+        { status: 3 }
+      ]
     }
   ]
-}
+}).sort({ id: -1 })
 ```
 
 ##### orWhere
@@ -3478,14 +3418,16 @@ $users = db()->from('users')
 will run:
 
 
-```json
-{
-  "query": {
-    "query_string": {
-      "query": "(id:3) OR ((votes<500) AND (status:3))"
-    }
-  }
-}
+```mongodb
+db.users.find({
+    $or: [
+        { id: 3 },
+        { $and: [
+            { votes: { $lt: 500 } },
+            { status: 3 }
+        ]}
+    ]
+})
 ```
 
 ##### orWhereIn
@@ -3501,21 +3443,13 @@ $users = db()->from('users')
 
 will run the query:
 
-```json
-{
-  "query": {
-    "query_string": {
-      "query": "(status:2) OR id:(5 OR 10)"
-    }
-  },
-  "sort": [
-    {
-      "id": {
-        "order": "desc"
-      }
-    }
-  ]
-}
+```mongodb
+db.users.find({
+    $or: [
+        { status: 2 },
+        { id: { $in: [5, 10] } }
+    ]
+}).sort({ id: -1 })
 ```
 
 ##### orWhereNull
@@ -3530,21 +3464,13 @@ $users = db()->from('users')
 
 will run the query:
 
-```json
-{
-  "query": {
-    "query_string": {
-      "query": "(id:5) OR (NOT _exists_:status)"
-    }
-  },
-  "sort": [
-    {
-      "id": {
-        "order": "desc"
-      }
-    }
-  ]
-}
+```mongodb
+db.users.find({
+    $or: [
+        { id: 5 },
+        { status: null }
+    ]
+})
 ```
 
 ##### orWhereNotNull
@@ -3559,19 +3485,29 @@ $users = db()->from('users')
 
 will run the query:
 
-```json
-{
-  "query": {
-    "query_string": {
-      "query": "(id:5) OR (_exists_:status)"
-    }
-  }
-}
+```mongodb
+db.users.find({
+    $or: [
+        { id: 5 },
+        { status: { $ne: null } }
+    ]
+})
 ```
 
 ##### Distinct
 
-Distinct query is not supported by Elastic Search Adapter.
+```php
+db()->from('users')
+    ->distinct('status')
+    ->get()
+;
+```
+
+will run:
+
+```mongodb
+db.users.distinct('status')
+```
 
 ##### whereBetween
 
@@ -3585,76 +3521,22 @@ db()->from('users')
 ```
 will run:
 
-```json
-{
-  "query": {
-    "query_string": {
-      "query": "(status:5) AND (id:(1 TO 20))"
-    }
-  },
-  "sort": [
-    {
-      "id": {
-        "order": "desc"
-      }
-    }
-  ]
-}
+```mongodb
+db.users.find({
+    $and: [
+        { status: 5 },
+        { id: { $gte: 1, $lte: 20 } }
+    ]
+}).sort({ id: -1 })
 ```
 
 ##### boostWhere
 
-```php
-db()->from('users')
-    ->boostWhere(5, function($query) {
-        $query->where('id', 5);
-        $query->orWhere('type', 'test');
+Boost queries are not supported in MongoDB. Look at [Elastic Search](#elastic-search) for boost queries.
 
-        return $query;
-    })
-    ->orWhere('status', 2)
-    ->get()
-;
-```
-
-will run:
-
-```json
-{
- 'query': {
-    'query_string': {
-        'query':'((id:5) OR (type:"test"))^5 OR (status:2)',
-        'default_operator':'and'
-    }
-}
-
-```
 ##### orBoostWhere
 
-```php
-db()->from('users')
-    ->where('status', 2)
-    ->orBoostWhere(5, function($query) {
-        $query->where('id', 5);
-        $query->orWhere('type', 'test');
-
-        return $query;
-    })
-    ->get()
-;
-```
-
-will run:
-
-```json
-{
- 'query': {
-    'query_string': {
-        'query':'(status:2) OR ((id:5) OR (type:"test"))^5',
-        'default_operator':'and'
-    }
-}
-```
+Boost queries are not supported in MongoDB. Look at [Elastic Search](#elastic-search) for boost queries.
 
 ##### orWhereBetween
 
@@ -3668,21 +3550,13 @@ db()->from('users')
 ```
 will run:
 
-```json
-{
-  "query": {
-    "query_string": {
-      "query": "(status:5) OR (id:(1 TO 20))"
-    }
-  },
-  "sort": [
-    {
-      "id": {
-        "order": "desc"
-      }
-    }
-  ]
-}
+```mongodb
+db.users.find({
+    $or: [
+        { status: 5 },
+        { id: { $gte: 1, $lte: 20 } }
+    ]
+}).sort({ id: -1 })
 ```
 
 ##### orWhereNotBetween
@@ -3696,21 +3570,13 @@ $users = db()->from('users')
 ```
 will run:
 
-```json
-{
-  "query": {
-    "query_string": {
-      "query": "(status:5) OR (NOT id:(1 TO 20))"
-    }
-  },
-  "sort": [
-    {
-      "id": {
-        "order": "desc"
-      }
-    }
-  ]
-}
+```mongodb
+db.users.find({
+    $or: [
+        { status: 5 },
+        { id: { $not: { $gte: 1, $lte: 20 } } }
+    ]
+}).sort({ id: -1 })
 ```
 
 ##### whereNotBetween
@@ -3724,42 +3590,97 @@ $users = db()->from('users')
 ```
 will run:
 
-```json
-{
-  "query": {
-    "query_string": {
-      "query": "(status:5) AND (NOT id:(1 TO 20))"
-    }
-  },
-  "sort": [
-    {
-      "id": {
-        "order": "desc"
-      }
-    }
-  ]
-}
+```mongodb
+db.users.find({
+    $and: [
+        { status: 5 },
+        { id: { $not: { $gte: 1, $lte: 20 } } }
+    ]
+}).sort({ id: -1 })
 ```
 
 #### `Join`
 
 > [!WARNING]
-> `Join` Functions are not supported by Elastic Search.
+> `Join` Functions are not supported by MongoDB.
 
 ##### `Left Join`
 
 > [!WARNING]
-> `Join` Functions are not supported by Elastic Search.
+> `Join` Functions are not supported by MongoDB.
 
 ##### `Right Join`
 
 > [!WARNING]
-> `Join` Functions are not supported by Elastic Search.
+> `Join` Functions are not supported by MongoDB.
 
 #### `Use Index`
 
-> [!WARNING]
-> `useIndex` is supported by Elastic Search. Will not produce an error but it will just ignore this function call.
+```php
+db()->from('users')
+    ->useIndex('index_name')
+    ->where('status', 5)
+    ->get()
+;
+```
+
+will run:
+
+```mongodb
+db.users.find({
+    $and: [
+        { status: 5 }
+    ]
+}).hint('index_name')
+```
+
+```php
+$select->from('users')
+            ->where('id', 5)
+            ->where(function($query) {
+                $query->where(function($innerQuery) {
+                    return $innerQuery->where('test', 't')
+                        ->where('test', 'b')
+                    ;
+                });
+
+                $query->orWhere(function($innerQuery) {
+                    return $innerQuery->where('test', 'c')
+                        ->where('test', 'd')
+                        ;
+                });
+
+                return $query;
+            })
+            ->get();
+          ```
+          
+            will run:
+            
+            ```mongodb
+            db.users.find({
+                $and: [
+                    { id: 5 },
+                    {
+                        $or: [
+                            {
+                                $and: [
+                                    { test: 't' },
+                                    { test: 'b' }
+                                ]
+                            },
+                            {
+                                $and: [
+                                    { test: 'c' },
+                                    { test: 'd' }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            })
+            ```
+          
 
 #### `Force Index`
 
