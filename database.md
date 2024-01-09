@@ -54,6 +54,42 @@ return [
 ];
 ```
 
+### Global and Connection-Specific Configuration
+
+In this release, we've introduced the capability to define settings either globally or on a per-connection basis within your configuration files. This flexibility allows for more precise control over database interactions.
+
+#### Global Configuration
+
+To define global settings, you can now add configurations in the `app/Config/database.php` file. For instance, to globally enable the `\PDO::ATTR_STRINGIFY_FETCHES` option (which converts numeric values to strings when fetching), add the following entry:
+
+```php
+'mysql_global_options' => [
+    \PDO::ATTR_STRINGIFY_FETCHES => true,
+],
+```
+
+This will apply the specified options to all database connections unless overridden on a connection-specific basis.
+
+#### Connection-Specific Configuration
+
+For configuring settings specific to a particular database connection, modify the connection array in your configuration file. Here's an example for the 'default' connection:
+
+```php
+'default' => [ // Configuration for the default connection
+    'title'    => 'Butterfly DB',
+    'server'   => getenv('DB_SERVER'),
+    'name'     => getenv('DB_DATABASE'),
+    'user'     => getenv('DB_USERNAME'),
+    'password' => getenv('DB_PASSWORD'),
+    'port'     => getenv('DB_PORT'),
+    'options'  => [
+        \PDO::ATTR_STRINGIFY_FETCHES => true,
+    ] // These options will be merged with global and default core options
+],
+```
+
+In this example, the `\PDO::ATTR_STRINGIFY_FETCHES` option is specifically set for the 'default' database connection. If this option is also set globally, the connection-specific setting will take precedence.
+
 ### Slave Database
 
 Butterfly uses slave database if it's defined. If not, it uses default database for the SELECT operations.

@@ -4,6 +4,7 @@
 - Config loader is rewritten [Details]
 - This version comes with backward incompatible changes. [Details](https://thebutterfly.io/docs/#/upgrade?id=_180)
 - Database configs throws exception if conenction setting couldn't be found.
+- MySQL global and connection-specific configuration support is added. [Details](https://thebutterfly.io/docs/#/database?id=global-and-connection-specific-configuration)
 
 ## 1.7
 - Custom Queries can return results. [Details]
