@@ -31,51 +31,35 @@ return [
     'default' => 'backend', // default cache
     
     'backend' => [
-        'driver' => 'Redis',
-        'parameters' => [
+        'adapter' => 'Redis',
+        'server' => [ 
             'scheme' => 'tcp',
             'host'   => '10.0.0.1',
             'port'   => 6379,
         ],
-        'options' => [
-            'prefix' => 'be:',
-            'parameters' => [
-                'password' => 'SECRET_PASSWORD',
-                'database' => 10,
-            ],
-        ]    
+        'password' => 'SECRET_PASSWORD',
+        'prefix' => 'be:',
+        'database' => 10,    
     ],
     
     'frontend' => [
-        'driver' => 'Redis',
-        'parameters' => [
-            'scheme' => 'tcp',
-            'host'   => '10.0.0.1',
-            'port'   => 6379,
-        ],
-        'options' => [
-            'prefix' => 'fe:',
-            'parameters' => [
-                'password' => 'SECRET_PASSWORD',
-                'database' => 10, 
-            ],
-        ]    
+        'adapter' => 'Redis',
+        'server' => 'tcp://10.0.0.1:6379',
+        'prefix' => 'fe:',
+        'password' => 'SECRET_PASSWORD',
+        'database' => 10,     
     ],
     
     'external' => [
-        'driver' => 'Redis',
-        'parameters' => [
+        'adapter' => 'Redis',
+        'server' => [
             'scheme' => 'tcp',
             'host'   => '1.1.1.1',
             'port'   => 6379,
         ],
-        'options' => [
-            'prefix' => null,
-            'parameters' => [
-                'password' => 'SECRET_PASSWORD',
-                'database' => 0, 
-            ],
-        ]    
+        'prefix' => null,
+        'password' => 'SECRET_PASSWORD',
+        'database' => 0,     
     ],
 ];
 ```
