@@ -141,3 +141,184 @@ Now you can create AMP versions of the Designs by adding `amp-` prefix to existi
 For example:
 If your article page Design's alias is: `article-detail`, then you should set `amp-article-detail` as alias in the AMP 
 Version.
+
+## How to Integrate Login Mechanism to LDAP
+
+### Step 1 - Install LDAP Extension
+
+First of all, you need to install LDAP Extension to your server. You can install it using the following command:
+
+```bash
+sudo apt-get install php8.2-ldap
+```
+
+### Step 2 - Configure LDAP Settings
+
+You need to configure LDAP Settings in your `app/Config/integration.php` file.
+
+```php
+<?php
+
+$integrationConfig = [];
+
+if (isset($_ENV['LDAP_SERVER'])) {
+    $integrationConfig['ldap'] = [
+        'adapter' => 'Ldap',
+        'server' => $_ENV['LDAP_SERVER'],
+        'base_dn' => $_ENV['LDAP_BASEDN'],
+        'domain' => $_ENV['LDAP_DOMAIN']
+    ];
+}
+
+return $integrationConfig;
+```
+
+```env
+LDAP_SERVER=10.0.0.1
+LDAP_BASEDN=DC=butterfly,DC=devops
+LDAP_DOMAIN=butterfly.dev
+```
+
+### Step 3 - Create Login Mechanism
+
+You need to create a new Login Mechanism to authenticate users using LDAP.
+
+app/Event/AdminUser.php
+```php
+<?php
+
+namespace App\Event;
+
+use App\Library\Identity\Ldap;
+use Butterfly\Library\Event;
+
+class AdminUser extends Event
+{
+    public function before_login($params)
+    {
+        // LDAP
+        $config = \Config::get('integration.ldap');
+        if (empty($config)) {
+            return;
+        }
+
+        $username = $params['email'];
+        $password = $params['password'];
+
+        $ldap = new Ldap();
+        $response = $ldap->login($username, $password);
+
+        if (! $response['success']) {
+            return [];
+            
+            // Enable this code block if you want to restrict login to LDAP Users
+//            return [
+//                'success' => false,
+//                'error_message' => 'Please enter your Company LDAP Credentials'
+//            ];
+        }
+
+        $email = $response['email'];
+        $phone = $response['phone'];
+
+        $id = db()->table('users')->where('email', $email)
+            ->one('id');
+
+        if($id) {
+            db()->table('users')
+                ->where('id', $id)
+                ->update([
+                    'username' => $username,
+                    'phone_number' => $phone
+                ])
+            ;
+
+            // If you return a user_id; it will bypass username / password and log the user in. 
+            return [
+                'user_id' => $id
+            ];
+        } else {
+            $tmp = explode('@', $email);
+
+            // Insert as Image Uploader
+            $id = db()->table('users')
+                ->insert([
+                    'name' => $tmp[0],
+                    'username' => $username,
+                    'email' => $email,
+                    'password' => 'LoggedInUsingLDAP',
+                    'status' => 2,
+                    'role_id' => 10,
+                    'phone_number' => $phone
+                ])
+            ;
+
+            // If you return a user_id; it will bypass username / password and log the user in.
+            return [
+                'user_id' => $id
+            ];
+
+            // Send E-mail to responsibles
+        }
+    }
+}
+```
+
+### Step 4 - Create Ldap Library
+
+app/Library/Identity/Ldap.php
+```php
+<?php
+namespace App\Library\Identity;
+
+class Ldap
+{
+    public function login($username, $password)
+    {
+        $config = \Config::get('integration.ldap');
+        if(empty($config))
+        {
+            return [
+                'success' => false
+            ];
+        }
+
+        $ldap = ldap_connect("ldap://{$config['server']}");
+
+        ldap_set_option($ldap, LDAP_OPT_PROTOCOL_VERSION, 3);
+        ldap_set_option($ldap, LDAP_OPT_REFERRALS, 0);
+        ldap_set_option(null, LDAP_OPT_X_TLS_REQUIRE_CERT, 0);
+
+        @ldap_start_tls($ldap);
+
+        if(! @ldap_bind($ldap, "{$username}@{$config['domain']}", $password))
+        {
+            return [
+                'success' => false
+            ];
+        }
+
+        $attributes = array('mail', 'mobile');
+        $result = @ldap_search($ldap, $config['base_dn'], "(samaccountname={$username})", $attributes);
+
+        if ($result === false) {
+            return [
+                'success' => false
+            ];
+        }
+
+        $entries = @ldap_get_entries($ldap, $result);
+        if ($entries['count'] > 0) {
+            return [
+                'success' => true,
+                'email' => $entries[0]['mail'][0],
+                'phone' => $entries[0]['mobile'][0]
+            ];
+        } else {
+            return [
+                'success' => false
+            ];
+        }
+    }
+}
+```
