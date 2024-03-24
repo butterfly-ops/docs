@@ -362,6 +362,32 @@ Yes|No
 
 This will list Yes and No in Dropdown and save selected value in database as Yes or No.
 
+### File Upload with Class
+
+File Upload with Class field type can be used to upload multiple file types and save them in different tables using a code class. 
+You will need a class to handle the file upload and save operation.
+
+Example:
+```php
+<?php
+
+namespace App\Library\FileUpload;
+
+class Test {
+    public function upload($file) {
+        // Each file will be uploaded one by one and 
+        // can be accessed from $file parameter.
+        // file has the following keys:
+        /*
+         * "full_path": "https://butterfly.rg/static/import/24-03/24/workbook1-1711312505.xlsx",
+           "filename": "24-03/24/workbook1-1711312505.xlsx",
+           "folder_name": null // if the file is uploaded using drag and drop.
+         * 
+         */
+    }
+}
+```
+
 ### Constant
 
 ### Content Pool
