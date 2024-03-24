@@ -382,6 +382,7 @@ class Test {
          * "full_path": "https://butterfly.rg/static/import/24-03/24/workbook1-1711312505.xlsx",
            "filename": "24-03/24/workbook1-1711312505.xlsx",
            "folder_name": null // if the file is uploaded using drag and drop.
+           "original_filename": "original_filename of the file uploaded without sanitization"
          * 
          */
     }
