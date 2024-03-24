@@ -374,7 +374,7 @@ Example:
 namespace App\Library\FileUpload;
 
 class Test {
-    public function upload($file) {
+    public function upload($file, $entityId) {
         // Each file will be uploaded one by one and 
         // can be accessed from $file parameter.
         // file has the following keys:
