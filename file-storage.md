@@ -15,6 +15,7 @@ File Storage Drivers are:
 - Local Folder
 - Amazon S3
 - Azure Blob Storage
+- Google Cloud Storage
 - SFTP
 - FTP
 
@@ -29,6 +30,26 @@ Installation
 ```bash
 composer require league/flysystem-aws-s3-v3
 ```
+
+### Google Cloud
+
+```bash
+composer require superbalist/flysystem-google-storage:* google/cloud-storage:* -W
+```
+
+Usage
+Google Cloud Storage requires Service Account Credentials, which can be generated in the Cloud Console. Read more in the official documentation.
+
+The credentials will be auto-loaded by the Google Cloud Client.
+1. The client will first look at the GOOGLE_APPLICATION_CREDENTIALS env var.
+   You can use ```putenv('GOOGLE_APPLICATION_CREDENTIALS=/path/to/service-account.json');``` to set the location of your credentials file.
+
+2. The client will look for the credentials file at the following paths:
+- windows: %APPDATA%/gcloud/application_default_credentials.json
+- others: $HOME/.config/gcloud/application_default_credentials.json
+
+If running in Google App Engine, the built-in service account associated with the application will be used.
+If running in Google Compute Engine, the built-in service account associated with the virtual machine instance will be used.
 
 ### Azure Blob Storage
 
