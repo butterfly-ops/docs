@@ -21,6 +21,7 @@
 * [Frontend](frontend.md)
 * [Generators](generators.md)
 * [Migrations](migrations.md)
+* [Validations](validations.md)
 * [Module](modules.md)
 * [Queue](queue.md)
 * [Security](security.md)
