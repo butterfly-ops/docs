@@ -21,11 +21,13 @@ class SomeClass
 
 ### 2. Using Validation
 
-#### Example 1: Checking for Validation Errors
+#### Example: Checking for Validation Errors
 
 In the following example, the `someAction` method validates incoming data and checks for validation errors.
 
 ```php
+use Symfony\Component\Validator\Constraints as Assert;
+
 public function someAction()
 {
     // Validate incoming data
@@ -39,34 +41,6 @@ public function someAction()
         // If there are errors, return the response containing the errors
         return $response;
     }
-
-    // Get validated data
-    $filter = \Input::get('filter');
-    $sort = \Input::get('sort');
-
-    // Return a successful response
-    return [
-        'status' => 'success',
-        'message' => 'Hello World'
-    ];
-}
-```
-
-#### Example 2: Using Validation Without Checking the Result
-
-In this example, the result of the `validate` method is not checked directly. However, make sure to handle validation errors properly.
-
-```php
-public function someAction()
-{
-    // Validate incoming data
-    $this->validate([
-        'filter' => [
-            new Assert\Required(),
-            new Assert\NotBlank(),
-        ],
-        'sort' => new Assert\Optional()
-    ]);
 
     // Get validated data
     $filter = \Input::get('filter');
@@ -108,6 +82,8 @@ $rules = [
 You can pass these rules as a parameter to the `validate` method.
 
 ```php
+use Symfony\Component\Validator\Constraints as Assert;
+
 public function someAction()
 {
     $rules = [
@@ -144,6 +120,118 @@ public function someAction()
 ```
 
 These examples demonstrate how to use the `validate` method and define validation rules. With the flexibility of Symfony Validator, you can easily define and use validation rules that suit your needs.
+
+## Custom Rule
+
+This section explains how to create and use a custom validation rule in Validator. We will use the example of validating an American phone number format.
+
+## Step-by-Step Guide to Creating a Custom Rule
+
+### Create Folder Structure
+
+Create the following folder structure in your project:
+
+```
+Project Path
+
+├── app
+│   ├── Validator
+│   │   ├── AmericanNumber.php
+│   │   └── AmericanNumberValidator.php
+```
+
+### 1. Create the Constraint Class
+
+First, create a constraint class that defines the validation message and the validator class it uses.
+
+```php
+<?php
+
+namespace App\Validator;
+
+use Symfony\Component\Validator\Constraint;
+
+/**
+ * @Annotation
+ */
+class AmericanNumber extends Constraint
+{
+    public string $message = 'The string "{{ string }}" is not a valid American number.';
+
+    public function validatedBy(): string
+    {
+        return 'App\Validator\AmericanNumberValidator';
+    }
+}
+```
+
+### 2. Create the Validator Class
+
+Next, create the validator class that contains the logic for validating the value.
+
+```php
+<?php
+
+namespace App\Validator;
+
+use Symfony\Component\Validator\Constraint;
+use Symfony\Component\Validator\ConstraintValidator;
+use Symfony\Component\Validator\Exception\UnexpectedTypeException;
+use Symfony\Component\Validator\Exception\UnexpectedValueException;
+
+class AmericanNumberValidator extends ConstraintValidator
+{
+    public function validate($value, Constraint $constraint): void
+    {
+        if (!$constraint instanceof AmericanNumber) {
+            throw new UnexpectedTypeException($constraint, AmericanNumber::class);
+        }
+
+        if (null === $value || '' === $value) {
+            return;
+        }
+
+        if (!is_string($value)) {
+            throw new UnexpectedValueException($value, 'string');
+        }
+
+        if (preg_match('/^\d{3}-\d{3}-\d{4}$/', $value)) {
+            return;
+        }
+
+        $this->context->buildViolation($constraint->message)
+            ->setParameter('{{ string }}', $value)
+            ->addViolation();
+    }
+}
+```
+
+### 3. Use the Custom Rule
+
+Finally, use the custom validation rule in your code.
+
+```php
+use App\Validator\AmericanNumber;
+
+if ($response = $this->validate([
+    'phone_number' => [
+        new AmericanNumber(),
+    ],
+])) {
+    return $response;
+}
+```
+
+### Summary Custom Rule
+
+To create a custom validation rule in Symfony Validator:
+
+1. Create folder structure.
+2. **Create the Constraint Class**: Define the validation message and the validator class.
+3. **Create the Validator Class**: Implement the validation logic.
+4. **Use the Custom Rule**: Apply the custom rule in your validation logic.
+
+By following these steps, you can create custom validation rules tailored to your specific requirements.
 
 ## Customised Language
 
