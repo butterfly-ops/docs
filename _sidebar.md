@@ -20,6 +20,7 @@
 * [Admin Panel](adminpanel.md)
 * [Frontend](frontend.md)
 * [Generators](generators.md)
+* [API Documentation Generator](api-doc.md)
 * [Migrations](migrations.md)
 * [Validations](validations.md)
 * [Module](modules.md)
