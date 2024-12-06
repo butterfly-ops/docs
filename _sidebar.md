@@ -14,6 +14,7 @@
 * [Designs](design.md)
 * [Performance](performance.md)
 * [Helpers](helpers.md)
+* [Smarty Helpers](smarty-helpers.md)
 * [Commands](commands.md)
 * [Items](items.md)
 * [File Storages](file-storage.md)
