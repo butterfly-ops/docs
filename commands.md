@@ -93,3 +93,5 @@ Checking connection for slave
 Checking connection for reports
 ✓ Successfully connected
 ```
+
+> [Commands Index](cli.md)
