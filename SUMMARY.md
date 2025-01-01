@@ -1,7 +1,6 @@
 # Table of contents
 
-* [\_sidebar](README.md)
-* [Butterfly](<README (1).md>)
+* [Butterfly](README.md)
 * [Introduction](cache.md)
 * [Changelog](changelog.md)
 * [Admin Panel](adminpanel.md)
@@ -36,4 +35,3 @@
 * [Webservice](webservice.md)
 * [Swagger API Documentation Generator](api-doc.md)
 * [CLI Commands](cli.md)
-
